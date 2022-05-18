@@ -1,0 +1,21 @@
+{
+  "test-product-1": {
+    "test-region-1": [
+      "test-domain-1"
+    ]
+  },
+  "test-product-2": {
+    "test-region-2": [
+      "test-domain-2",
+      "test-domain-2-2"
+    ]
+  },
+  "test-product-3": {
+    "test-region-3": [
+      "test-domain-3"
+    ],
+    "test-region-3-2": [
+      "test-domain-3-2"
+    ]
+  }
+}

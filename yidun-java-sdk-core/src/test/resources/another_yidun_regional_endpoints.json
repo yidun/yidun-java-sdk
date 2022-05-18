@@ -1,0 +1,13 @@
+{
+  "another-test-product-a": {
+    "another-test-region-a": [
+      "another-test-domain-a"
+    ]
+  },
+  "test-product-3": {
+    "test-region-3": [
+      "test-domain-3",
+      "another-test-domain-3"
+    ]
+  }
+}
