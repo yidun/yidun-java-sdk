@@ -8,7 +8,7 @@ import com.netease.yidun.sdk.antispam.media.v2.callback.response.MediaCallbackRe
 
 
 /**
- * 文档解决方案Demo
+ * 融媒体解决方案Demo
  * 结果获取-轮询模式
  * 具体返回字段的说明，请参考官方接口文档中字段说明
  * https://support.dun.163.com/documents/599750646047514624?docId=599764198082813952

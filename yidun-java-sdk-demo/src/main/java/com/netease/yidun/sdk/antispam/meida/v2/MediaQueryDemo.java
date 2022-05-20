@@ -7,7 +7,7 @@ import com.netease.yidun.sdk.antispam.media.v2.callback.response.MediaCallbackRe
 import com.netease.yidun.sdk.antispam.media.v2.query.request.MediaQueryRequestV2;
 
 /**
- * 数字阅读解决方案Demo
+ * 融媒体解决方案Demo
  * 回调查询接口
  * 具体返回字段的说明，请参考官方接口文档中字段说明
  * https://support.dun.163.com/documents/599750646047514624?docId=599765653434998784

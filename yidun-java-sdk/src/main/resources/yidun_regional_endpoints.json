@@ -22,6 +22,16 @@
       "as.dun.163yun.com"
     ]
   },
+  "mediaSubmit": {
+    "cn-hangzhou": [
+      "as.dun.163.com",
+      "as.dun.163yun.com"
+    ],
+    "sg-singapore": [
+      "as-media-sg.dun.163yun.com",
+      "as-media-sg.dun.163.com"
+    ]
+  },
   "report": {
     "cn-hangzhou": [
       "as.dun.163.com",

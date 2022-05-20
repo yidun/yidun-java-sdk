@@ -1,6 +1,5 @@
 package com.netease.yidun.sdk.antispam.text.v5;
 
-import com.google.gson.Gson;
 import com.netease.yidun.sdk.antispam.AbstractDemo;
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.text.TextClient;
@@ -58,7 +57,7 @@ public class TextBatchSyncCheckDemo extends AbstractDemo {
     /**
      * 创建批量文本数据
      */
-    private static String createTexts() {
+    private static List<TextCheckSceneRequest> createTexts() {
         int contentCount = 5;
         List<TextCheckSceneRequest> textObj = new ArrayList<>(contentCount);
         TextCheckSceneRequest request = null;
@@ -69,6 +68,6 @@ public class TextBatchSyncCheckDemo extends AbstractDemo {
             // 请求对象中的其他参数如果有需要，请参考官方接口文档中字段说明，按需添加
             textObj.add(request);
         }
-        return new Gson().toJson(textObj);
+        return textObj;
     }
 }

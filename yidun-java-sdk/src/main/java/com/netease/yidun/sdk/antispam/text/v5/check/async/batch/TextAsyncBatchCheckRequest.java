@@ -1,13 +1,12 @@
 package com.netease.yidun.sdk.antispam.text.v5.check.async.batch;
 
-import java.util.Map;
-
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
-
-import com.netease.yidun.sdk.core.http.HttpMethodEnum;
+import com.google.gson.Gson;
+import com.netease.yidun.sdk.antispam.text.v5.check.sync.single.TextCheckSceneRequest;
 import com.netease.yidun.sdk.core.request.BizPostFormRequest;
-import com.netease.yidun.sdk.core.utils.StringHashMap;
+
+import javax.validation.constraints.Size;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 文本批量异步检测请求
@@ -20,8 +19,8 @@ public class TextAsyncBatchCheckRequest extends BizPostFormRequest<TextAsyncBatc
     @Size(max = 512, message = "checkLabels最长512个字符")
     private String checkLabels;
 
-    @NotBlank(message = "texts不能为空")
-    private String texts;
+    @Size(min = 1, max = 100, message = "1-100条文本数据")
+    private List<TextCheckSceneRequest> texts;
 
     /**
      * 内容安全与反作弊融合版专属字段，来自易盾反作弊SDK返回的token，接入SDK必传,接入流程请参考防刷版说明文档
@@ -46,19 +45,19 @@ public class TextAsyncBatchCheckRequest extends BizPostFormRequest<TextAsyncBatc
         return this;
     }
 
-    public String getTexts() {
+    public List<TextCheckSceneRequest> getTexts() {
         return texts;
     }
 
-    public void setTexts(String texts) {
+    public void setTexts(List<TextCheckSceneRequest> texts) {
         this.texts = texts;
     }
 
-    public String texts() {
+    public List<TextCheckSceneRequest> texts() {
         return texts;
     }
 
-    public TextAsyncBatchCheckRequest texts(String texts) {
+    public TextAsyncBatchCheckRequest texts(List<TextCheckSceneRequest> texts) {
         this.texts = texts;
         return this;
     }
@@ -90,7 +89,7 @@ public class TextAsyncBatchCheckRequest extends BizPostFormRequest<TextAsyncBatc
     protected Map<String, String> getCustomSignParams() {
         Map<String, String> params = super.getCustomSignParams();
         params.put("checkLabels", checkLabels);
-        params.put("texts", texts);
+        params.put("texts", new Gson().toJson(texts));
         params.put("token", token);
         return params;
     }

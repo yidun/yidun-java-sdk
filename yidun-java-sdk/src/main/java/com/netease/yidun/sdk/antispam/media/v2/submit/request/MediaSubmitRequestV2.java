@@ -95,7 +95,7 @@ public class MediaSubmitRequestV2 extends PostFormRequest<MediaCheckResponseV2> 
     private String token;
 
     public MediaSubmitRequestV2() {
-        productCode = "media";
+        productCode = "mediaSubmit";
         uriPattern = "/v2/mediasolution/submit";
         version = "v2";
     }

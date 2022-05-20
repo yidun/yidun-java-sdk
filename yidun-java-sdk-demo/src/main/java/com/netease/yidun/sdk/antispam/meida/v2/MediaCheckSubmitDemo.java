@@ -14,7 +14,7 @@ import java.util.Map;
 
 
 /**
- * 文档解决方案Demo
+ * 融媒体解决方案Demo
  * 检测提交接口
  * 具体返回字段的说明，请参考官方接口文档中字段说明
  * https://support.dun.163.com/documents/599750646047514624?docId=599764067733090304
@@ -41,8 +41,11 @@ public class MediaCheckSubmitDemo extends AbstractDemo {
         // 实例化请求对象
         MediaSubmitRequestV2 request = new MediaSubmitRequestV2().ip("127.0.0.1")
                 .customParseFieldMap(map)
+
                 .dataId("000000")
-                .account("account1");;
+                .account("account1");
+        //根据需要设置请求的检测节点，默认杭州，现阶段只支融媒体提交检测接口
+        request.setRegionCode("cn-hangzhou");
 
         // 请求对象中的其他参数如果有需要，请参考官方接口文档中字段说明，按需添加
         MediaCheckResponseV2 response = null;
