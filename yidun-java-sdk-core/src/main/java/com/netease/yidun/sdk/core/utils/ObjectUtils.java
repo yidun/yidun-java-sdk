@@ -1,8 +1,4 @@
-/*
- * @(#) ObjectUtils.java 2021-05-27
- *
- * Copyright 2021 NetEase.com, Inc. All rights reserved.
- */
+
 
 package com.netease.yidun.sdk.core.utils;
 

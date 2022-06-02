@@ -1,8 +1,4 @@
-/*
- * @(#) EndpointConfigEntry.java 2021-06-17
- *
- * Copyright 2021 NetEase.com, Inc. All rights reserved.
- */
+
 
 package com.netease.yidun.sdk.core.endpoint;
 

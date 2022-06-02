@@ -1,8 +1,4 @@
-/*
- * @(#) CrawlerResourceCallbackResponseV3.java 2021-11-02
- *
- * Copyright 2021 NetEase.com, Inc. All rights reserved.
- */
+
 
 package com.netease.yidun.sdk.antispam.crawler.v3.callback.response;
 

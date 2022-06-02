@@ -1,8 +1,4 @@
-/*
- * @(#) VideoSolutionSubmitV1Resp.java 2021-01-18
- *
- * Copyright 2021 NetEase.com, Inc. All rights reserved.
- */
+
 
 package com.netease.yidun.sdk.antispam.videosolution.submit.v2.response;
 

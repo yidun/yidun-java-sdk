@@ -1,8 +1,4 @@
-/*
- * @(#) PostFormRequest.java 2021-01-07
- *
- * Copyright 2021 NetEase.com, Inc. All rights reserved.
- */
+
 
 package com.netease.yidun.sdk.core.request;
 

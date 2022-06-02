@@ -1,8 +1,4 @@
-/*
- * @(#) Credentials.java 2021-05-24
- *
- * Copyright 2021 NetEase.com, Inc. All rights reserved.
- */
+
 
 package com.netease.yidun.sdk.core.auth;
 

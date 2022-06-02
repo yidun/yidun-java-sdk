@@ -1,8 +1,4 @@
-/*
- * @(#) SM3.java 2021-06-18
- *
- * Copyright 2021 NetEase.com, Inc. All rights reserved.
- */
+
 
 package com.netease.yidun.sdk.core.utils;
 
