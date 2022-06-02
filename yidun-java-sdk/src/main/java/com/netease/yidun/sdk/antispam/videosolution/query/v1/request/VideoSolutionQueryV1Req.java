@@ -25,7 +25,9 @@ public class VideoSolutionQueryV1Req extends PostFormRequest<VideoSolutionQueryV
     protected Map<String, String> getCustomSignParams() {
         StringHashMap params = new StringHashMap();
         params.putAll(super.getCustomSignParams());
-        params.put("taskIds", GSON.toJson(taskIds));
+        if (taskIds != null) {
+            params.put("taskIds", GSON.toJson(taskIds));
+        }
         return params;
     }
 

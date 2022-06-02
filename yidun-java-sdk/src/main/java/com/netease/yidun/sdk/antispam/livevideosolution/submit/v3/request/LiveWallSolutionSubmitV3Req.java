@@ -2,7 +2,9 @@ package com.netease.yidun.sdk.antispam.livevideosolution.submit.v3.request;
 
 import java.util.Map;
 
+import com.google.gson.Gson;
 import com.netease.yidun.sdk.antispam.livevideosolution.submit.v3.response.LiveWallSolutionSubmitV3Resp;
+import com.netease.yidun.sdk.antispam.video.submit.v4.request.AdvancedFrequencyRequest;
 import com.netease.yidun.sdk.core.request.PostFormRequest;
 import com.netease.yidun.sdk.core.utils.StringHashMap;
 
@@ -10,6 +12,7 @@ import lombok.Data;
 
 @Data
 public class LiveWallSolutionSubmitV3Req extends PostFormRequest<LiveWallSolutionSubmitV3Resp> {
+    private static final Gson GSON = new Gson();
 
     private String url;
 
@@ -79,10 +82,8 @@ public class LiveWallSolutionSubmitV3Req extends PostFormRequest<LiveWallSolutio
     private Long publishTime;
 
     private String liveLink;
-    /**
-     * 截图策略 0-易盾截图 1-云信上传截图
-     */
-    private Integer screenShotStrategy;
+
+    private AdvancedFrequencyRequest advancedFrequency;
     /**
      * 0-竖屏 1-横屏
      */
@@ -124,8 +125,10 @@ public class LiveWallSolutionSubmitV3Req extends PostFormRequest<LiveWallSolutio
         params.put("title", getTitle());
         params.put("uniqueKey", getUniqueKey());
         params.put("url", getUrl());
+        if (advancedFrequency != null) {
+            params.put("advancedFrequency", GSON.toJson(getAdvancedFrequency()));
+        }
         params.put("liveLink", getLiveLink());
-        params.put("screenShotStrategy", getScreenShotStrategy());
         params.put("screenMode", getScreenMode());
         params.put("checkLanguageCode", getCheckLanguageCode());
         return params;

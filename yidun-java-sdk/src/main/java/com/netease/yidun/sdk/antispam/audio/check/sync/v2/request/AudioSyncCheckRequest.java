@@ -261,8 +261,12 @@ public class AudioSyncCheckRequest extends BizPostFormRequest<AudioSyncCheckResp
         params.put("publishTime", getPublishTime());
         params.put("dataCheckType", getDataCheckType());
         params.put("data", getData());
-        params.put("relatedKeys", GSON.toJson(relatedKeys));
-        params.put("tags", GSON.toJson(tags));
+        if (relatedKeys != null) {
+            params.put("relatedKeys", GSON.toJson(relatedKeys));
+        }
+        if (tags != null) {
+            params.put("tags", GSON.toJson(tags));
+        }
         return params;
     }
 

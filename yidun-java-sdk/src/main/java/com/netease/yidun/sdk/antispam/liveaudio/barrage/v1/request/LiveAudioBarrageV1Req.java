@@ -25,7 +25,9 @@ public class LiveAudioBarrageV1Req extends BizPostFormRequest<LiveAudioBarrageV1
     protected Map<String, String> getCustomSignParams() {
         StringHashMap params = new StringHashMap();
         params.putAll(super.getCustomSignParams());
-        params.put("barrages", GSON.toJson(barrages));
+        if (barrages != null) {
+            params.put("barrages", GSON.toJson(barrages));
+        }
         return params;
     }
 

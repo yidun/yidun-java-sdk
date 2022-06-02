@@ -1,11 +1,13 @@
 package com.netease.yidun.sdk.antispam.liveaudio.feedback.v1.request;
 
-import com.google.gson.Gson;
-import com.netease.yidun.sdk.core.request.BizPostFormRequest;
-import com.netease.yidun.sdk.core.utils.StringHashMap;
-import com.netease.yidun.sdk.antispam.liveaudio.feedback.v1.response.LiveAudioFeedbackV1Resp;
 import java.util.List;
 import java.util.Map;
+
+import com.google.gson.Gson;
+import com.netease.yidun.sdk.antispam.liveaudio.feedback.v1.response.LiveAudioFeedbackV1Resp;
+import com.netease.yidun.sdk.core.request.BizPostFormRequest;
+import com.netease.yidun.sdk.core.utils.StringHashMap;
+
 import lombok.Data;
 
 @Data
@@ -24,7 +26,9 @@ public class LiveAudioFeedbackV1Req extends BizPostFormRequest<LiveAudioFeedback
     protected Map<String, String> getCustomSignParams() {
         StringHashMap params = new StringHashMap();
         params.putAll(super.getCustomSignParams());
-        params.put("feedbacks", GSON.toJson(feedbacks));
+        if (feedbacks != null) {
+            params.put("feedbacks", GSON.toJson(feedbacks));
+        }
         return params;
     }
 

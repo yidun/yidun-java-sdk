@@ -249,8 +249,12 @@ public class AudioAsyncCheckRequest extends BizPostFormRequest<AudioAsyncCheckRe
         params.put("relationship", getRelationship());
         params.put("publishTime", getPublishTime());
         params.put("checkLanguageCode", getCheckLanguageCode());
-        params.put("relatedKeys", GSON.toJson(relatedKeys));
-        params.put("tags", GSON.toJson(tags));
+        if (relatedKeys != null) {
+            params.put("relatedKeys", GSON.toJson(relatedKeys));
+        }
+        if (tags != null) {
+            params.put("tags", GSON.toJson(tags));
+        }
         return params;
     }
 

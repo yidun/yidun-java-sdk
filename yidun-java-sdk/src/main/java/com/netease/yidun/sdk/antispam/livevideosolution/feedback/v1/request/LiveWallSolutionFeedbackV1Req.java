@@ -25,7 +25,9 @@ public class LiveWallSolutionFeedbackV1Req extends PostFormRequest<LiveWallSolut
     protected Map<String, String> getCustomSignParams() {
         StringHashMap params = new StringHashMap();
         params.putAll(super.getCustomSignParams());
-        params.put("realTimeInfoList", GSON.toJson(realTimeInfoList));
+        if (realTimeInfoList != null) {
+            params.put("realTimeInfoList", GSON.toJson(realTimeInfoList));
+        }
         return params;
     }
 

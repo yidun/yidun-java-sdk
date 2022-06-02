@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.google.gson.Gson;
+import com.netease.yidun.sdk.antispam.video.submit.v4.request.AdvancedFrequencyRequest;
 import com.netease.yidun.sdk.antispam.videosolution.submit.v2.response.VideoSolutionSubmitV2Resp;
 import com.netease.yidun.sdk.core.request.PostFormRequest;
 import com.netease.yidun.sdk.core.utils.StringHashMap;
@@ -72,7 +73,7 @@ public class VideoSolutionSubmitV2Req extends PostFormRequest<VideoSolutionSubmi
     /**
      * 高级截图频率配置，结构是json结构
      */
-    private String advancedFrequency;
+    private AdvancedFrequencyRequest advancedFrequency;
 
     /**
      * 简介内容
@@ -136,7 +137,9 @@ public class VideoSolutionSubmitV2Req extends PostFormRequest<VideoSolutionSubmi
         params.put("callback", getCallback());
         params.put("callbackUrl", getCallbackUrl());
         params.put("scFrequency", getScFrequency());
-        params.put("advancedFrequency", getAdvancedFrequency());
+        if (advancedFrequency != null) {
+            params.put("advancedFrequency", GSON.toJson(getAdvancedFrequency()));
+        }
         params.put("content", getContent());
         params.put("uniqueKey", getUniqueKey());
         params.put("detectType", getDetectType());

@@ -26,7 +26,9 @@ public class AudioQueryV3Request extends BizPostFormRequest<AudioQueryV3Response
     protected Map<String, String> getCustomSignParams() {
         StringHashMap params = new StringHashMap();
         params.putAll(super.getCustomSignParams());
-        params.put("taskIds", GSON.toJson(taskIds));
+        if (taskIds != null) {
+            params.put("taskIds", GSON.toJson(taskIds));
+        }
         return params;
     }
 

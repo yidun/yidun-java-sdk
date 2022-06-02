@@ -28,7 +28,9 @@ public class VideoSolutionFeedbackV1Req extends PostFormRequest<VideoSolutionFee
     protected Map<String, String> getCustomSignParams() {
         StringHashMap params = new StringHashMap();
         params.putAll(super.getCustomSignParams());
-        params.put("feedbacks", GSON.toJson(feedbacks));
+        if (feedbacks != null) {
+            params.put("feedbacks", GSON.toJson(feedbacks));
+        }
         return params;
     }
 

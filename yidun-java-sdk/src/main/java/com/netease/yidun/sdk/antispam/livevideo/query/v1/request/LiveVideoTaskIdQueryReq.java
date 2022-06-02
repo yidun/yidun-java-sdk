@@ -17,6 +17,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class LiveVideoTaskIdQueryReq extends BizPostFormRequest<LiveVideoTaskIdQueryResp> {
+    private static final Gson GSON = new Gson();
 
     /**
      * taskId列表 格式为数组的json格式"[1,2,3]"
@@ -33,7 +34,9 @@ public class LiveVideoTaskIdQueryReq extends BizPostFormRequest<LiveVideoTaskIdQ
     protected Map<String, String> getCustomSignParams() {
         StringHashMap params = new StringHashMap();
         params.putAll(super.getCustomSignParams());
-        params.put("taskIds", new Gson().toJson(getTaskIds()));
+        if (taskIds != null) {
+            params.put("taskIds", GSON.toJson(getTaskIds()));
+        }
         return params;
     }
 

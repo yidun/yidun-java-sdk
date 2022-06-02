@@ -1,7 +1,9 @@
 package com.netease.yidun.sdk.antispam.videosolution.query.v1.request;
 
 import java.util.Map;
+import java.util.Set;
 
+import com.google.gson.Gson;
 import com.netease.yidun.sdk.antispam.video.query.v1.request.VideoDataOrderType;
 import com.netease.yidun.sdk.antispam.videosolution.query.v1.response.VideoSolutionQueryImageV1Resp;
 import com.netease.yidun.sdk.core.request.PostFormRequest;
@@ -11,6 +13,8 @@ import lombok.Data;
 
 @Data
 public class VideoSolutionQueryImageV1Req extends PostFormRequest<VideoSolutionQueryImageV1Resp> {
+    private static final Gson GSON = new Gson();
+
     /**
      * taskId
      */
@@ -21,7 +25,7 @@ public class VideoSolutionQueryImageV1Req extends PostFormRequest<VideoSolutionQ
      *
      * @see com.netease.yidun.sdk.image.callback.response.LabelLevel
      */
-    private String levels;
+    private Set<Integer> levels;
 
     private Integer pageNum = 1;
 
@@ -45,7 +49,9 @@ public class VideoSolutionQueryImageV1Req extends PostFormRequest<VideoSolutionQ
         StringHashMap params = new StringHashMap();
         params.putAll(super.getCustomSignParams());
         params.put("taskId", getTaskId());
-        params.put("levels", getLevels());
+        if (levels != null) {
+            params.put("levels", GSON.toJson(getLevels()));
+        }
         params.put("pageNum", getPageNum());
         params.put("pageSize", getPageSize());
         params.put("orderType", getOrderType());

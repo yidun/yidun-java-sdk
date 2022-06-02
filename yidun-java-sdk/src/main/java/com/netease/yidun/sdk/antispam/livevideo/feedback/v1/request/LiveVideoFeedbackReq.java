@@ -17,6 +17,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class LiveVideoFeedbackReq extends BizPostFormRequest<LiveVideoFeedbackResp> {
+    private static final Gson GSON = new Gson();
 
     /**
      * 直播实时信息列表JSON
@@ -33,7 +34,9 @@ public class LiveVideoFeedbackReq extends BizPostFormRequest<LiveVideoFeedbackRe
     protected Map<String, String> getCustomSignParams() {
         StringHashMap params = new StringHashMap();
         params.putAll(super.getCustomSignParams());
-        params.put("realTimeInfoList", new Gson().toJson(getRealTimeInfoList()));
+        if (realTimeInfoList != null) {
+            params.put("realTimeInfoList", GSON.toJson(getRealTimeInfoList()));
+        }
         return params;
     }
 

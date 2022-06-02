@@ -2,6 +2,7 @@ package com.netease.yidun.sdk.antispam.video.submit.v4.request;
 
 import java.util.Map;
 
+import com.google.gson.Gson;
 import com.netease.yidun.sdk.antispam.video.submit.v4.response.VideoCheckResp;
 import com.netease.yidun.sdk.core.request.BizPostFormRequest;
 import com.netease.yidun.sdk.core.utils.StringHashMap;
@@ -16,6 +17,7 @@ import lombok.Setter;
 @Setter
 public class VideoCheckReq extends BizPostFormRequest<VideoCheckResp> {
 
+    private static Gson GSON = new Gson();
     /**
      * 链接地址
      */
@@ -69,7 +71,7 @@ public class VideoCheckReq extends BizPostFormRequest<VideoCheckResp> {
     /**
      * 高级截图频率配置，结构是json结构
      */
-    private String advancedFrequency;
+    private AdvancedFrequencyRequest advancedFrequency;
 
     /**
      * unique key
@@ -221,7 +223,9 @@ public class VideoCheckReq extends BizPostFormRequest<VideoCheckResp> {
         params.put("callback", getCallback());
         params.put("callbackUrl", getCallbackUrl());
         params.put("scFrequency", getScFrequency());
-        params.put("advancedFrequency", getAdvancedFrequency());
+        if (advancedFrequency != null) {
+            params.put("advancedFrequency", GSON.toJson(getAdvancedFrequency()));
+        }
         params.put("uniqueKey", getUniqueKey());
         params.put("nickname", getNickname());
         params.put("phone", getPhone());

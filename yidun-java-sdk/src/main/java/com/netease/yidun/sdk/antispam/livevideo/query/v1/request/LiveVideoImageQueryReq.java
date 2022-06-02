@@ -17,6 +17,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class LiveVideoImageQueryReq extends BizPostFormRequest<LiveVideoImageQueryResp> {
+    private static final Gson GSON = new Gson();
+
     /**
      * taskId
      */
@@ -63,7 +65,9 @@ public class LiveVideoImageQueryReq extends BizPostFormRequest<LiveVideoImageQue
         StringHashMap params = new StringHashMap();
         params.putAll(super.getCustomSignParams());
         params.put("taskId", getTaskId());
-        params.put("levels", new Gson().toJson(getLevels()));
+        if (levels != null) {
+            params.put("levels", GSON.toJson(getLevels()));
+        }
         params.put("callbackStatus", getCallbackStatus());
         params.put("startTime", getStartTime());
         params.put("endTime", getEndTime());

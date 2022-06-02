@@ -25,7 +25,9 @@ public class AudioFeedbackRequest extends BizPostFormRequest<AudioFeedbackRespon
     protected Map<String, String> getCustomSignParams() {
         StringHashMap params = new StringHashMap();
         params.putAll(super.getCustomSignParams());
-        params.put("feedbacks", GSON.toJson(feedbacks));
+        if (feedbacks != null) {
+            params.put("feedbacks", GSON.toJson(feedbacks));
+        }
         return params;
     }
 

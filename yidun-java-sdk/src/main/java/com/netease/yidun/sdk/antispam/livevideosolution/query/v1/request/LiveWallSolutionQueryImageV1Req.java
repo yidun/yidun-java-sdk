@@ -12,6 +12,7 @@ import lombok.Data;
 
 @Data
 public class LiveWallSolutionQueryImageV1Req extends PostFormRequest<LiveWallSolutionQueryImageV1Resp> {
+
     private static final Gson GSON = new Gson();
     /**
      * taskId
@@ -21,7 +22,7 @@ public class LiveWallSolutionQueryImageV1Req extends PostFormRequest<LiveWallSol
     /**
      * 等级数组，@See LabelLevel; json数组格式[1,2,3]
      */
-    private List<String> levels;
+    private List<Integer> levels;
 
     private Integer pageNum = 1;
 
@@ -57,7 +58,9 @@ public class LiveWallSolutionQueryImageV1Req extends PostFormRequest<LiveWallSol
         StringHashMap params = new StringHashMap();
         params.putAll(super.getCustomSignParams());
         params.put("taskId", getTaskId());
-        params.put("levels", GSON.toJson(getLevels()));
+        if (levels != null) {
+            params.put("levels", GSON.toJson(getLevels()));
+        }
         params.put("callbackStatus", getCallbackStatus());
         params.put("startTime", getStartTime());
         params.put("endTime", getEndTime());
