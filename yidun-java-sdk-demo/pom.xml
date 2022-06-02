@@ -11,7 +11,7 @@
 
     <artifactId>yidun-java-sdk-demo</artifactId>
 
-    <name>yidun-java-sdk</name>
+    <name>yidun-java-sdk-demo</name>
     <description>Yidun OpenAPI SDK Demo for Java</description>
     <url>https://github.com/yidun/yidun-java-sdk</url>
 
