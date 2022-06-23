@@ -61,7 +61,7 @@ public class TextAsyncCheckRequest extends TextCheckSceneRequest<TextAsyncCheckR
 
     public TextAsyncCheckRequest() {
         productCode = "text-check";
-        version = "v5";
+        version = "v5.2";
         uriPattern = "/v5/text/async-check";
     }
 

@@ -85,6 +85,7 @@ public class TextCheckResult implements Serializable {
         private String taskId;
         private String dataId;
         private Integer suggestion;
+        private Integer suggestionLevel;
         private Integer resultType;
         private Integer censorType;
         private String callback;
@@ -95,6 +96,7 @@ public class TextCheckResult implements Serializable {
         private Long censorTime;
         private Boolean isRelatedHit;
         private List<AntispamLabel> labels;
+        private String remark;
 
         public String getTaskId() {
             return taskId;
@@ -118,6 +120,14 @@ public class TextCheckResult implements Serializable {
 
         public void setSuggestion(Integer suggestion) {
             this.suggestion = suggestion;
+        }
+
+        public Integer getSuggestionLevel() {
+            return suggestionLevel;
+        }
+
+        public void setSuggestionLevel(Integer suggestionLevel) {
+            this.suggestionLevel = suggestionLevel;
         }
 
         public Integer getResultType() {
@@ -200,12 +210,21 @@ public class TextCheckResult implements Serializable {
             this.labels = labels;
         }
 
+        public String getRemark() {
+            return remark;
+        }
+
+        public void setRemark(String remark) {
+            this.remark = remark;
+        }
+
         @Override
         public String toString() {
             return "Antispam("
                     + "taskId=" + taskId
                     + ", dataId=" + dataId
                     + ", suggestion=" + suggestion
+                    + ", suggestionLevel=" + suggestionLevel
                     + ", resultType=" + resultType
                     + ", censorType=" + censorType
                     + ", callback=" + callback
@@ -216,6 +235,7 @@ public class TextCheckResult implements Serializable {
                     + ", censorTime=" + censorTime
                     + ", isRelatedHit=" + isRelatedHit
                     + ", labels=" + labels
+                    + ", remark=" + remark
                     + ")";
         }
     }
@@ -224,6 +244,7 @@ public class TextCheckResult implements Serializable {
 
         private String code;
         private String desc;
+        private String name;
 
         public String getCode() {
             return code;
@@ -241,11 +262,20 @@ public class TextCheckResult implements Serializable {
             this.desc = desc;
         }
 
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
         @Override
         public String toString() {
             return "CensorLabel("
                     + "code=" + code
                     + ", desc=" + desc
+                    + ", name=" + name
                     + ")";
         }
     }
@@ -284,6 +314,7 @@ public class TextCheckResult implements Serializable {
 
         private Integer label;
         private Integer level;
+        private Double rate;
         private List<AntispamSubLabel> subLabels;
 
         public Integer getLabel() {
@@ -302,6 +333,14 @@ public class TextCheckResult implements Serializable {
             this.level = level;
         }
 
+        public Double getRate() {
+            return rate;
+        }
+
+        public void setRate(Double rate) {
+            this.rate = rate;
+        }
+
         public List<AntispamSubLabel> getSubLabels() {
             return subLabels;
         }
@@ -315,6 +354,7 @@ public class TextCheckResult implements Serializable {
             return "AntispamLabel("
                     + "label=" + label
                     + ", level=" + level
+                    + ", rate=" + rate
                     + ", subLabels=" + subLabels
                     + ")";
         }
@@ -763,7 +803,7 @@ public class TextCheckResult implements Serializable {
     public static class UserRiskDetail {
 
         private String account;
-        private Integer accountLevel;
+        private List<UserRiskAcDetail> acDetails;
 
         public String getAccount() {
             return account;
@@ -773,19 +813,59 @@ public class TextCheckResult implements Serializable {
             this.account = account;
         }
 
-        public Integer getAccountLevel() {
-            return accountLevel;
+        public List<UserRiskAcDetail> getAcDetails() {
+            return acDetails;
         }
 
-        public void setAccountLevel(Integer accountLevel) {
-            this.accountLevel = accountLevel;
+        public void setAcDetails(List<UserRiskAcDetail> acDetails) {
+            this.acDetails = acDetails;
         }
 
         @Override
         public String toString() {
             return "UserRiskDetail("
                     + "account=" + account
-                    + ", accountLevel=" + accountLevel
+                    + ", acDetails=" + acDetails
+                    + ")";
+        }
+    }
+
+    public static class UserRiskAcDetail {
+
+        private String riskType;
+        private Integer riskLevel;
+        private Double riskScore;
+
+        public String getRiskType() {
+            return riskType;
+        }
+
+        public void setRiskType(String riskType) {
+            this.riskType = riskType;
+        }
+
+        public Integer getRiskLevel() {
+            return riskLevel;
+        }
+
+        public void setRiskLevel(Integer riskLevel) {
+            this.riskLevel = riskLevel;
+        }
+
+        public Double getRiskScore() {
+            return riskScore;
+        }
+
+        public void setRiskScore(Double riskScore) {
+            this.riskScore = riskScore;
+        }
+
+        @Override
+        public String toString() {
+            return "UserRiskAcDetail("
+                    + "riskType=" + riskType
+                    + ", riskLevel=" + riskLevel
+                    + ", riskScore=" + riskScore
                     + ")";
         }
     }

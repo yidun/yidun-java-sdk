@@ -10,7 +10,7 @@ public class TextCallBackRequest extends BizPostFormRequest<TextCallBackResponse
 
     public TextCallBackRequest() {
         productCode = "text-api";
-        version = "v5";
+        version = "v5.2";
         uriPattern = "/v5/text/callback/results";
     }
 

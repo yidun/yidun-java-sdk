@@ -1,8 +1,9 @@
 package com.netease.yidun.sdk.antispam.keyword.v2.update;
 
+import com.google.gson.Gson;
 import com.netease.yidun.sdk.core.request.BizPostFormRequest;
 
-import javax.validation.constraints.NotBlank;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -21,8 +22,9 @@ public class KeywordUpdateRequest extends BizPostFormRequest<KeywordUpdateRespon
     /**
      * 关键词唯一标识id列表，逗号分隔
      */
-    @NotBlank(message = "ids不能为空")
     private String ids;
+
+    private List<String> keywords;
     /**
      * 关键词状态，0: 未启用，1: 已启用
      */
@@ -79,6 +81,23 @@ public class KeywordUpdateRequest extends BizPostFormRequest<KeywordUpdateRespon
         return this;
     }
 
+    public List<String> getKeywords() {
+        return keywords;
+    }
+
+    public void setKeywords(List<String> keywords) {
+        this.keywords = keywords;
+    }
+
+    public List<String> keywords() {
+        return keywords;
+    }
+
+    public KeywordUpdateRequest keywords(List<String> keywords) {
+        this.keywords = keywords;
+        return this;
+    }
+
     public Integer getStatus() {
         return status;
     }
@@ -108,6 +127,9 @@ public class KeywordUpdateRequest extends BizPostFormRequest<KeywordUpdateRespon
         params.put("category", category != null ? String.valueOf(category) : null);
         params.put("subLabel", subLabel);
         params.put("ids", ids);
+        if (keywords != null && keywords.size() > 0) {
+            params.put("keywords", new Gson().toJson(keywords));
+        }
         params.put("status", status != null ? String.valueOf(status) : null);
         return params;
     }
@@ -124,6 +146,7 @@ public class KeywordUpdateRequest extends BizPostFormRequest<KeywordUpdateRespon
                 + ", category=" + category
                 + ", subLabel=" + subLabel
                 + ", ids=" + ids
+                + ", keywords=" + keywords
                 + ", status=" + status
                 + ")";
     }
