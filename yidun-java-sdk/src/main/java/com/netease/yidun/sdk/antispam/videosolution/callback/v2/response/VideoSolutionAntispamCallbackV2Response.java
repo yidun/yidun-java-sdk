@@ -3,7 +3,7 @@ package com.netease.yidun.sdk.antispam.videosolution.callback.v2.response;
 import java.util.List;
 
 import com.netease.yidun.sdk.antispam.audio.callback.v4.response.AudioAntispamCallbackV4Response;
-import com.netease.yidun.sdk.antispam.video.callback.v4.response.VideoCallbackV4Result;
+import com.netease.yidun.sdk.antispam.video.callback.v4.response.VideoCallbackUnitV4Response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -74,7 +74,7 @@ public class VideoSolutionAntispamCallbackV2Response {
         /**
          * 视频证据信息
          */
-        private VideoCallbackV4Result video;
+        private VideoCallbackUnitV4Response video;
     }
 
     @Data
