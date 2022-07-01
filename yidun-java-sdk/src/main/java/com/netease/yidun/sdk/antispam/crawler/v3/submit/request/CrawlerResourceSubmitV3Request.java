@@ -48,6 +48,11 @@ public class CrawlerResourceSubmitV3Request extends PostFormRequest<CrawlerResou
      */
     @Length(max = 1024, message = "callbackUrl最长1024个字符")
     private String callbackUrl;
+    /**
+     * 网站名称
+     */
+    @Length(max = 64, message = "siteName最长64个字符")
+    private String siteName;
 
     public CrawlerResourceSubmitV3Request() {
         productCode = "crawler";
@@ -65,6 +70,7 @@ public class CrawlerResourceSubmitV3Request extends PostFormRequest<CrawlerResou
         params.put("checkFlags", Optional.ofNullable(getCheckFlags())
                 .map(o -> o.stream().map(String::valueOf).collect(Collectors.joining(","))).orElse(null));
         params.put("callbackUrl", getCallbackUrl());
+        params.put("siteName", getSiteName());
         return params;
     }
 
@@ -122,11 +128,20 @@ public class CrawlerResourceSubmitV3Request extends PostFormRequest<CrawlerResou
         this.callbackUrl = callbackUrl;
     }
 
+    public String getSiteName() {
+        return siteName;
+    }
+
+    public void setSiteName(String siteName) {
+        this.siteName = siteName;
+    }
+
     @Override
     public String toString() {
         return "CrawlerSubmitV3Request{" +
                 "url='" + url + '\'' +
                 ", dataId='" + dataId + '\'' +
+                ", siteName='" + siteName + '\'' +
                 ", callback='" + callback + '\'' +
                 ", checkFlags=" + checkFlags +
                 ", callbackUrl='" + callbackUrl + '\'' +

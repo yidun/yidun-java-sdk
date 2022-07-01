@@ -53,6 +53,10 @@ public class CrawlerJobSubmitV1Request extends PostFormRequest<CrawlerJobSubmitV
      * 主动回调地址
      */
     private String callbackUrl;
+    /**
+     * 网站名称
+     */
+    private String siteName;
 
     @Override
     protected Map<String, String> getCustomSignParams() {
@@ -61,6 +65,7 @@ public class CrawlerJobSubmitV1Request extends PostFormRequest<CrawlerJobSubmitV
         params.put("sliceStartTime", getSliceStartTime());
         params.put("sliceEndTime", getSliceEndTime());
         params.put("siteUrl", getSiteUrl());
+        params.put("siteName", getSiteName());
         params.put("level", getLevel());
         params.put("frequency", getFrequency());
         params.put("maxResourceAmount", getMaxResourceAmount());
@@ -152,6 +157,14 @@ public class CrawlerJobSubmitV1Request extends PostFormRequest<CrawlerJobSubmitV
         this.callbackUrl = callbackUrl;
     }
 
+    public String getSiteName() {
+        return siteName;
+    }
+
+    public void setSiteName(String siteName) {
+        this.siteName = siteName;
+    }
+
     @Override
     public String toString() {
         return "CrawlerJobSubmitV1Request{" +
@@ -159,6 +172,7 @@ public class CrawlerJobSubmitV1Request extends PostFormRequest<CrawlerJobSubmitV
                 ", sliceStartTime=" + sliceStartTime +
                 ", sliceEndTime=" + sliceEndTime +
                 ", siteUrl='" + siteUrl + '\'' +
+                ", siteName='" + siteName + '\'' +
                 ", level=" + level +
                 ", frequency=" + frequency +
                 ", maxResourceAmount=" + maxResourceAmount +
