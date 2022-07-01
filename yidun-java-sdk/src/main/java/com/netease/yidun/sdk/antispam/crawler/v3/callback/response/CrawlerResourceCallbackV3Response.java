@@ -5,6 +5,7 @@ package com.netease.yidun.sdk.antispam.crawler.v3.callback.response;
 import java.util.List;
 
 import com.netease.yidun.sdk.antispam.media.v2.common.response.MediaAntispamResponse;
+import com.netease.yidun.sdk.antispam.media.v2.common.response.MediaCensorResponse;
 import com.netease.yidun.sdk.core.response.CommonResponse;
 
 /**
@@ -31,12 +32,25 @@ public class CrawlerResourceCallbackV3Response extends CommonResponse {
          */
         private CrawlerAntispamResponse antispam;
 
+        /**
+         * 审核信息
+         */
+        private CrawlerCensorResponse censor;
+
         public CrawlerAntispamResponse getAntispam() {
             return antispam;
         }
 
         public void setAntispam(CrawlerAntispamResponse antispam) {
             this.antispam = antispam;
+        }
+
+        public CrawlerCensorResponse getCensor() {
+            return censor;
+        }
+
+        public void setCensor(CrawlerCensorResponse censor) {
+            this.censor = censor;
         }
 
         @Override
@@ -61,6 +75,41 @@ public class CrawlerResourceCallbackV3Response extends CommonResponse {
 
         public void setFailureReason(Integer failureReason) {
             this.failureReason = failureReason;
+        }
+    }
+
+    public static class CrawlerCensorResponse extends MediaCensorResponse {
+
+        private String siteName;
+        private String siteUrl;
+        /**
+         * 快照URL
+         * 支持人工审核不通过，对目标网站截图
+         */
+        private String snapshotUrl;
+
+        public String getSiteName() {
+            return siteName;
+        }
+
+        public void setSiteName(String siteName) {
+            this.siteName = siteName;
+        }
+
+        public String getSiteUrl() {
+            return siteUrl;
+        }
+
+        public void setSiteUrl(String siteUrl) {
+            this.siteUrl = siteUrl;
+        }
+
+        public String getSnapshotUrl() {
+            return snapshotUrl;
+        }
+
+        public void setSnapshotUrl(String snapshotUrl) {
+            this.snapshotUrl = snapshotUrl;
         }
     }
 
