@@ -1,11 +1,13 @@
 package com.netease.yidun.sdk.antispam.liveaudio.callback.v4.response;
 
 import java.util.List;
+
 import lombok.Data;
 
 @Data
 public class LiveAudioCallbackUnitRespV4 {
     private Integer suggestion;
+    private Integer suggestionLevel;
     private Long startTime;
     private Long endTime;
     private String content;
