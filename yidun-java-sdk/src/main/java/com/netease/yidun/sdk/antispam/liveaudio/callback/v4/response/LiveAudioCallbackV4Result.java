@@ -42,6 +42,7 @@ public class LiveAudioCallbackV4Result implements BaseResponse {
         private Long startTime;
         private Long endTime;
         private String content;
+        private String speakerId;
     }
 
     @Data

@@ -30,6 +30,10 @@ public class AudioAntispamCallbackV4Response implements BaseResponse {
      */
     private Integer label;
     /**
+     * 人审标签
+     */
+    private String remark;
+    /**
      * 检测失败原因，当检测失败时返回
      * 1：文件格式错误，2：文件下载失败，3：解析失败，4：音频流不存在
      */
@@ -38,6 +42,10 @@ public class AudioAntispamCallbackV4Response implements BaseResponse {
      * 建议结果 0-通过 1-嫌疑 2-删除
      */
     private Integer suggestion;
+    /**
+     * 嫌疑级别，只有 suggestion 为嫌疑时才返回 1-低嫌疑，2-高嫌疑
+     */
+    private Integer suggestionLevel;
     /**
      * 结果类型 1-机器结果 2-人审结果
      */
@@ -211,5 +219,7 @@ public class AudioAntispamCallbackV4Response implements BaseResponse {
     public static class CensorLabelInfo {
         private String code;
         private String desc;
+        private String customCode;
+        private String name;
     }
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Set;
 
 import com.netease.yidun.sdk.antispam.liveaudio.callback.v4.response.LiveAudioCallbackUnitRespV4;
+import com.netease.yidun.sdk.antispam.liveaudio.callback.v4.response.LiveAudioMonitorCallbackUnitRespV4;
 import com.netease.yidun.sdk.antispam.video.callback.v4.response.ImageV5SubLabelResp;
 import com.netease.yidun.sdk.core.response.BaseResponse;
 
@@ -204,11 +205,40 @@ public class LiveVideoSolutionCallbackV3Result implements BaseResponse {
          * 截图证据
          */
         private List<Evidence> evidence;
+
+        private List<LiveAudioMonitorCallbackUnitRespV4.CensorLabelInfo> censorLabels;
+
+        private List<ReviewPicture> pictures;
+
+        private List<ReviewSegment> segments;
+
+        private List<FrontAudioSegment> frontAudioSegment;
     }
 
     @Data
     @AllArgsConstructor
-    public static class Evidence implements BaseResponse {
+    public static class Evidence {
         private String snapshot;
+    }
+
+    @Data
+    @AllArgsConstructor
+    public static class ReviewPicture {
+        private String url;
+    }
+
+    @Data
+    @AllArgsConstructor
+    public static class ReviewSegment {
+        private Long startTime;
+        private Long endTime;
+        private String content;
+    }
+
+    @Data
+    @AllArgsConstructor
+    public static class FrontAudioSegment {
+        private String url;
+        private String content;
     }
 }

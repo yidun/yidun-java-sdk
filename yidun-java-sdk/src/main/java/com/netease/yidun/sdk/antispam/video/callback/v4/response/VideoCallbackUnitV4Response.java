@@ -15,6 +15,7 @@ public class VideoCallbackUnitV4Response {
     private Integer status;
     private Integer failureReason;
     private Integer suggestion;
+    private Integer suggestionLevel;
     private Integer resultType;
     private Integer censorSource;
     private Long censorTime;
