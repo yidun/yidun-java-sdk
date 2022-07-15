@@ -20,6 +20,10 @@ public class LiveAudioCallbackV4Result implements BaseResponse {
      * 语种识别结果
      */
     private LiveAudioLanguageCallbackRespV3 language;
+    /**
+     * 人声属性识别结果
+     */
+    private LiveAudioVoiceCallbackRespV4 voice;
 
     @Data
     public static class LiveAudioAntispamCallbackRespV4 {
