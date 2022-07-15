@@ -31,5 +31,13 @@ public class AudioVoiceCallbackV4Response {
          * 音频性别建议值，male/female
          */
         private String mainGender;
+        /**
+         * 音频年龄段建议值，adult/underage
+         */
+        private String mainAgeGroup;
+        /**
+         * 音频年龄段置信分数
+         */
+        private Double mainAgeGroupRate;
     }
 }
