@@ -21,6 +21,7 @@ public class LiveAudioVoiceCallbackRespV4 {
     private String taskId;
     private Long startTime;
     private Long endTime;
+    private String dataId;
     /**
      * 年龄段类型
      */
