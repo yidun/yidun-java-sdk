@@ -28,6 +28,10 @@ public class VideoSolutionAntispamCallbackV2Response {
     private Integer status;
     private Integer resultType;
     /**
+     * 人审轮次
+     */
+    private Integer censorRound;
+    /**
      * 审核来源，0：易盾人审，1：客户人审，2：易盾机审
      */
     private Integer censorSource;
