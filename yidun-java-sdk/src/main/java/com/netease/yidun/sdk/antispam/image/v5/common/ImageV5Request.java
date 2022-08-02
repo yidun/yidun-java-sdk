@@ -3,11 +3,12 @@ package com.netease.yidun.sdk.antispam.image.v5.common;
 import com.google.gson.Gson;
 import com.netease.yidun.sdk.core.request.BizPostFormRequest;
 import com.netease.yidun.sdk.core.response.BaseResponse;
+import com.netease.yidun.sdk.core.utils.StringUtils;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.Map;
-import java.util.Set;
 
 public abstract class ImageV5Request<T extends BaseResponse> extends BizPostFormRequest<T> {
 
@@ -28,9 +29,8 @@ public abstract class ImageV5Request<T extends BaseResponse> extends BizPostForm
                 if (Modifier.isStatic(declaredField.getModifiers())) {
                     continue;
                 }
-                declaredField.setAccessible(true);
                 try {
-                    Object value = declaredField.get(this);
+                    Object value = getFieldValue(clazz, declaredField);
                     if (value == null) {
                         continue;
                     }
@@ -54,6 +54,16 @@ public abstract class ImageV5Request<T extends BaseResponse> extends BizPostForm
         }
 
         return customSignParams;
+    }
+
+    private Object getFieldValue(Class clazz, Field declaredField) throws IllegalAccessException {
+        try {
+            Method method = clazz.getMethod("get" + StringUtils.upperCaseFirstLetter(declaredField.getName()));
+            return method.invoke(this);
+        } catch (Exception e) {
+            declaredField.setAccessible(true);
+            return declaredField.get(this);
+        }
     }
 
     /**

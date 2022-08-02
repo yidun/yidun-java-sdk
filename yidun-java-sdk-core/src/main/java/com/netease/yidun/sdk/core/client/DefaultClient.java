@@ -14,6 +14,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import com.netease.yidun.sdk.core.recover.RecoverMessage;
+import com.netease.yidun.sdk.core.recover.RequestRecover;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;
 import org.apache.hc.core5.http.ClassicHttpRequest;
@@ -55,9 +57,11 @@ public class DefaultClient implements Client, Closeable {
     private final Credentials credentials;
     /** 单个请求最多尝试次数 */
     private final int maxAttemptCount;
+    private final Gson gson = new Gson();
     private CloseableHttpClient httpClient;
     private EndpointResolver endpointResolver;
     private BreakStrategy breakStrategy;
+    private RequestRecover requestRecover;
 
     public DefaultClient(ClientProfile profile) {
         Objects.requireNonNull(profile.signer(), "signer should not be null");
@@ -89,6 +93,8 @@ public class DefaultClient implements Client, Closeable {
 
         preheatValidation(profile.preheatRequestClassesForValidation());
         preheatValidationByInstance(profile.preheatRequestsForValidation());
+
+        requestRecover = profile.requestRecover();
     }
 
     public String getDefaultRegionCode() {
@@ -226,15 +232,22 @@ public class DefaultClient implements Client, Closeable {
             }
         }
 
-        if (exception != null) {
-            // 关闭最后一次请求的流
-            if (ctx.response != null) {
-                EntityUtils.consumeQuietly(ctx.response.getEntity());
-            }
+        if (exception == null) {
+            return ctx.parseResponse();
+        }
+
+        if (requestRecover == null || request.isRecover()) {
             throw exception;
         }
 
-        return ctx.parseResponse();
+        RecoverMessage message = new RecoverMessage();
+        message.setMessage(gson.toJson(request));
+        message.setClazz(request.getClass().getName());
+        boolean success = requestRecover.doRecover(message);
+        if (!success) {
+            throw exception;
+        }
+        return requestRecover.getFallbackResponse(request.getResponseClass());
     }
 
     private class Context<R extends BaseResponse> {
@@ -388,7 +401,7 @@ public class DefaultClient implements Client, Closeable {
             if (statusCode >= HttpStatus.SC_OK
                     && statusCode < HttpStatus.SC_REDIRECTION) {
                 try {
-                    return new Gson().fromJson(strBody, request.getResponseClass());
+                    return gson.fromJson(strBody, request.getResponseClass());
                 } catch (Exception e) {
                     String errorMessage = String.format(
                             "Fail to parse response body. code=%s, body=%s", statusCode, strBody);

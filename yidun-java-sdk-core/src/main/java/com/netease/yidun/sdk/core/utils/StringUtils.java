@@ -43,4 +43,19 @@ public class StringUtils {
         }
         return str.toUpperCase();
     }
+
+    public static String upperCaseFirstLetter(final String str) {
+        if (isBlank(str)) {
+            return str;
+        }
+        char firstChar = str.charAt(0);
+        char upperCaseChar = Character.toUpperCase(firstChar);
+        if (firstChar == upperCaseChar) {
+            return str;
+        }
+
+        char[] chars = str.toCharArray();
+        chars[0] = upperCaseChar;
+        return new String(chars, 0, chars.length);
+    }
 }

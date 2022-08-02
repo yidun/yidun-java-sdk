@@ -31,9 +31,10 @@ public abstract class ImageCallback extends AbstractCallbackHandler<ImageV5Resul
     }
 
     @Override
-    protected List<ImageV5Result> requestCallback(String businessId) {
+    protected List<ImageV5Result> requestCallback(String businessId, String requestId) {
         ImageV5CallbackRequest request = new ImageV5CallbackRequest();
         request.setBusinessId(businessId);
+        request.setYidunRequestId(requestId);
         ImageV5CheckResponse callbackResponse = antispamRequester.getImageCommonClient().callback(request);
         if (callbackResponse == null) {
             return null;

@@ -3,6 +3,7 @@
 package com.netease.yidun.sdk.antispam.callback;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -13,6 +14,7 @@ import java.util.concurrent.locks.LockSupport;
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.core.utils.AssertUtils;
 
+import com.netease.yidun.sdk.core.utils.UUIDUtils;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -75,17 +77,23 @@ public abstract class AbstractCallbackHandler<T> {
             callbackExecutor.execute(() -> {
                 long wasteCount = 0;
                 // 不停循环获取待回调数据
+                String requestId = generateRequestId();
+                CallbackContext context = new CallbackContext();
                 while (!isClose) {
                     List<T> callbackData = null;
                     try {
-                        callbackData = requestCallback(profile.getBusinessId());
+                        callbackData = requestCallback(profile.getBusinessId(), requestId);
                     } catch (Exception e) {
                         log.error("fetch callback data fails, retry!", e);
                     }
                     try {
                         if (callbackData != null && callbackData.size() > 0) {
                             handle(callbackData);
+                            context.setRequestId(requestId);
+                            postHandle(context);
                             wasteCount = 0;
+                            // 如果用户handle爆出exception，则这里不会更新，下次获取到重复的数据，重复推送给handle方法
+                            requestId = generateRequestId();
                         } else {
                             ++wasteCount;
                             // 获取不到新数据，则可能没有回调数据，等待一段时间，再重试获取
@@ -120,7 +128,7 @@ public abstract class AbstractCallbackHandler<T> {
         }
     }
 
-    protected abstract List<T> requestCallback(String businessId);
+    protected abstract List<T> requestCallback(String businessId, String requestId);
 
     /**
      * 获取到待回调数据交给业务方处理，现阶段的实现方式，无法保证数据不重复
@@ -129,4 +137,14 @@ public abstract class AbstractCallbackHandler<T> {
      */
     public abstract void handle(List<T> callbackData);
 
+    /**
+     * 用于handle业务处理完成后做一些事情
+     */
+    protected void postHandle(CallbackContext context){
+        // do nothing
+    }
+
+    protected String generateRequestId(){
+        return UUIDUtils.randomUUID();
+    }
 }
