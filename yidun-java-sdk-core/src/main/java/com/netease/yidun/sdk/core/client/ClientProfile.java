@@ -11,6 +11,7 @@ import com.netease.yidun.sdk.core.auth.SignerImpl;
 import com.netease.yidun.sdk.core.endpoint.EndpointConfigEntry;
 import com.netease.yidun.sdk.core.endpoint.failover.FixedWindowBreakStrategy;
 import com.netease.yidun.sdk.core.http.HttpClientConfig;
+import com.netease.yidun.sdk.core.recover.RequestRecover;
 import com.netease.yidun.sdk.core.request.BaseRequest;
 
 public class ClientProfile {
@@ -35,6 +36,7 @@ public class ClientProfile {
     private HttpClientConfig httpClientConfig;
     private FixedWindowBreakStrategy.Config breakerConfig;
     private int maxRetryCount = DEFAULT_MAX_RETRY_COUNT;
+    private RequestRecover requestRecover;
 
     private List<Class<?>> preheatRequestClassesForValidation = new ArrayList<>();
     private List<BaseRequest> preheatRequestsForValidation = new ArrayList<>();
@@ -206,6 +208,26 @@ public class ClientProfile {
             preheatRequestClassesForValidation.add(clazz);
         }
 
+        return this;
+    }
+
+    public RequestRecover getRequestRecover() {
+        return requestRecover;
+    }
+
+    public void setRequestRecover(RequestRecover requestRecover) {
+        this.requestRecover = requestRecover;
+    }
+
+    public RequestRecover requestRecover() {
+        return requestRecover;
+    }
+
+    /**
+     * 请求失败恢复器
+     */
+    public ClientProfile requestRecover(RequestRecover requestRecover) {
+        setRequestRecover(requestRecover);
         return this;
     }
 

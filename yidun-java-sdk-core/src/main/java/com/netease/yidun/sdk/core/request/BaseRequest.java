@@ -39,6 +39,11 @@ public abstract class BaseRequest<T extends BaseResponse> {
     @NotNull(message = "method不能为空")
     protected HttpMethodEnum method;
 
+    /**
+     * 是否是恢复请求
+     */
+    private boolean isRecover = false;
+
     public String getRegionCode() {
         return regionCode;
     }
@@ -145,6 +150,14 @@ public abstract class BaseRequest<T extends BaseResponse> {
     public abstract Class<T> getResponseClass();
 
     public abstract HttpRequest toHttpRequest(Signer signer, Credentials credentials);
+
+    public boolean isRecover() {
+        return isRecover;
+    }
+
+    public void setRecover(boolean recover) {
+        isRecover = recover;
+    }
 
     @Override
     public String toString() {
