@@ -116,7 +116,7 @@ public class MediaCensorResponse {
         this.reviewEvidences = reviewEvidences;
     }
 
-    private static class MediaCensorReviewEvidence {
+    public static class MediaCensorReviewEvidence {
         private String reason;
         private String remark;
         private Set<CensorLabel> censorLabels;
@@ -664,7 +664,7 @@ public class MediaCensorResponse {
         }
     }
 
-    private class CensorLabel {
+    public static class CensorLabel {
         private String code;
         private String name;
         private String customCode;

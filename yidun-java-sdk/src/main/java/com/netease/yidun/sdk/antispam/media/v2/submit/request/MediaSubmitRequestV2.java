@@ -87,6 +87,10 @@ public class MediaSubmitRequestV2 extends PostFormRequest<MediaCheckResponseV2> 
      * publishTime
      */
     private Long publishTime;
+    /**
+     * 语种
+     */
+    private String checkLanguageCode;
 
     /**
      * 反作弊的 token，当开通反作弊时，抄送到反作弊服务
@@ -112,6 +116,7 @@ public class MediaSubmitRequestV2 extends PostFormRequest<MediaCheckResponseV2> 
         params.put("callback", getCallback());
         params.put("callbackUrl", getCallbackUrl());
         params.put("publishTime", getPublishTime());
+        params.put("checkLanguageCode", getCheckLanguageCode());
         params.put("token", getToken());
         if (content != null && !content.isEmpty()) {
             params.put("content", GSON.toJson(getContent()));
@@ -152,7 +157,7 @@ public class MediaSubmitRequestV2 extends PostFormRequest<MediaCheckResponseV2> 
         /**
          * 子数据数据配置，主要是针对于过检数据的特定参数设置
          */
-        private Map<String, Integer> config;
+        private Map<String, String> config;
 
         public DataItem type(String type) {
             this.type = type;
@@ -169,7 +174,7 @@ public class MediaSubmitRequestV2 extends PostFormRequest<MediaCheckResponseV2> 
             return this;
         }
 
-        public DataItem config(String key, Integer value) {
+        public DataItem config(String key, String value) {
             if (config == null) {
                 config = new HashMap<>();
             }
@@ -201,11 +206,11 @@ public class MediaSubmitRequestV2 extends PostFormRequest<MediaCheckResponseV2> 
             this.dataId = dataId;
         }
 
-        public Map<String, Integer> getConfig() {
+        public Map<String, String> getConfig() {
             return config;
         }
 
-        public void setConfig(Map<String, Integer> config) {
+        public void setConfig(Map<String, String> config) {
             this.config = config;
         }
 
@@ -381,6 +386,14 @@ public class MediaSubmitRequestV2 extends PostFormRequest<MediaCheckResponseV2> 
         this.publishTime = publishTime;
     }
 
+    public String getCheckLanguageCode() {
+        return checkLanguageCode;
+    }
+
+    public void setCheckLanguageCode(String checkLanguageCode) {
+        this.checkLanguageCode = checkLanguageCode;
+    }
+
     public String getToken() {
         return token;
     }
@@ -404,6 +417,7 @@ public class MediaSubmitRequestV2 extends PostFormRequest<MediaCheckResponseV2> 
                 ", callback='" + callback + '\'' +
                 ", callbackUrl='" + callbackUrl + '\'' +
                 ", publishTime=" + publishTime +
+                ", checkLanguageCode=" + checkLanguageCode +
                 ", token='" + token + '\'' +
                 '}';
     }
