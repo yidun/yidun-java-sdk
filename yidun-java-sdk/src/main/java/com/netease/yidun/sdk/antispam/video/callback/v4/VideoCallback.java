@@ -31,9 +31,10 @@ public abstract class VideoCallback extends AbstractCallbackHandler<VideoCallbac
     }
 
     @Override
-    protected List<VideoCallbackV4Result> requestCallback(String businessId) {
+    protected List<VideoCallbackV4Result> requestCallback(String businessId, String requestId) {
         VideoCallbackV4Req request = new VideoCallbackV4Req();
         request.setBusinessId(businessId);
+        request.setYidunRequestId(requestId);
         VideoCallbackV4Resp callbackResponse = antispamRequester.getVideoCommonClient().callback(request);
         if (callbackResponse == null) {
             return null;

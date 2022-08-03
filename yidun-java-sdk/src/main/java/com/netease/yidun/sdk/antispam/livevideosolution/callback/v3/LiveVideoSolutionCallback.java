@@ -17,8 +17,9 @@ public abstract class LiveVideoSolutionCallback extends AbstractCallbackHandler<
     }
 
     @Override
-    protected List<LiveVideoSolutionCallbackV3Result> requestCallback(String businessId) {
+    protected List<LiveVideoSolutionCallbackV3Result> requestCallback(String businessId, String requestId) {
         LiveWallSolutionCallbackV3Req request = new LiveWallSolutionCallbackV3Req();
+        request.setYidunRequestId(requestId);
         LiveWallSolutionCallbackV3Resp callbackResponse = antispamRequester.getLiveVideoSolutionCommonClient()
                 .callback(request);
         if (callbackResponse == null) {

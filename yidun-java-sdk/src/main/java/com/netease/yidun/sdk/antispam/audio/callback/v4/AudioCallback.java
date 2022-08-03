@@ -31,9 +31,10 @@ public abstract class AudioCallback extends AbstractCallbackHandler<AudioCallbac
     }
 
     @Override
-    protected List<AudioCallbackV4Result> requestCallback(String businessId) {
+    protected List<AudioCallbackV4Result> requestCallback(String businessId, String requestId) {
         AudioCallbackV4Request request = new AudioCallbackV4Request();
         request.setBusinessId(businessId);
+        request.setYidunRequestId(requestId);
         AudioCallbackV4Response callbackResponse = antispamRequester.getAudioCommonClient().callback(request);
         if (callbackResponse == null) {
             return null;
