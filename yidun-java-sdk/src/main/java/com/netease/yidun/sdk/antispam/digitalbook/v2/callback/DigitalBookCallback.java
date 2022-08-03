@@ -26,8 +26,9 @@ public abstract class DigitalBookCallback
     }
 
     @Override
-    protected List<DigitalBookCallbackResponseV2.DigitalBookCheckResult> requestCallback(String businessId) {
+    protected List<DigitalBookCallbackResponseV2.DigitalBookCheckResult> requestCallback(String businessId, String requestId) {
         DigitalBookCallbackRequestV2 request = new DigitalBookCallbackRequestV2();
+        request.setYidunRequestId(requestId);
         DigitalBookCallbackResponseV2 callbackResponse = antispamRequester.getDigitalBookQueryClient()
                 .callback(request);
         if (callbackResponse == null) {

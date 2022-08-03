@@ -26,8 +26,9 @@ public abstract class FileCallback
     }
 
     @Override
-    protected List<FileCallbackV2Response.FileCallbackV2Resp> requestCallback(String businessId) {
+    protected List<FileCallbackV2Response.FileCallbackV2Resp> requestCallback(String businessId,String requestId) {
         FileCallbackV2Request request = new FileCallbackV2Request();
+        request.setYidunRequestId(requestId);
         FileCallbackV2Response callbackResponse = antispamRequester.getFileSolutionQueryClient()
                 .callback(request);
         if (callbackResponse == null) {

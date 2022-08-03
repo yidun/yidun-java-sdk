@@ -9,6 +9,11 @@ import com.netease.yidun.sdk.core.request.PostFormRequest;
  */
 public class ReportCallbackRequestV1 extends PostFormRequest<ReportCallbackResponseV1> {
 
+    /**
+     * 请求的唯一ID
+     */
+    private String yidunRequestId;
+
     public ReportCallbackRequestV1() {
         productCode = "report";
         uriPattern = "/v1/report/callback/results";
@@ -20,4 +25,11 @@ public class ReportCallbackRequestV1 extends PostFormRequest<ReportCallbackRespo
         return ReportCallbackResponseV1.class;
     }
 
+    public String getYidunRequestId() {
+        return yidunRequestId;
+    }
+
+    public void setYidunRequestId(String yidunRequestId) {
+        this.yidunRequestId = yidunRequestId;
+    }
 }

@@ -9,6 +9,11 @@ import com.netease.yidun.sdk.core.request.PostFormRequest;
  */
 public class FileCallbackV2Request extends PostFormRequest<FileCallbackV2Response> {
 
+    /**
+     * 请求的唯一ID
+     */
+    private String yidunRequestId;
+
     public FileCallbackV2Request() {
         productCode = "file";
         uriPattern = "/v2/file/callback/results";
@@ -19,5 +24,13 @@ public class FileCallbackV2Request extends PostFormRequest<FileCallbackV2Respons
     @Override
     public Class<FileCallbackV2Response> getResponseClass() {
         return FileCallbackV2Response.class;
+    }
+
+    public String getYidunRequestId() {
+        return yidunRequestId;
+    }
+
+    public void setYidunRequestId(String yidunRequestId) {
+        this.yidunRequestId = yidunRequestId;
     }
 }

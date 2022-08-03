@@ -8,6 +8,12 @@ import com.netease.yidun.sdk.core.request.PostFormRequest;
  */
 public class MediaCallbackRequestV2 extends PostFormRequest<MediaCallbackResponseV2> {
 
+
+    /**
+     * 请求的唯一ID
+     */
+    private String yidunRequestId;
+
     public MediaCallbackRequestV2() {
         productCode = "media";
         uriPattern = "/v2/mediasolution/callback/results";
@@ -19,4 +25,11 @@ public class MediaCallbackRequestV2 extends PostFormRequest<MediaCallbackRespons
         return MediaCallbackResponseV2.class;
     }
 
+    public String getYidunRequestId() {
+        return yidunRequestId;
+    }
+
+    public void setYidunRequestId(String yidunRequestId) {
+        this.yidunRequestId = yidunRequestId;
+    }
 }

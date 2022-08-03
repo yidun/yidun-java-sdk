@@ -25,7 +25,7 @@ public abstract class MediaCallback extends AbstractCallbackHandler<MediaCallbac
     }
 
     @Override
-    protected List<MediaCallbackResponseV2.MediaCheckResult> requestCallback(String businessId) {
+    protected List<MediaCallbackResponseV2.MediaCheckResult> requestCallback(String businessId,String requestId) {
         MediaCallbackRequestV2 request = new MediaCallbackRequestV2();
         MediaCallbackResponseV2 callbackResponse = antispamRequester.getMediaQueryClient().callback(request);
         if (callbackResponse == null) {
