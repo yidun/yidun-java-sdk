@@ -4,7 +4,6 @@ import java.util.Map;
 
 import com.netease.yidun.sdk.antispam.livevideo.callback.v4.response.LiveVideoCallbackResp;
 import com.netease.yidun.sdk.core.request.BizPostFormRequest;
-import com.netease.yidun.sdk.core.utils.UUIDUtils;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -30,14 +29,13 @@ public class LiveVideoCallbackReq extends BizPostFormRequest<LiveVideoCallbackRe
     @Override
     protected Map<String, String> getCustomSignParams() {
         Map<String, String> params = super.getCustomSignParams();
-        params.put("yidunRequestId", getYidunRequestId());
+        if (yidunRequestId != null) {
+            params.put("yidunRequestId", getYidunRequestId());
+        }
         return params;
     }
 
     public String getYidunRequestId() {
-        if (yidunRequestId == null) {
-            yidunRequestId = UUIDUtils.randomUUID();
-        }
         return yidunRequestId;
     }
 

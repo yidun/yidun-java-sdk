@@ -4,7 +4,6 @@ import java.util.Map;
 
 import com.netease.yidun.sdk.antispam.videosolution.callback.v2.response.VideoSolutionCallbackV2Resp;
 import com.netease.yidun.sdk.core.request.PostFormRequest;
-import com.netease.yidun.sdk.core.utils.UUIDUtils;
 
 import lombok.Data;
 
@@ -25,14 +24,13 @@ public class VideoSolutionCallbackV2Req extends PostFormRequest<VideoSolutionCal
     @Override
     protected Map<String, String> getCustomSignParams() {
         Map<String, String> params = super.getCustomSignParams();
-        params.put("yidunRequestId", getYidunRequestId());
+        if (yidunRequestId != null) {
+            params.put("yidunRequestId", getYidunRequestId());
+        }
         return params;
     }
 
     public String getYidunRequestId() {
-        if (yidunRequestId == null) {
-            yidunRequestId = UUIDUtils.randomUUID();
-        }
         return yidunRequestId;
     }
 
