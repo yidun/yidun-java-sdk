@@ -25,8 +25,9 @@ public abstract class ReportCallback extends AbstractCallbackHandler<ReportCallb
     }
 
     @Override
-    protected List<ReportCallbackResponseV1.ReportCheckResult> requestCallback(String businessId) {
+    protected List<ReportCallbackResponseV1.ReportCheckResult> requestCallback(String businessId,String requestId) {
         ReportCallbackRequestV1 request = new ReportCallbackRequestV1();
+        request.setYidunRequestId(requestId);
         ReportCallbackResponseV1 callbackResponse = antispamRequester.getReportQueryClient().callback(request);
         if (callbackResponse == null) {
             return Collections.emptyList();

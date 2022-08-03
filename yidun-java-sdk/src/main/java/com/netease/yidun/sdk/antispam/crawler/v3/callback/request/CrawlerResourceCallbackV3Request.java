@@ -8,15 +8,28 @@ import com.netease.yidun.sdk.core.request.PostFormRequest;
  */
 public class CrawlerResourceCallbackV3Request extends PostFormRequest<CrawlerResourceCallbackV3Response> {
 
+    /**
+     * 请求的唯一ID
+     */
+    private String yidunRequestId;
+
     public CrawlerResourceCallbackV3Request() {
         productCode = "crawler";
         uriPattern = "/v3/crawler/callback/results";
         version = "v3.0";
     }
 
+
     @Override
     public Class<CrawlerResourceCallbackV3Response> getResponseClass() {
         return CrawlerResourceCallbackV3Response.class;
     }
 
+    public String getYidunRequestId() {
+        return yidunRequestId;
+    }
+
+    public void setYidunRequestId(String yidunRequestId) {
+        this.yidunRequestId = yidunRequestId;
+    }
 }

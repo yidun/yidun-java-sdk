@@ -26,8 +26,9 @@ public abstract class CrawlerCallback
     }
 
     @Override
-    protected List<CrawlerResourceCallbackV3Response.CrawlerResourceResult> requestCallback(String businessId) {
+    protected List<CrawlerResourceCallbackV3Response.CrawlerResourceResult> requestCallback(String businessId, String requestId) {
         CrawlerResourceCallbackV3Request request = new CrawlerResourceCallbackV3Request();
+        request.setYidunRequestId(requestId);
         CrawlerResourceCallbackV3Response callbackResponse = antispamRequester.getCrawlerCallbackClient()
                 .callbackResource(request);
         if (callbackResponse == null) {
