@@ -31,9 +31,10 @@ public abstract class LiveAudioCallback extends AbstractCallbackHandler<LiveAudi
     }
 
     @Override
-    protected List<LiveAudioCallbackV4Result> requestCallback(String businessId) {
+    protected List<LiveAudioCallbackV4Result> requestCallback(String businessId, String requestId) {
         LiveAudioCallbackV4Req request = new LiveAudioCallbackV4Req();
         request.setBusinessId(businessId);
+        request.setYidunRequestId(requestId);
         LiveAudioCallbackV4Resp callbackResponse = antispamRequester.getLiveAudioCommonClient().callback(request);
         if (callbackResponse == null) {
             return null;

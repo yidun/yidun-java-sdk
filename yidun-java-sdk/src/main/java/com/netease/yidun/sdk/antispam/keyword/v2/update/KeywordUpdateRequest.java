@@ -1,10 +1,10 @@
 package com.netease.yidun.sdk.antispam.keyword.v2.update;
 
-import com.google.gson.Gson;
-import com.netease.yidun.sdk.core.request.BizPostFormRequest;
-
 import java.util.List;
 import java.util.Map;
+
+import com.google.gson.Gson;
+import com.netease.yidun.sdk.core.request.BizPostFormRequest;
 
 /**
  * 自定义关键词修改请求
@@ -29,6 +29,16 @@ public class KeywordUpdateRequest extends BizPostFormRequest<KeywordUpdateRespon
      * 关键词状态，0: 未启用，1: 已启用
      */
     private Integer status;
+
+    private Integer level;
+
+    public Integer getLevel() {
+        return level;
+    }
+
+    public void setLevel(Integer level) {
+        this.level = level;
+    }
 
     public Integer getCategory() {
         return category;
@@ -129,6 +139,9 @@ public class KeywordUpdateRequest extends BizPostFormRequest<KeywordUpdateRespon
         params.put("ids", ids);
         if (keywords != null && keywords.size() > 0) {
             params.put("keywords", new Gson().toJson(keywords));
+        }
+        if (level != null) {
+            params.put("level", String.valueOf(getLevel()));
         }
         params.put("status", status != null ? String.valueOf(status) : null);
         return params;
