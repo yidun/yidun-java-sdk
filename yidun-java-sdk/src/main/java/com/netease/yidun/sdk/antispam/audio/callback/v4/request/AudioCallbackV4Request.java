@@ -4,7 +4,6 @@ import java.util.Map;
 
 import com.netease.yidun.sdk.antispam.audio.callback.v4.response.AudioCallbackV4Response;
 import com.netease.yidun.sdk.core.request.BizPostFormRequest;
-import com.netease.yidun.sdk.core.utils.UUIDUtils;
 
 public class AudioCallbackV4Request extends BizPostFormRequest<AudioCallbackV4Response> {
     /**
@@ -21,14 +20,13 @@ public class AudioCallbackV4Request extends BizPostFormRequest<AudioCallbackV4Re
     @Override
     protected Map<String, String> getCustomSignParams() {
         Map<String, String> params = super.getCustomSignParams();
-        params.put("yidunRequestId", getYidunRequestId());
+        if (yidunRequestId != null) {
+            params.put("yidunRequestId", getYidunRequestId());
+        }
         return params;
     }
 
     public String getYidunRequestId() {
-        if (yidunRequestId == null) {
-            yidunRequestId = UUIDUtils.randomUUID();
-        }
         return yidunRequestId;
     }
 
