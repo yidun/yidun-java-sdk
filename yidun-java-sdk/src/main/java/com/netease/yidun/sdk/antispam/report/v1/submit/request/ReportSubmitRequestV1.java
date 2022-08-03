@@ -116,6 +116,11 @@ public class ReportSubmitRequestV1 extends PostFormRequest<ReportCheckResponseV1
     @Size(max = 64, message = "roomId最长64个字符")
     private String roomId;
 
+    /**
+     * 语种
+     */
+    private String checkLanguageCode;
+
     public ReportSubmitRequestV1() {
         productCode = "report";
         uriPattern = "/v1/report/submit";
@@ -138,6 +143,7 @@ public class ReportSubmitRequestV1 extends PostFormRequest<ReportCheckResponseV1
         params.put("scenarios", getScenarios());
         params.put("reportType", getReportType());
         params.put("roomId", getRoomId());
+        params.put("checkLanguageCode", getCheckLanguageCode());
         if (content != null && !content.isEmpty()) {
             params.put("content", GSON.toJson(getContent()));
         }
@@ -448,6 +454,14 @@ public class ReportSubmitRequestV1 extends PostFormRequest<ReportCheckResponseV1
         this.roomId = roomId;
     }
 
+    public String getCheckLanguageCode() {
+        return checkLanguageCode;
+    }
+
+    public void setCheckLanguageCode(String checkLanguageCode) {
+        this.checkLanguageCode = checkLanguageCode;
+    }
+
     @Override
     public String toString() {
         return "ReportSubmitRequestV1{" +
@@ -468,6 +482,7 @@ public class ReportSubmitRequestV1 extends PostFormRequest<ReportCheckResponseV1
                 ", scenarios='" + scenarios + '\'' +
                 ", reportType='" + reportType + '\'' +
                 ", roomId='" + roomId + '\'' +
+                ", checkLanguageCode='" + checkLanguageCode + '\'' +
                 '}';
     }
 }
