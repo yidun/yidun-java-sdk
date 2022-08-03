@@ -29,9 +29,6 @@ public class ImageV5CallbackRequest extends ImageV5Request<ImageV5CheckResponse>
     }
 
     public String getYidunRequestId() {
-        if (yidunRequestId == null) {
-            yidunRequestId = UUIDUtils.randomUUID();
-        }
         return yidunRequestId;
     }
 
