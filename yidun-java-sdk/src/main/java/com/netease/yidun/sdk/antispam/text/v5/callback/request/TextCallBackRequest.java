@@ -13,6 +13,18 @@ public class TextCallBackRequest extends BizPostFormRequest<TextCallBackResponse
         version = "v5.2";
         uriPattern = "/v5/text/callback/results";
     }
+    /**
+     * 请求的唯一ID
+     */
+    private String yidunRequestId;
+
+    public String getYidunRequestId() {
+        return yidunRequestId;
+    }
+
+    public void setYidunRequestId(String yidunRequestId) {
+        this.yidunRequestId = yidunRequestId;
+    }
 
     @Override
     public Class<TextCallBackResponse> getResponseClass() {
