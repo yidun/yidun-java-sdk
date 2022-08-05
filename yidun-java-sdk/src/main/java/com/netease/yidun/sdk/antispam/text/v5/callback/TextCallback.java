@@ -31,9 +31,10 @@ public abstract class TextCallback extends AbstractCallbackHandler<TextCheckResu
     }
 
     @Override
-    protected List<TextCheckResult> requestCallback(String businessId) {
+    protected List<TextCheckResult> requestCallback(String businessId,String requestId) {
         TextCallBackRequest request = new TextCallBackRequest();
         request.setBusinessId(businessId);
+        request.setYidunRequestId(requestId);
         TextCallBackResponse callbackResponse = antispamRequester.getTextCommonClient().callback(request);
         if (callbackResponse == null) {
             return null;
