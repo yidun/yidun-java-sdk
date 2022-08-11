@@ -40,9 +40,9 @@ public abstract class BaseRequest<T extends BaseResponse> {
     protected HttpMethodEnum method;
 
     /**
-     * 是否是恢复请求
+     * 当前请求是否启动recover
      */
-    private boolean isRecover = false;
+    private boolean enableRecover = true;
 
     public String getRegionCode() {
         return regionCode;
@@ -151,12 +151,12 @@ public abstract class BaseRequest<T extends BaseResponse> {
 
     public abstract HttpRequest toHttpRequest(Signer signer, Credentials credentials);
 
-    public boolean isRecover() {
-        return isRecover;
+    public boolean isEnableRecover() {
+        return enableRecover;
     }
 
-    public void setRecover(boolean recover) {
-        isRecover = recover;
+    public void setEnableRecover(boolean enableRecover) {
+        this.enableRecover = enableRecover;
     }
 
     @Override

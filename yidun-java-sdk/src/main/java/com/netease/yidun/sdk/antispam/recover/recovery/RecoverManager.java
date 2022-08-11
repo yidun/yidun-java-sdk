@@ -28,11 +28,6 @@ public class RecoverManager implements LifeCycle {
 
     private static final Logger log = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
-    /**
-     * 恢复任务初始延时
-     */
-    private final static long initialDelayInSec = 300;
-
     private final RecoverConfig recoverConfig;
     private final ScheduledThreadPoolExecutor recoverScheduled;
 
@@ -57,7 +52,7 @@ public class RecoverManager implements LifeCycle {
         Files.createDirectories(Paths.get(recoverConfig.getBasePath()));
 
         recoverScheduled.scheduleWithFixedDelay(
-                new RecoverTask(recoverConfig), initialDelayInSec,
+                new RecoverTask(recoverConfig), recoverConfig.getInitialDelayInSec(),
                 recoverConfig.getClusterCleanIntervalInSec(), TimeUnit.SECONDS
         );
     }

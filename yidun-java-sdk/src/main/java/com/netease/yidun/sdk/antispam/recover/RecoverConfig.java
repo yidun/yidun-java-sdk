@@ -4,6 +4,8 @@ import com.netease.yidun.sdk.core.utils.NetUtils;
 import com.netease.yidun.sdk.core.utils.StringUtils;
 import lombok.Data;
 
+import java.io.File;
+
 /**
  * @author ruicha
  * @version 2022-06-23
@@ -16,16 +18,20 @@ public class RecoverConfig {
 
     /**
      * 恢复器恢复失败之后间隔的时间
-     * 默认5s秒
+     * 默认30s秒
      */
-    private long recoverFailRetryIntervalInSec = 5L;
+    private long recoverFailRetryIntervalInSec = 30L;
 
     /**
-     * 兼容老逻辑
-     * 可以被覆盖
+     * 恢复任务初始延时
+     */
+    private long initialDelayInSec = 180;
+
+    /**
+     * 恢复文件所在的目录
      * base path, should not endsWith /
      */
-    private String recoverFileDir = System.getProperty("log.dir");
+    private String recoverFileDir;
 
     /**
      * appName
@@ -39,9 +45,9 @@ public class RecoverConfig {
 
     /**
      * 单个恢复文件大小限制
-     * 默认 -1, < 0 时代表不限制
+     * 默认 20G, < 0 时代表不限制
      */
-    private long recoverFileSizeLimitInMB = -1;
+    private long recoverFileSizeLimitInMB = 1024 * 20;
 
     /**
      * 恢复文件清理任务 - 执行间隔
@@ -74,22 +80,27 @@ public class RecoverConfig {
     private final String localAddress = NetUtils.getLocalHost();
 
     public String getBasePath() {
+        String dir = recoverFileDir;
+        if(!recoverFileDir.endsWith(File.separator)){
+            dir += File.separator;
+        }
+
         return StringUtils.isNotBlank(appName) ?
-                recoverFileDir + "/" + appName : recoverFileDir;
+                dir + appName + File.separator : dir;
     }
 
     public String getRecoverFilePath(String dbName) {
-        return ipIsolateEnable ? String.format("%s/%s_%s%s", getBasePath(), localAddress, dbName, RECOVER_FILE_SUFFIX)
-                : String.format("%s/%s%s", getBasePath(), dbName, RECOVER_FILE_SUFFIX);
+        return ipIsolateEnable ? getBasePath() + String.format("%s_%s%s", localAddress, dbName, RECOVER_FILE_SUFFIX)
+                : getBasePath() + String.format("%s%s", dbName, RECOVER_FILE_SUFFIX);
     }
 
 
     public String getRecoverErrorFilePath(String dbName) {
-        return String.format("%s/%s%s", getBasePath(), dbName, RECOVER_ERROR_FILE_SUFFIX);
+        return getBasePath() + dbName + RECOVER_ERROR_FILE_SUFFIX;
     }
 
     public String getRecoverLockFilePath() {
-        return String.format("%s/recovery.lock", getBasePath());
+        return getBasePath() + "recovery.lock";
     }
 
     public boolean fileSizeLimitEnable() {

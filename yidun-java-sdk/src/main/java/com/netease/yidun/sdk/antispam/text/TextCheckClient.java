@@ -32,4 +32,9 @@ public class TextCheckClient extends AntispamClient {
     public TextAsyncBatchCheckResponse asyncBatchCheckText(TextAsyncBatchCheckRequest request) {
         return client.execute(request);
     }
+
+    @Override
+    protected String clientName() {
+        return "TextCheck";
+    }
 }

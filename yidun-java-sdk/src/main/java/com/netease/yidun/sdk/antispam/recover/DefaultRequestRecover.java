@@ -1,117 +1,92 @@
 package com.netease.yidun.sdk.antispam.recover;
 
-import com.google.gson.Gson;
-import com.netease.yidun.sdk.antispam.callback.AbstractCallbackHandler;
 import com.netease.yidun.sdk.core.client.Client;
 import com.netease.yidun.sdk.core.recover.RecoverMessage;
 import com.netease.yidun.sdk.core.recover.RequestRecover;
-import com.netease.yidun.sdk.core.request.BaseRequest;
 import com.netease.yidun.sdk.core.response.BaseResponse;
+import com.netease.yidun.sdk.core.utils.AssertUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.lang.invoke.MethodHandles;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-public class DefaultRequestRecover extends WrapRecover<RecoverMessage> implements RequestRecover {
+public class DefaultRequestRecover implements RequestRecover {
 
     private static final Logger log = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
-    private Map<Class<? extends BaseResponse>, BaseResponse> fallbackMap = new HashMap<>();
-    private Map<Class<?>, AbstractCallbackHandler> callbackHandlerMap = new HashMap<>();
-    private Client client;
-    private Gson gson = new Gson();
+    private RequestRecoverRegistry requestRecoverRegistry;
 
-    public DefaultRequestRecover(RecoverConfig recoverConfig) {
-        super(recoverConfig);
+    private DefaultRequestRecover(RecoverConfig recoverConfig) {
+        AssertUtils.notBlank(recoverConfig.getRecoverFileDir(), "recoverFileDir should not be empty");
+        requestRecoverRegistry = new RequestRecoverRegistry(recoverConfig);
+    }
+
+    public static DefaultRequestRecover createRecover(String recoverFileDir) {
+        RecoverConfig recoverConfig = new RecoverConfig();
+        recoverConfig.setRecoverFileDir(recoverFileDir);
+        return createRecover(recoverConfig);
+    }
+
+    public static DefaultRequestRecover createRecover(RecoverConfig recoverConfig) {
+        return new DefaultRequestRecover(recoverConfig);
+    }
+
+    /**
+     * 当前请求是否支持故障恢复
+     *
+     * @param responseClass
+     * @return
+     */
+    @Override
+    public boolean isSupport(Class<?> responseClass) {
+        return requestRecoverRegistry.getRecoverHandler(responseClass) != null;
     }
 
     @Override
-    public boolean doRecover(RecoverMessage message) {
+    public boolean doRecover(RecoverMessage message, Class<?> responseClass) {
         // 消息加入文件恢复
-        recover(message);
-        return true;
-    }
-
-    public void registerCallbackHandler(AbstractCallbackHandler callbackHandler) {
-        if (callbackHandler == null) {
-            return;
-        }
-        Type type = callbackHandler.getClass().getGenericSuperclass();
-        if (type instanceof ParameterizedType) {
-            callbackHandlerMap.put((Class<?>) ((ParameterizedType) type).getActualTypeArguments()[0], callbackHandler);
-        } else {
-            throw new IllegalArgumentException("not support class type");
-        }
-    }
-
-    public <T extends BaseResponse> void registerFallbackResponse(T fallbackResponse) {
-        if (fallbackResponse == null) {
-            return;
-        }
-        fallbackMap.put(fallbackResponse.getClass(), fallbackResponse);
-    }
-
-    @Override
-    public <T extends BaseResponse> T getFallbackResponse(Class<T> clazz) {
-        if (clazz == null) {
-            return null;
-        }
-        BaseResponse fallbackResp = fallbackMap.get(clazz);
-        if (fallbackResp == null) {
-            return null;
-        }
-        return (T) fallbackResp;
-    }
-
-    @Override
-    public boolean tryRecover(RecoverMessage data) {
-        // 文件恢复成功之后根据返回的结果，调用对应的callbackHandler来处理
-        BaseRequest request;
-        try {
-            Class<? extends BaseRequest> clazz = (Class<? extends BaseRequest>) Class.forName(data.getClazz());
-            request = gson.fromJson(data.getMessage(), clazz);
-            request.setRecover(true);
-        } catch (Exception e) {
-            log.error("recover message discard due to class not found or message invalid, class:{}, message:{}", data.getClazz(), data.getMessage(), e);
-            return true;
-        }
-
-        BaseResponse response;
-        try {
-            response = client.execute(request);
-        } catch (Exception e) {
+        FileRequestRecover fileRequestRecover = requestRecoverRegistry.getRecover(responseClass);
+        if (fileRequestRecover == null) {
             return false;
         }
-
-        AbstractCallbackHandler callbackHandler = callbackHandlerMap.get(response.getClass());
-        if (callbackHandler != null) {
-            List respList = new ArrayList(1);
-            respList.add(response);
-            try {
-                callbackHandler.handle(respList);
-            } catch (Exception e) {
-                log.error("recover message handler error, message:{}", data.getMessage());
-                return false;
-            }
-        } else {
-            log.error("recover message discard due to callback handler is not exist, message:{}", data.getMessage());
-        }
-
+        fileRequestRecover.recover(message);
         return true;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
+    /**
+     * clientProfile设置了请求恢复，且各个业务的client支持文件恢复时，每个client都会创建一个独立的file recover。
+     *
+     * @param responseClasses 请求的response的类
+     * @param recoverName     每个业务对应的文件恢复的文件标识
+     * @param client          用于执行请求恢复的client，每个client可能存在不同的clientProfile
+     */
+    public void registerRecover(List<Class<?>> responseClasses, String recoverName, Client client) {
+        requestRecoverRegistry.registerRecover(responseClasses, recoverName, client);
+    }
+
+    /**
+     * 不同请求的response类，注册对应的handler，如果多个请求的response类相同，则只能注册一个handler
+     *
+     * @param handler 请求恢复成功后，业务方处理请求结果的handler
+     */
+    public void registerRecoverHandler(AbstractRequestRecoverHandler handler) {
+        requestRecoverRegistry.registerRecoverHandler(handler);
+    }
+
+    /**
+     * 当请求失败时，默认返回的请求结果
+     *
+     * @param fallbackResponse 默认返回的结果
+     * @param <T>
+     */
+    public <T extends BaseResponse> void registerFallback(T fallbackResponse) {
+        requestRecoverRegistry.registerFallback(fallbackResponse);
     }
 
     @Override
-    protected String getDbName() {
-        return null;
+    public <T extends BaseResponse> T getFallbackResponse(Class<T> responseClass) {
+        return requestRecoverRegistry.getFallback(responseClass);
     }
+
 }
