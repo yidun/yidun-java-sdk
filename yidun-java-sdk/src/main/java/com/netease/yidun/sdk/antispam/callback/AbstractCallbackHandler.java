@@ -2,6 +2,11 @@
 
 package com.netease.yidun.sdk.antispam.callback;
 
+import com.netease.yidun.sdk.antispam.AntispamRequester;
+import com.netease.yidun.sdk.core.utils.AssertUtils;
+import com.netease.yidun.sdk.core.utils.UUIDUtils;
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.SynchronousQueue;
@@ -10,12 +15,6 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.LockSupport;
-
-import com.netease.yidun.sdk.antispam.AntispamRequester;
-import com.netease.yidun.sdk.core.utils.AssertUtils;
-
-import com.netease.yidun.sdk.core.utils.UUIDUtils;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * 用于处理回调相关

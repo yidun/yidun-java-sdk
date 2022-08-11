@@ -4,14 +4,21 @@ import com.netease.yidun.sdk.antispam.recover.DefaultRequestRecover;
 import com.netease.yidun.sdk.core.client.Client;
 import com.netease.yidun.sdk.core.client.ClientProfile;
 import com.netease.yidun.sdk.core.client.DefaultClient;
+import com.netease.yidun.sdk.core.response.BaseResponse;
 
-public class AntispamClient {
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public abstract class AntispamClient {
     protected Client client;
 
     public AntispamClient(ClientProfile clientProfile) {
         client = new DefaultClient(clientProfile);
-        if (clientProfile.getRequestRecover() != null && clientProfile.getRequestRecover() instanceof DefaultRequestRecover) {
-            ((DefaultRequestRecover) clientProfile.getRequestRecover()).setClient(client);
-        }
     }
+
+    protected String clientName() {
+        return null;
+    }
+
 }

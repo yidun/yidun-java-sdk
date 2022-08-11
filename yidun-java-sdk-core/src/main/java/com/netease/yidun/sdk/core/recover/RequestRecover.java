@@ -10,7 +10,14 @@ import com.netease.yidun.sdk.core.response.BaseResponse;
 
 public interface RequestRecover {
 
-    boolean doRecover(RecoverMessage message);
+    /**
+     * 当前request类是否支持恢复
+     * @param clazz
+     * @return
+     */
+    boolean isSupport(Class<?> clazz);
+
+    boolean doRecover(RecoverMessage message, Class<?> responseClass);
 
     <T extends BaseResponse> T getFallbackResponse(Class<T> clazz);
 }

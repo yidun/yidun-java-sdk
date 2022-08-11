@@ -23,7 +23,7 @@ public abstract class WrapRecover<T> implements Recover<T>, RecoverHandler<T> {
     private Class<T> entityClass;
 
     @SuppressWarnings("unchecked")
-    public WrapRecover(RecoverConfig recoverConfig) {
+    public WrapRecover(RecoverConfig recoverConfig, String dbName) {
         // 获得实体类
         Class<?> c = getClass();
         Type type = c.getGenericSuperclass();
@@ -33,15 +33,12 @@ public abstract class WrapRecover<T> implements Recover<T>, RecoverHandler<T> {
         }
         Type[] paramsType = ((ParameterizedType) type).getActualTypeArguments();
         this.entityClass = (Class<T>) paramsType[0];
-        String dbName = getDbName();
         if (StringUtils.isEmpty(dbName)) {
             dbName = entityClass.getSimpleName();
         }
         // 初始化恢复器
         this.realRecover = new DefaultRecover<>(this, dbName, entityClass, recoverConfig);
     }
-
-    protected abstract String getDbName();
 
     @Override
     public void recover(Collection<T> datas) {

@@ -236,18 +236,22 @@ public class DefaultClient implements Client, Closeable {
             return ctx.parseResponse();
         }
 
-        if (requestRecover == null || request.isRecover()) {
+        if (!request.isEnableRecover() || requestRecover == null || !requestRecover.isSupport(request.getResponseClass())) {
             throw exception;
         }
 
         RecoverMessage message = new RecoverMessage();
         message.setMessage(gson.toJson(request));
         message.setClazz(request.getClass().getName());
-        boolean success = requestRecover.doRecover(message);
+        boolean success = requestRecover.doRecover(message, request.getResponseClass());
         if (!success) {
             throw exception;
         }
-        return requestRecover.getFallbackResponse(request.getResponseClass());
+        R fallbackResponse = requestRecover.getFallbackResponse(request.getResponseClass());
+        if(fallbackResponse != null){
+            return fallbackResponse;
+        }
+        throw exception;
     }
 
     private class Context<R extends BaseResponse> {

@@ -13,6 +13,11 @@ public class ImageCheckClient extends AntispamClient {
         super(clientProfile);
     }
 
+    @Override
+    protected String clientName() {
+        return "ImageCheck";
+    }
+
     public ImageV5CheckResponse syncCheckImage(ImageV5SyncCheckRequest request) {
         return client.execute(request);
     }
