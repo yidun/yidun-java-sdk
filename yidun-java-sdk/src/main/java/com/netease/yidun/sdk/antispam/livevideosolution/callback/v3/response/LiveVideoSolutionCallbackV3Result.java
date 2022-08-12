@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 public class LiveVideoSolutionCallbackV3Result implements BaseResponse {
-    LiveVideoSolutionCallbackAntispamV3Result antispam;
+    private LiveVideoSolutionCallbackAntispamV3Result antispam;
 
     @Data
     public static class LiveVideoSolutionCallbackAntispamV3Result {
@@ -202,16 +202,28 @@ public class LiveVideoSolutionCallbackV3Result implements BaseResponse {
          */
         private int warnCount;
         /**
+         * 审核员账号
+         */
+        private String censorAccount;
+        /**
          * 截图证据
          */
         private List<Evidence> evidence;
-
+        /**
+         * 人审标签内容
+         */
         private List<LiveAudioMonitorCallbackUnitRespV4.CensorLabelInfo> censorLabels;
-
+        /**
+         * 人审视频截图信息
+         */
         private List<ReviewPicture> pictures;
-
+        /**
+         * 人审音频证据信息
+         */
         private List<ReviewSegment> segments;
-
+        /**
+         * 人审操作action时返回前20s的音频断句信息，用于还原场景
+         */
         private List<FrontAudioSegment> frontAudioSegment;
     }
 
@@ -224,14 +236,26 @@ public class LiveVideoSolutionCallbackV3Result implements BaseResponse {
     @Data
     @AllArgsConstructor
     public static class ReviewPicture {
+        /**
+         * 人审截图地址
+         */
         private String url;
     }
 
     @Data
     @AllArgsConstructor
     public static class ReviewSegment {
+        /**
+         * 人审断句开始时间
+         */
         private Long startTime;
+        /**
+         * 人审断句结束时间
+         */
         private Long endTime;
+        /**
+         * 人审断句语音识别内容
+         */
         private String content;
     }
 

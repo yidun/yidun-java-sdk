@@ -49,6 +49,10 @@ public class LiveAudioMonitorCallbackUnitRespV4 {
      */
     private String speakerId;
     /**
+     * 审核员账号
+     */
+    private String censorAccount;
+    /**
      * 审核标签
      */
     private List<AudioAntispamCallbackV4Response.CensorLabelInfo> censorLabels;
