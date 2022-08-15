@@ -19,5 +19,9 @@ public class LiveVideoCheckClient extends AntispamClient {
         return client.execute(request);
     }
 
+    @Override
+    protected String clientName() {
+        return "LiveVideoCheck";
+    }
 
 }

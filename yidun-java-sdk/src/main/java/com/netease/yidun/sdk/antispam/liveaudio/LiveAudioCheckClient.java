@@ -21,4 +21,8 @@ public class LiveAudioCheckClient extends AntispamClient {
     }
 
 
+    @Override
+    protected String clientName() {
+        return "LiveAudioCheck";
+    }
 }

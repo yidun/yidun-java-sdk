@@ -16,4 +16,9 @@ public class VideoCheckClient extends AntispamClient {
         return client.execute(request);
     }
 
+    @Override
+    protected String clientName() {
+        return "VideoCheck";
+    }
+
 }
