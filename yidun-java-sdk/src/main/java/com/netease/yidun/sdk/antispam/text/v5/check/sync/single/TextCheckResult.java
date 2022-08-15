@@ -464,7 +464,7 @@ public class TextCheckResult implements Serializable {
 
         private Integer type;
         private String entity;
-        private String endTime;
+        private String releaseTime;
 
         public Integer getType() {
             return type;
@@ -482,12 +482,12 @@ public class TextCheckResult implements Serializable {
             this.entity = entity;
         }
 
-        public String getEndTime() {
-            return endTime;
+        public String getReleaseTime() {
+            return releaseTime;
         }
 
-        public void setEndTime(String endTime) {
-            this.endTime = endTime;
+        public void setReleaseTime(String releaseTime) {
+            this.releaseTime = releaseTime;
         }
 
         @Override
@@ -495,7 +495,7 @@ public class TextCheckResult implements Serializable {
             return "AntispamSubLabelDetailLibInfo{" +
                     "type=" + type +
                     ", entity='" + entity + '\'' +
-                    ", endTime='" + endTime + '\'' +
+                    ", releaseTime='" + releaseTime + '\'' +
                     '}';
         }
     }

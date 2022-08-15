@@ -200,4 +200,17 @@
             </build>
         </profile>
     </profiles>
+    <distributionManagement>
+        <repository>
+            <id>central</id>
+            <name>repo</name>
+            <url>http://mvn.hz.netease.com/artifactory/libs-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>snapshots-only</name>
+            <url>http://mvn.hz.netease.com/artifactory/libs-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
 </project>
