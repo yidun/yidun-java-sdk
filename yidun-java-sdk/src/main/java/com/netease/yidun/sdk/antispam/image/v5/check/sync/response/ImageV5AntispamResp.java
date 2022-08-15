@@ -68,6 +68,19 @@ public class ImageV5AntispamResp implements Serializable {
      */
     private Integer customAction;
 
+    /**
+     * 分帧数
+     */
+    private Integer frameSize;
+
+    public Integer getFrameSize() {
+        return frameSize;
+    }
+
+    public void setFrameSize(Integer frameSize) {
+        this.frameSize = frameSize;
+    }
+
     public String getTaskId() {
         return taskId;
     }
