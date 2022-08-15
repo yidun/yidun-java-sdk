@@ -130,6 +130,7 @@ public class ImageV5SubLabelDetail implements Serializable {
         private Float y1;
         private Float x2;
         private Float y2;
+        private Long releaseTime;
 
         public String getWord() {
             return word;
@@ -201,6 +202,14 @@ public class ImageV5SubLabelDetail implements Serializable {
 
         public void setY2(Float y2) {
             this.y2 = y2;
+        }
+
+        public Long getReleaseTime() {
+            return releaseTime;
+        }
+
+        public void setReleaseTime(Long releaseTime) {
+            this.releaseTime = releaseTime;
         }
     }
 }
