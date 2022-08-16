@@ -224,7 +224,7 @@ public class LiveVideoSolutionCallbackV3Result implements BaseResponse {
         /**
          * 人审操作action时返回前20s的音频断句信息，用于还原场景
          */
-        private List<FrontAudioSegment> frontAudioSegment;
+        private FrontAudioSegment frontAudioSegment;
     }
 
     @Data
