@@ -39,7 +39,7 @@ public class MediaCallbackResponseV2 extends CommonResponse {
         private MediaAntiCheatResponse anticheat;
 
         /**
-         * 审核嘻嘻
+         * 审核信息
          */
         private MediaCensorResponse censor;
 
