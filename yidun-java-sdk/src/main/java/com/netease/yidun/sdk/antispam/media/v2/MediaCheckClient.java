@@ -18,4 +18,8 @@ public class MediaCheckClient extends AntispamClient {
         return client.execute(request);
     }
 
+    @Override
+    protected String clientName() {
+        return "MediaCheck";
+    }
 }

@@ -23,4 +23,10 @@ public class CrawlerSubmitClient extends AntispamClient {
     public CrawlerResourceSubmitV3Response submitResource(CrawlerResourceSubmitV3Request request) {
         return client.execute(request);
     }
+
+    @Override
+    protected String clientName() {
+        return "CrawlerSubmit";
+    }
+
 }
