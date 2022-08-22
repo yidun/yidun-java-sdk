@@ -80,3 +80,26 @@ SDK中各接口调用方式基本相同，接入方式统一，并提供了一�
   // 最大10次
   clientProfile.setMaxRetryCount(2);
   ```
+* 故障恢复
+
+  ```
+    ClientProfile clientProfile = AntispamRequester.createDefaultProfile("SecretId", "SecretKey");
+    // 创建文件恢复的执行器
+    DefaultRequestRecover requestRecover = DefaultRequestRecover.createRecover("恢复文件所在的目录");
+    // 注册故障恢复的handler，用于接口请求失败，异步重试成功后的处理逻辑，每个接口对应一个，必填
+    requestRecover.registerRecoverHandler(new AbstractRequestRecoverHandler<ImageV5CheckResponse>() {
+        @Override
+        public void handle(ImageV5CheckResponse response) {
+            // 请求异步恢复成功后，处理请求结果
+        }
+    });
+
+    // 注册请求失败后的fallback，用于接口请求失败，返回默认值，选填（不指定时，默认返回code为200的fallback对象）
+    ImageV5CheckResponse fallbackResp = new ImageV5CheckResponse();
+    fallbackResp.setCode(200);
+    fallbackResp.setMsg("fallback response");
+    requestRecover.registerFallback(fallbackResp);
+
+    // 开启故障恢复
+    clientProfile.setRequestRecover(requestRecover);
+  ```

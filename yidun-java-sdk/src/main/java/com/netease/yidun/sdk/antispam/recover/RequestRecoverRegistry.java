@@ -1,7 +1,9 @@
 package com.netease.yidun.sdk.antispam.recover;
 
 import com.netease.yidun.sdk.core.client.Client;
+import com.netease.yidun.sdk.core.exception.YidunSdkException;
 import com.netease.yidun.sdk.core.response.BaseResponse;
+import com.netease.yidun.sdk.core.response.CommonResponse;
 import com.netease.yidun.sdk.core.utils.AssertUtils;
 
 import java.lang.reflect.ParameterizedType;
@@ -22,6 +24,7 @@ public class RequestRecoverRegistry {
 
     /**
      * 注册文件恢复类到注册中心，此方法不是线程安全的，当前调用是在单线程的场景下
+     *
      * @param responseClasses
      * @param recoverName
      * @param client
@@ -57,7 +60,20 @@ public class RequestRecoverRegistry {
 
         Type type = clazz.getGenericSuperclass();
         if (type instanceof ParameterizedType) {
-            handlerMap.put((Class<?>) ((ParameterizedType) type).getActualTypeArguments()[0], handler);
+            try {
+                Class<? extends CommonResponse> responseClass = (Class<? extends CommonResponse>) ((ParameterizedType) type).getActualTypeArguments()[0];
+                handlerMap.put(responseClass, handler);
+                if (getFallback(responseClass) != null) {
+                    return;
+                }
+                CommonResponse defaultFallback = responseClass.newInstance();
+                defaultFallback.setCode(200);
+                defaultFallback.setMsg("default fallback response");
+                registerFallback(defaultFallback);
+
+            } catch (Exception e) {
+                throw new YidunSdkException(e);
+            }
         } else {
             throw new IllegalArgumentException("not support class type");
         }

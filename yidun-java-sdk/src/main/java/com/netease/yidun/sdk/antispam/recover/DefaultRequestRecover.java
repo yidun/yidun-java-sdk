@@ -50,8 +50,13 @@ public class DefaultRequestRecover implements RequestRecover {
         if (fileRequestRecover == null) {
             return false;
         }
-        fileRequestRecover.recover(message);
-        return true;
+        try {
+            fileRequestRecover.recover(message);
+            return true;
+        } catch (Exception e) {
+            log.error("recover request fails ", e);
+            return false;
+        }
     }
 
     /**

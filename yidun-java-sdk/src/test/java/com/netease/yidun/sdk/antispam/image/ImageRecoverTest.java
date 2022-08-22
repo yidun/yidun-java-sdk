@@ -86,6 +86,7 @@ public class ImageRecoverTest {
 
         Assert.assertNotNull(result);
         Assert.assertEquals(100, result.getCode());
+
     }
 
     @Test
@@ -113,12 +114,9 @@ public class ImageRecoverTest {
         request.setImages(images);
         request.setDomain("http://test.recover.com");
 
-        try {
-            ImageV5CheckResponse result = imageClient.syncCheckImage(request);
-            Assert.assertTrue(false);
-        } catch (YidunSdkException e) {
-            Assert.assertNotNull(e);
-        }
+        ImageV5CheckResponse result = imageClient.syncCheckImage(request);
+        Assert.assertNotNull(result);
+        Assert.assertEquals(200, result.getCode());
     }
 
     @Test
