@@ -1,12 +1,12 @@
 package com.netease.yidun.sdk.antispam.recover;
 
-import com.netease.yidun.sdk.core.utils.StringUtils;
-import lombok.extern.slf4j.Slf4j;
-
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.Collection;
-import java.util.function.Supplier;
+
+import com.netease.yidun.sdk.core.utils.StringUtils;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * 恢复器包装类，集成了处理异常的能力和尝试恢复功能
@@ -59,22 +59,4 @@ public abstract class WrapRecover<T> implements Recover<T>, RecoverHandler<T> {
     public void stop() {
         this.realRecover.stop();
     }
-
-    public boolean extractFunction(Supplier<Boolean> supplier, T recoverRequest, String msg) {
-        boolean result = false;
-        try {
-            result = supplier.get();
-        } catch (Exception e) {
-            recover(recoverRequest);
-            log.error("extractFunction error, msg:{}, data:{}", msg, recoverRequest, e);
-            return result;
-        }
-        // 针对未执行成功的方法进行恢复
-        if (!result) {
-            recover(recoverRequest);
-            log.error("extractFunction no success, msg:{}, data:{}", msg, recoverRequest);
-        }
-        return result;
-    }
-
 }

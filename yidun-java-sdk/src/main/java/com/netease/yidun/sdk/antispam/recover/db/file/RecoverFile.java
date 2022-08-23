@@ -1,11 +1,5 @@
 package com.netease.yidun.sdk.antispam.recover.db.file;
 
-import com.netease.yidun.sdk.antispam.recover.LifeCycle;
-import com.netease.yidun.sdk.antispam.recover.RecoverConfig;
-import com.netease.yidun.sdk.antispam.recover.exception.FileSizeLimitExceedException;
-import com.netease.yidun.sdk.core.utils.FileKits;
-import lombok.extern.slf4j.Slf4j;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
@@ -17,6 +11,13 @@ import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicLong;
+
+import com.netease.yidun.sdk.antispam.recover.LifeCycle;
+import com.netease.yidun.sdk.antispam.recover.RecoverConfig;
+import com.netease.yidun.sdk.antispam.recover.exception.FileSizeLimitExceedException;
+import com.netease.yidun.sdk.core.utils.FileKits;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * 恢复文件
@@ -100,12 +101,6 @@ public class RecoverFile implements LifeCycle {
             try (RandomAccessFile raf = new RandomAccessFile(lockFile, "rw");
                     FileChannel channel = raf.getChannel();
                     FileLock lock = channel.lock()) {
-                // lock 会阻塞
-                if (lock == null) {
-                    log.warn("Can not lock the file " + lockFile.getAbsolutePath()
-                            + ", ignore and retry later, maybe other java process use the file");
-                    return;
-                }
                 if (log.isDebugEnabled()) {
                     log.debug("lock file success {}, isValid:{}", lockFile.getAbsolutePath(), lock.isValid());
                 }

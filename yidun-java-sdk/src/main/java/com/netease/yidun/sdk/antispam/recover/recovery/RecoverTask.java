@@ -6,15 +6,7 @@
 
 package com.netease.yidun.sdk.antispam.recover.recovery;
 
-import com.netease.yidun.sdk.antispam.recover.RecoverConfig;
-import com.netease.yidun.sdk.antispam.recover.RecoverRegistry;
-import com.netease.yidun.sdk.antispam.recover.db.file.ErrorRecoverFile;
-import com.netease.yidun.sdk.antispam.recover.db.file.RecoverFile;
-import com.netease.yidun.sdk.antispam.recover.db.file.RecoverFileHandler;
-import com.netease.yidun.sdk.core.utils.FileKits;
-import com.netease.yidun.sdk.core.utils.NamedThreadFactory;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import static com.netease.yidun.sdk.antispam.recover.RecoverConfig.RECOVER_FILE_SUFFIX;
 
 import java.io.File;
 import java.io.FileReader;
@@ -36,7 +28,16 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-import static com.netease.yidun.sdk.antispam.recover.RecoverConfig.RECOVER_FILE_SUFFIX;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.netease.yidun.sdk.antispam.recover.RecoverConfig;
+import com.netease.yidun.sdk.antispam.recover.RecoverRegistry;
+import com.netease.yidun.sdk.antispam.recover.db.file.ErrorRecoverFile;
+import com.netease.yidun.sdk.antispam.recover.db.file.RecoverFile;
+import com.netease.yidun.sdk.antispam.recover.db.file.RecoverFileHandler;
+import com.netease.yidun.sdk.core.utils.FileKits;
+import com.netease.yidun.sdk.core.utils.NamedThreadFactory;
 
 /**
  * @author ruicha
@@ -172,68 +173,85 @@ public class RecoverTask implements Runnable {
                 // 这种不算失败，但是对应的文件会保留
                 return;
             }
-            int lastHandleLine = 0;
-            boolean readFileError = false;
-            try (FileReader fr = new FileReader(recoverFile);
-                    LineNumberReader lr = new LineNumberReader(fr)) {
-                String line;
-                // 每次读取指定行数来恢复
-                while (((line = lr.readLine()) != null)
-                        && lr.getLineNumber() <= recoverConfig.getRecoverLinesPerTime()) {
-                    try {
-                        recoverFileHandler.handle(line);
-                        lastHandleLine = lr.getLineNumber();
-                    } catch (Exception e) {
-                        // 这里只可能是序列化异常，只能跳过了
-                        log.error("数据恢复发生异常 line：{}", line, e);
-                    }
-                }
-            } catch (IOException e) {
-                log.error("error when read recoverFile[{}], cause:{}", recoverFile.getAbsolutePath(), e.getMessage(),
-                        e);
-                readFileError = true;
-            }
-            if (readFileError || lastHandleLine == 0) {
-                // 文件读取错误或者文件为空，直接跳过
-                return;
-            }
-
-            // 如果读取文件是成功的，那么就说明进行了恢复逻辑，要走后面的清理逻辑
-            if (isLocalRecoverFile(recoverFile.getAbsolutePath(), dbName)) {
-                // 如果是本节点的恢复文件，需要通过应用级别锁控制，文件锁控制不住，会直接抛异常，不好处理
-                // 前面判空过，这里不会为Null
-                RecoverFile localRecoverFile = RecoverRegistry.lookupFile(dbName);
-                synchronized (localRecoverFile.getWriteLock()) {
-                    handleClean(recoverFile, lastHandleLine);
-                }
-            } else {
-                File lockFile = new File(recoverFile.getAbsolutePath() + ".lock");
-                if (!lockFile.exists()) {
-                    lockFile.createNewFile();
-                }
-                // 排它锁，只允许获取到锁的进程进行写操作
-                try (RandomAccessFile raf = new RandomAccessFile(lockFile, "rw");
-                     FileChannel channel = raf.getChannel();
-                     FileLock lock = channel.lock()) {
-
-                    if (lock == null) {
-                        log.warn("Can not lock the file " + lockFile.getAbsolutePath()
-                                + ", ignore and retry later, maybe other java process use the file");
-                        return;
-                    }
-                    if (log.isDebugEnabled()) {
-                        log.debug("lock file success {}, currentIp:{}", lockFile.getAbsolutePath(), recoverConfig.getLocalAddress());
-                    }
-                    channel.truncate(0);
-                    channel.write(ByteBuffer.wrap(
-                            (localAddress + "_" + System.currentTimeMillis()).getBytes(StandardCharsets.UTF_8)));
-                    handleClean(recoverFile, lastHandleLine);
-                }
+            boolean fileRecoverDone = false;
+            while (!fileRecoverDone) {
+                // 文件读取异常或者文件已经清理到末尾，return true
+                fileRecoverDone = recoverAndClean(recoverFile, recoverFileHandler, dbName);
             }
         } catch (Throwable e) {
             log.error("recover file [{}] unexpected error, cause: {}", recoverFile.getAbsolutePath(),
                     e.getMessage());
         }
+    }
+
+    /**
+     *
+     * @param recoverFile
+     * @param recoverFileHandler
+     * @return 是否结束对这个文件的恢复
+     */
+    private boolean recoverAndClean(File recoverFile, RecoverFileHandler recoverFileHandler,
+                                    String dbName) throws IOException {
+
+        int lastHandleLine = 0;
+        boolean readFileError = false;
+        long start = System.currentTimeMillis();
+        try (FileReader fr = new FileReader(recoverFile);
+             LineNumberReader lr = new LineNumberReader(fr)) {
+            String line;
+            // 每次读取指定行数来恢复
+            while (((line = lr.readLine()) != null)
+                    && lr.getLineNumber() <= recoverConfig.getRecoverLinesPerTime()) {
+                try {
+                    recoverFileHandler.handle(line);
+                    lastHandleLine = lr.getLineNumber();
+                } catch (Exception e) {
+                    // 这里只可能是序列化异常，只能跳过了
+                    log.error("数据恢复发生异常 line：{}", line, e);
+                }
+            }
+        } catch (IOException e) {
+            log.error("error when read recoverFile[{}], cause:{}", recoverFile.getAbsolutePath(), e.getMessage(),
+                    e);
+            readFileError = true;
+        }
+        if (readFileError || lastHandleLine == 0) {
+            // 文件读取错误或者文件为空，直接跳过
+            return true;
+        }
+        log.info("recover {} lines from {}, recoverCost: {}ms",
+                lastHandleLine, recoverFile.getName(), System.currentTimeMillis() - start);
+
+        // 如果读取文件是成功的，那么就说明进行了恢复逻辑，要走后面的清理逻辑
+        start = System.currentTimeMillis();
+        if (isLocalRecoverFile(recoverFile.getAbsolutePath(), dbName)) {
+            // 如果是本节点的恢复文件，需要通过应用级别锁控制，文件锁控制不住，会直接抛异常，不好处理
+            // 前面判空过，这里不会为Null
+            RecoverFile localRecoverFile = RecoverRegistry.lookupFile(dbName);
+            synchronized (localRecoverFile.getWriteLock()) {
+                handleClean(recoverFile, lastHandleLine);
+            }
+        } else {
+            File lockFile = new File(recoverFile.getAbsolutePath() + ".lock");
+            if (!lockFile.exists()) {
+                lockFile.createNewFile();
+            }
+            // 排它锁，只允许获取到锁的进程进行写操作
+            try (RandomAccessFile raf = new RandomAccessFile(lockFile, "rw");
+                 FileChannel channel = raf.getChannel();
+                 FileLock lock = channel.lock()) {
+                if (log.isDebugEnabled()) {
+                    log.debug("lock file success {}, currentIp:{}", lockFile.getAbsolutePath(), recoverConfig.getLocalAddress());
+                }
+                channel.truncate(0);
+                channel.write(ByteBuffer.wrap(
+                        (localAddress + "_" + System.currentTimeMillis()).getBytes(StandardCharsets.UTF_8)));
+                handleClean(recoverFile, lastHandleLine);
+            }
+        }
+        log.info("remove {} lines from {}, removeCost: {}ms",
+                lastHandleLine, recoverFile.getName(), System.currentTimeMillis() - start);
+        return false;
     }
 
     private boolean isLocalRecoverFile(String absolutePath, String dbName) {
