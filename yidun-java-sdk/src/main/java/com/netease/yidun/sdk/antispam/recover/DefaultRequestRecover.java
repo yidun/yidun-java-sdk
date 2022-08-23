@@ -11,11 +11,13 @@ import org.slf4j.LoggerFactory;
 import java.lang.invoke.MethodHandles;
 import java.util.List;
 
-public class DefaultRequestRecover implements RequestRecover {
+public class DefaultRequestRecover implements RequestRecover,LifeCycle {
 
     private static final Logger log = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
     private RequestRecoverRegistry requestRecoverRegistry;
+
+    private static volatile DefaultRequestRecover requestRecover;
 
     private DefaultRequestRecover(RecoverConfig recoverConfig) {
         AssertUtils.notBlank(recoverConfig.getRecoverFileDir(), "recoverFileDir should not be empty");
@@ -29,7 +31,14 @@ public class DefaultRequestRecover implements RequestRecover {
     }
 
     public static DefaultRequestRecover createRecover(RecoverConfig recoverConfig) {
-        return new DefaultRequestRecover(recoverConfig);
+        if (requestRecover == null) {
+            synchronized (DefaultRequestRecover.class) {
+                if (requestRecover == null) {
+                    requestRecover = new DefaultRequestRecover(recoverConfig);
+                }
+            }
+        }
+        return requestRecover;
     }
 
     /**
@@ -94,4 +103,13 @@ public class DefaultRequestRecover implements RequestRecover {
         return requestRecoverRegistry.getFallback(responseClass);
     }
 
+    @Override
+    public void start() {
+        requestRecoverRegistry.start();
+    }
+
+    @Override
+    public void stop() {
+        requestRecoverRegistry.stop();
+    }
 }
