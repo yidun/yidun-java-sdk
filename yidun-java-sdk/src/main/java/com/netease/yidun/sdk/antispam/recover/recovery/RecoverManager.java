@@ -6,18 +6,21 @@
 
 package com.netease.yidun.sdk.antispam.recover.recovery;
 
-import com.netease.yidun.sdk.antispam.recover.LifeCycle;
-import com.netease.yidun.sdk.antispam.recover.RecoverConfig;
-import com.netease.yidun.sdk.core.utils.NamedThreadFactory;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
+import java.io.File;
 import java.io.IOException;
 import java.lang.invoke.MethodHandles;
+import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.netease.yidun.sdk.antispam.recover.LifeCycle;
+import com.netease.yidun.sdk.antispam.recover.RecoverConfig;
+import com.netease.yidun.sdk.core.utils.NamedThreadFactory;
 
 /**
  * 恢复文件处理
@@ -49,7 +52,14 @@ public class RecoverManager implements LifeCycle {
 
     private void doStart() throws IOException {
         // create base dir first, If the directory exists, no exception thrown.
-        Files.createDirectories(Paths.get(recoverConfig.getBasePath()));
+        try {
+            File dir = new File(recoverConfig.getBasePath());
+            if (!dir.exists()) {
+                Files.createDirectories(Paths.get(recoverConfig.getBasePath()));
+            }
+        } catch(FileAlreadyExistsException e){
+            // the directory already exists.
+        }
 
         recoverScheduled.scheduleWithFixedDelay(
                 new RecoverTask(recoverConfig), recoverConfig.getInitialDelayInSec(),

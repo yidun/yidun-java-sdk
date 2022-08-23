@@ -1,15 +1,16 @@
 package com.netease.yidun.sdk.antispam.recover.db.asyn;
 
-import com.netease.yidun.sdk.antispam.recover.RecoverConfig;
-import com.netease.yidun.sdk.antispam.recover.db.DefaultRecoverRepository;
-import com.netease.yidun.sdk.antispam.recover.db.RecoverRepositoryReadHandler;
-import lombok.extern.slf4j.Slf4j;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
+
+import com.netease.yidun.sdk.antispam.recover.RecoverConfig;
+import com.netease.yidun.sdk.antispam.recover.db.DefaultRecoverRepository;
+import com.netease.yidun.sdk.antispam.recover.db.RecoverRepositoryReadHandler;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * 默认异步存储处理实现
@@ -70,6 +71,10 @@ public class DefaultRecoverAsyner<T> extends DefaultRecoverRepository<T> impleme
     @Override
     public void asyn(final T data) {
         checkFileSizeLimit();
+        if (isStoped) {
+            // 停止后不允许再写入数据
+            throw new IllegalStateException("current recover is stopped");
+        }
         try {
             blockingQueue.put(data);
         } catch (InterruptedException e) {
@@ -95,7 +100,25 @@ public class DefaultRecoverAsyner<T> extends DefaultRecoverRepository<T> impleme
 
     @Override
     public void stop() {
+        if (isStoped) {
+            // 不重复stop
+            return;
+        }
         super.stop();
+        // 设置成true之后，storeThread不会再去消费
         isStoped = true;
+        try {
+            if (blockingQueue.isEmpty()) {
+                return;
+            }
+            List<T> list = new ArrayList<>(blockingQueue.size());
+            while (!blockingQueue.isEmpty()) {
+                T data = blockingQueue.take();
+                list.add(data);
+            }
+            store(list);
+        } catch (InterruptedException e) {
+            log.error(e.getMessage(), e);
+        }
     }
 }
