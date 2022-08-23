@@ -83,38 +83,22 @@ public class MediaValueAddServiceResponse {
                 ", language=" + language +
                 '}';
     }
-
     public static class Ocr {
-        private String dataId;
-        private String field;
-        private String taskId;
+        private List<OcrImageDetail> images;
+
+        public List<OcrImageDetail> getImages() {
+            return images;
+        }
+
+        public void setImages(List<OcrImageDetail> images) {
+            this.images = images;
+        }
+    }
+
+    public static class OcrImageDetail extends ValueServiceBaseResponse{
         private Integer width;
         private Integer height;
-        private OcrDetail details;
-
-        public String getDataId() {
-            return dataId;
-        }
-
-        public void setDataId(String dataId) {
-            this.dataId = dataId;
-        }
-
-        public String getField() {
-            return field;
-        }
-
-        public void setField(String field) {
-            this.field = field;
-        }
-
-        public String getTaskId() {
-            return taskId;
-        }
-
-        public void setTaskId(String taskId) {
-            this.taskId = taskId;
-        }
+        private List<OcrDetail> details;
 
         public Integer getWidth() {
             return width;
@@ -132,20 +116,20 @@ public class MediaValueAddServiceResponse {
             this.height = height;
         }
 
-        public OcrDetail getDetails() {
+        public List<OcrDetail> getDetails() {
             return details;
         }
 
-        public void setDetails(OcrDetail details) {
+        public void setDetails(List<OcrDetail> details) {
             this.details = details;
         }
 
         @Override
         public String toString() {
-            return "Ocr{" +
-                    "dataId='" + dataId + '\'' +
-                    ", field='" + field + '\'' +
-                    ", taskId='" + taskId + '\'' +
+            return "OcrImageDetail{" +
+                    "dataId='" + getDataId() + '\'' +
+                    ", field='" + getField() + '\'' +
+                    ", taskId='" + getTaskId() + '\'' +
                     ", width=" + width +
                     ", height=" + height +
                     ", details=" + details +
@@ -220,12 +204,49 @@ public class MediaValueAddServiceResponse {
         public void setImages(List<ImageDiscernDetail> images) {
             this.images = images;
         }
+    }
 
-        @Override
-        public String toString() {
-            return "ImageDiscern{" +
-                    "images=" + images +
-                    '}';
+    public static class ImageDiscernDetail extends ValueServiceBaseResponse {
+        private List<ImageDiscernImageDetail> details;
+
+        public List<ImageDiscernImageDetail> getDetails() {
+            return details;
+        }
+
+        public void setDetails(List<ImageDiscernImageDetail> details) {
+            this.details = details;
+        }
+    }
+
+    public static class ImageDiscernImageDetail {
+        private String discernName;
+
+        private Float rate;
+
+        private Integer type;
+
+        public String getDiscernName() {
+            return discernName;
+        }
+
+        public void setDiscernName(String discernName) {
+            this.discernName = discernName;
+        }
+
+        public Float getRate() {
+            return rate;
+        }
+
+        public void setRate(Float rate) {
+            this.rate = rate;
+        }
+
+        public Integer getType() {
+            return type;
+        }
+
+        public void setType(Integer type) {
+            this.type = type;
         }
     }
 
@@ -441,6 +462,18 @@ public class MediaValueAddServiceResponse {
     }
 
     public static class LanguageDetail extends ValueServiceBaseResponse {
+        private List<LanguageTextDetail> details;
+
+        public List<LanguageTextDetail> getDetails() {
+            return details;
+        }
+
+        public void setDetails(List<LanguageTextDetail> details) {
+            this.details = details;
+        }
+    }
+
+    public static class LanguageTextDetail {
         private String type;
 
         public String getType() {
@@ -453,6 +486,18 @@ public class MediaValueAddServiceResponse {
     }
 
     public static class EmotionAnalysisDetail extends ValueServiceBaseResponse {
+        private List<EmotionAnalysisTextDetail> details;
+
+        public List<EmotionAnalysisTextDetail> getDetails() {
+            return details;
+        }
+
+        public void setDetails(List<EmotionAnalysisTextDetail> details) {
+            this.details = details;
+        }
+    }
+
+    public static class EmotionAnalysisTextDetail {
         private Double positiveProb;
         private Double negativeProb;
         private String sentiment;
@@ -504,6 +549,18 @@ public class MediaValueAddServiceResponse {
     }
 
     public static class FaceDetail extends ValueServiceBaseResponse {
+        private List<FaceImageDetail> details;
+
+        public List<FaceImageDetail> getDetails() {
+            return details;
+        }
+
+        public void setDetails(List<FaceImageDetail> details) {
+            this.details = details;
+        }
+    }
+
+    public static class FaceImageDetail {
         /**
          * 人脸数量
          */
@@ -531,6 +588,18 @@ public class MediaValueAddServiceResponse {
     }
 
     public static class LogoDetail extends ValueServiceBaseResponse {
+        private List<LogoImageDetail> details;
+
+        public List<LogoImageDetail> getDetails() {
+            return details;
+        }
+
+        public void setDetails(List<LogoImageDetail> details) {
+            this.details = details;
+        }
+    }
+
+    public static class LogoImageDetail extends ValueServiceBaseResponse {
         /**
          * logo信息
          */
@@ -582,6 +651,18 @@ public class MediaValueAddServiceResponse {
     }
 
     public static class ImageQualityDetail extends ValueServiceBaseResponse {
+        private List<ImageQualityImageDetail> details;
+
+        public List<ImageQualityImageDetail> getDetails() {
+            return details;
+        }
+
+        public void setDetails(List<ImageQualityImageDetail> details) {
+            this.details = details;
+        }
+    }
+
+    public static class ImageQualityImageDetail {
         /**
          * 美观度分数
          */
@@ -641,45 +722,6 @@ public class MediaValueAddServiceResponse {
 
         public void setBackgroundInfo(BackgroundInfo backgroundInfo) {
             this.backgroundInfo = backgroundInfo;
-        }
-    }
-
-    public static class ImageDiscernDetail extends ValueServiceBaseResponse {
-        /**
-         * 识别物体类型 1 场景
-         */
-        private Integer type;
-        /**
-         * 识别名称
-         */
-        private String discernName;
-        /**
-         * 分数
-         */
-        private Float rate;
-
-        public Integer getType() {
-            return type;
-        }
-
-        public void setType(Integer type) {
-            this.type = type;
-        }
-
-        public String getDiscernName() {
-            return discernName;
-        }
-
-        public void setDiscernName(String discernName) {
-            this.discernName = discernName;
-        }
-
-        public Float getRate() {
-            return rate;
-        }
-
-        public void setRate(Float rate) {
-            this.rate = rate;
         }
     }
 
@@ -931,5 +973,4 @@ public class MediaValueAddServiceResponse {
             this.left = left;
         }
     }
-
 }
