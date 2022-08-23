@@ -1,5 +1,6 @@
 package com.netease.yidun.sdk.antispam.recover;
 
+import com.netease.yidun.sdk.antispam.recover.recovery.RecoverManager;
 import com.netease.yidun.sdk.core.client.Client;
 import com.netease.yidun.sdk.core.exception.YidunSdkException;
 import com.netease.yidun.sdk.core.response.BaseResponse;
@@ -12,14 +13,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class RequestRecoverRegistry {
+public class RequestRecoverRegistry implements LifeCycle{
     private Map<Class<? extends BaseResponse>, BaseResponse> fallbackMap = new ConcurrentHashMap<>();
     private Map<Class<?>, AbstractRequestRecoverHandler> handlerMap = new ConcurrentHashMap<>();
     private Map<Class<?>, FileRequestRecover> recoverMap = new ConcurrentHashMap<>();
     private RecoverConfig recoverConfig;
+    private RecoverManager recoverManager;
 
     public RequestRecoverRegistry(RecoverConfig recoverConfig) {
         this.recoverConfig = recoverConfig;
+        this.recoverManager = new RecoverManager(recoverConfig);
     }
 
     /**
@@ -37,7 +40,6 @@ public class RequestRecoverRegistry {
         for (Class responseClass : responseClasses) {
             recoverMap.put(responseClass, recover);
         }
-        recover.start();
     }
 
     public FileRequestRecover getRecover(Class responseClass) {
@@ -102,5 +104,27 @@ public class RequestRecoverRegistry {
             return null;
         }
         return (T) fallbackResp;
+    }
+
+    @Override
+    public void start() {
+        if (recoverMap.size() == 0) {
+            return;
+        }
+        for (FileRequestRecover recover : recoverMap.values()) {
+            recover.start();
+        }
+        recoverManager.start();
+    }
+
+    @Override
+    public void stop() {
+        if (recoverMap.size() == 0) {
+            return;
+        }
+        for (FileRequestRecover recover : recoverMap.values()) {
+            recover.stop();
+        }
+        recoverManager.stop();
     }
 }

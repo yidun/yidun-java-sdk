@@ -68,7 +68,9 @@ public class ImageRecoverTest {
         fallbackResp.setCode(100);
         fallbackResp.setMsg("error return");
         requestRecover.registerFallback(fallbackResp);
+        requestRecover.start();
         clientProfile.setRequestRecover(requestRecover);
+
 
         AntispamRequester antispamRequester = new AntispamRequester(clientProfile);
         ImageClient imageClient = new ImageClient(antispamRequester);
@@ -102,6 +104,7 @@ public class ImageRecoverTest {
                 System.out.println("1111111111111111" + new Gson().toJson(response));
             }
         });
+        requestRecover.start();
         clientProfile.setRequestRecover(requestRecover);
 
         AntispamRequester antispamRequester = new AntispamRequester(clientProfile);

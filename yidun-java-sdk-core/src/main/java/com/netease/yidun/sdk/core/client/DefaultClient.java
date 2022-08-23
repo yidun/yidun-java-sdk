@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import com.netease.yidun.sdk.core.exception.YidunSdkRespException;
 import com.netease.yidun.sdk.core.recover.RecoverMessage;
 import com.netease.yidun.sdk.core.recover.RequestRecover;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
@@ -233,7 +234,16 @@ public class DefaultClient implements Client, Closeable {
         }
 
         if (exception == null) {
-            return ctx.parseResponse();
+            try {
+                return ctx.parseResponse();
+            } catch (YidunSdkRespException e) {
+                // 如果是server异常，则继续后续的故障恢复流程
+                if (e.getCode() != null && e.getCode() == YidunSdkRespException.SERVER) {
+                    exception = e;
+                } else {
+                    throw e;
+                }
+            }
         }
 
         if (!request.isEnableRecover() || requestRecover == null || !requestRecover.isSupport(request.getResponseClass())) {
@@ -379,27 +389,27 @@ public class DefaultClient implements Client, Closeable {
             }
         }
 
-        R parseResponse() throws YidunSdkException {
+        R parseResponse() throws YidunSdkRespException {
             if (response == null) {
-                throw new YidunSdkException("Server error. null response");
+                throw new YidunSdkRespException(YidunSdkRespException.SERVER, "Server error. null response");
             }
 
             int statusCode = response.getCode();
             HttpEntity bodyEntity = response.getEntity();
 
             if (bodyEntity == null) {
-                throw new YidunSdkException("Server error. null response body. code=" + statusCode);
+                throw new YidunSdkRespException(YidunSdkRespException.SERVER, "Server error. null response body. code=" + statusCode);
             }
 
             String strBody;
             try {
                 strBody = EntityUtils.toString(bodyEntity);
             } catch (Exception e) {
-                throw new YidunSdkException("Fail to read response body. code=" + statusCode, e);
+                throw new YidunSdkRespException("Fail to read response body. code=" + statusCode, e);
             }
 
             if (statusCode >= HttpStatus.SC_SERVER_ERROR) {
-                throw new YidunSdkException(String.format("Server error. code=%s, body=%s", statusCode, strBody));
+                throw new YidunSdkRespException(YidunSdkRespException.SERVER, String.format("Server error. code=%s, body=%s", statusCode, strBody));
             }
 
             if (statusCode >= HttpStatus.SC_OK
@@ -409,10 +419,10 @@ public class DefaultClient implements Client, Closeable {
                 } catch (Exception e) {
                     String errorMessage = String.format(
                             "Fail to parse response body. code=%s, body=%s", statusCode, strBody);
-                    throw new YidunSdkException(errorMessage, e);
+                    throw new YidunSdkRespException(errorMessage, e);
                 }
             } else {
-                throw new YidunSdkException(
+                throw new YidunSdkRespException(
                         String.format("Server response fail. code=%s, body=%s", statusCode, strBody));
             }
         }

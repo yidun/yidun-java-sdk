@@ -33,6 +33,7 @@ public class RecoverManager implements LifeCycle {
 
     private final RecoverConfig recoverConfig;
     private final ScheduledThreadPoolExecutor recoverScheduled;
+    private volatile boolean isStarted = false;
 
     public RecoverManager(RecoverConfig recoverConfig) {
         this.recoverConfig = recoverConfig;
@@ -44,7 +45,11 @@ public class RecoverManager implements LifeCycle {
     public void start() {
         log.info("RecoverManager start, recoverConfig: {}", recoverConfig);
         try {
+            if (isStarted) {
+                return;
+            }
             doStart();
+            isStarted = true;
         } catch (Throwable e) {
             throw new RuntimeException("RecoverManager start error", e);
         }
@@ -69,6 +74,11 @@ public class RecoverManager implements LifeCycle {
 
     @Override
     public void stop() {
+        if (!isStarted) {
+            return;
+        }
+
+        isStarted = false;
         recoverScheduled.shutdown();
         try {
             if (!recoverScheduled.awaitTermination(10, TimeUnit.SECONDS)) {
@@ -80,4 +90,5 @@ public class RecoverManager implements LifeCycle {
             log.error("awaitTermination recoverScheduled error", e);
         }
     }
+
 }

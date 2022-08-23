@@ -18,14 +18,12 @@ public class FileRequestRecover extends WrapRecover<RecoverMessage> {
 
     private Client client;
     private Gson gson = new Gson();
-    private RecoverManager recoverManager;
     private RequestRecoverRegistry registry;
     private String dbFileName;
 
     private FileRequestRecover(RecoverConfig recoverConfig, String dbFileName, Client client, RequestRecoverRegistry registry) {
         super(recoverConfig, dbFileName);
         AssertUtils.notBlank(recoverConfig.getRecoverFileDir(), "recoverFileDir should not be empty");
-        recoverManager = new RecoverManager(recoverConfig);
         this.client = client;
         this.registry = registry;
         this.dbFileName = dbFileName;
@@ -33,18 +31,6 @@ public class FileRequestRecover extends WrapRecover<RecoverMessage> {
 
     public static FileRequestRecover createRecover(RecoverConfig recoverConfig, String dbFileName, Client client, RequestRecoverRegistry registry) {
         return new FileRequestRecover(recoverConfig, dbFileName, client, registry);
-    }
-
-    @Override
-    public void start() {
-        recoverManager.start();
-        super.start();
-    }
-
-    @Override
-    public void stop() {
-        recoverManager.stop();
-        super.stop();
     }
 
     @Override
