@@ -12,6 +12,10 @@ public class TextAsyncBatchCheckResponse extends ResultResponse<TextAsyncCheckRe
         super(code, msg, result);
     }
 
+    public TextAsyncBatchCheckResponse(){
+        super();
+    }
+
     @Override
     public String toString() {
         return "TextAsyncBatchCheckResponse(" +

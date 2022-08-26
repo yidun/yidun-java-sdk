@@ -16,6 +16,8 @@ public class TextBatchCheckResponse extends CommonResponse {
         return result;
     }
 
+    public TextBatchCheckResponse(){}
+
     public void setResult(List<TextCheckResult> result) {
         this.result = result;
     }

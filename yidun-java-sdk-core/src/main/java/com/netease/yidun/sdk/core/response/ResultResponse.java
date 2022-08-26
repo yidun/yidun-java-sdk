@@ -10,6 +10,9 @@ public class ResultResponse<T> extends CommonResponse {
         this.result = result;
     }
 
+    public ResultResponse() {}
+
+
     public T getResult() {
         return result;
     }
