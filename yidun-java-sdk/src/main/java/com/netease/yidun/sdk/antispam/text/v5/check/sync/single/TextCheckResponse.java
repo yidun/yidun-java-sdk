@@ -13,6 +13,8 @@ public class TextCheckResponse extends CommonResponse {
         return result;
     }
 
+    public TextCheckResponse(){}
+
     public void setResult(TextCheckResult result) {
         this.result = result;
     }

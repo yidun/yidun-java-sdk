@@ -7,6 +7,11 @@ import com.netease.yidun.sdk.core.response.ResultResponse;
  */
 public class TextAsyncCheckResponse extends ResultResponse<TextAsyncCheckResult> {
 
+
+    public TextAsyncCheckResponse(){
+        super();
+    }
+
     public TextAsyncCheckResponse(int code, String msg, TextAsyncCheckResult result) {
         super(code, msg, result);
     }
