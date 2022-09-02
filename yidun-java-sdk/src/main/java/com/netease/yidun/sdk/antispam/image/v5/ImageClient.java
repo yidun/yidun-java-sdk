@@ -1,6 +1,7 @@
 package com.netease.yidun.sdk.antispam.image.v5;
 
 import com.netease.yidun.sdk.antispam.AntispamRequester;
+import com.netease.yidun.sdk.antispam.BaseClient;
 import com.netease.yidun.sdk.antispam.image.v5.callback.ImageCallback;
 import com.netease.yidun.sdk.antispam.image.v5.callback.request.ImageV5CallbackRequest;
 import com.netease.yidun.sdk.antispam.image.v5.check.async.request.ImageV5AsyncCheckRequest;
@@ -9,30 +10,22 @@ import com.netease.yidun.sdk.antispam.image.v5.check.sync.request.ImageV5SyncChe
 import com.netease.yidun.sdk.antispam.image.v5.check.sync.response.ImageV5CheckResponse;
 import com.netease.yidun.sdk.antispam.image.v5.feedback.request.ImageV5FeedBackRequest;
 import com.netease.yidun.sdk.antispam.image.v5.feedback.response.ImageV5FeedBackResponse;
-import com.netease.yidun.sdk.core.utils.AssertUtils;
 
 /**
  * 用于发起所有图像相关请求的入口类
  */
-public class ImageClient {
-
-    private AntispamRequester imageRequester;
+public class ImageClient extends BaseClient {
 
     public ImageClient(AntispamRequester imageRequester) {
-        AssertUtils.notNull(imageRequester, "imageRequester can not be null");
-        this.imageRequester = imageRequester;
+        super(imageRequester);
     }
 
     public ImageClient(AntispamRequester imageRequester, ImageCallback imageCallback) {
-        AssertUtils.notNull(imageRequester, "imageRequester can not be null");
+        super(imageRequester, imageCallback);
+    }
 
-        this.imageRequester = imageRequester;
-        if (imageCallback != null) {
-            if (imageCallback.getAntispamRequester() == null) {
-                imageCallback.setAntispamRequester(imageRequester);
-            }
-            imageCallback.start();
-        }
+    public ImageClient(AntispamRequester imageRequester, ImageCallback... imageCallback) {
+        super(imageRequester, imageCallback);
     }
 
     /**
@@ -42,7 +35,7 @@ public class ImageClient {
      * @return
      */
     public ImageV5CheckResponse syncCheckImage(ImageV5SyncCheckRequest request) {
-        return imageRequester.getImageCheckClient().syncCheckImage(request);
+        return requester.getImageCheckClient().syncCheckImage(request);
     }
 
     /**
@@ -52,7 +45,7 @@ public class ImageClient {
      * @return
      */
     public ImageV5AsyncCheckResp asyncCheckImage(ImageV5AsyncCheckRequest request) {
-        return imageRequester.getImageCheckClient().asyncCheckImage(request);
+        return requester.getImageCheckClient().asyncCheckImage(request);
     }
 
     /**
@@ -62,7 +55,7 @@ public class ImageClient {
      * @return
      */
     public ImageV5CheckResponse callback(ImageV5CallbackRequest request) {
-        return imageRequester.getImageCommonClient().callback(request);
+        return requester.getImageCommonClient().callback(request);
     }
 
     /**
@@ -72,7 +65,7 @@ public class ImageClient {
      * @return
      */
     public ImageV5FeedBackResponse feedback(ImageV5FeedBackRequest request) {
-        return imageRequester.getImageCommonClient().feedback(request);
+        return requester.getImageCommonClient().feedback(request);
     }
 
 }

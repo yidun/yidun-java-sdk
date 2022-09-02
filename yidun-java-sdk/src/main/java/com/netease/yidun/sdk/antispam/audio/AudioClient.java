@@ -2,6 +2,7 @@
 package com.netease.yidun.sdk.antispam.audio;
 
 import com.netease.yidun.sdk.antispam.AntispamRequester;
+import com.netease.yidun.sdk.antispam.BaseClient;
 import com.netease.yidun.sdk.antispam.audio.callback.v4.AudioCallback;
 import com.netease.yidun.sdk.antispam.audio.callback.v4.request.AudioCallbackV4Request;
 import com.netease.yidun.sdk.antispam.audio.callback.v4.response.AudioCallbackV4Response;
@@ -13,26 +14,19 @@ import com.netease.yidun.sdk.antispam.audio.feedback.v1.request.AudioFeedbackReq
 import com.netease.yidun.sdk.antispam.audio.feedback.v1.response.AudioFeedbackResponse;
 import com.netease.yidun.sdk.antispam.audio.query.v3.request.AudioQueryV3Request;
 import com.netease.yidun.sdk.antispam.audio.query.v3.response.AudioQueryV3Response;
-import com.netease.yidun.sdk.core.utils.AssertUtils;
 
-public class AudioClient {
-    private AntispamRequester requester;
+public class AudioClient extends BaseClient {
 
     public AudioClient(AntispamRequester requester) {
-        AssertUtils.notNull(requester, "requester can not be null");
-        this.requester = requester;
+        super(requester);
     }
 
     public AudioClient(AntispamRequester requester, AudioCallback audioCallback) {
-        AssertUtils.notNull(requester, "requester can not be null");
+        super(requester, audioCallback);
+    }
 
-        this.requester = requester;
-        if (audioCallback != null) {
-            if (audioCallback.getAntispamRequester() == null) {
-                audioCallback.setAntispamRequester(requester);
-            }
-            audioCallback.start();
-        }
+    public AudioClient(AntispamRequester requester, AudioCallback... audioCallback) {
+        super(requester, audioCallback);
     }
 
     public AudioSyncCheckResponse syncCheckAudio(AudioSyncCheckRequest request) {

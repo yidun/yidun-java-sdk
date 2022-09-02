@@ -3,6 +3,7 @@
 package com.netease.yidun.sdk.antispam.livevideosolution;
 
 import com.netease.yidun.sdk.antispam.AntispamRequester;
+import com.netease.yidun.sdk.antispam.BaseClient;
 import com.netease.yidun.sdk.antispam.livevideosolution.barrage.v1.request.LiveWallSolutionBarrageV1Req;
 import com.netease.yidun.sdk.antispam.livevideosolution.barrage.v1.response.LiveWallSolutionBarrageV1Resp;
 import com.netease.yidun.sdk.antispam.livevideosolution.callback.v3.LiveVideoSolutionCallback;
@@ -20,27 +21,16 @@ import com.netease.yidun.sdk.antispam.livevideosolution.query.v1.response.LiveWa
 import com.netease.yidun.sdk.antispam.livevideosolution.query.v1.response.LiveWallSolutionQueryV1Resp;
 import com.netease.yidun.sdk.antispam.livevideosolution.submit.v3.request.LiveWallSolutionSubmitV3Req;
 import com.netease.yidun.sdk.antispam.livevideosolution.submit.v3.response.LiveWallSolutionSubmitV3Resp;
-import com.netease.yidun.sdk.core.utils.AssertUtils;
 
 
-public class LiveVideoSolutionClient {
-    private AntispamRequester requester;
+public class LiveVideoSolutionClient extends BaseClient {
 
     public LiveVideoSolutionClient(AntispamRequester requester) {
-        AssertUtils.notNull(requester, "requester can not be null");
-        this.requester = requester;
+        super(requester);
     }
 
     public LiveVideoSolutionClient(AntispamRequester requester, LiveVideoSolutionCallback liveVideoSolutionCallback) {
-        AssertUtils.notNull(requester, "requester can not be null");
-
-        this.requester = requester;
-        if (liveVideoSolutionCallback != null) {
-            if (liveVideoSolutionCallback.getAntispamRequester() == null) {
-                liveVideoSolutionCallback.setAntispamRequester(requester);
-            }
-            liveVideoSolutionCallback.start();
-        }
+        super(requester, liveVideoSolutionCallback);
     }
 
     /**

@@ -3,6 +3,7 @@
 package com.netease.yidun.sdk.antispam.liveaudio;
 
 import com.netease.yidun.sdk.antispam.AntispamRequester;
+import com.netease.yidun.sdk.antispam.BaseClient;
 import com.netease.yidun.sdk.antispam.liveaudio.barrage.v1.request.LiveAudioBarrageV1Req;
 import com.netease.yidun.sdk.antispam.liveaudio.barrage.v1.response.LiveAudioBarrageV1Resp;
 import com.netease.yidun.sdk.antispam.liveaudio.callback.v4.LiveAudioCallback;
@@ -20,26 +21,19 @@ import com.netease.yidun.sdk.antispam.liveaudio.query.v1.response.LiveAudioQuery
 import com.netease.yidun.sdk.antispam.liveaudio.query.v1.response.LiveAudioQueryTaskIdV1Resp;
 import com.netease.yidun.sdk.antispam.liveaudio.submit.v4.request.LiveAudioSubmitV4Req;
 import com.netease.yidun.sdk.antispam.liveaudio.submit.v4.response.LiveAudioSubmitV4Resp;
-import com.netease.yidun.sdk.core.utils.AssertUtils;
 
-public class LiveAudioClient {
-    private AntispamRequester requester;
+public class LiveAudioClient extends BaseClient {
 
     public LiveAudioClient(AntispamRequester requester) {
-        AssertUtils.notNull(requester, "requester can not be null");
-        this.requester = requester;
+        super(requester);
     }
 
     public LiveAudioClient(AntispamRequester requester, LiveAudioCallback liveAudioCallback) {
-        AssertUtils.notNull(requester, "requester can not be null");
+        super(requester, liveAudioCallback);
+    }
 
-        this.requester = requester;
-        if (liveAudioCallback != null) {
-            if (liveAudioCallback.getAntispamRequester() == null) {
-                liveAudioCallback.setAntispamRequester(requester);
-            }
-            liveAudioCallback.start();
-        }
+    public LiveAudioClient(AntispamRequester requester, LiveAudioCallback... liveAudioCallback) {
+        super(requester, liveAudioCallback);
     }
 
     /**
