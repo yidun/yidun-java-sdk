@@ -83,8 +83,11 @@ public class PostFormRequestTest {
         nonSignParams = Collections.singletonMap("nsp1", "nsp-v-1");
         pathParameters = Collections.singletonMap("p1", "p-v-1");
         queryParameters = Collections.singletonMap("q1", "q-v-1");
-        expectedCommonHeaders = Collections.singletonMap(
-                "Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+        Map<String, String> commonMap = new HashMap<>();
+        commonMap.put("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+        commonMap.put("SdkVer", "1.0");
+
+        expectedCommonHeaders = Collections.unmodifiableMap(commonMap);
 
         Map<String, String> tmpExpectedGzipHeader = new HashMap<>(expectedCommonHeaders);
         tmpExpectedGzipHeader.put("Content-Encoding", "gzip");
