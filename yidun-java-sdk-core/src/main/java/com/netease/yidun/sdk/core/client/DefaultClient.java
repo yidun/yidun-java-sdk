@@ -197,6 +197,11 @@ public class DefaultClient implements Client, Closeable {
         Context<R> ctx = new Context<>(request);
         YidunSdkException exception = null;
         while (ctx.canAttempt()) {
+            // 重试时，关闭上一次连接的流
+            if (ctx.response != null) {
+                EntityUtils.consumeQuietly(ctx.response.getEntity());
+            }
+
             ClassicHttpRequest httpRequest = ctx.createRequest();
 
             CloseableHttpResponse httpResponse = null;
@@ -222,6 +227,10 @@ public class DefaultClient implements Client, Closeable {
         }
 
         if (exception != null) {
+            // 关闭最后一次请求的流
+            if (ctx.response != null) {
+                EntityUtils.consumeQuietly(ctx.response.getEntity());
+            }
             throw exception;
         }
 
