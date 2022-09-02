@@ -6,28 +6,6 @@
 
 package com.netease.yidun.sdk.core.client;
 
-import java.io.Closeable;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-
-import com.netease.yidun.sdk.core.exception.YidunSdkRespException;
-import com.netease.yidun.sdk.core.recover.RecoverMessage;
-import com.netease.yidun.sdk.core.recover.RequestRecover;
-import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
-import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;
-import org.apache.hc.core5.http.ClassicHttpRequest;
-import org.apache.hc.core5.http.ConnectionRequestTimeoutException;
-import org.apache.hc.core5.http.ContentType;
-import org.apache.hc.core5.http.HttpEntity;
-import org.apache.hc.core5.http.HttpStatus;
-import org.apache.hc.core5.http.io.entity.ByteArrayEntity;
-import org.apache.hc.core5.http.io.entity.EntityUtils;
-import org.apache.hc.core5.http.io.support.ClassicRequestBuilder;
-
 import com.google.gson.Gson;
 import com.netease.yidun.sdk.core.auth.Credentials;
 import com.netease.yidun.sdk.core.auth.Signer;
@@ -44,11 +22,31 @@ import com.netease.yidun.sdk.core.http.HttpHeaders;
 import com.netease.yidun.sdk.core.http.HttpMethodEnum;
 import com.netease.yidun.sdk.core.http.HttpRequest;
 import com.netease.yidun.sdk.core.http.ProtocolEnum;
+import com.netease.yidun.sdk.core.recover.RecoverMessage;
+import com.netease.yidun.sdk.core.recover.RequestRecover;
 import com.netease.yidun.sdk.core.request.BaseRequest;
 import com.netease.yidun.sdk.core.response.BaseResponse;
 import com.netease.yidun.sdk.core.utils.ObjectUtils;
 import com.netease.yidun.sdk.core.utils.StringUtils;
 import com.netease.yidun.sdk.core.utils.ValidationUtils;
+import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
+import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;
+import org.apache.hc.core5.http.ClassicHttpRequest;
+import org.apache.hc.core5.http.ConnectionRequestTimeoutException;
+import org.apache.hc.core5.http.ContentType;
+import org.apache.hc.core5.http.HttpEntity;
+import org.apache.hc.core5.http.HttpStatus;
+import org.apache.hc.core5.http.io.entity.ByteArrayEntity;
+import org.apache.hc.core5.http.io.entity.EntityUtils;
+import org.apache.hc.core5.http.io.support.ClassicRequestBuilder;
+
+import java.io.Closeable;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 public class DefaultClient implements Client, Closeable {
 
@@ -56,13 +54,15 @@ public class DefaultClient implements Client, Closeable {
     private final ProtocolEnum defaultProtocol;
     private final Signer signer;
     private final Credentials credentials;
-    /** 单个请求最多尝试次数 */
+    /**
+     * 单个请求最多尝试次数
+     */
     private final int maxAttemptCount;
     private final Gson gson = new Gson();
     private CloseableHttpClient httpClient;
     private EndpointResolver endpointResolver;
     private BreakStrategy breakStrategy;
-    private RequestRecover requestRecover;
+    private final RequestRecover requestRecover;
 
     public DefaultClient(ClientProfile profile) {
         Objects.requireNonNull(profile.signer(), "signer should not be null");
@@ -211,6 +211,11 @@ public class DefaultClient implements Client, Closeable {
 
             ClassicHttpRequest httpRequest = ctx.createRequest();
 
+            // 重试时，关闭上一次连接的流
+            if (ctx.response != null) {
+                EntityUtils.consumeQuietly(ctx.response.getEntity());
+            }
+
             CloseableHttpResponse httpResponse = null;
             try {
                 httpResponse = httpClient.execute(httpRequest);
@@ -236,13 +241,18 @@ public class DefaultClient implements Client, Closeable {
         if (exception == null) {
             try {
                 return ctx.parseResponse();
-            } catch (YidunSdkRespException e) {
+            } catch (YidunSdkException e) {
                 // 如果是server异常，则继续后续的故障恢复流程
-                if (e.getCode() != null && e.getCode() == YidunSdkRespException.SERVER) {
+                if (isServerError(ctx.response)) {
                     exception = e;
                 } else {
                     throw e;
                 }
+            }
+        } else {
+            // 关闭最后一次请求的流
+            if (ctx.response != null) {
+                EntityUtils.consumeQuietly(ctx.response.getEntity());
             }
         }
 
@@ -253,12 +263,13 @@ public class DefaultClient implements Client, Closeable {
         RecoverMessage message = new RecoverMessage();
         message.setMessage(gson.toJson(request));
         message.setClazz(request.getClass().getName());
+        message.setSecretId(credentials().getSecretId());
         boolean success = requestRecover.doRecover(message, request.getResponseClass());
         if (!success) {
             throw exception;
         }
         R fallbackResponse = requestRecover.getFallbackResponse(request.getResponseClass());
-        if(fallbackResponse != null){
+        if (fallbackResponse != null) {
             return fallbackResponse;
         }
         throw exception;
@@ -267,17 +278,29 @@ public class DefaultClient implements Client, Closeable {
     private class Context<R extends BaseResponse> {
         final BaseRequest<R> request;
         CloseableHttpResponse response;
-        /** 当前已尝试的请求次数 */
+        /**
+         * 当前已尝试的请求次数
+         */
         int attemptedCount = 0;
-        /** 是否使用请求对象中预置的域名 */
+        /**
+         * 是否使用请求对象中预置的域名
+         */
         final boolean usePreassignedDomain;
-        /** 【域名动态获取场景】通过 {@link #endpointResolver} 获取的域名 */
+        /**
+         * 【域名动态获取场景】通过 {@link #endpointResolver} 获取的域名
+         */
         String[] allDomains = null;
-        /** 【域名动态获取场景】当前选域名的索引 */
+        /**
+         * 【域名动态获取场景】当前选域名的索引
+         */
         int currentDomainIndex = -1;
-        /** 【域名动态获取场景】是否为首次尝试提交请求 */
+        /**
+         * 【域名动态获取场景】是否为首次尝试提交请求
+         */
         boolean firstAttempt = true;
-        /** 【域名动态获取场景】是否已向熔断器申请过所有域名 */
+        /**
+         * 【域名动态获取场景】是否已向熔断器申请过所有域名
+         */
         boolean allDomainsApplied = false;
 
         Context(BaseRequest<R> request) {
@@ -389,27 +412,27 @@ public class DefaultClient implements Client, Closeable {
             }
         }
 
-        R parseResponse() throws YidunSdkRespException {
+        R parseResponse() throws YidunSdkException {
             if (response == null) {
-                throw new YidunSdkRespException(YidunSdkRespException.SERVER, "Server error. null response");
+                throw new YidunSdkException("Server error. null response");
             }
 
             int statusCode = response.getCode();
             HttpEntity bodyEntity = response.getEntity();
 
             if (bodyEntity == null) {
-                throw new YidunSdkRespException(YidunSdkRespException.SERVER, "Server error. null response body. code=" + statusCode);
+                throw new YidunSdkException("Server error. null response body. code=" + statusCode);
             }
 
             String strBody;
             try {
                 strBody = EntityUtils.toString(bodyEntity);
             } catch (Exception e) {
-                throw new YidunSdkRespException("Fail to read response body. code=" + statusCode, e);
+                throw new YidunSdkException("Fail to read response body. code=" + statusCode, e);
             }
 
             if (statusCode >= HttpStatus.SC_SERVER_ERROR) {
-                throw new YidunSdkRespException(YidunSdkRespException.SERVER, String.format("Server error. code=%s, body=%s", statusCode, strBody));
+                throw new YidunSdkException(String.format("Server error. code=%s, body=%s", statusCode, strBody));
             }
 
             if (statusCode >= HttpStatus.SC_OK
@@ -419,10 +442,10 @@ public class DefaultClient implements Client, Closeable {
                 } catch (Exception e) {
                     String errorMessage = String.format(
                             "Fail to parse response body. code=%s, body=%s", statusCode, strBody);
-                    throw new YidunSdkRespException(errorMessage, e);
+                    throw new YidunSdkException(errorMessage, e);
                 }
             } else {
-                throw new YidunSdkRespException(
+                throw new YidunSdkException(
                         String.format("Server response fail. code=%s, body=%s", statusCode, strBody));
             }
         }
