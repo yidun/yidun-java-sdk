@@ -42,12 +42,12 @@ public class RecoverManager implements LifeCycle {
     }
 
     @Override
-    public void start() {
-        log.info("RecoverManager start, recoverConfig: {}", recoverConfig);
+    public synchronized void start() {
         try {
             if (isStarted) {
                 return;
             }
+            log.info("RecoverManager start, recoverConfig: {}", recoverConfig);
             doStart();
             isStarted = true;
         } catch (Throwable e) {

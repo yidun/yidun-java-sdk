@@ -1,6 +1,6 @@
 package com.netease.yidun.sdk.antispam.recover;
 
-import com.netease.yidun.sdk.core.client.Client;
+import com.netease.yidun.sdk.core.client.DefaultClient;
 import com.netease.yidun.sdk.core.recover.RecoverMessage;
 import com.netease.yidun.sdk.core.recover.RequestRecover;
 import com.netease.yidun.sdk.core.response.BaseResponse;
@@ -15,7 +15,7 @@ public class DefaultRequestRecover implements RequestRecover,LifeCycle {
 
     private static final Logger log = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
-    private RequestRecoverRegistry requestRecoverRegistry;
+    private final RequestRecoverRegistry requestRecoverRegistry;
 
     private static volatile DefaultRequestRecover requestRecover;
 
@@ -75,7 +75,7 @@ public class DefaultRequestRecover implements RequestRecover,LifeCycle {
      * @param recoverName     每个业务对应的文件恢复的文件标识
      * @param client          用于执行请求恢复的client，每个client可能存在不同的clientProfile
      */
-    public void registerRecover(List<Class<?>> responseClasses, String recoverName, Client client) {
+    public void registerRecover(List<Class<?>> responseClasses, String recoverName, DefaultClient client) {
         requestRecoverRegistry.registerRecover(responseClasses, recoverName, client);
     }
 

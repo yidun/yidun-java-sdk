@@ -84,9 +84,10 @@ SDK中各接口调用方式基本相同，接入方式统一，并提供了一�
 
   ```
     ClientProfile clientProfile = AntispamRequester.createDefaultProfile("SecretId", "SecretKey");
-    // 创建文件恢复的执行器
+    // 创建文件恢复的执行器，这个对象全局是单例的
     DefaultRequestRecover requestRecover = DefaultRequestRecover.createRecover("恢复文件所在的目录");
-    // 注册故障恢复的handler，用于接口请求失败，异步重试成功后的处理逻辑，每个接口对应一个，必填
+    // 注册故障恢复的handler，用于接口请求失败，异步重试成功后的处理逻辑，每个接口对应一个，否则对应接口不开启故障恢复
+    // 如果多个接口都需要开启故障恢复，则需要register多个handler
     requestRecover.registerRecoverHandler(new AbstractRequestRecoverHandler<ImageV5CheckResponse>() {
         @Override
         public void handle(ImageV5CheckResponse response) {
@@ -96,10 +97,16 @@ SDK中各接口调用方式基本相同，接入方式统一，并提供了一�
 
     // 注册请求失败后的fallback，用于接口请求失败，返回默认值，选填（不指定时，默认返回code为200的fallback对象）
     ImageV5CheckResponse fallbackResp = new ImageV5CheckResponse();
-    fallbackResp.setCode(200);
+    fallbackResp.setCode(100);
     fallbackResp.setMsg("fallback response");
+
     requestRecover.registerFallback(fallbackResp);
 
-    // 开启故障恢复
+    // 指定故障恢复的recover
     clientProfile.setRequestRecover(requestRecover);
   ```
+
+  #### 5. 接入文档
+*
+
+[](https://)

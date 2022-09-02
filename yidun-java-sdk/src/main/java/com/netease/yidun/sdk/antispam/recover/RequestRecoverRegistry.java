@@ -1,7 +1,7 @@
 package com.netease.yidun.sdk.antispam.recover;
 
 import com.netease.yidun.sdk.antispam.recover.recovery.RecoverManager;
-import com.netease.yidun.sdk.core.client.Client;
+import com.netease.yidun.sdk.core.client.DefaultClient;
 import com.netease.yidun.sdk.core.exception.YidunSdkException;
 import com.netease.yidun.sdk.core.response.BaseResponse;
 import com.netease.yidun.sdk.core.response.CommonResponse;
@@ -12,13 +12,16 @@ import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
-public class RequestRecoverRegistry implements LifeCycle{
-    private Map<Class<? extends BaseResponse>, BaseResponse> fallbackMap = new ConcurrentHashMap<>();
-    private Map<Class<?>, AbstractRequestRecoverHandler> handlerMap = new ConcurrentHashMap<>();
-    private Map<Class<?>, FileRequestRecover> recoverMap = new ConcurrentHashMap<>();
-    private RecoverConfig recoverConfig;
-    private RecoverManager recoverManager;
+public class RequestRecoverRegistry implements LifeCycle {
+    private final Map<Class<? extends BaseResponse>, BaseResponse> fallbackMap = new ConcurrentHashMap<>();
+    private final Map<Class<?>, AbstractRequestRecoverHandler> handlerMap = new ConcurrentHashMap<>();
+    private final Map<Class<?>, FileRequestRecover> recoverMap = new ConcurrentHashMap<>();
+    private final RecoverConfig recoverConfig;
+    private final RecoverManager recoverManager;
+    private volatile Lock lock = new ReentrantLock();
 
     public RequestRecoverRegistry(RecoverConfig recoverConfig) {
         this.recoverConfig = recoverConfig;
@@ -32,14 +35,28 @@ public class RequestRecoverRegistry implements LifeCycle{
      * @param recoverName
      * @param client
      */
-    public void registerRecover(List<Class<?>> responseClasses, String recoverName, Client client) {
-        if (responseClasses == null) {
+    public void registerRecover(List<Class<?>> responseClasses, String recoverName, DefaultClient client) {
+        if (responseClasses == null || responseClasses.size() == 0) {
             return;
         }
-        FileRequestRecover recover = FileRequestRecover.createRecover(recoverConfig, recoverName, client, this);
-        for (Class responseClass : responseClasses) {
-            recoverMap.put(responseClass, recover);
+        FileRequestRecover recover = recoverMap.get(responseClasses.get(0));
+        if (recover == null) {
+            lock.lock();
+            try {
+                recover = recoverMap.get(responseClasses.get(0));
+                if (recover == null) {
+                    recover = FileRequestRecover.createRecover(recoverConfig, recoverName, this);
+                    for (Class responseClass : responseClasses) {
+                        recoverMap.put(responseClass, recover);
+                    }
+                    recover.start();
+                    recoverManager.start();
+                }
+            } finally {
+                lock.unlock();
+            }
         }
+        recover.addClient(client);
     }
 
     public FileRequestRecover getRecover(Class responseClass) {
@@ -108,13 +125,7 @@ public class RequestRecoverRegistry implements LifeCycle{
 
     @Override
     public void start() {
-        if (recoverMap.size() == 0) {
-            return;
-        }
-        for (FileRequestRecover recover : recoverMap.values()) {
-            recover.start();
-        }
-        recoverManager.start();
+
     }
 
     @Override

@@ -8,7 +8,7 @@ package com.netease.yidun.sdk.core.recover;
 
 public class RecoverMessage {
     private String clazz;
-    private String key;
+    private String secretId;
     private String message;
 
     public String getClazz() {
@@ -19,12 +19,12 @@ public class RecoverMessage {
         this.clazz = clazz;
     }
 
-    public String getKey() {
-        return key;
+    public String getSecretId() {
+        return secretId;
     }
 
-    public void setKey(String key) {
-        this.key = key;
+    public void setSecretId(String secretId) {
+        this.secretId = secretId;
     }
 
     public String getMessage() {
