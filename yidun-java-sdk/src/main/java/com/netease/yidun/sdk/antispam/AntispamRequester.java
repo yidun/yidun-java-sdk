@@ -3,6 +3,7 @@ package com.netease.yidun.sdk.antispam;
 import com.netease.yidun.sdk.antispam.audio.AudioCheckClient;
 import com.netease.yidun.sdk.antispam.audio.AudioCommonClient;
 import com.netease.yidun.sdk.antispam.crawler.CrawlerCallbackClient;
+import com.netease.yidun.sdk.antispam.crawler.CrawlerQueryClient;
 import com.netease.yidun.sdk.antispam.crawler.CrawlerSubmitClient;
 import com.netease.yidun.sdk.antispam.digitalbook.v2.DigitalBookCheckClient;
 import com.netease.yidun.sdk.antispam.digitalbook.v2.DigitalBookQueryClient;
@@ -31,7 +32,6 @@ import com.netease.yidun.sdk.antispam.videosolution.VideoSolutionCheckClient;
 import com.netease.yidun.sdk.antispam.videosolution.VideoSolutionCommonClient;
 import com.netease.yidun.sdk.core.auth.Credentials;
 import com.netease.yidun.sdk.core.client.ClientProfile;
-import com.netease.yidun.sdk.core.endpoint.failover.FixedWindowBreakStrategy;
 import com.netease.yidun.sdk.core.http.HttpClientConfig;
 import com.netease.yidun.sdk.core.utils.AssertUtils;
 
@@ -172,6 +172,10 @@ public class AntispamRequester {
 
     public CrawlerSubmitClient getCrawlerSubmitClient() {
         return createIfAbsent(CrawlerSubmitClient.class);
+    }
+
+    public CrawlerQueryClient getCrawlerQueryClient() {
+        return createIfAbsent(CrawlerQueryClient.class);
     }
 
     public GrammarfixCommonClient getGrammarfixCommonClient() {
