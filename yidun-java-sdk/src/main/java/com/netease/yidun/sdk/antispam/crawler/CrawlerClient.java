@@ -6,8 +6,10 @@ import com.netease.yidun.sdk.antispam.crawler.v1.submit.response.CrawlerJobSubmi
 import com.netease.yidun.sdk.antispam.crawler.v3.callback.CrawlerCallback;
 import com.netease.yidun.sdk.antispam.crawler.v3.callback.request.CrawlerResourceCallbackV3Request;
 import com.netease.yidun.sdk.antispam.crawler.v3.callback.response.CrawlerResourceCallbackV3Response;
+import com.netease.yidun.sdk.antispam.crawler.v3.query.request.CrawlerQueryRequest;
 import com.netease.yidun.sdk.antispam.crawler.v3.submit.request.CrawlerResourceSubmitV3Request;
 import com.netease.yidun.sdk.antispam.crawler.v3.submit.response.CrawlerResourceSubmitV3Response;
+
 import com.netease.yidun.sdk.core.utils.AssertUtils;
 
 /**
@@ -43,5 +45,9 @@ public class CrawlerClient {
 
     public CrawlerResourceCallbackV3Response callbackResource(CrawlerResourceCallbackV3Request request) {
         return antispamRequester.getCrawlerCallbackClient().callbackResource(request);
+    }
+
+    public CrawlerResourceCallbackV3Response query(CrawlerQueryRequest request) {
+        return antispamRequester.getCrawlerQueryClient().query(request);
     }
 }
