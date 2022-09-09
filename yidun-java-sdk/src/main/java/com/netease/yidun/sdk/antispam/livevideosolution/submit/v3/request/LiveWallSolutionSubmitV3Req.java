@@ -93,6 +93,8 @@ public class LiveWallSolutionSubmitV3Req extends PostFormRequest<LiveWallSolutio
      */
     private String checkLanguageCode;
 
+    private Integer gender;
+
     public LiveWallSolutionSubmitV3Req() {
         productCode = "liveVideoSolutionCheck";
         uriPattern = "/v3/livewallsolution/check";
@@ -131,6 +133,7 @@ public class LiveWallSolutionSubmitV3Req extends PostFormRequest<LiveWallSolutio
         params.put("liveLink", getLiveLink());
         params.put("screenMode", getScreenMode());
         params.put("checkLanguageCode", getCheckLanguageCode());
+        params.put("gender", getGender());
         return params;
     }
 
