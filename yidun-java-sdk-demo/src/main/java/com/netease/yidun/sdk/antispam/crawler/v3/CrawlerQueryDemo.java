@@ -6,14 +6,11 @@
 
 package com.netease.yidun.sdk.antispam.crawler.v3;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import com.netease.yidun.sdk.antispam.AbstractDemo;
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.crawler.CrawlerClient;
 import com.netease.yidun.sdk.antispam.crawler.v3.callback.response.CrawlerResourceCallbackV3Response;
 import com.netease.yidun.sdk.antispam.crawler.v3.query.request.CrawlerQueryRequest;
-import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 import java.util.ArrayList;
 import java.util.List;
