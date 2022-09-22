@@ -47,7 +47,11 @@ public class CrawlerClient {
         return antispamRequester.getCrawlerCallbackClient().callbackResource(request);
     }
 
+    public CrawlerResourceCallbackV3Response callback(CrawlerQueryRequest request) {
+        return antispamRequester.getCrawlerCallbackClient().callback(request);
+    }
+
     public CrawlerResourceCallbackV3Response query(CrawlerQueryRequest request) {
-        return antispamRequester.getCrawlerQueryClient().query(request);
+        return antispamRequester.getCrawlerCallbackClient().query(request);
     }
 }
