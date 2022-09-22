@@ -29,7 +29,7 @@ public class RecoverConfig {
 
     /**
      * 恢复文件所在的目录
-     * base path, should not endsWith /
+     * base path
      */
     private String recoverFileDir;
 
@@ -75,7 +75,7 @@ public class RecoverConfig {
      * 并行执行恢复任务的线程池大小
      * 业务根据自身情况配置
      */
-    private int clusterRecoverPoolSize = 2;
+    private int clusterRecoverPoolSize = 15;
 
     private final String localAddress = NetUtils.getLocalHost();
 
