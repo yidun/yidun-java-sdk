@@ -21,6 +21,7 @@ public class VideoCallbackUnitV4Response {
     private Long censorTime;
     private Long duration;
     private Integer customAction;
+    private Integer picCount;
     private List<VideoEvidenceResponse> pictures;
 
     @Data
