@@ -72,6 +72,30 @@ public class ImageV5AntispamResp implements Serializable {
      * 分帧数
      */
     private Integer frameSize;
+    /**
+     * 是否有隐藏
+     */
+    private Boolean hidden;
+    /**
+     * 隐藏文件的格式
+     */
+    private String hiddenFormat;
+
+    public Boolean getHidden() {
+        return hidden;
+    }
+
+    public void setHidden(Boolean hidden) {
+        this.hidden = hidden;
+    }
+
+    public String getHiddenFormat() {
+        return hiddenFormat;
+    }
+
+    public void setHiddenFormat(String hiddenFormat) {
+        this.hiddenFormat = hiddenFormat;
+    }
 
     public Integer getFrameSize() {
         return frameSize;
