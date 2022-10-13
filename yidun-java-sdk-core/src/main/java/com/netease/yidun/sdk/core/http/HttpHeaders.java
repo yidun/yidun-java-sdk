@@ -9,5 +9,5 @@ public class HttpHeaders {
     public static final String SDK_VERSION = "SdkVer";
 
 
-    public static final String DEFAULT_SDK_VERSION = "1.0";
+    public static final String DEFAULT_SDK_VERSION = "1.1";
 }
