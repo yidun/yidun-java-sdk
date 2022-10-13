@@ -426,7 +426,6 @@ public class MediaValueAddServiceResponse {
         private String dataId;
         private String field;
         private String taskId;
-        private List<ImageDiscernDetail> details;
 
         public String getDataId() {
             return dataId;
@@ -452,21 +451,12 @@ public class MediaValueAddServiceResponse {
             this.taskId = taskId;
         }
 
-        public List<ImageDiscernDetail> getDetails() {
-            return details;
-        }
-
-        public void setDetails(List<ImageDiscernDetail> details) {
-            this.details = details;
-        }
-
         @Override
         public String toString() {
             return "ValueServiceBaseResponse{" +
                     "dataId='" + dataId + '\'' +
                     ", field='" + field + '\'' +
                     ", taskId='" + taskId + '\'' +
-                    ", details='" + details + '\'' +
                     '}';
         }
     }
@@ -732,45 +722,6 @@ public class MediaValueAddServiceResponse {
 
         public void setBackgroundInfo(BackgroundInfo backgroundInfo) {
             this.backgroundInfo = backgroundInfo;
-        }
-    }
-
-    public static class ImageDiscernDetail {
-        /**
-         * 识别物体类型 1 场景
-         */
-        private Integer type;
-        /**
-         * 识别名称
-         */
-        private String discernName;
-        /**
-         * 分数
-         */
-        private Float rate;
-
-        public Integer getType() {
-            return type;
-        }
-
-        public void setType(Integer type) {
-            this.type = type;
-        }
-
-        public String getDiscernName() {
-            return discernName;
-        }
-
-        public void setDiscernName(String discernName) {
-            this.discernName = discernName;
-        }
-
-        public Float getRate() {
-            return rate;
-        }
-
-        public void setRate(Float rate) {
-            this.rate = rate;
         }
     }
 
