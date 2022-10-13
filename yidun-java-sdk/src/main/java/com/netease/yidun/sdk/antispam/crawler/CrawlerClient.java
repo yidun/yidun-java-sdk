@@ -38,10 +38,10 @@ public class CrawlerClient extends BaseClient {
     }
 
     public CrawlerResourceCallbackV3Response callback(CrawlerQueryRequest request) {
-        return antispamRequester.getCrawlerCallbackClient().callback(request);
+        return requester.getCrawlerCallbackClient().callback(request);
     }
 
     public CrawlerResourceCallbackV3Response query(CrawlerQueryRequest request) {
-        return antispamRequester.getCrawlerCallbackClient().query(request);
+        return requester.getCrawlerCallbackClient().query(request);
     }
 }

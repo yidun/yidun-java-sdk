@@ -118,6 +118,9 @@ public class ImageRecoverTest {
         request.setDomain("http://test.recover.com");
 
         ImageV5CheckResponse result = imageClient.syncCheckImage(request);
+
+        System.out.println(new Gson().toJson(result));
+
         Assert.assertNotNull(result);
         Assert.assertEquals(200, result.getCode());
     }
@@ -165,7 +168,6 @@ public class ImageRecoverTest {
         request.setBusinessId(Constants.BUSINESS_ID);
         request.setProtocol(ProtocolEnum.HTTP);
         request.setImages(images);
-//        request.setDomain("http://test.recover.com");
 
         ImageV5CheckResponse result = imageClient.syncCheckImage(request);
         System.out.println(new Gson().toJson(result));
@@ -177,7 +179,7 @@ public class ImageRecoverTest {
             asyncCheckRequest.setBusinessId(Constants.BUSINESS_ID);
             asyncCheckRequest.setProtocol(ProtocolEnum.HTTP);
             ImageV5AsyncCheckResp v5AsyncCheckResp = imageClient.asyncCheckImage(asyncCheckRequest);
-            Assert.assertTrue(false);
+            Assert.assertEquals(200, v5AsyncCheckResp.getCode());
         } catch (YidunSdkException e) {
             Assert.assertNotNull(e);
         }
@@ -191,13 +193,12 @@ public class ImageRecoverTest {
         textCheckRequest.setTitle("测试文本单次同步检测操");
         textCheckRequest.setDataType(0);
         textCheckRequest.setCallback("callback");
-//        textCheckRequest.setDomain("http://test.recover.com");
 
         TextClient textClient = new TextClient(antispamRequester);
         TextCheckResponse textCheckResponse = textClient.syncCheckText(textCheckRequest);
         System.out.println(new Gson().toJson(textCheckResponse));
         Assert.assertEquals(110, textCheckResponse.getCode());
 
-        Thread.sleep(60000);
+        Thread.sleep(600000);
     }
 }
