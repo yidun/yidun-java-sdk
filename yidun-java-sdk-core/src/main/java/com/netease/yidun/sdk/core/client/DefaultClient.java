@@ -211,11 +211,6 @@ public class DefaultClient implements Client, Closeable {
 
             ClassicHttpRequest httpRequest = ctx.createRequest();
 
-            // 重试时，关闭上一次连接的流
-            if (ctx.response != null) {
-                EntityUtils.consumeQuietly(ctx.response.getEntity());
-            }
-
             CloseableHttpResponse httpResponse = null;
             try {
                 httpResponse = httpClient.execute(httpRequest);
