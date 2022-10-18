@@ -98,6 +98,9 @@ public class MediaSubmitRequestV2 extends PostFormRequest<MediaCheckResponseV2> 
     @Size(max = 256, message = "token最长256个字符")
     private String token;
 
+    @Size(max = 1024, message = "人审标签扩展字段最长1024个字符")
+    private String censorExt;
+
     public MediaSubmitRequestV2() {
         productCode = "mediaSubmit";
         uriPattern = "/v2/mediasolution/submit";
@@ -118,6 +121,7 @@ public class MediaSubmitRequestV2 extends PostFormRequest<MediaCheckResponseV2> 
         params.put("publishTime", getPublishTime());
         params.put("checkLanguageCode", getCheckLanguageCode());
         params.put("token", getToken());
+        params.put("censorExt",getCensorExt());
         if (content != null && !content.isEmpty()) {
             params.put("content", GSON.toJson(getContent()));
         }
@@ -290,6 +294,11 @@ public class MediaSubmitRequestV2 extends PostFormRequest<MediaCheckResponseV2> 
         return this;
     }
 
+    public MediaSubmitRequestV2 censorExt(String censorExt) {
+        this.censorExt = censorExt;
+        return this;
+    }
+
     public String getIp() {
         return ip;
     }
@@ -402,6 +411,14 @@ public class MediaSubmitRequestV2 extends PostFormRequest<MediaCheckResponseV2> 
         this.token = token;
     }
 
+    public String getCensorExt () {
+        return censorExt;
+    }
+
+    public void setCensorExt(String censorExt) {
+        this.censorExt = censorExt;
+    }
+
     @Override
     public String toString() {
         return "MediaSubmitRequestV2{" +
@@ -419,6 +436,7 @@ public class MediaSubmitRequestV2 extends PostFormRequest<MediaCheckResponseV2> 
                 ", publishTime=" + publishTime +
                 ", checkLanguageCode=" + checkLanguageCode +
                 ", token='" + token + '\'' +
+                ", censorExt='" + censorExt + '\'' +
                 '}';
     }
 }
