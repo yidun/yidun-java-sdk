@@ -114,6 +114,8 @@ public class VideoSolutionSubmitV2Req extends PostFormRequest<VideoSolutionSubmi
      */
     private String checkLanguageCode;
 
+    private String nickname;
+
     public VideoSolutionSubmitV2Req() {
         productCode = "videoSolutionCheck";
         uriPattern = "/v2/videosolution/submit";
@@ -147,6 +149,7 @@ public class VideoSolutionSubmitV2Req extends PostFormRequest<VideoSolutionSubmi
         params.put("relationSearchId", getRelationSearchId());
         params.put("priorityId", getPriorityId());
         params.put("checkLanguageCode", getCheckLanguageCode());
+        params.put("nickname", getNickname());
         if (getTags() != null) {
             params.put("tags", new Gson().toJson(getTags()));
         }
