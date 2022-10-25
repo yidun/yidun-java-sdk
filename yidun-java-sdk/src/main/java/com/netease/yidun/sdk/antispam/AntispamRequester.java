@@ -12,6 +12,8 @@ import com.netease.yidun.sdk.antispam.grammarfix.GrammarfixCommonClient;
 import com.netease.yidun.sdk.antispam.image.v5.ImageCheckClient;
 import com.netease.yidun.sdk.antispam.image.v5.ImageCommonClient;
 import com.netease.yidun.sdk.antispam.keyword.KeywordCommonClient;
+import com.netease.yidun.sdk.antispam.list.imagelist.v1.ImageListCommonClient;
+import com.netease.yidun.sdk.antispam.list.user.v2.ListCommonClient;
 import com.netease.yidun.sdk.antispam.liveaudio.LiveAudioCheckClient;
 import com.netease.yidun.sdk.antispam.liveaudio.LiveAudioCommonClient;
 import com.netease.yidun.sdk.antispam.livevideo.LiveVideoCheckClient;
@@ -31,7 +33,6 @@ import com.netease.yidun.sdk.antispam.videosolution.VideoSolutionCheckClient;
 import com.netease.yidun.sdk.antispam.videosolution.VideoSolutionCommonClient;
 import com.netease.yidun.sdk.core.auth.Credentials;
 import com.netease.yidun.sdk.core.client.ClientProfile;
-import com.netease.yidun.sdk.core.endpoint.failover.FixedWindowBreakStrategy;
 import com.netease.yidun.sdk.core.http.HttpClientConfig;
 import com.netease.yidun.sdk.core.utils.AssertUtils;
 
@@ -180,6 +181,14 @@ public class AntispamRequester {
 
     public KeywordCommonClient getKeywordCommonClient() {
         return createIfAbsent(KeywordCommonClient.class);
+    }
+
+    public ImageListCommonClient getImageListCommonClient() {
+        return createIfAbsent(ImageListCommonClient.class);
+    }
+
+    public ListCommonClient getListCommonClient() {
+        return createIfAbsent(ListCommonClient.class);
     }
 
     public PretreatmentCommonClient getPretreatmentCommonClient() {
