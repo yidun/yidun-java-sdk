@@ -8,6 +8,7 @@ import java.util.List;
 public class MediaValueAddServiceResponse {
 
     private Ocr ocr;
+    private Asr asr;
     private Face face;
     private ImageQuality imageQuality;
     private Logo logo;
@@ -21,6 +22,14 @@ public class MediaValueAddServiceResponse {
 
     public void setOcr(Ocr ocr) {
         this.ocr = ocr;
+    }
+
+    public Asr getAsr() {
+        return asr;
+    }
+
+    public void setAsr(Asr asr) {
+        this.asr = asr;
     }
 
     public Face getFace() {
@@ -75,6 +84,7 @@ public class MediaValueAddServiceResponse {
     public String toString() {
         return "MediaValueAddServiceResponse{" +
                 "ocr=" + ocr +
+                ", asr=" + asr +
                 ", face=" + face +
                 ", imageQuality=" + imageQuality +
                 ", logo=" + logo +
@@ -83,6 +93,230 @@ public class MediaValueAddServiceResponse {
                 ", language=" + language +
                 '}';
     }
+
+    public static class Asr {
+
+        private List<AsrAudio> audios;
+
+        private List<AsrAudiovideo> audiovideos;
+
+        public List<AsrAudio> getAudios() {
+            return audios;
+        }
+
+        public void setAudios(List<AsrAudio> audios) {
+            this.audios = audios;
+        }
+
+        public List<AsrAudiovideo> getAudiovideos() {
+            return audiovideos;
+        }
+
+        public void setAudiovideos(List<AsrAudiovideo> audiovideos) {
+            this.audiovideos = audiovideos;
+        }
+
+        @Override
+        public String toString() {
+            return "Asr{" +
+                    "audios=" + audios +
+                    ", audiovideos=" + audiovideos +
+                    '}';
+        }
+
+    }
+
+    public static class AsrAudio {
+
+        private String taskId;
+
+        private String dataId;
+
+        private String fieldId;
+
+        private List<AsrAudioDetail>  details;
+
+        public String getTaskId() {
+            return taskId;
+        }
+
+        public void setTaskId(String taskId) {
+            this.taskId = taskId;
+        }
+
+        public String getDataId() {
+            return dataId;
+        }
+
+        public void setDataId(String dataId) {
+            this.dataId = dataId;
+        }
+
+        public String getFieldId() {
+            return fieldId;
+        }
+
+        public void setFieldId(String fieldId) {
+            this.fieldId = fieldId;
+        }
+
+        public List<AsrAudioDetail> getDetails() {
+            return details;
+        }
+
+        public void setDetails(List<AsrAudioDetail> details) {
+            this.details = details;
+        }
+
+        @Override
+        public String toString() {
+            return "AsrAudio{" +
+                    "taskId='" + taskId + '\'' +
+                    ", dataId='" + dataId + '\'' +
+                    ", fieldId='" + fieldId + '\'' +
+                    ", details=" + details +
+                    '}';
+        }
+    }
+
+    public static class AsrAudiovideo {
+
+        private String taskId;
+
+        private String dataId;
+
+        private String fieldId;
+
+        private List<AsrAudiovideoDetail>  details;
+
+        public String getTaskId() {
+            return taskId;
+        }
+
+        public void setTaskId(String taskId) {
+            this.taskId = taskId;
+        }
+
+        public String getDataId() {
+            return dataId;
+        }
+
+        public void setDataId(String dataId) {
+            this.dataId = dataId;
+        }
+
+        public String getFieldId() {
+            return fieldId;
+        }
+
+        public void setFieldId(String fieldId) {
+            this.fieldId = fieldId;
+        }
+
+        public List<AsrAudiovideoDetail> getDetails() {
+            return details;
+        }
+
+        public void setDetails(List<AsrAudiovideoDetail> details) {
+            this.details = details;
+        }
+
+        @Override
+        public String toString() {
+            return "AsrAudiovideo{" +
+                    "taskId='" + taskId + '\'' +
+                    ", dataId='" + dataId + '\'' +
+                    ", fieldId='" + fieldId + '\'' +
+                    ", details=" + details +
+                    '}';
+        }
+    }
+
+    public static class AsrAudioDetail {
+
+        private Long startTime;
+
+        private Long endTime;
+
+        private String content;
+
+        public Long getStartTime() {
+            return startTime;
+        }
+
+        public void setStartTime(Long startTime) {
+            this.startTime = startTime;
+        }
+
+        public Long getEndTime() {
+            return endTime;
+        }
+
+        public void setEndTime(Long endTime) {
+            this.endTime = endTime;
+        }
+
+        public String getContent() {
+            return content;
+        }
+
+        public void setContent(String content) {
+            this.content = content;
+        }
+
+        @Override
+        public String toString() {
+            return "AsrAudioDetail{" +
+                    "startTime=" + startTime +
+                    ", endTime=" + endTime +
+                    ", content='" + content + '\'' +
+                    '}';
+        }
+
+    }
+
+    public static class AsrAudiovideoDetail {
+
+        private Long startTime;
+
+        private Long endTime;
+
+        private String content;
+
+        public Long getStartTime() {
+            return startTime;
+        }
+
+        public void setStartTime(Long startTime) {
+            this.startTime = startTime;
+        }
+
+        public Long getEndTime() {
+            return endTime;
+        }
+
+        public void setEndTime(Long endTime) {
+            this.endTime = endTime;
+        }
+
+        public String getContent() {
+            return content;
+        }
+
+        public void setContent(String content) {
+            this.content = content;
+        }
+
+        @Override
+        public String toString() {
+            return "AsrAudiovideoDetail{" +
+                    "startTime=" + startTime +
+                    ", endTime=" + endTime +
+                    ", content='" + content + '\'' +
+                    '}';
+        }
+    }
+
     public static class Ocr {
         private List<OcrImageDetail> images;
 
