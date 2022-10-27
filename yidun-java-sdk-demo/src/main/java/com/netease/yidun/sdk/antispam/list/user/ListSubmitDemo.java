@@ -9,6 +9,7 @@ import com.netease.yidun.sdk.antispam.list.user.v2.submit.ListSubmitResp;
 import com.netease.yidun.sdk.antispam.list.user.v2.submit.ListSubmitResponse;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -50,7 +51,7 @@ public class ListSubmitDemo extends AbstractDemo {
         }
 
         if (submitResponse != null && submitResponse.getCode() == 200) {
-            ListSubmitResp result = submitResponse.getResult();
+            List<ListSubmitResp> result = submitResponse.getResult();
             // 根据需要获取忽略词的添加结果，具体返回字段的说明，请参考官方接口文档中字段说明
         }
     }
