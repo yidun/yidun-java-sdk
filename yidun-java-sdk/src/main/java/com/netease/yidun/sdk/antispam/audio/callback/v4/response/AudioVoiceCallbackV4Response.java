@@ -39,5 +39,9 @@ public class AudioVoiceCallbackV4Response {
          * 音频年龄段置信分数
          */
         private Double mainAgeGroupRate;
+        /**
+         * 音频伪造检测建议值：1-伪造，0-真实
+         */
+        private Integer deepfake;
     }
 }
