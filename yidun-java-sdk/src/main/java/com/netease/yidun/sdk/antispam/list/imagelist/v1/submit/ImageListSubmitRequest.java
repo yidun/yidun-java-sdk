@@ -55,7 +55,7 @@ public class ImageListSubmitRequest extends PostFormRequest<ImageListSubmitRespo
     protected String businessId;
 
     public ImageListSubmitRequest() {
-        productCode = "imageList";
+        productCode = "list";
         version = "v1";
         uriPattern = "/v1/image/list/submit";
     }
