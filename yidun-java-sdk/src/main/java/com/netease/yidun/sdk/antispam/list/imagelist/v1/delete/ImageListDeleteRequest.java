@@ -35,7 +35,7 @@ public class ImageListDeleteRequest extends PostFormRequest<ImageListDeleteRespo
     protected String businessId;
 
     public ImageListDeleteRequest() {
-        productCode = "imageList";
+        productCode = "list";
         version = "v1";
         uriPattern = "/v1/image/list/delete";
     }

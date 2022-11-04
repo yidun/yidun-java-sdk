@@ -40,7 +40,7 @@ public class ImageListUpdateRequest extends PostFormRequest<ImageListUpdateRespo
     protected String businessId;
 
     public ImageListUpdateRequest() {
-        productCode = "imageList";
+        productCode = "list";
         version = "v1";
         uriPattern = "/v1/image/list/update";
     }

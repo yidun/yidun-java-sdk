@@ -64,7 +64,7 @@ public class ImageListQueryRequest extends PostFormRequest<ImageListQueryRespons
     protected String businessId;
 
     public ImageListQueryRequest() {
-        productCode = "imageList";
+        productCode = "list";
         version = "v1";
         uriPattern = "/v1/image/list/pageQuery";
     }
