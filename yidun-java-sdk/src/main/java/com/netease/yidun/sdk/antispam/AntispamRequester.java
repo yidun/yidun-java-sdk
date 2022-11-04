@@ -12,8 +12,7 @@ import com.netease.yidun.sdk.antispam.grammarfix.GrammarfixCommonClient;
 import com.netease.yidun.sdk.antispam.image.v5.ImageCheckClient;
 import com.netease.yidun.sdk.antispam.image.v5.ImageCommonClient;
 import com.netease.yidun.sdk.antispam.keyword.KeywordCommonClient;
-import com.netease.yidun.sdk.antispam.list.imagelist.v1.ImageListCommonClient;
-import com.netease.yidun.sdk.antispam.list.user.v2.ListCommonClient;
+import com.netease.yidun.sdk.antispam.list.ListCommonClient;
 import com.netease.yidun.sdk.antispam.liveaudio.LiveAudioCheckClient;
 import com.netease.yidun.sdk.antispam.liveaudio.LiveAudioCommonClient;
 import com.netease.yidun.sdk.antispam.livevideo.LiveVideoCheckClient;
@@ -181,10 +180,6 @@ public class AntispamRequester {
 
     public KeywordCommonClient getKeywordCommonClient() {
         return createIfAbsent(KeywordCommonClient.class);
-    }
-
-    public ImageListCommonClient getImageListCommonClient() {
-        return createIfAbsent(ImageListCommonClient.class);
     }
 
     public ListCommonClient getListCommonClient() {

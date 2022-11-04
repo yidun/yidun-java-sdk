@@ -3,7 +3,7 @@ package com.netease.yidun.sdk.antispam.list.user;
 import com.google.gson.Gson;
 import com.netease.yidun.sdk.antispam.AbstractDemo;
 import com.netease.yidun.sdk.antispam.AntispamRequester;
-import com.netease.yidun.sdk.antispam.list.user.v2.ListClient;
+import com.netease.yidun.sdk.antispam.list.ListClient;
 import com.netease.yidun.sdk.antispam.list.user.v2.delete.ListDeleteRequest;
 import com.netease.yidun.sdk.antispam.list.user.v2.delete.ListDeleteResponse;
 
@@ -43,7 +43,7 @@ public class ListDeleteDemo extends AbstractDemo {
         ListDeleteResponse deleteResponse = null;
         try {
             // 发起删除请求
-            deleteResponse = listClient.delete(deleteRequest);
+            deleteResponse = listClient.deleteList(deleteRequest);
         } catch (Exception e) {
             e.printStackTrace();
         }

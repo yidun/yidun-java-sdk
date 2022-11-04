@@ -2,7 +2,7 @@ package com.netease.yidun.sdk.antispam.list.user;
 
 import com.netease.yidun.sdk.antispam.AbstractDemo;
 import com.netease.yidun.sdk.antispam.AntispamRequester;
-import com.netease.yidun.sdk.antispam.list.user.v2.ListClient;
+import com.netease.yidun.sdk.antispam.list.ListClient;
 import com.netease.yidun.sdk.antispam.list.user.v2.query.ListQueryRequest;
 import com.netease.yidun.sdk.antispam.list.user.v2.query.ListQueryResponse;
 
@@ -39,7 +39,7 @@ public class ListQueryDemo extends AbstractDemo {
         ListQueryResponse queryResponse = null;
         try {
             // 发起查询请求
-            queryResponse = listClient.query(queryRequest);
+            queryResponse = listClient.queryList(queryRequest);
         } catch (Exception e) {
             e.printStackTrace();
         }

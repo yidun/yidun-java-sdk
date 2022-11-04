@@ -3,7 +3,7 @@ package com.netease.yidun.sdk.antispam.list.user;
 import com.google.gson.Gson;
 import com.netease.yidun.sdk.antispam.AbstractDemo;
 import com.netease.yidun.sdk.antispam.AntispamRequester;
-import com.netease.yidun.sdk.antispam.list.user.v2.ListClient;
+import com.netease.yidun.sdk.antispam.list.ListClient;
 import com.netease.yidun.sdk.antispam.list.user.v2.submit.ListSubmitRequest;
 import com.netease.yidun.sdk.antispam.list.user.v2.submit.ListSubmitResp;
 import com.netease.yidun.sdk.antispam.list.user.v2.submit.ListSubmitResponse;
@@ -45,7 +45,7 @@ public class ListSubmitDemo extends AbstractDemo {
         ListSubmitResponse submitResponse = null;
         try {
             // 发起提交请求
-            submitResponse = listClient.submit(submitRequest);
+            submitResponse = listClient.submitList(submitRequest);
         } catch (Exception e) {
             e.printStackTrace();
         }

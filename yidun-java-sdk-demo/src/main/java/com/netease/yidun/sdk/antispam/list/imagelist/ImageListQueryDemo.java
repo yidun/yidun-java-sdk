@@ -2,7 +2,7 @@ package com.netease.yidun.sdk.antispam.list.imagelist;
 
 import com.netease.yidun.sdk.antispam.AbstractDemo;
 import com.netease.yidun.sdk.antispam.AntispamRequester;
-import com.netease.yidun.sdk.antispam.list.imagelist.v1.ImageListClient;
+import com.netease.yidun.sdk.antispam.list.ListClient;
 import com.netease.yidun.sdk.antispam.list.imagelist.v1.query.ImageListQueryRequest;
 import com.netease.yidun.sdk.antispam.list.imagelist.v1.query.ImageListQueryResponse;
 
@@ -16,7 +16,7 @@ public class ImageListQueryDemo extends AbstractDemo {
         AntispamRequester antispamRequester = createAntispamRequester("SecretId", "SecretKey");
 
         // 实例化发起请求的client对象
-        ImageListClient imageListClient = new ImageListClient(antispamRequester);
+        ListClient listClient = new ListClient(antispamRequester);
         // 实例化请求对象
         ImageListQueryRequest queryRequest = new ImageListQueryRequest();
         // 设置易盾内容安全分配的businessId
@@ -38,7 +38,7 @@ public class ImageListQueryDemo extends AbstractDemo {
         ImageListQueryResponse queryResponse = null;
         try {
             // 发起查询请求
-            queryResponse = imageListClient.query(queryRequest);
+            queryResponse = listClient.queryImageList(queryRequest);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -2,7 +2,7 @@ package com.netease.yidun.sdk.antispam.list.user;
 
 import com.netease.yidun.sdk.antispam.AbstractDemo;
 import com.netease.yidun.sdk.antispam.AntispamRequester;
-import com.netease.yidun.sdk.antispam.list.user.v2.ListClient;
+import com.netease.yidun.sdk.antispam.list.ListClient;
 import com.netease.yidun.sdk.antispam.list.user.v2.update.ListUpdateRequest;
 import com.netease.yidun.sdk.antispam.list.user.v2.update.ListUpdateResponse;
 
@@ -34,7 +34,7 @@ public class ListUpdateDemo extends AbstractDemo {
         ListUpdateResponse updateResponse = null;
         try {
             // 发起修改请求
-            updateResponse = listClient.update(updateRequest);
+            updateResponse = listClient.updateList(updateRequest);
         } catch (Exception e) {
             e.printStackTrace();
         }

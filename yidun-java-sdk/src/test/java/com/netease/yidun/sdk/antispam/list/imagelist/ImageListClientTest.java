@@ -3,7 +3,7 @@ package com.netease.yidun.sdk.antispam.list.imagelist;
 import com.google.gson.Gson;
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.image.Constants;
-import com.netease.yidun.sdk.antispam.list.imagelist.v1.ImageListClient;
+import com.netease.yidun.sdk.antispam.list.ListClient;
 import com.netease.yidun.sdk.antispam.list.imagelist.v1.delete.ImageListDeleteRequest;
 import com.netease.yidun.sdk.antispam.list.imagelist.v1.delete.ImageListDeleteResponse;
 import com.netease.yidun.sdk.antispam.list.imagelist.v1.query.ImageListQueryRequest;
@@ -24,12 +24,12 @@ public class ImageListClientTest {
 
     private static final Gson GSON = new Gson();
     private static long currentTimeMillis = System.currentTimeMillis();
-    private static ImageListClient client;
+    private static ListClient client;
 
     @Before
     public void pre() {
         AntispamRequester antispamRequester = new AntispamRequester(Constants.SECRET_ID, Constants.SECRET_KEY);
-        client = new ImageListClient(antispamRequester);
+        client = new ListClient(antispamRequester);
     }
 
     @Test
@@ -60,7 +60,7 @@ public class ImageListClientTest {
 
     private void queryAfteDelete(ImageListQueryRequest imageListQueryRequest) {
         imageListQueryRequest.setStatus(null);
-        ImageListQueryResponse imageListQueryResponseAfterDelete = client.query(imageListQueryRequest);
+        ImageListQueryResponse imageListQueryResponseAfterDelete = client.queryImageList(imageListQueryRequest);
         Assert.assertNotNull(imageListQueryResponseAfterDelete);
         Assert.assertEquals(0, (long) imageListQueryResponseAfterDelete.getResult().getCount());
     }
@@ -72,7 +72,7 @@ public class ImageListClientTest {
         imageListDeleteRequest.nonce(String.valueOf(currentTimeMillis++));
         imageListDeleteRequest.setUuid(uuid);
         imageListDeleteRequest.setType(1);
-        ImageListDeleteResponse imageListDeleteResponse = client.delete(imageListDeleteRequest);
+        ImageListDeleteResponse imageListDeleteResponse = client.deleteImageList(imageListDeleteRequest);
         Assert.assertTrue(imageListDeleteResponse.getResult());
     }
 
@@ -91,7 +91,7 @@ public class ImageListClientTest {
         imageListSubmitRequest.setType(1);
         imageListSubmitRequest.setDescription("图片名单描述");
 
-        ImageListSubmitResponse response = client.submit(imageListSubmitRequest);
+        ImageListSubmitResponse response = client.submitImageList(imageListSubmitRequest);
         System.out.print(response.toString());
         Assert.assertNotNull(response);
         Assert.assertEquals(200, response.getCode());
@@ -113,7 +113,7 @@ public class ImageListClientTest {
         imageListQueryRequest.setEndTime(System.currentTimeMillis() + 10 * 60 * 1000);
         imageListQueryRequest.setPageNum(1);
         imageListQueryRequest.setPageSize(20);
-        ImageListQueryResponse imageListQueryResponse = client.query(imageListQueryRequest);
+        ImageListQueryResponse imageListQueryResponse = client.queryImageList(imageListQueryRequest);
         Assert.assertNotNull(imageListQueryResponse);
         return imageListQueryRequest;
     }
@@ -126,18 +126,18 @@ public class ImageListClientTest {
         imageListUpdateRequest.setUuid(uuid);
         imageListUpdateRequest.setType(1);
         imageListUpdateRequest.setStatus(0);
-        ImageListUpdateResponse imageListUpdateResponse = client.update(imageListUpdateRequest);
+        ImageListUpdateResponse imageListUpdateResponse = client.updateImageList(imageListUpdateRequest);
         Assert.assertEquals(200, imageListUpdateResponse.getCode());
         Assert.assertTrue(imageListUpdateResponse.getResult());
     }
 
     private void queryAfterupdate(ImageListQueryRequest imageListQueryRequest) {
-        ImageListQueryResponse imageListQueryResponseAfterUpdate = client.query(imageListQueryRequest);
+        ImageListQueryResponse imageListQueryResponseAfterUpdate = client.queryImageList(imageListQueryRequest);
         Assert.assertNotNull(imageListQueryResponseAfterUpdate);
         Assert.assertEquals(200, imageListQueryResponseAfterUpdate.getCode());
         Assert.assertEquals(0, (long) imageListQueryResponseAfterUpdate.getResult().getCount());
         imageListQueryRequest.setStatus(0);
-        ImageListQueryResponse imageListQueryInvalidResponseAfterUpdate = client.query(imageListQueryRequest);
+        ImageListQueryResponse imageListQueryInvalidResponseAfterUpdate = client.queryImageList(imageListQueryRequest);
         Assert.assertNotNull(imageListQueryInvalidResponseAfterUpdate);
         Assert.assertEquals(200, imageListQueryInvalidResponseAfterUpdate.getCode());
         Assert.assertEquals(1, (long) imageListQueryInvalidResponseAfterUpdate.getResult().getCount());
