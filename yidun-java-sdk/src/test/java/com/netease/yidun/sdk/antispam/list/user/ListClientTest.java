@@ -3,7 +3,7 @@ package com.netease.yidun.sdk.antispam.list.user;
 import com.google.gson.Gson;
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.image.Constants;
-import com.netease.yidun.sdk.antispam.list.user.v2.ListClient;
+import com.netease.yidun.sdk.antispam.list.ListClient;
 import com.netease.yidun.sdk.antispam.list.user.v2.delete.ListDeleteRequest;
 import com.netease.yidun.sdk.antispam.list.user.v2.delete.ListDeleteResponse;
 import com.netease.yidun.sdk.antispam.list.user.v2.query.ListQueryRequest;
@@ -59,7 +59,7 @@ public class ListClientTest {
 
     private void queryAfteDelete(ListQueryRequest ListQueryRequest) {
         ListQueryRequest.setStatus(null);
-        ListQueryResponse ListQueryResponseAfterDelete = client.query(ListQueryRequest);
+        ListQueryResponse ListQueryResponseAfterDelete = client.queryList(ListQueryRequest);
         Assert.assertNotNull(ListQueryResponseAfterDelete);
         Assert.assertEquals(0, (long) ListQueryResponseAfterDelete.getResult().getCount());
     }
@@ -77,7 +77,7 @@ public class ListClientTest {
         ListDeleteRequest.setUuids(GSON.toJson(uuids));
         ListDeleteRequest.setListType(1);
         ListDeleteRequest.setEntityType(1);
-        ListDeleteResponse ListDeleteResponse = client.delete(ListDeleteRequest);
+        ListDeleteResponse ListDeleteResponse = client.deleteList(ListDeleteRequest);
         Assert.assertTrue(ListDeleteResponse.getResult());
     }
 
@@ -95,7 +95,7 @@ public class ListClientTest {
         ListSubmitRequest.setSpamType(100);
         ListSubmitRequest.setDescription("用户名单描述");
 
-        ListSubmitResponse response = client.submit(ListSubmitRequest);
+        ListSubmitResponse response = client.submitList(ListSubmitRequest);
         System.out.print(response.toString());
         Assert.assertNotNull(response);
         Assert.assertEquals(200, response.getCode());
@@ -118,7 +118,7 @@ public class ListClientTest {
         ListQueryRequest.setEndTime(System.currentTimeMillis() + 10 * 60 * 1000);
         ListQueryRequest.setPageNum(1);
         ListQueryRequest.setPageSize(20);
-        ListQueryResponse ListQueryResponse = client.query(ListQueryRequest);
+        ListQueryResponse ListQueryResponse = client.queryList(ListQueryRequest);
         Assert.assertNotNull(ListQueryResponse);
         return ListQueryRequest;
     }
@@ -133,18 +133,18 @@ public class ListClientTest {
         ListUpdateRequest.setListType(1);
         ListUpdateRequest.setEntityType(1);
         ListUpdateRequest.setStatus(0);
-        ListUpdateResponse ListUpdateResponse = client.update(ListUpdateRequest);
+        ListUpdateResponse ListUpdateResponse = client.updateList(ListUpdateRequest);
         Assert.assertEquals(200, ListUpdateResponse.getCode());
         Assert.assertTrue(ListUpdateResponse.getResult());
     }
 
     private void queryAfterupdate(ListQueryRequest ListQueryRequest) {
-        ListQueryResponse ListQueryResponseAfterUpdate = client.query(ListQueryRequest);
+        ListQueryResponse ListQueryResponseAfterUpdate = client.queryList(ListQueryRequest);
         Assert.assertNotNull(ListQueryResponseAfterUpdate);
         Assert.assertEquals(200, ListQueryResponseAfterUpdate.getCode());
         Assert.assertEquals(0, (long) ListQueryResponseAfterUpdate.getResult().getCount());
         ListQueryRequest.setStatus(0);
-        ListQueryResponse ListQueryInvalidResponseAfterUpdate = client.query(ListQueryRequest);
+        ListQueryResponse ListQueryInvalidResponseAfterUpdate = client.queryList(ListQueryRequest);
         Assert.assertNotNull(ListQueryInvalidResponseAfterUpdate);
         Assert.assertEquals(200, ListQueryInvalidResponseAfterUpdate.getCode());
         Assert.assertEquals(1, (long) ListQueryInvalidResponseAfterUpdate.getResult().getCount());
