@@ -63,6 +63,12 @@ public class FileCallbackV2Response extends CommonResponse {
          */
         private String callback;
         /**
+         * 文档解决方案维度分类信息
+         * 垃圾类型：0-正常，100-色情，200-广告，300-暴恐，400-违禁，500-涉政, 900-其他，1100-涉价值观
+         * 压缩包格式参考Detail里的Label
+         */
+        private Integer label;
+        /**
          * 建议动作，0：通过，1：嫌疑，2：不通过
          */
         private Integer suggestion;
@@ -120,6 +126,14 @@ public class FileCallbackV2Response extends CommonResponse {
 
         public void setCallback(String callback) {
             this.callback = callback;
+        }
+
+        public Integer getLabel() {
+            return label;
+        }
+
+        public void setLabel(Integer label) {
+            this.label = label;
         }
 
         public Integer getSuggestion() {
@@ -192,6 +206,7 @@ public class FileCallbackV2Response extends CommonResponse {
                     "dataId='" + dataId + '\'' +
                     ", taskId='" + taskId + '\'' +
                     ", callback='" + callback + '\'' +
+                    ", label='" + label + '\'' +
                     ", suggestion=" + suggestion +
                     ", message='" + message + '\'' +
                     ", resultType=" + resultType +
@@ -213,6 +228,11 @@ public class FileCallbackV2Response extends CommonResponse {
         private ReviewEvidenceResult reviewEvidences;
         private Integer failureReason;
         private String message;
+        /**
+         * 文档解决方案维度分类信息
+         * 垃圾类型：0-正常，100-色情，200-广告，300-暴恐，400-违禁，500-涉政, 900-其他，1100-涉价值观
+         */
+        private Integer label;
 
         public String getTaskId() {
             return taskId;
@@ -278,6 +298,14 @@ public class FileCallbackV2Response extends CommonResponse {
             this.message = message;
         }
 
+        public Integer getLabel() {
+            return label;
+        }
+
+        public void setLabel(Integer label) {
+            this.label = label;
+        }
+
         @Override
         public String toString() {
             return "Detail{" +
@@ -289,6 +317,7 @@ public class FileCallbackV2Response extends CommonResponse {
                     ", reviewEvidences=" + reviewEvidences +
                     ", failureReason=" + failureReason +
                     ", message='" + message + '\'' +
+                    ", label='" + label + '\'' +
                     '}';
         }
     }
