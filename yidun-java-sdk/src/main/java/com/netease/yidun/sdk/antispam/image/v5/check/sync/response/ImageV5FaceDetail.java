@@ -75,6 +75,18 @@ public class ImageV5FaceDetail implements Serializable {
          * 人脸遮挡
          */
         private String maskType;
+        /**
+         * 成长阶段
+         */
+        private String growthStage;
+
+        public String getGrowthStage() {
+            return growthStage;
+        }
+
+        public void setGrowthStage(String growthStage) {
+            this.growthStage = growthStage;
+        }
 
         public String getName() {
             return name;
