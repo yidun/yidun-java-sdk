@@ -49,6 +49,10 @@ public class VideoSolutionAntispamCallbackV2Response {
      */
     private Long duration;
     /**
+     * 一级垃圾类型
+     */
+    private Integer label;
+    /**
      * 机器检测证据信息，接入机器检测时参考证据信息
      */
     private VideoSolutionCallbackEvidenceV2Response evidences;
