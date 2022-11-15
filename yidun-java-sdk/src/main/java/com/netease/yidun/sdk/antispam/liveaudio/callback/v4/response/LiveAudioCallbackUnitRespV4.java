@@ -14,6 +14,7 @@ public class LiveAudioCallbackUnitRespV4 {
     private List<SegmentsInfoV4> labels;
     private String url;
     private String speakerId;
+    private Integer speakerRiskScore;
     private String segmentId;
     private RelatedSegmentInfo frontSegment;
 
