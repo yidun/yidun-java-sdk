@@ -5,5 +5,5 @@ import lombok.Data;
 @Data
 public class VideoCallbackV4Result {
     private VideoCallbackUnitV4Response antispam;
-
+    private VideoCallbackOcrV4Response ocr;
 }
