@@ -6,6 +6,7 @@ import java.util.Set;
 
 import com.netease.yidun.sdk.antispam.liveaudio.callback.v4.response.LiveAudioCallbackUnitRespV4;
 import com.netease.yidun.sdk.antispam.liveaudio.callback.v4.response.LiveAudioMonitorCallbackUnitRespV4;
+import com.netease.yidun.sdk.antispam.livevideo.callback.v4.response.LiveDataCallbackOcrUnitV4;
 import com.netease.yidun.sdk.antispam.video.callback.v4.response.ImageV5SubLabelResp;
 import com.netease.yidun.sdk.core.response.BaseResponse;
 
@@ -17,7 +18,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class LiveVideoSolutionCallbackV3Result implements BaseResponse {
     private LiveVideoSolutionCallbackAntispamV3Result antispam;
-
+    private LiveDataCallbackOcrUnitV4 ocr;
     @Data
     public static class LiveVideoSolutionCallbackAntispamV3Result {
         private String taskId;

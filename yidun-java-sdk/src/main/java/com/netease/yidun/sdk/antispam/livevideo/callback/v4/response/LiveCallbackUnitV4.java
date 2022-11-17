@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class LiveCallbackUnitV4 {
     private LiveWallCallbackUnitV4 antispam;
-
+    private LiveDataCallbackOcrUnitV4 ocr;
     @Data
     public static class LiveWallCallbackUnitV4 {
         /**
