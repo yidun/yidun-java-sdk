@@ -42,6 +42,13 @@ public class LiveAudioCallbackUnitRespV4 {
         private List<HintDetailV4> hitInfos;
         private List<LeaderV4> hitLeaders;
         private List<Keywords> keywords;
+        private IntentUnit intent;
+    }
+
+    @Data
+    public static class IntentUnit {
+        private Integer result;
+        private Double score;
     }
 
     @Data
