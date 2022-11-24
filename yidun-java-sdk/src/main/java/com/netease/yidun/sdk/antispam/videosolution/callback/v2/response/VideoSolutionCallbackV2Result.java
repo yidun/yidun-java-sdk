@@ -3,6 +3,7 @@ package com.netease.yidun.sdk.antispam.videosolution.callback.v2.response;
 import com.netease.yidun.sdk.antispam.audio.callback.v4.response.AudioAsrCallbackV4Response;
 import com.netease.yidun.sdk.antispam.audio.callback.v4.response.AudioLanguageCallbackV4Response;
 import com.netease.yidun.sdk.antispam.audio.callback.v4.response.AudioVoiceCallbackV4Response;
+import com.netease.yidun.sdk.antispam.video.callback.v4.response.VideoCallbackDiscernV4Response;
 import com.netease.yidun.sdk.antispam.video.callback.v4.response.VideoCallbackOcrV4Response;
 
 import lombok.Data;
@@ -29,4 +30,8 @@ public class VideoSolutionCallbackV2Result {
      * 视频 ocr 识别结果
      */
     private VideoCallbackOcrV4Response ocr;
+    /**
+     * 视频 ocr 识别结果
+     */
+    private VideoCallbackDiscernV4Response discern;
 }
