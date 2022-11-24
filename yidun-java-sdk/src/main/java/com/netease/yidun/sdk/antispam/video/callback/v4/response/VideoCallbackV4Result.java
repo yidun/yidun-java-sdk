@@ -6,4 +6,5 @@ import lombok.Data;
 public class VideoCallbackV4Result {
     private VideoCallbackUnitV4Response antispam;
     private VideoCallbackOcrV4Response ocr;
+    private VideoCallbackDiscernV4Response discern;
 }
