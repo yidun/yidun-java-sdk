@@ -116,6 +116,8 @@ public class VideoSolutionSubmitV2Req extends PostFormRequest<VideoSolutionSubmi
 
     private String nickname;
 
+    private String subProduct;
+
     public VideoSolutionSubmitV2Req() {
         productCode = "videoSolutionCheck";
         uriPattern = "/v2/videosolution/submit";
@@ -153,6 +155,7 @@ public class VideoSolutionSubmitV2Req extends PostFormRequest<VideoSolutionSubmi
         if (getTags() != null) {
             params.put("tags", new Gson().toJson(getTags()));
         }
+        params.put("subProduct", getSubProduct());
         return params;
     }
 
