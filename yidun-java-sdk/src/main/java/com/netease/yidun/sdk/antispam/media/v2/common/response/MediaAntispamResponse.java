@@ -1,6 +1,7 @@
 package com.netease.yidun.sdk.antispam.media.v2.common.response;
 
 import com.netease.yidun.sdk.antispam.media.v2.common.response.envidence.MediaAntispamEvidence;
+import com.netease.yidun.sdk.antispam.media.v2.common.response.envidence.SolutionEnrichEvidence;
 
 /**
  * 机审结果
@@ -27,6 +28,12 @@ public class MediaAntispamResponse {
      * 底层业务返回结果
      */
     private MediaAntispamEvidence evidences;
+
+    /**
+     * 解决方案维度-失败集合
+     */
+    private SolutionEnrichEvidence solutionEnrichEvidence;
+
 
     public String getDataId() {
         return dataId;
@@ -82,5 +89,13 @@ public class MediaAntispamResponse {
 
     public void setEvidences(MediaAntispamEvidence evidences) {
         this.evidences = evidences;
+    }
+
+    public SolutionEnrichEvidence getSolutionEnrichEvidence() {
+        return solutionEnrichEvidence;
+    }
+
+    public void setSolutionEnrichEvidence(SolutionEnrichEvidence solutionEnrichEvidence) {
+        this.solutionEnrichEvidence = solutionEnrichEvidence;
     }
 }
