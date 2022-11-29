@@ -14,6 +14,7 @@ public class MediaFileEvidence {
      * 结果类型
      */
     private Integer resultType;
+    private Integer status;
 
     /**
      * 压缩包中的内容
@@ -34,6 +35,14 @@ public class MediaFileEvidence {
 
     public void setDataId(String dataId) {
         this.dataId = dataId;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
     public String getField() {
@@ -92,6 +101,10 @@ public class MediaFileEvidence {
         private FileEvidenceResult evidences;
         private String message;
 
+        private Integer status;
+
+        private Integer failureReason;
+
         public String getTaskId() {
             return taskId;
         }
@@ -138,6 +151,22 @@ public class MediaFileEvidence {
 
         public void setMessage(String message) {
             this.message = message;
+        }
+
+        public Integer getStatus() {
+            return status;
+        }
+
+        public void setStatus(Integer status) {
+            this.status = status;
+        }
+
+        public Integer getFailureReason() {
+            return failureReason;
+        }
+
+        public void setFailureReason(Integer failureReason) {
+            this.failureReason = failureReason;
         }
     }
 
