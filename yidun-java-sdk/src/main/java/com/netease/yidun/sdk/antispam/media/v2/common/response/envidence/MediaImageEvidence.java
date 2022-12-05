@@ -10,6 +10,7 @@ public class MediaImageEvidence {
     private Integer status;
     private Integer suggestion;
     private Integer resultType;
+    private Integer frameSize;
     private Integer censorType;
     /**
      * 失败原因
@@ -42,6 +43,14 @@ public class MediaImageEvidence {
 
     public void setResultType(Integer resultType) {
         this.resultType = resultType;
+    }
+
+    public Integer getFrameSize() {
+        return frameSize;
+    }
+
+    public void setFrameSize(Integer frameSize) {
+        this.frameSize = frameSize;
     }
 
     public Integer getCensorType() {
