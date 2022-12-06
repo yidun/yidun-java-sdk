@@ -14,6 +14,12 @@ public class MediaAntispamResponse {
      * 0:无结果（检测失败）1:正常 2:异常 3：疑似
      */
     private Integer suggestion;
+
+    /**
+     * 垃圾类别
+     */
+    private Integer label;
+
     /**
      * 审核类型，1:机器检测，2:审核
      */
@@ -62,6 +68,16 @@ public class MediaAntispamResponse {
     public Integer getResultType() {
         return resultType;
     }
+
+    public Integer getLabel() {
+        return label;
+    }
+
+    public void setLabel(Integer label) {
+        this.label = label;
+    }
+
+
 
     public void setResultType(Integer resultType) {
         this.resultType = resultType;
