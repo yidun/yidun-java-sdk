@@ -127,7 +127,7 @@ public class KeywordSubmitRequest extends BizPostFormRequest<KeywordSubmitRespon
 
     public KeywordSubmitRequest() {
         productCode = "keyword";
-        version = "v1";
+        version = "v1.1";
         uriPattern = "/v1/keyword/submit";
     }
 
