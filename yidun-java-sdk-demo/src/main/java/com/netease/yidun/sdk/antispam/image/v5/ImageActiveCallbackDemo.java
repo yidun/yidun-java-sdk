@@ -1,9 +1,8 @@
 package com.netease.yidun.sdk.antispam.image.v5;
 
 import com.netease.yidun.sdk.antispam.callback.ActiveCallbackResp;
-import com.netease.yidun.sdk.antispam.image.v5.callback.response.ImageV5ActiveCallbackRequest;
+import com.netease.yidun.sdk.antispam.image.v5.callback.request.ImageV5ActiveCallbackRequest;
 import com.netease.yidun.sdk.antispam.image.v5.check.sync.response.ImageV5Result;
-import com.netease.yidun.sdk.core.response.ResultResponse;
 import com.netease.yidun.sdk.core.utils.SignatureUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

@@ -1,4 +1,4 @@
-package com.netease.yidun.sdk.antispam.image.v5.callback.response;
+package com.netease.yidun.sdk.antispam.image.v5.callback.request;
 
 import com.netease.yidun.sdk.antispam.callback.ActiveCallbackRequest;
 import com.netease.yidun.sdk.antispam.image.v5.check.sync.response.ImageV5Result;
