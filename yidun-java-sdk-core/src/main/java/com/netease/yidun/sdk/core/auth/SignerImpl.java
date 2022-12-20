@@ -33,8 +33,13 @@ public class SignerImpl implements Signer {
         SignatureMethodEnum signatureMethod = determineSignatureMethod(params);
         String secretId = credentials.getSecretId();
 
-        HashMap<String, String> target = new HashMap<>(params);
-        target.put("secretId", secretId);
+        Map<String, String> target;
+        if (params.containsKey("secretId")) {
+            target = params;
+        } else {
+            target = new HashMap<>(params);
+            target.put("secretId", secretId);
+        }
 
         String signature = genSignature(signatureMethod, credentials.getSecretKey(), target);
 
