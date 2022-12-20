@@ -9,10 +9,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * @author liangtingchen
- * @version 2022-11-08
- */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

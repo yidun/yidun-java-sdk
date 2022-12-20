@@ -6,10 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * @author liangtingchen
- * @version 2022-07-14
- */
+
 @Data
 @Builder
 @AllArgsConstructor
