@@ -323,6 +323,13 @@ public class DefaultClient implements Client, Closeable {
                     String contentEncoding = headers.get(HttpHeaders.CONTENT_ENCODING);
                     builder.setEntity(new ByteArrayEntity(body, contentType, contentEncoding));
                 }
+            } else {
+                Map<String, String> queryParameters = tmpRequest.queryParameters();
+                if (queryParameters != null) {
+                    for (Map.Entry<String, String> entry : queryParameters.entrySet()) {
+                        builder.addParameter(entry.getKey(), entry.getValue());
+                    }
+                }
             }
 
             return builder.build();
