@@ -7,9 +7,7 @@ import com.netease.yidun.sdk.antispam.crawler.v1.submit.request.CrawlerJobSubmit
 import com.netease.yidun.sdk.antispam.crawler.v1.submit.response.CrawlerJobSubmitV1Response;
 
 /**
- * 网站检测提交Demo
- * 主站检测任务提交接口
- * 具体出入参的说明，请参考官方接口文档中字段说明
+ * 网站检测提交Demo 主站检测任务提交接口 具体出入参的说明，请参考官方接口文档中字段说明
  * https://support.dun.163.com/documents/606191408732381184?docId=611046863444135936
  */
 public class CrawlerSubmitJobDemo extends AbstractDemo {
@@ -29,7 +27,10 @@ public class CrawlerSubmitJobDemo extends AbstractDemo {
         request.setLevel(-1);
         request.setMaxResourceAmount(10);
         request.setSiteUrl("https://news.163.com");
-        request.setType(1);
+        request.setType(0);
+        request.setSliceStartTime(1672202035000L);
+        request.setSliceEndTime(1672288435000L);
+        request.setCheckStrategy(2);
         // 请求对象中的其他参数如果有需要，请参考官方接口文档中字段说明，按需添加
         CrawlerJobSubmitV1Response response = null;
         try {
@@ -41,8 +42,8 @@ public class CrawlerSubmitJobDemo extends AbstractDemo {
 
         if (response != null && response.getCode() == 200) {
             CrawlerJobSubmitV1Response.CrawlerJobSubmitResult result = response.getResult();
-            if (result != null){
-                //doSomething
+            if (result != null) {
+                // doSomething
             }
         }
 

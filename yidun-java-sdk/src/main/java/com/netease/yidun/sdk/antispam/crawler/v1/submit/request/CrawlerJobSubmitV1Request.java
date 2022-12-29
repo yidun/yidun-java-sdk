@@ -57,6 +57,11 @@ public class CrawlerJobSubmitV1Request extends PostFormRequest<CrawlerJobSubmitV
      * 网站名称
      */
     private String siteName;
+    /**
+     * 检测策略；当循环任务时，此配置生效。1：全量页面；2：首次全量，后续增量
+     *
+     */
+    private Integer checkStrategy;
 
     @Override
     protected Map<String, String> getCustomSignParams() {
@@ -71,6 +76,7 @@ public class CrawlerJobSubmitV1Request extends PostFormRequest<CrawlerJobSubmitV
         params.put("maxResourceAmount", getMaxResourceAmount());
         params.put("type", getType());
         params.put("callbackUrl", getCallbackUrl());
+        params.put("checkStrategy", getCheckStrategy());
         return params;
     }
 
@@ -129,6 +135,14 @@ public class CrawlerJobSubmitV1Request extends PostFormRequest<CrawlerJobSubmitV
         return frequency;
     }
 
+    public Integer getCheckStrategy() {
+        return checkStrategy;
+    }
+
+    public void setCheckStrategy(Integer checkStrategy) {
+        this.checkStrategy = checkStrategy;
+    }
+
     public void setFrequency(Long frequency) {
         this.frequency = frequency;
     }
@@ -173,6 +187,7 @@ public class CrawlerJobSubmitV1Request extends PostFormRequest<CrawlerJobSubmitV
                 ", sliceEndTime=" + sliceEndTime +
                 ", siteUrl='" + siteUrl + '\'' +
                 ", siteName='" + siteName + '\'' +
+                ", checkStrategy='" + checkStrategy + '\'' +
                 ", level=" + level +
                 ", frequency=" + frequency +
                 ", maxResourceAmount=" + maxResourceAmount +
