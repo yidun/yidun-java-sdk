@@ -210,6 +210,7 @@ public class AudioAntispamCallbackV4Response implements BaseResponse {
          * 分类信息
          */
         private List<LabelInfo> labels;
+        private String url;
     }
 
     @Data
