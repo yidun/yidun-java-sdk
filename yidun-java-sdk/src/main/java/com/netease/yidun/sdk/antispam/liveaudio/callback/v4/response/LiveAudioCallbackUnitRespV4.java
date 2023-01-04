@@ -11,6 +11,7 @@ public class LiveAudioCallbackUnitRespV4 {
     private Long startTime;
     private Long endTime;
     private String content;
+    private Integer type;
     private List<SegmentsInfoV4> labels;
     private String url;
     private String speakerId;
