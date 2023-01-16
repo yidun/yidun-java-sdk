@@ -2,8 +2,6 @@ package com.netease.yidun.sdk.antispam.image.v5.check;
 
 import com.netease.yidun.sdk.antispam.image.v5.common.ImageV5Request;
 import com.netease.yidun.sdk.core.response.BaseResponse;
-import lombok.Data;
-import lombok.ToString;
 
 public abstract class ImageCheckSceneRequest<T extends BaseResponse> extends ImageV5Request<T> {
     /**
@@ -140,6 +138,16 @@ public abstract class ImageCheckSceneRequest<T extends BaseResponse> extends Ima
      * 商品id
      */
     private String commodityId;
+
+    /**
+     * 智能风控token
+     */
+    private String riskControlToken;
+
+    /**
+     * 智能风控businessId
+     */
+    private String riskControlBusinessId;
 
     public String getNickname() {
         return nickname;
@@ -355,5 +363,21 @@ public abstract class ImageCheckSceneRequest<T extends BaseResponse> extends Ima
 
     public void setCommodityId(String commodityId) {
         this.commodityId = commodityId;
+    }
+
+    public String getRiskControlToken() {
+        return riskControlToken;
+    }
+
+    public void setRiskControlToken(String riskControlToken) {
+        this.riskControlToken = riskControlToken;
+    }
+
+    public String getRiskControlBusinessId() {
+        return riskControlBusinessId;
+    }
+
+    public void setRiskControlBusinessId(String riskControlBusinessId) {
+        this.riskControlBusinessId = riskControlBusinessId;
     }
 }
