@@ -228,6 +228,16 @@ public class TextCheckSceneRequest<T extends BaseResponse> extends BizPostFormRe
      */
     private Long extLon2;
 
+    /**
+     * 智能风控token
+     */
+    private String riskControlToken;
+
+    /**
+     * 智能风控businessId
+     */
+    private String riskControlBusinessId;
+
     public String getDataId() {
         return dataId;
     }
@@ -891,6 +901,22 @@ public class TextCheckSceneRequest<T extends BaseResponse> extends BizPostFormRe
         return this;
     }
 
+    public String getRiskControlToken() {
+        return riskControlToken;
+    }
+
+    public void setRiskControlToken(String riskControlToken) {
+        this.riskControlToken = riskControlToken;
+    }
+
+    public String getRiskControlBusinessId() {
+        return riskControlBusinessId;
+    }
+
+    public void setRiskControlBusinessId(String riskControlBusinessId) {
+        this.riskControlBusinessId = riskControlBusinessId;
+    }
+
     @Override
     public Class<T> getResponseClass() {
         return null;
@@ -938,6 +964,8 @@ public class TextCheckSceneRequest<T extends BaseResponse> extends BizPostFormRe
         params.put("extStr2", extStr2);
         params.put("extLon1", extLon1 != null ? String.valueOf(extLon1) : null);
         params.put("extLon2", extLon2 != null ? String.valueOf(extLon2) : null);
+        params.put("riskControlBusinessId", riskControlBusinessId);
+        params.put("riskControlToken",riskControlToken);
         return params;
     }
 
@@ -984,6 +1012,8 @@ public class TextCheckSceneRequest<T extends BaseResponse> extends BizPostFormRe
                 + ", extStr2=" + extStr2
                 + ", extLon1=" + extLon1
                 + ", extLon2=" + extLon2
+                + ", riskControlBusinessId=" + riskControlBusinessId
+                + ", riskControlBusinessId=" + riskControlBusinessId
                 + ")";
     }
 }
