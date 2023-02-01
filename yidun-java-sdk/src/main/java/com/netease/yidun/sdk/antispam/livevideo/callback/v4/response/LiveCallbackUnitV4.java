@@ -7,6 +7,7 @@ public class LiveCallbackUnitV4 {
     private LiveWallCallbackUnitV4 antispam;
     private LiveDataCallbackOcrUnitV4 ocr;
     private LiveDataCallbackDiscernUnitV4 discern;
+    private LiveDataCallbackLogoUnitV4 logo;
     @Data
     public static class LiveWallCallbackUnitV4 {
         /**
