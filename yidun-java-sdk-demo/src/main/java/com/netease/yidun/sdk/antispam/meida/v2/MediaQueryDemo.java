@@ -27,7 +27,7 @@ public class MediaQueryDemo extends AbstractDemo {
         // 请求对象中的其他参数如果有需要，请参考官方接口文档中字段说明，按需添加
         MediaCallbackResponseV2 response = null;
         try {
-            // 发起同步检测的请求
+            // 发起同步查询的请求
             response = mediaClient.query(request);
         } catch (Exception e) {
             e.printStackTrace();
