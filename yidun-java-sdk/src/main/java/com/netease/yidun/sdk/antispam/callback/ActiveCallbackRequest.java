@@ -2,10 +2,15 @@ package com.netease.yidun.sdk.antispam.callback;
 
 
 import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
+import com.google.gson.reflect.TypeToken;
 import com.netease.yidun.sdk.core.exception.YidunSdkException;
 import com.netease.yidun.sdk.core.utils.StringUtils;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 主动回调的实体对象
@@ -97,4 +102,24 @@ public class ActiveCallbackRequest implements Serializable {
             throw new YidunSdkException("parse callback data fails", e);
         }
     }
+
+    protected <T> List<T> parseCallbackData(Class<T> clazz, TypeToken<List<T>> typeToken) {
+        if (StringUtils.isBlank(getCallbackData())) {
+            return null;
+        }
+        try {
+            JsonElement jsonElement = JsonParser.parseString(getCallbackData());
+            if (jsonElement.isJsonArray()) {
+                return GSON.fromJson(getCallbackData(), typeToken.getType());
+            } else {
+                T t = GSON.fromJson(getCallbackData(), clazz);
+                List<T> callbackDataList = new ArrayList<>(1);
+                callbackDataList.add(t);
+                return callbackDataList;
+            }
+        } catch (Exception e) {
+            throw new YidunSdkException("parse callback data fails", e);
+        }
+    }
+
 }
