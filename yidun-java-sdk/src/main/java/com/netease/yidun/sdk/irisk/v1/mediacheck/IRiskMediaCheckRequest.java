@@ -45,7 +45,6 @@ public class IRiskMediaCheckRequest extends BizPostFormRequest<IRiskMediaCheckRe
     private String roleServer;
 
     public IRiskMediaCheckRequest(String businessId) {
-        domain = "ir-open.dun.163.com";
         productCode = "irisk";
         version = "400";
         uriPattern = "/v5/risk/mediaCheck";

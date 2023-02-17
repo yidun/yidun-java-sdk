@@ -92,7 +92,6 @@ public class IRiskCheckRequest extends BizPostFormRequest<IRiskCheckResponse> {
     private String extData;
 
     public IRiskCheckRequest(String businessId) {
-        domain = "ir-open.dun.163.com";
         productCode = "irisk";
         version = "400";
         uriPattern = "/v5/risk/check";

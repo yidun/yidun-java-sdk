@@ -225,5 +225,10 @@
       "fp-query.dun.163.com",
       "fp-query.dun.163yun.com"
     ]
+  },
+  "irisk": {
+    "cn-hangzhou": [
+      "ir-open.dun.163.com"
+    ]
   }
 }
