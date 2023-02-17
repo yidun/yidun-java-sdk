@@ -57,7 +57,6 @@ public class IRiskDetailRequest extends BizPostFormRequest<IRiskDetailResponse> 
     private String ip;
 
     public IRiskDetailRequest(String businessId) {
-        domain = "ir-open.dun.163.com";
         productCode = "irisk";
         version = "400";
         uriPattern = "/v5/risk/detail";

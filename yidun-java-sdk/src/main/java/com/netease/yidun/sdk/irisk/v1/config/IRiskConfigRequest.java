@@ -20,7 +20,6 @@ public class IRiskConfigRequest extends BizPostFormRequest<IRiskConfigResponse> 
     private String sdkData;
 
     public IRiskConfigRequest(String businessId) {
-        domain = "ir-open.dun.163.com";
         productCode = "irisk";
         version = "400";
         uriPattern = "/v5/risk/getConfig";
