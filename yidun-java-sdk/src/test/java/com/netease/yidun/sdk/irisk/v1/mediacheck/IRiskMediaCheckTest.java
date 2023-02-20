@@ -30,19 +30,19 @@ public class IRiskMediaCheckTest {
 
     private static final String taskId = "b0bcmo3aa617x1n62tlhtragdd009wyr";
 
-    private static final String expectedRequestBody = "" +
-            "roleServer=" + roleServer +
-            "&mediaData=" + mediaData +
-            "&signature=bf887e3beb468185aaf85f94cc9ee763" +
-            "&roleId=" + roleId +
-            "&ip=" + ip +
-            "&businessId=" + businessId +
-            "&roleName=" + roleName +
-            "&secretId=" + secretId +
-            "&version=400" +
-            "&nonce=" + nonce +
-            "&mediaName=" + mediaName +
-            "&timestamp=" + currentTimeMillis;
+    private static final String expectedRequestBody =
+            "{\"roleServer\":\"" + roleServer + "\"," +
+                    "\"mediaData\":\"" + mediaData + "\"," +
+                    "\"signature\":\"bf887e3beb468185aaf85f94cc9ee763\"," +
+                    "\"roleId\":\"" + roleId + "\"," +
+                    "\"ip\":\"" + ip + "\"," +
+                    "\"businessId\":\"" + businessId + "\"," +
+                    "\"roleName\":\"" + roleName + "\"," +
+                    "\"secretId\":\"" + secretId + "\"," +
+                    "\"version\":\"400\"," +
+                    "\"nonce\":\"" + nonce + "\"," +
+                    "\"mediaName\":\"" + mediaName + "\"," +
+                    "\"timestamp\":\"" + currentTimeMillis + "\"}";
 
     private static final String responseBody = "{\n" +
             "    \"code\": 200,\n" +
@@ -61,7 +61,7 @@ public class IRiskMediaCheckTest {
         hoverflyRule.simulate(
                 dsl(service("ir-open.dun.163.com")
                         .post("/v5/risk/mediaCheck")
-                        .header("Content-Type", "application/x-www-form-urlencoded;charset=utf-8")
+                        .header("Content-Type", "application/json;charset=utf-8")
                         .body(expectedRequestBody)
                         .willReturn(success()
                                 .header("Content-Type", "application/json;charset=utf-8")

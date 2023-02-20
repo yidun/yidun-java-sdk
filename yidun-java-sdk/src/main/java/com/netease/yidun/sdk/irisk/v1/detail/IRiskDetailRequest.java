@@ -1,11 +1,11 @@
 package com.netease.yidun.sdk.irisk.v1.detail;
 
-import com.netease.yidun.sdk.core.request.BizPostFormRequest;
+import com.netease.yidun.sdk.core.request.BizPostJsonRequest;
 
 import javax.validation.constraints.NotNull;
 import java.util.Map;
 
-public class IRiskDetailRequest extends BizPostFormRequest<IRiskDetailResponse> {
+public class IRiskDetailRequest extends BizPostJsonRequest<IRiskDetailResponse> {
 
     /**
      * 开始时间戳，单位： ms, 不能小于30天前

@@ -38,29 +38,29 @@ public class IRiskCheckTest {
     private static final Long registerTime = 1623036428207L;
     private static final long currentTimeMillis = 1623036428207L;
 
-    private static final String expectedRequestBody = "" +
-            "registerIp=" + registerIp +
-            "&roleServer=" + roleServer +
-            "&registerTime=" + registerTime +
-            "&signature=d8e06231caf24dc92b04973d98c9e40e" +
-            "&roleId=" + roleId +
-            "&ip=" + ip +
-            "&businessId=" + businessId +
-            "&secretId=" + secretId +
-            "&version=400" +
-            "&nonce=" + nonce +
-            "&token=" + token +
-            "&target=" + target +
-            "&activityId=" + activityId +
-            "&phone=" + phone +
-            "&extData=" + extData +
-            "&assetVersion=" + assetVersion +
-            "&roleName=" + roleName +
-            "&gameVersion=" + gameVersion +
-            "&roleLevel=" + roleLevel +
-            "&account=" + account +
-            "&email=" + email +
-            "&timestamp=" + currentTimeMillis;
+    private static final String expectedRequestBody =
+            "{\"registerIp\":\"" + registerIp + "\"," +
+                    "\"roleServer\":\"" + roleServer + "\"," +
+                    "\"registerTime\":\"" + registerTime + "\"," +
+                    "\"signature\":\"d8e06231caf24dc92b04973d98c9e40e\"," +
+                    "\"roleId\":\"" + roleId + "\"," +
+                    "\"ip\":\"" + ip + "\"," +
+                    "\"businessId\":\"" + businessId + "\"," +
+                    "\"secretId\":\"" + secretId + "\"," +
+                    "\"version\":\"400\"," +
+                    "\"nonce\":\"" + nonce + "\"," +
+                    "\"token\":\"" + token + "\"," +
+                    "\"target\":\"" + target + "\"," +
+                    "\"activityId\":\"" + activityId + "\"," +
+                    "\"phone\":\"" + phone + "\"," +
+                    "\"extData\":\"" + extData + "\"," +
+                    "\"assetVersion\":\"" + assetVersion + "\"," +
+                    "\"roleName\":\"" + roleName + "\"," +
+                    "\"gameVersion\":\"" + gameVersion + "\"," +
+                    "\"roleLevel\":\"" + roleLevel + "\"," +
+                    "\"account\":\"" + account + "\"," +
+                    "\"email\":\"" + email + "\"," +
+                    "\"timestamp\":\"" + currentTimeMillis + "\"}";
 
     private static final String responseBody = "{\n" +
             "    \"code\":200,\n" +
@@ -94,7 +94,7 @@ public class IRiskCheckTest {
         hoverflyRule.simulate(
                 dsl(service("ir-open.dun.163.com")
                         .post("/v5/risk/check")
-                        .header("Content-Type", "application/x-www-form-urlencoded;charset=utf-8")
+                        .header("Content-Type", "application/json;charset=utf-8")
                         .body(expectedRequestBody)
                         .willReturn(success()
                                 .header("Content-Type", "application/json;charset=utf-8")

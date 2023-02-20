@@ -33,22 +33,22 @@ public class IRiskDetailTest {
     private static final long currentTimeMillis = 1623036428207L;
     private static final long beginTime = 1667959831798L;
     private static final long endTime = 1667959915103L;
-    private static final String expectedRequestBody = "" +
-            "startFlag=test&" +
-            "appVersion=" + appVersion +
-            "&riskLevel=" + riskLevel +
-            "&beginTimestamp=" + beginTime +
-            "&signature=d351e7f59714844e62746c9eb4a93ea0" +
-            "&roleId=" + roleId +
-            "&ip=" + ip +
-            "&businessId=" + businessId +
-            "&secretId=" + secretId +
-            "&version=400" +
-            "&nonce=" + nonce +
-            "&packageName=" + packageName +
-            "&endTimestamp=" + endTime +
-            "&account=" + account +
-            "&timestamp=" + currentTimeMillis;
+    private static final String expectedRequestBody =
+            "{\"startFlag\":\"" + startFlag + "\"," +
+                    "\"appVersion\":\"" + appVersion + "\"," +
+                    "\"riskLevel\":\"" + riskLevel + "\"," +
+                    "\"beginTimestamp\":\"" + beginTime + "\"," +
+                    "\"signature\":\"d351e7f59714844e62746c9eb4a93ea0\"," +
+                    "\"roleId\":\"" + roleId + "\"," +
+                    "\"ip\":\"" + ip + "\"," +
+                    "\"businessId\":\"" + businessId + "\"," +
+                    "\"secretId\":\"" + secretId + "\"," +
+                    "\"version\":\"400\"," +
+                    "\"nonce\":\"" + nonce + "\"," +
+                    "\"packageName\":\"" + packageName + "\"," +
+                    "\"endTimestamp\":\"" + endTime + "\"," +
+                    "\"account\":\"" + account + "\"," +
+                    "\"timestamp\":\"" + currentTimeMillis + "\"}";
 
     private static final String responseBody = "{\n" +
             "    \"code\": 200,\n" +
@@ -103,7 +103,7 @@ public class IRiskDetailTest {
         hoverflyRule.simulate(
                 dsl(service("ir-open.dun.163.com")
                         .post("/v5/risk/detail")
-                        .header("Content-Type", "application/x-www-form-urlencoded;charset=utf-8")
+                        .header("Content-Type", "application/json;charset=utf-8")
                         .body(expectedRequestBody)
                         .willReturn(success()
                                 .header("Content-Type", "application/json;charset=utf-8")

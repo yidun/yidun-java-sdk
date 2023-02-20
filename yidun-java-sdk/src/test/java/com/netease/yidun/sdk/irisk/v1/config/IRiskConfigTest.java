@@ -26,15 +26,15 @@ public class IRiskConfigTest {
     private static final String sdkData = "flkjlk135lknlnfanj23knnlknl23n5bl6j";
     private static final long currentTimeMillis = 1623036428207L;
 
-    private static final String expectedRequestBody = "" +
-            "sdkData=" + sdkData +
-            "&signature=325ad64ab03bba3742f7b86de4246ab3" +
-            "&ip=" + ip +
-            "&businessId=" + businessId +
-            "&secretId=" + secretId +
-            "&version=400" +
-            "&nonce=" + nonce +
-            "&timestamp=" + currentTimeMillis;
+    private static final String expectedRequestBody =
+            "{\"sdkData\":\"" + sdkData +
+                    "\",\"signature\":\"325ad64ab03bba3742f7b86de4246ab3\"," +
+                    "\"ip\":\"" + ip + "\"," +
+                    "\"businessId\":\"" + businessId + "\"," +
+                    "\"secretId\":\"" + secretId + "\"," +
+                    "\"version\":\"400\"," +
+                    "\"nonce\":\"" + nonce + "\"," +
+                    "\"timestamp\":\"" + currentTimeMillis + "\"}";
 
     private static final String responseBody = "{\n" +
             "    \"code\": 200,\n" +
@@ -53,7 +53,7 @@ public class IRiskConfigTest {
         hoverflyRule.simulate(
                 dsl(service("ir-open.dun.163.com")
                         .post("/v5/risk/getConfig")
-                        .header("Content-Type", "application/x-www-form-urlencoded;charset=utf-8")
+                        .header("Content-Type", "application/json;charset=utf-8")
                         .body(expectedRequestBody)
                         .willReturn(success()
                                 .header("Content-Type", "application/json;charset=utf-8")
