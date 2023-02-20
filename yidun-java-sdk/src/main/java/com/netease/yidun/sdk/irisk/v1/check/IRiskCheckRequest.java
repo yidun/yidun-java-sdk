@@ -1,11 +1,11 @@
 package com.netease.yidun.sdk.irisk.v1.check;
 
-import com.netease.yidun.sdk.core.request.BizPostFormRequest;
+import com.netease.yidun.sdk.core.request.BizPostJsonRequest;
 
 import javax.validation.constraints.NotBlank;
 import java.util.Map;
 
-public class IRiskCheckRequest extends BizPostFormRequest<IRiskCheckResponse> {
+public class IRiskCheckRequest extends BizPostJsonRequest<IRiskCheckResponse> {
 
     /**
      * 风控SDK上报的数据后回参获取到的 token，应用方需要从智能风控客户端SDK获取该数据。详情请查看客户端接入文档。

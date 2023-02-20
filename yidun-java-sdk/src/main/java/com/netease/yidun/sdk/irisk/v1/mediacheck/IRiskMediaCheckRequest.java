@@ -1,12 +1,12 @@
 package com.netease.yidun.sdk.irisk.v1.mediacheck;
 
-import com.netease.yidun.sdk.core.request.BizPostFormRequest;
+import com.netease.yidun.sdk.core.request.BizPostJsonRequest;
 
 import javax.validation.constraints.NotBlank;
 import java.util.Map;
 
 
-public class IRiskMediaCheckRequest extends BizPostFormRequest<IRiskMediaCheckResponse> {
+public class IRiskMediaCheckRequest extends BizPostJsonRequest<IRiskMediaCheckResponse> {
 
     /**
      * 图片数据，图片支持类型为BASE64的数据，无需包含base64协议请求头部分

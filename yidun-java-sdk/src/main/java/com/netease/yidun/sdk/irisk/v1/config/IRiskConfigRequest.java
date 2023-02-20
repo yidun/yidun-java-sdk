@@ -1,12 +1,12 @@
 package com.netease.yidun.sdk.irisk.v1.config;
 
-import com.netease.yidun.sdk.core.request.BizPostFormRequest;
+import com.netease.yidun.sdk.core.request.BizPostJsonRequest;
 
 import javax.validation.constraints.NotBlank;
 import java.util.Map;
 
 
-public class IRiskConfigRequest extends BizPostFormRequest<IRiskConfigResponse> {
+public class IRiskConfigRequest extends BizPostJsonRequest<IRiskConfigResponse> {
 
     /**
      * 用户/ 玩家的IP，或当前客户端业务事件发生时的公网IP地址（ipv4）
