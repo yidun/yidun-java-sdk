@@ -24,20 +24,20 @@ public class IRiskMediaCheckTest {
     private static final String mediaName = "xxx.jpg";
     private static final String roleId = "testRoleId";
 
-    private static final String roleName = "testRoleName";
-    private static final String roleServer = "testRoleServer";
+    private static final String nickname = "testRoleName";
+    private static final String server = "testRoleServer";
     private static final long currentTimeMillis = 1623036428207L;
 
     private static final String taskId = "b0bcmo3aa617x1n62tlhtragdd009wyr";
 
     private static final String expectedRequestBody =
-            "{\"roleServer\":\"" + roleServer + "\"," +
+            "{\"server\":\"" + server + "\"," +
                     "\"mediaData\":\"" + mediaData + "\"," +
-                    "\"signature\":\"bf887e3beb468185aaf85f94cc9ee763\"," +
+                    "\"signature\":\"99b762b1897c54374f3f8727d2f5e7b5\"," +
                     "\"roleId\":\"" + roleId + "\"," +
                     "\"ip\":\"" + ip + "\"," +
                     "\"businessId\":\"" + businessId + "\"," +
-                    "\"roleName\":\"" + roleName + "\"," +
+                    "\"nickname\":\"" + nickname + "\"," +
                     "\"secretId\":\"" + secretId + "\"," +
                     "\"version\":\"400\"," +
                     "\"nonce\":\"" + nonce + "\"," +
@@ -71,12 +71,12 @@ public class IRiskMediaCheckTest {
     @Test
     public void iRiskGetConfigTest() {
         IRiskMediaCheckRequest request = new IRiskMediaCheckRequest(businessId);
-        request.setRoleServer(roleServer);
+        request.setServer(server);
         request.setIp(ip);
         request.setMediaData(mediaData);
         request.setMediaName(mediaName);
         request.setRoleId(roleId);
-        request.setRoleName(roleName);
+        request.setNickname(nickname);
 
         request.timestamp(currentTimeMillis)
                 .nonce(nonce)

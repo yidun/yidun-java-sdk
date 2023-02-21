@@ -58,7 +58,7 @@ public class IRiskDetailTest {
             "        \"startFlag\": \"\",\n" +
             "        \"detail\": [\n" +
             "            {\n" +
-            "                \"roleServer\": \"xxxx\",\n" +
+            "                \"server\": \"xxxx\",\n" +
             "                \"appVersion\": \"2.1.1\",\n" +
             "                \"riskLevel\": \"高风险\",\n" +
             "                \"matchedRules\": \"" + matchRules + "\",\n" +
@@ -66,7 +66,7 @@ public class IRiskDetailTest {
             "                \"deviceId\": \"CAhLczArTdNFSlQBUQaQSjg3eyndeBft\",\n" +
             "                \"osVersion\": \"11.0\",\n" +
             "                \"model\": \"iPhone 12\",\n" +
-            "                \"roleLevel\": \"\",\n" +
+            "                \"level\": \"\",\n" +
             "                \"packageName\": \"com.aaa.bbb\",\n" +
             "                \"networkType\": \"2G\",\n" +
             "                \"deviceType\": \"模拟器\",\n" +
@@ -82,7 +82,7 @@ public class IRiskDetailTest {
             "                \"matchedRiskTags\": \"环境风险-模拟器-通用模拟器;环境风险-云真机-云真机设备;外挂风险-加速挂-烧饼加速器\",\n" +
             "                \"localFeatureVersion\": \"99\",\n" +
             "                \"assetVersion\": \"0.1.1\",\n" +
-            "                \"roleName\": \"rolename9\",\n" +
+            "                \"nickname\": \"rolename9\",\n" +
             "                \"gameVersion\": \"1.0.1\",\n" +
             "                \"signMd5\": \"adffdgsdfgsfdhgdsfgh\",\n" +
             "                \"sdkVersion\": \"1.1.3\",\n" +

@@ -36,13 +36,13 @@ public class IRiskMediaCheckRequest extends BizPostJsonRequest<IRiskMediaCheckRe
      * 用户/玩家的角色名称
      */
     @NotBlank
-    private String roleName;
+    private String nickname;
 
     /**
      * 用户/玩家的角色的服务器名称
      */
     @NotBlank
-    private String roleServer;
+    private String server;
 
     public IRiskMediaCheckRequest(String businessId) {
         productCode = "irisk";
@@ -58,8 +58,8 @@ public class IRiskMediaCheckRequest extends BizPostJsonRequest<IRiskMediaCheckRe
         customSignParams.put("mediaName", mediaName);
         customSignParams.put("ip", ip);
         customSignParams.put("roleId", roleId);
-        customSignParams.put("roleName", roleName);
-        customSignParams.put("roleServer", roleServer);
+        customSignParams.put("nickname", nickname);
+        customSignParams.put("server", server);
         return customSignParams;
     }
 
@@ -100,20 +100,20 @@ public class IRiskMediaCheckRequest extends BizPostJsonRequest<IRiskMediaCheckRe
         this.roleId = roleId;
     }
 
-    public String getRoleName() {
-        return roleName;
+    public String getNickname() {
+        return nickname;
     }
 
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
-    public String getRoleServer() {
-        return roleServer;
+    public String getServer() {
+        return server;
     }
 
-    public void setRoleServer(String roleServer) {
-        this.roleServer = roleServer;
+    public void setServer(String server) {
+        this.server = server;
     }
 
 
@@ -138,12 +138,12 @@ public class IRiskMediaCheckRequest extends BizPostJsonRequest<IRiskMediaCheckRe
     }
 
     public IRiskMediaCheckRequest roleName(String roleName) {
-        this.roleName = roleName;
+        this.nickname = roleName;
         return this;
     }
 
     public IRiskMediaCheckRequest roleServer(String roleServer) {
-        this.roleServer = roleServer;
+        this.server = roleServer;
         return this;
     }
 
@@ -155,8 +155,8 @@ public class IRiskMediaCheckRequest extends BizPostJsonRequest<IRiskMediaCheckRe
                 ", mediaName=" + mediaName +
                 ", ip=" + ip +
                 ", roleId=" + roleId +
-                ", roleName=" + roleName +
-                ", roleServer=" + roleServer +
+                ", roleName=" + nickname +
+                ", roleServer=" + server +
                 ")";
     }
 }
