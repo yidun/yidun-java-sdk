@@ -6,7 +6,7 @@ public class DetailData {
     /**
      * 角色服务器
      */
-    private String roleServer;
+    private String server;
 
     /**
      * app版本
@@ -46,7 +46,7 @@ public class DetailData {
     /**
      * 角色等级
      */
-    private String roleLevel;
+    private String level;
 
     /**
      * 包名
@@ -126,7 +126,7 @@ public class DetailData {
     /**
      * 角色名称
      */
-    private String roleName;
+    private String nickname;
 
     /**
      * 游戏版本
@@ -158,12 +158,12 @@ public class DetailData {
      */
     private String currentOnlineTime;
 
-    public String getRoleServer() {
-        return roleServer;
+    public String getServer() {
+        return server;
     }
 
-    public void setRoleServer(String roleServer) {
-        this.roleServer = roleServer;
+    public void setServer(String server) {
+        this.server = server;
     }
 
     public String getRiskLevel() {
@@ -206,12 +206,12 @@ public class DetailData {
         this.osVersion = osVersion;
     }
 
-    public String getRoleLevel() {
-        return roleLevel;
+    public String getLevel() {
+        return level;
     }
 
-    public void setRoleLevel(String roleLevel) {
-        this.roleLevel = roleLevel;
+    public void setLevel(String level) {
+        this.level = level;
     }
 
     public String getPackageName() {
@@ -318,12 +318,12 @@ public class DetailData {
         this.localFeatureVersion = localFeatureVersion;
     }
 
-    public String getRoleName() {
-        return roleName;
+    public String getNickname() {
+        return nickname;
     }
 
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
     public String getGameVersion() {

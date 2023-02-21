@@ -25,14 +25,14 @@ public class IRiskCheckRequest extends BizPostJsonRequest<IRiskCheckResponse> {
     private String roleId;
 
     /**
-     * 用户/玩家的角色名称，非游戏类型应用，roleName 可以是当前用户昵称相同
+     * 用户/玩家的角色名称，非游戏类型应用，nickname 可以是当前用户昵称相同
      */
-    private String roleName;
+    private String nickname;
 
     /**
      * 用户/玩家的角色的服务器名称
      */
-    private String roleServer;
+    private String server;
 
     /**
      * 用户/玩家的账号
@@ -74,7 +74,7 @@ public class IRiskCheckRequest extends BizPostJsonRequest<IRiskCheckResponse> {
     /**
      * 用户/玩家的等级
      */
-    private String roleLevel;
+    private String level;
 
     /**
      * 游戏类型应用的版本号
@@ -104,8 +104,8 @@ public class IRiskCheckRequest extends BizPostJsonRequest<IRiskCheckResponse> {
         customSignParams.put("token", token);
         customSignParams.put("ip", ip);
         customSignParams.put("roleId", roleId);
-        customSignParams.put("roleName", roleName);
-        customSignParams.put("roleServer", roleServer);
+        customSignParams.put("nickname", nickname);
+        customSignParams.put("server", server);
         customSignParams.put("account", account);
         customSignParams.put("phone", phone);
         customSignParams.put("activityId", activityId);
@@ -115,7 +115,7 @@ public class IRiskCheckRequest extends BizPostJsonRequest<IRiskCheckResponse> {
             customSignParams.put("registerTime", String.valueOf(registerTime));
         }
         customSignParams.put("registerIp", registerIp);
-        customSignParams.put("roleLevel", roleLevel);
+        customSignParams.put("level", level);
         customSignParams.put("gameVersion", gameVersion);
         customSignParams.put("assetVersion", assetVersion);
         customSignParams.put("extData", extData);
@@ -151,20 +151,20 @@ public class IRiskCheckRequest extends BizPostJsonRequest<IRiskCheckResponse> {
         this.roleId = roleId;
     }
 
-    public String getRoleName() {
-        return roleName;
+    public String getNickname() {
+        return nickname;
     }
 
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
-    public String getRoleServer() {
-        return roleServer;
+    public String getServer() {
+        return server;
     }
 
-    public void setRoleServer(String roleServer) {
-        this.roleServer = roleServer;
+    public void setServer(String server) {
+        this.server = server;
     }
 
     public String getAccount() {
@@ -223,12 +223,12 @@ public class IRiskCheckRequest extends BizPostJsonRequest<IRiskCheckResponse> {
         this.registerIp = registerIp;
     }
 
-    public String getRoleLevel() {
-        return roleLevel;
+    public String getLevel() {
+        return level;
     }
 
-    public void setRoleLevel(String roleLevel) {
-        this.roleLevel = roleLevel;
+    public void setLevel(String level) {
+        this.level = level;
     }
 
     public String getGameVersion() {
@@ -272,12 +272,12 @@ public class IRiskCheckRequest extends BizPostJsonRequest<IRiskCheckResponse> {
     }
 
     public IRiskCheckRequest roleName(String roleName) {
-        this.roleName = roleName;
+        this.nickname = roleName;
         return this;
     }
 
     public IRiskCheckRequest roleServer(String roleServer) {
-        this.roleServer = roleServer;
+        this.server = roleServer;
         return this;
     }
 
@@ -317,7 +317,7 @@ public class IRiskCheckRequest extends BizPostJsonRequest<IRiskCheckResponse> {
     }
 
     public IRiskCheckRequest roleLevel(String roleLevel) {
-        this.roleLevel = roleLevel;
+        this.level = roleLevel;
         return this;
     }
 
@@ -344,8 +344,8 @@ public class IRiskCheckRequest extends BizPostJsonRequest<IRiskCheckResponse> {
                 ", token=" + token +
                 ", ip=" + ip +
                 ", roleId=" + roleId +
-                ", roleName=" + roleName +
-                ", roleServer=" + roleServer +
+                ", roleName=" + nickname +
+                ", roleServer=" + server +
                 ", account=" + account +
                 ", phone=" + phone +
                 ", activityId=" + activityId +
@@ -353,7 +353,7 @@ public class IRiskCheckRequest extends BizPostJsonRequest<IRiskCheckResponse> {
                 ", email=" + email +
                 ", registerTime=" + registerTime +
                 ", registerIp=" + registerIp +
-                ", roleLevel=" + roleLevel +
+                ", roleLevel=" + level +
                 ", gameVersion=" + gameVersion +
                 ", assetVersion=" + assetVersion +
                 ", extData=" + extData +

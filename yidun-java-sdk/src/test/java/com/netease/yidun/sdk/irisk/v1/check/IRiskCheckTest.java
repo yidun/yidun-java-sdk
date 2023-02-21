@@ -24,11 +24,11 @@ public class IRiskCheckTest {
     private static final String ip = "123.123.123.123";
     private static final String registerIp = "124.124.124.124";
     private static final String roleId = "testRole";
-    private static final String roleName = "testRoleName";
-    private static final String roleServer = "testRoleServer";
+    private static final String nickname = "testNickname";
+    private static final String server = "testRoleServer";
     private static final String account = "testAccount";
     private static final String phone = "17612341234";
-    private static final String roleLevel = "150";
+    private static final String level = "150";
     private static final String gameVersion = "1.0.2";
     private static final String assetVersion = "0.2.1";
     private static final String activityId = "testId";
@@ -39,10 +39,11 @@ public class IRiskCheckTest {
     private static final long currentTimeMillis = 1623036428207L;
 
     private static final String expectedRequestBody =
-            "{\"registerIp\":\"" + registerIp + "\"," +
-                    "\"roleServer\":\"" + roleServer + "\"," +
+            "{\"server\":\"" + server + "\"," +
+                    "\"registerIp\":\"" + registerIp + "\"," +
                     "\"registerTime\":\"" + registerTime + "\"," +
-                    "\"signature\":\"d8e06231caf24dc92b04973d98c9e40e\"," +
+                    "\"level\":\"" + level + "\"," +
+                    "\"signature\":\"91e0de27d7dc0b7a51700ab1e26934e0\"," +
                     "\"roleId\":\"" + roleId + "\"," +
                     "\"ip\":\"" + ip + "\"," +
                     "\"businessId\":\"" + businessId + "\"," +
@@ -55,9 +56,8 @@ public class IRiskCheckTest {
                     "\"phone\":\"" + phone + "\"," +
                     "\"extData\":\"" + extData + "\"," +
                     "\"assetVersion\":\"" + assetVersion + "\"," +
-                    "\"roleName\":\"" + roleName + "\"," +
+                    "\"nickname\":\"" + nickname + "\"," +
                     "\"gameVersion\":\"" + gameVersion + "\"," +
-                    "\"roleLevel\":\"" + roleLevel + "\"," +
                     "\"account\":\"" + account + "\"," +
                     "\"email\":\"" + email + "\"," +
                     "\"timestamp\":\"" + currentTimeMillis + "\"}";
@@ -107,8 +107,8 @@ public class IRiskCheckTest {
         request.setToken(token);
         request.setIp(ip);
         request.setRoleId(roleId);
-        request.setRoleName(roleName);
-        request.setRoleServer(roleServer);
+        request.setNickname(nickname);
+        request.setServer(server);
         request.setAccount(account);
         request.setPhone(phone);
         request.setActivityId(activityId);
@@ -116,7 +116,7 @@ public class IRiskCheckTest {
         request.setEmail(email);
         request.setRegisterTime(registerTime);
         request.setRegisterIp(registerIp);
-        request.setRoleLevel(roleLevel);
+        request.setLevel(level);
         request.setGameVersion(gameVersion);
         request.setAssetVersion(assetVersion);
         request.setExtData(extData);
