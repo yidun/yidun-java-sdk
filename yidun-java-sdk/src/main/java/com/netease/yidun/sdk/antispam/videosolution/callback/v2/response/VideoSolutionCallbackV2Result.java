@@ -10,6 +10,7 @@ import com.netease.yidun.sdk.antispam.video.callback.v4.response.VideoCallbackOc
 
 import com.netease.yidun.sdk.antispam.video.callback.v4.response.VideoCallbackQualityV4Response;
 
+import com.netease.yidun.sdk.antispam.video.callback.v4.response.VideoCallbackQualityV4Response;
 import lombok.Data;
 
 @Data

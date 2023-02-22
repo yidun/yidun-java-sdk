@@ -8,6 +8,8 @@ public class LiveCallbackUnitV4 {
     private LiveDataCallbackOcrUnitV4 ocr;
     private LiveDataCallbackDiscernUnitV4 discern;
     private LiveDataCallbackLogoUnitV4 logo;
+    private LiveDataCallbackQualityUnitV4 quality;
+
     @Data
     public static class LiveWallCallbackUnitV4 {
         /**
