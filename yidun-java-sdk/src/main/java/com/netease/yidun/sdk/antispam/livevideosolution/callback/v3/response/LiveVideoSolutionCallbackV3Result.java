@@ -8,10 +8,12 @@ import com.netease.yidun.sdk.antispam.liveaudio.callback.v4.response.LiveAudioCa
 import com.netease.yidun.sdk.antispam.liveaudio.callback.v4.response.LiveAudioMonitorCallbackUnitRespV4;
 import com.netease.yidun.sdk.antispam.liveaudio.callback.v4.response.LiveAudioVoiceCallbackRespV4;
 import com.netease.yidun.sdk.antispam.liveaudio.callback.v4.response.LiveAudioQualityCallbackRespV4;
+import com.netease.yidun.sdk.antispam.liveaudio.callback.v4.response.LiveAudioQualityCallbackRespV4;
 import com.netease.yidun.sdk.antispam.liveaudio.callback.v4.response.LiveAudioVoiceCallbackRespV4;
 import com.netease.yidun.sdk.antispam.livevideo.callback.v4.response.LiveDataCallbackDiscernUnitV4;
 import com.netease.yidun.sdk.antispam.livevideo.callback.v4.response.LiveDataCallbackLogoUnitV4;
 import com.netease.yidun.sdk.antispam.livevideo.callback.v4.response.LiveDataCallbackOcrUnitV4;
+import com.netease.yidun.sdk.antispam.livevideo.callback.v4.response.LiveDataCallbackQualityUnitV4;
 import com.netease.yidun.sdk.antispam.video.callback.v4.response.ImageV5SubLabelResp;
 import com.netease.yidun.sdk.core.response.BaseResponse;
 
@@ -31,6 +33,15 @@ public class LiveVideoSolutionCallbackV3Result implements BaseResponse {
      * 人声属性识别结果
      */
     private LiveAudioVoiceCallbackRespV4 voice;
+
+    private LiveCallbackQualityUnitV4 quality;
+
+    @Data
+    public static class LiveCallbackQualityUnitV4 {
+        private LiveDataCallbackQualityUnitV4 video;
+        private LiveAudioQualityCallbackRespV4 audio;
+    }
+
     @Data
     public static class LiveVideoSolutionCallbackAntispamV3Result {
         private String taskId;

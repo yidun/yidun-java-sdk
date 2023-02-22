@@ -8,4 +8,8 @@ public class VideoCallbackV4Result {
     private VideoCallbackOcrV4Response ocr;
     private VideoCallbackDiscernV4Response discern;
     private VideoCallbackLogoV4Response logo;
+    /**
+     * 视频质量
+     */
+    private VideoCallbackQualityV4Response quality;
 }
