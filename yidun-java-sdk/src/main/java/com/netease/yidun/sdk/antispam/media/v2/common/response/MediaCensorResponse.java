@@ -16,6 +16,7 @@ public class MediaCensorResponse {
      */
     private Integer resultType;
     private Integer censorSource;
+    private Integer censorOperateSource;
     private Integer censorRound;
     /**
      * 最近一次人工审核或质检的时间
@@ -74,6 +75,14 @@ public class MediaCensorResponse {
 
     public void setCensorSource(Integer censorSource) {
         this.censorSource = censorSource;
+    }
+
+    public Integer getCensorOperateSource() {
+        return censorOperateSource;
+    }
+
+    public void setCensorOperateSource(Integer censorOperateSource) {
+        this.censorOperateSource = censorOperateSource;
     }
 
     public Integer getCensorRound() {
