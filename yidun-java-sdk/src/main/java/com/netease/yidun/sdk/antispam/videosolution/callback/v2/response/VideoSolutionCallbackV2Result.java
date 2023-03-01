@@ -2,10 +2,13 @@ package com.netease.yidun.sdk.antispam.videosolution.callback.v2.response;
 
 import com.netease.yidun.sdk.antispam.audio.callback.v4.response.AudioAsrCallbackV4Response;
 import com.netease.yidun.sdk.antispam.audio.callback.v4.response.AudioLanguageCallbackV4Response;
+import com.netease.yidun.sdk.antispam.audio.callback.v4.response.AudioQualityCallbackV4Response;
 import com.netease.yidun.sdk.antispam.audio.callback.v4.response.AudioVoiceCallbackV4Response;
 import com.netease.yidun.sdk.antispam.video.callback.v4.response.VideoCallbackDiscernV4Response;
 import com.netease.yidun.sdk.antispam.video.callback.v4.response.VideoCallbackLogoV4Response;
 import com.netease.yidun.sdk.antispam.video.callback.v4.response.VideoCallbackOcrV4Response;
+
+import com.netease.yidun.sdk.antispam.video.callback.v4.response.VideoCallbackQualityV4Response;
 
 import lombok.Data;
 
@@ -39,5 +42,14 @@ public class VideoSolutionCallbackV2Result {
      * 视频 logo 识别结果
      */
     private VideoCallbackLogoV4Response logo;
+    /**
+     * 视频质量
+     */
+    private CallbackQualityV4Response quality;
 
+    @Data
+    public static class CallbackQualityV4Response {
+        private VideoCallbackQualityV4Response video;
+        private AudioQualityCallbackV4Response audio;
+    }
 }

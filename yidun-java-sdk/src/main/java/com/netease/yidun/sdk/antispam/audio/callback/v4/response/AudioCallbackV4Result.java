@@ -19,6 +19,11 @@ public class AudioCallbackV4Result {
      */
     private AudioAsrCallbackV4Response asr;
 
+    /**
+     * 质量检测结果
+     */
+    private AudioQualityCallbackV4Response quality;
+
     public AudioAntispamCallbackV4Response getAntispam() {
         return antispam;
     }
@@ -51,4 +56,11 @@ public class AudioCallbackV4Result {
         this.asr = asr;
     }
 
+    public AudioQualityCallbackV4Response getQuality() {
+        return quality;
+    }
+
+    public void setQuality(AudioQualityCallbackV4Response quality) {
+        this.quality = quality;
+    }
 }
