@@ -9,7 +9,7 @@ package com.netease.yidun.sdk.auth.realperson.v1;
 import com.netease.yidun.sdk.auth.constant.PicType;
 
 /**
- * 实人认证接口
+ * 实人认证demo
  */
 public class RpCheckDemo {
 
