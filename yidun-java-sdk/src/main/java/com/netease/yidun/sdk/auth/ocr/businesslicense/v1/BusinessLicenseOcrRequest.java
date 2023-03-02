@@ -2,7 +2,6 @@ package com.netease.yidun.sdk.auth.ocr.businesslicense.v1;
 
 import java.util.Map;
 
-import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -17,10 +16,10 @@ public class BusinessLicenseOcrRequest extends BizPostFormRequest<BusinessLicens
     @Size(min = 1, max = 4194303, message = "图片长度不合法")
     private String image;
 
-    @Size(max = 10, message = "registerIp最长10个字符")
+    @Size(max = 10, message = "accuracy最长10个字符")
     private String accuracy;
 
-    @Size(max = 10, message = "registerIp最长10个字符")
+    @Size(max = 10, message = "detectDirection最长10个字符")
     private String detectDirection;
 
     public String getImage() {
@@ -33,6 +32,16 @@ public class BusinessLicenseOcrRequest extends BizPostFormRequest<BusinessLicens
 
     public BusinessLicenseOcrRequest image(String image) {
         this.image = image;
+        return this;
+    }
+
+    public BusinessLicenseOcrRequest accuracy(String accuracy) {
+        this.accuracy = accuracy;
+        return this;
+    }
+
+    public BusinessLicenseOcrRequest detectDirection(String detectDirection) {
+        this.detectDirection = detectDirection;
         return this;
     }
 
