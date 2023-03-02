@@ -11,37 +11,37 @@ public class IRiskMediaCheckRequest extends BizPostJsonRequest<IRiskMediaCheckRe
     /**
      * 图片数据，图片支持类型为BASE64的数据，无需包含base64协议请求头部分
      */
-    @NotBlank
+    @NotBlank(message = "mediaData不能为空")
     private String mediaData;
 
     /**
      * 图片文件名，格式如xxx.jpg，需要包含.格式的文件后缀名
      */
-    @NotBlank
+    @NotBlank(message = "mediaName不能为空")
     private String mediaName;
 
     /**
      * 用户/ 玩家的IP，或当前客户端业务事件发生时的公网IP地址（ipv4）
      */
-    @NotBlank
+    @NotBlank(message = "ip不能为空")
     private String ip;
 
     /**
      * 用户/玩家的角色 ID
      */
-    @NotBlank
+    @NotBlank(message = "roleId不能为空")
     private String roleId;
 
     /**
      * 用户/玩家的角色名称
      */
-    @NotBlank
+    @NotBlank(message = "nickname不能为空")
     private String nickname;
 
     /**
      * 用户/玩家的角色的服务器名称
      */
-    @NotBlank
+    @NotBlank(message = "server不能为空")
     private String server;
 
     public IRiskMediaCheckRequest(String businessId) {

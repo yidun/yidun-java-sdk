@@ -230,5 +230,10 @@
     "cn-hangzhou": [
       "ir-open.dun.163.com"
     ]
+  },
+  "profile": {
+    "cn-hangzhou": [
+      "rp.dun.163.com"
+    ]
   }
 }

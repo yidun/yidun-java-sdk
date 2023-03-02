@@ -10,13 +10,13 @@ public class IRiskDetailRequest extends BizPostJsonRequest<IRiskDetailResponse> 
     /**
      * 开始时间戳，单位： ms, 不能小于30天前
      */
-    @NotNull
+    @NotNull(message = "beginTimestamp不能为空")
     private Long beginTimestamp;
 
     /**
      * 结束时间戳，单位： ms, 结束时间戳与开始时间戳的时间间隔不能大于30天
      */
-    @NotNull
+    @NotNull(message = "endTimestamp不能为空")
     private Long endTimestamp;
 
     /**

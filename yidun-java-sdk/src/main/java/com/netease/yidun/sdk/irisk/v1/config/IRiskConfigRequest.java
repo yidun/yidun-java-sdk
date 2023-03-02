@@ -11,7 +11,7 @@ public class IRiskConfigRequest extends BizPostJsonRequest<IRiskConfigResponse> 
     /**
      * 用户/ 玩家的IP，或当前客户端业务事件发生时的公网IP地址（ipv4）
      */
-    @NotBlank
+    @NotBlank(message = "ip不能为空")
     private String ip;
 
     /**
