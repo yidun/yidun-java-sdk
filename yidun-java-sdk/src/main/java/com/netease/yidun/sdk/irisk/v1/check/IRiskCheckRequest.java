@@ -10,13 +10,13 @@ public class IRiskCheckRequest extends BizPostJsonRequest<IRiskCheckResponse> {
     /**
      * 风控SDK上报的数据后回参获取到的 token，应用方需要从智能风控客户端SDK获取该数据。详情请查看客户端接入文档。
      */
-    @NotBlank
+    @NotBlank(message = "token不能为空")
     private String token;
 
     /**
      * 用户/ 玩家的IP，或当前客户端业务事件发生时的公网IP地址（ipv4）
      */
-    @NotBlank
+    @NotBlank(message = "ip不能为空")
     private String ip;
 
     /**
