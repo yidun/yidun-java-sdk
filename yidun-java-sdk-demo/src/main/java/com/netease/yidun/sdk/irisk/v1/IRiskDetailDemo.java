@@ -1,6 +1,5 @@
-package com.netease.yidun.sdk.irisk;
+package com.netease.yidun.sdk.irisk.v1;
 
-import com.netease.yidun.sdk.irisk.v1.IRiskClient;
 import com.netease.yidun.sdk.irisk.v1.detail.DetailData;
 import com.netease.yidun.sdk.irisk.v1.detail.IRiskDetailRequest;
 import com.netease.yidun.sdk.irisk.v1.detail.IRiskDetailResponse;

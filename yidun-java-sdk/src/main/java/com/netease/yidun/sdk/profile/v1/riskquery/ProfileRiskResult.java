@@ -7,8 +7,8 @@
 package com.netease.yidun.sdk.profile.v1.riskquery;
 
 import com.netease.yidun.sdk.profile.v1.common.AccountDetail;
-import com.netease.yidun.sdk.profile.v1.common.IpDetail;
 import com.netease.yidun.sdk.profile.v1.common.PhoneDetail;
+import com.netease.yidun.sdk.profile.v1.common.IpDetail;
 
 public class ProfileRiskResult {
 

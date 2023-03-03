@@ -1,6 +1,5 @@
-package com.netease.yidun.sdk.irisk;
+package com.netease.yidun.sdk.irisk.v1;
 
-import com.netease.yidun.sdk.irisk.v1.IRiskClient;
 import com.netease.yidun.sdk.irisk.v1.mediacheck.IRiskMediaCheckRequest;
 import com.netease.yidun.sdk.irisk.v1.mediacheck.IRiskMediaCheckResponse;
 import com.netease.yidun.sdk.irisk.v1.mediacheck.IRiskMediaCheckResult;

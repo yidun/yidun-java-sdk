@@ -1,6 +1,5 @@
-package com.netease.yidun.sdk.profile;
+package com.netease.yidun.sdk.profile.v1;
 
-import com.netease.yidun.sdk.profile.v1.ProfileClient;
 import com.netease.yidun.sdk.profile.v1.userquery.ProfileUserQueryRequest;
 import com.netease.yidun.sdk.profile.v1.userquery.ProfileUserQueryResponse;
 import com.netease.yidun.sdk.profile.v1.userquery.ProfileUserQueryResult;

@@ -1,6 +1,5 @@
-package com.netease.yidun.sdk.profile;
+package com.netease.yidun.sdk.profile.v1;
 
-import com.netease.yidun.sdk.profile.v1.ProfileClient;
 import com.netease.yidun.sdk.profile.v1.check.CollectInfo;
 import com.netease.yidun.sdk.profile.v1.check.ProfileCheckRequest;
 import com.netease.yidun.sdk.profile.v1.check.ProfileCheckResponse;

@@ -1,6 +1,5 @@
-package com.netease.yidun.sdk.profile;
+package com.netease.yidun.sdk.profile.v1;
 
-import com.netease.yidun.sdk.profile.v1.ProfileClient;
 import com.netease.yidun.sdk.profile.v1.ipquery.ProfileIpQueryRequest;
 import com.netease.yidun.sdk.profile.v1.ipquery.ProfileIpQueryResponse;
 import com.netease.yidun.sdk.profile.v1.ipquery.ProfileIpQueryResult;
