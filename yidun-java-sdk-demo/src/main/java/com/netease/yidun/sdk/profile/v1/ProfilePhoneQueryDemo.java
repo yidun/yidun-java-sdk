@@ -1,6 +1,5 @@
-package com.netease.yidun.sdk.profile;
+package com.netease.yidun.sdk.profile.v1;
 
-import com.netease.yidun.sdk.profile.v1.ProfileClient;
 import com.netease.yidun.sdk.profile.v1.phonequery.ProfilePhoneQueryRequest;
 import com.netease.yidun.sdk.profile.v1.phonequery.ProfilePhoneQueryResponse;
 import com.netease.yidun.sdk.profile.v1.phonequery.ProfilePhoneQueryResult;

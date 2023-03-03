@@ -3,8 +3,6 @@ package com.netease.yidun.sdk.profile.v1;
 import com.netease.yidun.sdk.core.client.Client;
 import com.netease.yidun.sdk.core.client.ClientProfile;
 import com.netease.yidun.sdk.core.client.DefaultClient;
-import com.netease.yidun.sdk.profile.v1.check.ProfileCheckRequest;
-import com.netease.yidun.sdk.profile.v1.check.ProfileCheckResponse;
 import com.netease.yidun.sdk.profile.v1.ipquery.ProfileIpQueryRequest;
 import com.netease.yidun.sdk.profile.v1.ipquery.ProfileIpQueryResponse;
 import com.netease.yidun.sdk.profile.v1.phonequery.ProfilePhoneQueryRequest;
@@ -13,6 +11,8 @@ import com.netease.yidun.sdk.profile.v1.riskquery.ProfileRiskQueryRequest;
 import com.netease.yidun.sdk.profile.v1.riskquery.ProfileRiskQueryResponse;
 import com.netease.yidun.sdk.profile.v1.userquery.ProfileUserQueryRequest;
 import com.netease.yidun.sdk.profile.v1.userquery.ProfileUserQueryResponse;
+import com.netease.yidun.sdk.profile.v1.check.ProfileCheckRequest;
+import com.netease.yidun.sdk.profile.v1.check.ProfileCheckResponse;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

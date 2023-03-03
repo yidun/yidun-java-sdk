@@ -3,6 +3,7 @@ package com.netease.yidun.sdk.irisk.v1;
 import com.netease.yidun.sdk.core.client.Client;
 import com.netease.yidun.sdk.core.client.ClientProfile;
 import com.netease.yidun.sdk.core.client.DefaultClient;
+import com.netease.yidun.sdk.irisk.v1.mediacheck.IRiskMediaCheckResponse;
 import com.netease.yidun.sdk.irisk.v1.check.IRiskCheckRequest;
 import com.netease.yidun.sdk.irisk.v1.check.IRiskCheckResponse;
 import com.netease.yidun.sdk.irisk.v1.config.IRiskConfigRequest;
@@ -10,7 +11,6 @@ import com.netease.yidun.sdk.irisk.v1.config.IRiskConfigResponse;
 import com.netease.yidun.sdk.irisk.v1.detail.IRiskDetailRequest;
 import com.netease.yidun.sdk.irisk.v1.detail.IRiskDetailResponse;
 import com.netease.yidun.sdk.irisk.v1.mediacheck.IRiskMediaCheckRequest;
-import com.netease.yidun.sdk.irisk.v1.mediacheck.IRiskMediaCheckResponse;
 
 /**
  * 适用场景：【智能风控】在线检测、数据查询、配置拉取、图片外挂识别
