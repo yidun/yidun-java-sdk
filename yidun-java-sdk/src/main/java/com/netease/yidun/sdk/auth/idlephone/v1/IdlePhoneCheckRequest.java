@@ -24,6 +24,21 @@ public class IdlePhoneCheckRequest extends BizPostFormRequest<IdlePhoneCheckResp
     @Size(max = 4, message = "encryptType长度不合法")
     private String encryptType;
 
+    public String getPhoneList() {
+        return phoneList;
+    }
+
+    public void setPhoneList(String phoneList) {
+        this.phoneList = phoneList;
+    }
+
+    public String getEncryptType() {
+        return encryptType;
+    }
+
+    public void setEncryptType(String encryptType) {
+        this.encryptType = encryptType;
+    }
 
     public IdlePhoneCheckRequest(String businessId) {
         productCode = "auth";
