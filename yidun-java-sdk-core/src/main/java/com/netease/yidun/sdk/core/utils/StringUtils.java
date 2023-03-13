@@ -2,6 +2,7 @@
 
 package com.netease.yidun.sdk.core.utils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class StringUtils {
@@ -62,6 +63,37 @@ public class StringUtils {
         return new String(chars, 0, chars.length);
     }
 
+    public static String[] substringsBetween(String str, String open, String close) {
+        if (str == null || isEmpty(open) || isEmpty(close)) {
+            return null;
+        }
+        int strLen = str.length();
+        if (strLen == 0) {
+            return new String[0];
+        }
+        int closeLen = close.length();
+        int openLen = open.length();
+        List list = new ArrayList();
+        int pos = 0;
+        while (pos < (strLen - closeLen)) {
+            int start = str.indexOf(open, pos);
+            if (start < 0) {
+                break;
+            }
+            start += openLen;
+            int end = str.indexOf(close, start);
+            if (end < 0) {
+                break;
+            }
+            list.add(str.substring(start, end));
+            pos = end + closeLen;
+        }
+        if (list.isEmpty()) {
+            return null;
+        }
+        return (String[]) list.toArray(new String [list.size()]);
+    }
+
     public static String join(List<String> array, String separator) {
         return array == null ? null : join(array.toArray(), separator, 0, array.size());
     }
@@ -86,6 +118,7 @@ public class StringUtils {
         }
         return buf.toString();
     }
+
     private static StringBuilder newStringBuilder(final int noOfItems) {
         return new StringBuilder(noOfItems * 16);
     }
