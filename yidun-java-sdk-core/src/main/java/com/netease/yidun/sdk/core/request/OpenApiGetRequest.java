@@ -6,6 +6,7 @@ import com.netease.yidun.sdk.core.http.HttpHeaders;
 import com.netease.yidun.sdk.core.http.HttpRequest;
 import com.netease.yidun.sdk.core.response.BaseResponse;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -73,8 +74,8 @@ public abstract class OpenApiGetRequest<T extends BaseResponse> extends PostForm
      */
     @Override
     public HttpRequest toHttpRequest(Signer signer, Credentials credentials) {
-        Map<String, String> params = getNonSignParams();
-        params.putAll(getCustomSignParams());
+        Map<String, String> params = getCustomSignParams();
+        params.putAll(getNonSignParams());
 
         return new HttpRequest()
                 .protocol(protocol)
