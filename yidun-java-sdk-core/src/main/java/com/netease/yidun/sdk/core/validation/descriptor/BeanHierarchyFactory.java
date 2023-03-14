@@ -1,5 +1,7 @@
 package com.netease.yidun.sdk.core.validation.descriptor;
 
+import com.netease.yidun.sdk.core.utils.ClassUtils;
+
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -14,6 +16,10 @@ public class BeanHierarchyFactory {
      * @return {@link BeanHierarchyDescriptor}
      */
     public static BeanHierarchyDescriptor getBeanHierarchy(Class beanClass) {
+        if (!ClassUtils.isYidunClass(beanClass)) {
+            return null;
+        }
+
         // 没有使用computeIfAbsent是防止class继承关系过多，createBeanHierarchy时间较长，高并发时导致锁等待时间更长
         BeanHierarchyDescriptor beanHierarchyDescriptor = beanHierarchyCache.get(beanClass);
         if (beanHierarchyDescriptor != null) {

@@ -35,6 +35,10 @@ public class ClassUtils {
         PRIMITIVE_TO_WRAPPER_TYPES = Collections.unmodifiableMap(tmpMap);
     }
 
+    public static boolean isYidunClass(Class clazz) {
+        return clazz.getPackage() != null && clazz.getPackage().getName().startsWith("com.netease.yidun");
+    }
+
     public static List<Class> getHierarchyClass(Class clazz) {
         List<Class> classes = new ArrayList<>();
 
