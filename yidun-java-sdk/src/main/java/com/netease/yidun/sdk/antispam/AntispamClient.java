@@ -14,11 +14,18 @@ import java.util.stream.Collectors;
 public abstract class AntispamClient {
     protected DefaultClient client;
 
+    public AntispamClient() {
+    }
+
     public AntispamClient(ClientProfile clientProfile) {
-        client = new DefaultClient(clientProfile);
+        client = createClient(clientProfile);
+    }
+
+    protected DefaultClient createClient(ClientProfile clientProfile) {
+        DefaultClient client = new DefaultClient(clientProfile);
         if (clientProfile.getRequestRecover() != null && clientProfile.getRequestRecover() instanceof DefaultRequestRecover) {
             if (clientName() == null) {
-                return;
+                return client;
             }
             // 找到类中所有发出接口请求的方法，并加入到文件恢复中
             DefaultRequestRecover requestRecover = (DefaultRequestRecover) clientProfile.getRequestRecover();
@@ -29,6 +36,7 @@ public abstract class AntispamClient {
 
             requestRecover.registerRecover(classes, clientName(), client);
         }
+        return client;
     }
 
     protected String clientName() {

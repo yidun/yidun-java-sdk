@@ -7,10 +7,9 @@
 package com.netease.yidun.sdk.antispam.label;
 
 import com.netease.yidun.sdk.antispam.AntispamClient;
-import com.netease.yidun.sdk.antispam.AntispamRequester;
-import com.netease.yidun.sdk.antispam.BaseClient;
 import com.netease.yidun.sdk.antispam.label.query.request.LabelQueryRequest;
 import com.netease.yidun.sdk.antispam.label.query.response.LabelQueryResponse;
+import com.netease.yidun.sdk.core.auth.OpenApiSignerImpl;
 import com.netease.yidun.sdk.core.client.ClientProfile;
 
 /**
@@ -21,7 +20,8 @@ public class LabelQueryClient extends AntispamClient {
 
 
     public LabelQueryClient(ClientProfile clientProfile) {
-        super(clientProfile);
+        clientProfile.setSigner(OpenApiSignerImpl.INSTANCE);
+        client = createClient(clientProfile);
     }
 
     public LabelQueryResponse queryLabel(LabelQueryRequest labelQueryRequest) {
