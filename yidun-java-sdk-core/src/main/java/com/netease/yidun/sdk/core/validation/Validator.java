@@ -1,6 +1,7 @@
 package com.netease.yidun.sdk.core.validation;
 
 import com.netease.yidun.sdk.core.exception.YidunValidationException;
+import com.netease.yidun.sdk.core.utils.CollectionUtils;
 import com.netease.yidun.sdk.core.validation.descriptor.BeanDescriptor;
 import com.netease.yidun.sdk.core.validation.descriptor.BeanHierarchyDescriptor;
 import com.netease.yidun.sdk.core.validation.descriptor.BeanHierarchyFactory;
@@ -9,6 +10,7 @@ import com.netease.yidun.sdk.core.validation.validator.LimitationValidator;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -22,12 +24,9 @@ public class Validator {
      * @return
      */
     public static List<String> validate(Object obj) {
-        List<String> errorMsgs = new ArrayList<>();
+        ValidateContext context = new ValidateContext();
         try {
-            BeanHierarchyDescriptor beanHierarchyDescriptor = BeanHierarchyFactory.getBeanHierarchy(obj.getClass());
-            for (BeanDescriptor beanDescriptor : beanHierarchyDescriptor.getHierarchies()) {
-                errorMsgs.addAll(validate(obj, beanDescriptor));
-            }
+            validateHierarchy(obj, context);
         } catch (YidunValidationException e) {
             throw e;
         } catch (Exception e) {
@@ -35,11 +34,65 @@ public class Validator {
             e.printStackTrace();
         }
 
-        return errorMsgs;
+        return context.getValidationErrors();
     }
 
-    private static List<String> validate(Object obj, BeanDescriptor beanDescriptor) {
-        List<String> failMsg = new ArrayList<>();
+    private static void validateHierarchy(Object obj, ValidateContext context) {
+        if (obj == null) {
+            return;
+        }
+        if (context.isValidated(obj)) {
+            return;
+        }
+        // 防止循环引用造成的死循环
+        context.addValidatedValue(obj);
+
+        if (obj instanceof Map) {
+            Map map = (Map) obj;
+            for (Object key : map.keySet()) {
+                validateHierarchy(key, context);
+                validateHierarchy(map.get(key), context);
+            }
+        } else if (obj instanceof Collection) {
+            Collection collection = (Collection) obj;
+            for (Object item : collection) {
+                validateHierarchy(item, context);
+            }
+        } else {
+            validateHierarchyForSimple(obj, context);
+        }
+    }
+
+    private static void validateHierarchyForSimple(Object obj, ValidateContext context) {
+        BeanHierarchyDescriptor beanHierarchy = BeanHierarchyFactory.getBeanHierarchy(obj.getClass());
+        if (beanHierarchy == null) {
+            return;
+        }
+        for (BeanDescriptor beanDescriptor : beanHierarchy.getHierarchies()) {
+            // validate 当前bean的所有待验证的字段
+            context.addAllValidationErrors(validateLimitation(obj, beanDescriptor));
+
+            // 处理当前bean中字段是关联对象的所有字段
+            List<Field> validAnnotatedFields = beanDescriptor.getValidAnnotatedFields();
+            if (CollectionUtils.isEmpty(validAnnotatedFields)) {
+                continue;
+            }
+            for (Field field : validAnnotatedFields) {
+                Object fieldValue;
+                try {
+                    fieldValue = field.get(obj);
+                } catch (IllegalAccessException e) {
+                    // should never happen
+                    e.printStackTrace();
+                    continue;
+                }
+                validateHierarchy(fieldValue, context);
+            }
+        }
+    }
+
+    private static List<String> validateLimitation(Object obj, BeanDescriptor beanDescriptor) {
+        List<String> violations = new ArrayList<>();
         Map<Field, List<LimitationDescriptor>> limitationDescriptorsMap = beanDescriptor.getLimitationDescriptors();
         for (Map.Entry<Field, List<LimitationDescriptor>> entry : limitationDescriptorsMap.entrySet()) {
             Field field = entry.getKey();
@@ -60,11 +113,11 @@ public class Validator {
                 }
                 boolean valid = limitationValidator.isValid(fieldValue);
                 if (!valid) {
-                    failMsg.add(MessageFormatter.format(limitationDescriptor));
+                    violations.add(MessageFormatter.format(limitationDescriptor));
                 }
             }
 
         }
-        return failMsg;
+        return violations;
     }
 }

@@ -2,6 +2,7 @@ package com.netease.yidun.sdk.core.validation.descriptor;
 
 import com.netease.yidun.sdk.core.utils.ArrayUtils;
 import com.netease.yidun.sdk.core.validation.limitation.Limitation;
+import com.netease.yidun.sdk.core.validation.limitation.Valid;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
@@ -9,8 +10,10 @@ import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class BeanDescriptor {
 
@@ -21,9 +24,12 @@ public class BeanDescriptor {
 
     private Class<?> beanClass;
 
-    private BeanDescriptor(Class clazz, Map<Field, List<LimitationDescriptor>> limitationDescriptorMap) {
+    private List<Field> validAnnotatedFields;
+
+    private BeanDescriptor(Class clazz, Map<Field, List<LimitationDescriptor>> limitationDescriptorMap, List<Field> validAnnotatedFields) {
         this.beanClass = clazz;
         this.limitationDescriptorMap = limitationDescriptorMap;
+        this.validAnnotatedFields = validAnnotatedFields;
     }
 
     /**
@@ -34,6 +40,7 @@ public class BeanDescriptor {
      */
     public static BeanDescriptor createBeanDescriptor(Class clazz) {
         Map<Field, List<LimitationDescriptor>> fieldMap = new HashMap<>();
+        Set<Field> validFieldSet = new HashSet<>();
         for (Field field : clazz.getDeclaredFields()) {
             if (Modifier.isStatic(field.getModifiers()) || field.isSynthetic()) {
                 continue;
@@ -42,12 +49,18 @@ public class BeanDescriptor {
             if (ArrayUtils.isEmpty(declaredAnnotations)) {
                 continue;
             }
+            makeAccessField(field);
+
             List<LimitationDescriptor> limitationDescriptors = new ArrayList<>();
             for (Annotation annotation : declaredAnnotations) {
-                if (annotation.annotationType().getAnnotation(Limitation.class) == null) {
-                    continue;
+                if (annotation.annotationType() == Valid.class) {
+                    validFieldSet.add(field);
                 }
-                limitationDescriptors.add(new LimitationDescriptor(annotation, field));
+
+                if (annotation.annotationType().getAnnotation(Limitation.class) != null) {
+                    limitationDescriptors.add(new LimitationDescriptor(annotation, field));
+                }
+
             }
             if (limitationDescriptors.size() == 0) {
                 continue;
@@ -57,9 +70,20 @@ public class BeanDescriptor {
         }
 
         if (fieldMap.size() == 0) {
-            return new BeanDescriptor(clazz, Collections.emptyMap());
+            fieldMap = Collections.emptyMap();
         }
-        return new BeanDescriptor(clazz, Collections.unmodifiableMap(fieldMap));
+
+        List<Field> validFields = new ArrayList<>(validFieldSet);
+        if (validFields.size() == 0) {
+            validFields = Collections.emptyList();
+        }
+
+        return new BeanDescriptor(clazz, Collections.unmodifiableMap(fieldMap), Collections.unmodifiableList(validFields));
+    }
+
+    private static Field makeAccessField(Field field) {
+        field.setAccessible(true);
+        return field;
     }
 
     public List<LimitationDescriptor> getLimitationDescriptors(Field field) {
@@ -70,4 +94,7 @@ public class BeanDescriptor {
         return limitationDescriptorMap;
     }
 
+    public List<Field> getValidAnnotatedFields() {
+        return validAnnotatedFields;
+    }
 }
