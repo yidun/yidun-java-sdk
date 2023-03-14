@@ -2,8 +2,11 @@
 
 package com.netease.yidun.sdk.core.utils;
 
+import java.util.List;
+
 public class StringUtils {
 
+    public static final String EMPTY = "";
     public static boolean isBlank(final CharSequence cs) {
         final int strLen = length(cs);
         if (strLen == 0) {
@@ -57,5 +60,33 @@ public class StringUtils {
         char[] chars = str.toCharArray();
         chars[0] = upperCaseChar;
         return new String(chars, 0, chars.length);
+    }
+
+    public static String join(List<String> array, String separator) {
+        return array == null ? null : join(array.toArray(), separator, 0, array.size());
+    }
+
+    public static String join(final Object[] array, final String separator, final int startIndex, final int endIndex) {
+        if (array == null) {
+            return null;
+        }
+        final int noOfItems = endIndex - startIndex;
+        if (noOfItems <= 0) {
+            return EMPTY;
+        }
+        final StringBuilder buf = newStringBuilder(noOfItems);
+        if (array[startIndex] != null) {
+            buf.append(array[startIndex]);
+        }
+        for (int i = startIndex + 1; i < endIndex; i++) {
+            buf.append(separator);
+            if (array[i] != null) {
+                buf.append(array[i]);
+            }
+        }
+        return buf.toString();
+    }
+    private static StringBuilder newStringBuilder(final int noOfItems) {
+        return new StringBuilder(noOfItems * 16);
     }
 }

@@ -12,6 +12,7 @@ import com.netease.yidun.sdk.antispam.grammarfix.GrammarfixCommonClient;
 import com.netease.yidun.sdk.antispam.image.v5.ImageCheckClient;
 import com.netease.yidun.sdk.antispam.image.v5.ImageCommonClient;
 import com.netease.yidun.sdk.antispam.keyword.KeywordCommonClient;
+import com.netease.yidun.sdk.antispam.label.LabelQueryClient;
 import com.netease.yidun.sdk.antispam.list.ListCommonClient;
 import com.netease.yidun.sdk.antispam.liveaudio.LiveAudioCheckClient;
 import com.netease.yidun.sdk.antispam.liveaudio.LiveAudioCommonClient;
@@ -188,6 +189,10 @@ public class AntispamRequester {
 
     public PretreatmentCommonClient getPretreatmentCommonClient() {
         return createIfAbsent(PretreatmentCommonClient.class);
+    }
+
+    public LabelQueryClient getLabelQueryClient() {
+        return createIfAbsent(LabelQueryClient.class);
     }
 
     private <T extends AntispamClient> T createIfAbsent(Class<T> clazz) {
