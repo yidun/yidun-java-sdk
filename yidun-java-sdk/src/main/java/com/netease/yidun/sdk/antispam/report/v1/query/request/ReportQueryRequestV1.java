@@ -1,16 +1,15 @@
 
 package com.netease.yidun.sdk.antispam.report.v1.query.request;
 
-import java.util.List;
-import java.util.Map;
-
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
 import com.google.gson.Gson;
 import com.netease.yidun.sdk.antispam.report.v1.callback.response.ReportCallbackResponseV1;
 import com.netease.yidun.sdk.core.request.PostFormRequest;
 import com.netease.yidun.sdk.core.utils.StringHashMap;
+import com.netease.yidun.sdk.core.validation.limitation.NotNull;
+import com.netease.yidun.sdk.core.validation.limitation.Size;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * 融媒体结果查询

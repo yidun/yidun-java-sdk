@@ -1,13 +1,10 @@
 package com.netease.yidun.sdk.antispam.pretreatment.v1.query;
 
-import java.util.Map;
-
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
-import com.netease.yidun.sdk.core.http.HttpMethodEnum;
 import com.netease.yidun.sdk.core.request.BizPostFormRequest;
-import com.netease.yidun.sdk.core.utils.StringHashMap;
+import com.netease.yidun.sdk.core.validation.limitation.NotNull;
+import com.netease.yidun.sdk.core.validation.limitation.Size;
+
+import java.util.Map;
 
 /**
  * 自定义忽略词查询请求

@@ -1,11 +1,8 @@
 package com.netease.yidun.sdk.antispam.text.v5.check.sync.single;
 
+import com.netease.yidun.sdk.core.validation.limitation.Size;
+
 import java.util.Map;
-
-import javax.validation.constraints.Size;
-
-import com.netease.yidun.sdk.core.http.HttpMethodEnum;
-import com.netease.yidun.sdk.core.utils.StringHashMap;
 
 /**
  * 文本单次同步检测请求

@@ -3,8 +3,8 @@ package com.netease.yidun.sdk.antispam.text.v5.check.async.batch;
 import com.google.gson.Gson;
 import com.netease.yidun.sdk.antispam.text.v5.check.sync.single.TextCheckSceneRequest;
 import com.netease.yidun.sdk.core.request.BizPostFormRequest;
+import com.netease.yidun.sdk.core.validation.limitation.Size;
 
-import javax.validation.constraints.Size;
 import java.util.List;
 import java.util.Map;
 

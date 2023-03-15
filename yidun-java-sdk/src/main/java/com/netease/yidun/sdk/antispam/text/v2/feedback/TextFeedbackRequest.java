@@ -1,12 +1,9 @@
 package com.netease.yidun.sdk.antispam.text.v2.feedback;
 
-import java.util.Map;
-
-import javax.validation.constraints.NotBlank;
-
-import com.netease.yidun.sdk.core.http.HttpMethodEnum;
 import com.netease.yidun.sdk.core.request.BizPostFormRequest;
-import com.netease.yidun.sdk.core.utils.StringHashMap;
+import com.netease.yidun.sdk.core.validation.limitation.NotBlank;
+
+import java.util.Map;
 
 /**
  * 文本结果反馈请求

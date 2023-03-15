@@ -1,14 +1,11 @@
 package com.netease.yidun.sdk.antispam.keyword.v1.submit;
 
+import com.netease.yidun.sdk.core.request.BizPostFormRequest;
+import com.netease.yidun.sdk.core.validation.limitation.NotBlank;
+import com.netease.yidun.sdk.core.validation.limitation.NotNull;
+
 import java.util.Map;
 import java.util.Set;
-
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-
-import com.netease.yidun.sdk.core.http.HttpMethodEnum;
-import com.netease.yidun.sdk.core.request.BizPostFormRequest;
-import com.netease.yidun.sdk.core.utils.StringHashMap;
 
 /**
  * 自定义关键词添加请求

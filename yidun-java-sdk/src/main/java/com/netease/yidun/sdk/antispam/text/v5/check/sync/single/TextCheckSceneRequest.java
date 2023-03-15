@@ -2,9 +2,9 @@ package com.netease.yidun.sdk.antispam.text.v5.check.sync.single;
 
 import com.netease.yidun.sdk.core.request.BizPostFormRequest;
 import com.netease.yidun.sdk.core.response.BaseResponse;
+import com.netease.yidun.sdk.core.validation.limitation.NotBlank;
+import com.netease.yidun.sdk.core.validation.limitation.Size;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 import java.util.List;
 import java.util.Map;
 

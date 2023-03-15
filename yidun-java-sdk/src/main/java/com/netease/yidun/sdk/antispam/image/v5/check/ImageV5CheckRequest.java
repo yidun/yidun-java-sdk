@@ -2,12 +2,12 @@ package com.netease.yidun.sdk.antispam.image.v5.check;
 
 import com.netease.yidun.sdk.antispam.image.v5.enums.ImageTypeEnum;
 import com.netease.yidun.sdk.core.response.BaseResponse;
-import org.hibernate.validator.constraints.Range;
-
-import javax.validation.Valid;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import com.netease.yidun.sdk.core.validation.limitation.Max;
+import com.netease.yidun.sdk.core.validation.limitation.Min;
+import com.netease.yidun.sdk.core.validation.limitation.NotEmpty;
+import com.netease.yidun.sdk.core.validation.limitation.NotNull;
+import com.netease.yidun.sdk.core.validation.limitation.Valid;
+import com.netease.yidun.sdk.core.validation.limitation.Size;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Set;
@@ -167,7 +167,8 @@ public abstract class ImageV5CheckRequest<T extends BaseResponse> extends ImageC
          * 图片data字段的类型，包括url，base64编码等，具体定义见{@link ImageTypeEnum}
          */
         @NotNull(message = "图片数据类型不能为空")
-        @Range(min = 1, max = 2, message = "图片数据类型不合法")
+        @Min(value = 1, message = "图片数据类型不合法")
+        @Max(value = 2, message = "图片数据类型不合法")
         private Integer type;
         /**
          * 图片内容，根据type字段传不同的值
