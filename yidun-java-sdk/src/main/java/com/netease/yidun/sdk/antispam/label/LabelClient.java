@@ -21,6 +21,6 @@ public class LabelClient extends BaseClient {
     }
 
     public LabelQueryResponse queryLabel(LabelQueryRequest labelQueryRequest) {
-        return requester.getLabelQueryClient().queryLabel(labelQueryRequest);
+        return requester.getOpenApiClient().queryLabel(labelQueryRequest);
     }
 }

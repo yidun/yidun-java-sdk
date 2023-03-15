@@ -12,7 +12,6 @@ import com.netease.yidun.sdk.antispam.grammarfix.GrammarfixCommonClient;
 import com.netease.yidun.sdk.antispam.image.v5.ImageCheckClient;
 import com.netease.yidun.sdk.antispam.image.v5.ImageCommonClient;
 import com.netease.yidun.sdk.antispam.keyword.KeywordCommonClient;
-import com.netease.yidun.sdk.antispam.label.LabelQueryClient;
 import com.netease.yidun.sdk.antispam.list.ListCommonClient;
 import com.netease.yidun.sdk.antispam.liveaudio.LiveAudioCheckClient;
 import com.netease.yidun.sdk.antispam.liveaudio.LiveAudioCommonClient;
@@ -35,6 +34,7 @@ import com.netease.yidun.sdk.core.auth.Credentials;
 import com.netease.yidun.sdk.core.client.ClientProfile;
 import com.netease.yidun.sdk.core.http.HttpClientConfig;
 import com.netease.yidun.sdk.core.utils.AssertUtils;
+import com.netease.yidun.sdk.openapi.OpenApiClient;
 
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -191,8 +191,8 @@ public class AntispamRequester {
         return createIfAbsent(PretreatmentCommonClient.class);
     }
 
-    public LabelQueryClient getLabelQueryClient() {
-        return createIfAbsent(LabelQueryClient.class);
+    public OpenApiClient getOpenApiClient() {
+        return createIfAbsent(OpenApiClient.class);
     }
 
     private <T extends AntispamClient> T createIfAbsent(Class<T> clazz) {
