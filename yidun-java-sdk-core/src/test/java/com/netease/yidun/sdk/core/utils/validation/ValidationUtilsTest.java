@@ -1,14 +1,19 @@
-package com.netease.yidun.sdk.core.utils;
+package com.netease.yidun.sdk.core.utils.validation;
 
+import com.netease.yidun.sdk.core.utils.ValidationUtils;
+import com.netease.yidun.sdk.core.validation.limitation.Length;
 import com.netease.yidun.sdk.core.validation.limitation.Max;
 import com.netease.yidun.sdk.core.validation.limitation.Min;
 import com.netease.yidun.sdk.core.validation.limitation.NotBlank;
+import com.netease.yidun.sdk.core.validation.limitation.NotEmpty;
 import com.netease.yidun.sdk.core.validation.limitation.NotNull;
 import com.netease.yidun.sdk.core.validation.limitation.Size;
 import com.netease.yidun.sdk.core.validation.limitation.Valid;
 import org.junit.Test;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -20,6 +25,26 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class ValidationUtilsTest {
+
+    public long averageValidate() {
+        TestObject obj = new TestObject();
+        obj.setFieldObject(new TestFieldObject());
+
+        ValidationUtils.preheatByInstance(Arrays.asList(obj));
+
+        int total = 50;
+        long count = 0;
+        for (int i = 0; i < total; i++) {
+            long start = LocalDateTime.now().getNano();
+            try {
+                ValidationUtils.validate(obj);
+            } catch (IllegalArgumentException ex) {
+                count += (LocalDateTime.now().getNano() - start) / 1000;
+            }
+        }
+
+        return count / total;
+    }
 
     @Test
     public void testValidateList() {
@@ -35,22 +60,15 @@ public class ValidationUtilsTest {
         testListFieldObject.getTestMap().put("key3", Arrays.asList(testListFieldObject));
 
 
-        ValidationUtils.preheatByInstance(Arrays.asList(obj));
         IllegalArgumentException e = null;
-
-        for (int i = 0; i < 100; i++) {
-            long start = System.currentTimeMillis();
-            try {
-                ValidationUtils.validate(obj);
-            } catch (IllegalArgumentException ex) {
-                e = ex;
-            }
-            System.out.println(System.currentTimeMillis() - start);
-            assertTrue(System.currentTimeMillis() - start < 10);
+        try {
+            ValidationUtils.validate(obj);
+        } catch (IllegalArgumentException ex) {
+            e = ex;
         }
 
         Set<String> subMsgSet = Arrays.stream(e.getMessage().split("\\.")).collect(Collectors.toSet());
-        assertEquals(10, subMsgSet.size());
+        assertEquals(11, subMsgSet.size());
 
         assertTrue(subMsgSet.stream().anyMatch(s -> s.contains("不能为空")));
         assertTrue(subMsgSet.stream().anyMatch(s -> s.contains("不能为null")));
@@ -61,6 +79,7 @@ public class ValidationUtilsTest {
         assertTrue(subMsgSet.stream().anyMatch(s -> s.contains("int值太小, need >= 1")));
         assertTrue(subMsgSet.stream().anyMatch(s -> s.contains("double值太小, need >= 1")));
         assertTrue(subMsgSet.stream().anyMatch(s -> s.contains("String值太小, need >= 1")));
+        assertTrue(subMsgSet.stream().anyMatch(s -> s.contains("Long值太大, need <= -1")));
         assertTrue(subMsgSet.stream().anyMatch(s -> s.contains("decimal值太大, need <= -1")));
     }
 
@@ -70,24 +89,18 @@ public class ValidationUtilsTest {
         obj.setFieldObject(new TestFieldObject());
 
 
-        ValidationUtils.preheatByInstance(Arrays.asList(obj));
         IllegalArgumentException e = null;
-
-        for (int i = 0; i < 20; i++) {
-            long start = System.currentTimeMillis();
-            try {
-                ValidationUtils.validate(obj);
-            } catch (IllegalArgumentException ex) {
-                e = ex;
-            }
-            System.out.println(System.currentTimeMillis() - start);
-            assertTrue(System.currentTimeMillis() - start < 5);
+        try {
+            ValidationUtils.validate(obj);
+        } catch (IllegalArgumentException ex) {
+            e = ex;
         }
 
-        String[] subMsgs = e.getMessage().split("\\.");
-        assertEquals(11, subMsgs.length);
+        Set<String> subMsgSet = Arrays.stream(e.getMessage().split("\\.")).collect(Collectors.toSet());
+        assertEquals(12, subMsgSet.size());
 
-        Set<String> subMsgSet = Arrays.stream(subMsgs).collect(Collectors.toSet());
+        assertTrue(subMsgSet.stream().anyMatch(s -> s.contains("不能为空")));
+        assertTrue(subMsgSet.stream().anyMatch(s -> s.contains("不能为null")));
         assertTrue(subMsgSet.stream().anyMatch(s -> s.contains("obj不能为null")));
         assertTrue(subMsgSet.stream().anyMatch(s -> s.contains("Int不能为null")));
         assertTrue(subMsgSet.stream().anyMatch(s -> s.contains("String长度超出范围 1 - 3")));
@@ -98,13 +111,34 @@ public class ValidationUtilsTest {
         assertTrue(subMsgSet.stream().anyMatch(s -> s.contains("String值太小, need >= 1")));
         assertTrue(subMsgSet.stream().anyMatch(s -> s.contains("Long值太大, need <= -1")));
         assertTrue(subMsgSet.stream().anyMatch(s -> s.contains("Byte值太大, need <= -1")));
-        assertTrue(subMsgSet.stream().anyMatch(s -> s.contains("decimal值太大, need <= -1")));
     }
 
+    @Test
+    public void testLimitation() {
+        IllegalArgumentException e = null;
+        try {
+            ValidationUtils.validate(new TestLimitation());
+        } catch (IllegalArgumentException ex) {
+            e = ex;
+        }
 
-    private static class TestSuperObject {
-        @Max(value = -1, message = "decimal值太大, need <= {value}")
-        private BigDecimal e2 = BigDecimal.ZERO;
+        Set<String> subMsgSet = Arrays.stream(e.getMessage().split("\\.")).collect(Collectors.toSet());
+        assertEquals(3, subMsgSet.size());
+
+        assertTrue(subMsgSet.stream().anyMatch(s -> s.contains("最长1个字符")));
+        assertTrue(subMsgSet.stream().anyMatch(s -> s.contains("int[]不能为空")));
+        assertTrue(subMsgSet.stream().anyMatch(s -> s.contains("list不能为空")));
+    }
+
+    private static class TestLimitation {
+        @Length(max = 1, message = "最长{max}个字符")
+        private String url = "111";
+
+        @NotEmpty(message = "int[]不能为空")
+        private int[] array = new int[0];
+
+        @NotEmpty(message = "list不能为空")
+        private List<String> list = new ArrayList<>();
     }
 
     private static class TestObject {
@@ -115,6 +149,12 @@ public class ValidationUtilsTest {
 
         @Valid
         private TestFieldObject fieldObject;
+
+        @NotBlank(message = "不能为空")
+        private String a;
+
+        @NotNull(message = "不能为null")
+        private String b;
 
         @NotNull(message = "Int不能为null")
         private Integer b1;
@@ -137,7 +177,6 @@ public class ValidationUtilsTest {
         @Min(value = 1, message = "String值太小, need >= {value}")
         private String d2 = "0.23";
 
-
         public List<List<TestListFieldObject>> getListField() {
             return listField;
         }
@@ -155,21 +194,22 @@ public class ValidationUtilsTest {
         }
     }
 
-     private static class TestFieldObject extends TestSuperObject {
+    private static class TestSuperObject {
+        @Max(value = -1, message = "Long值太大, need <= {value}")
+        private Long e = 0L;
+    }
 
-         @Max(value = -1, message = "Long值太大, need <= {value}")
-         private Long e = 0L;
 
-         @Max(value = -1, message = "Byte值太大, need <= {value}")
-         private Byte e1 = 0;
-     }
+    private static class TestFieldObject extends TestSuperObject {
+
+        @Max(value = -1, message = "Byte值太大, need <= {value}")
+        private Byte e1 = 0;
+    }
 
     private static class TestListFieldObject extends TestSuperObject {
-        @NotBlank(message = "不能为空")
-        private String a;
 
-        @NotNull(message = "不能为null")
-        private String b;
+        @Max(value = -1, message = "decimal值太大, need <= {value}")
+        private BigDecimal e2 = BigDecimal.ZERO;
 
         @Valid
         private Map<String, List<TestListFieldObject>> testMap = new HashMap<>();

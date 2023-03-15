@@ -1,12 +1,11 @@
 package com.netease.yidun.sdk.antispam.file.v2.submit.request;
 
-import java.util.Map;
-
-import javax.validation.constraints.Size;
-
 import com.netease.yidun.sdk.antispam.file.v2.submit.response.FileSubmitV2Response;
 import com.netease.yidun.sdk.core.request.PostFormRequest;
 import com.netease.yidun.sdk.core.utils.StringHashMap;
+import com.netease.yidun.sdk.core.validation.limitation.Size;
+
+import java.util.Map;
 
 public class FileSubmitV2Request extends PostFormRequest<FileSubmitV2Response> {
 

@@ -2,10 +2,10 @@ package com.netease.yidun.sdk.antispam.image.v5.feedback.request;
 
 import com.netease.yidun.sdk.antispam.image.v5.common.ImageV5Request;
 import com.netease.yidun.sdk.antispam.image.v5.feedback.response.ImageV5FeedBackResponse;
+import com.netease.yidun.sdk.core.validation.limitation.NotEmpty;
+import com.netease.yidun.sdk.core.validation.limitation.NotNull;
+import com.netease.yidun.sdk.core.validation.limitation.Valid;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.List;
 

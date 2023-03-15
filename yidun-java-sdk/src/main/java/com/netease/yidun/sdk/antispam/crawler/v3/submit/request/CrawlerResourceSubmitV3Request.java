@@ -1,20 +1,18 @@
 package com.netease.yidun.sdk.antispam.crawler.v3.submit.request;
 
+import com.netease.yidun.sdk.antispam.crawler.v3.submit.response.CrawlerResourceSubmitV3Response;
+import com.netease.yidun.sdk.core.http.HttpMethodEnum;
+import com.netease.yidun.sdk.core.request.PostFormRequest;
+import com.netease.yidun.sdk.core.utils.StringHashMap;
+import com.netease.yidun.sdk.core.validation.limitation.Length;
+import com.netease.yidun.sdk.core.validation.limitation.NotEmpty;
+import com.netease.yidun.sdk.core.validation.limitation.NotNull;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-
-import org.hibernate.validator.constraints.Length;
-
-import com.netease.yidun.sdk.antispam.crawler.v3.submit.response.CrawlerResourceSubmitV3Response;
-import com.netease.yidun.sdk.core.http.HttpMethodEnum;
-import com.netease.yidun.sdk.core.request.PostFormRequest;
-import com.netease.yidun.sdk.core.utils.StringHashMap;
 
 /**
  * 网站资源检测提交接口v3.0

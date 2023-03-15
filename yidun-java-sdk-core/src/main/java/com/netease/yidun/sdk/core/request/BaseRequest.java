@@ -2,12 +2,6 @@
 
 package com.netease.yidun.sdk.core.request;
 
-import java.util.Collections;
-import java.util.Map;
-
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-
 import com.netease.yidun.sdk.core.auth.Credentials;
 import com.netease.yidun.sdk.core.auth.Signer;
 import com.netease.yidun.sdk.core.http.HttpMethodEnum;
@@ -15,6 +9,11 @@ import com.netease.yidun.sdk.core.http.HttpRequest;
 import com.netease.yidun.sdk.core.http.ProtocolEnum;
 import com.netease.yidun.sdk.core.response.BaseResponse;
 import com.netease.yidun.sdk.core.utils.StringHashMap;
+import com.netease.yidun.sdk.core.validation.limitation.NotBlank;
+import com.netease.yidun.sdk.core.validation.limitation.NotNull;
+
+import java.util.Collections;
+import java.util.Map;
 
 public abstract class BaseRequest<T extends BaseResponse> {
 

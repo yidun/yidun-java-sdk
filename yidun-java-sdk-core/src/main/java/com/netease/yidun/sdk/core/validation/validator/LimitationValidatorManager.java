@@ -2,9 +2,11 @@ package com.netease.yidun.sdk.core.validation.validator;
 
 import com.netease.yidun.sdk.core.exception.YidunValidationException;
 import com.netease.yidun.sdk.core.utils.ClassUtils;
+import com.netease.yidun.sdk.core.validation.limitation.Length;
 import com.netease.yidun.sdk.core.validation.limitation.Max;
 import com.netease.yidun.sdk.core.validation.limitation.Min;
 import com.netease.yidun.sdk.core.validation.limitation.NotBlank;
+import com.netease.yidun.sdk.core.validation.limitation.NotEmpty;
 import com.netease.yidun.sdk.core.validation.limitation.NotNull;
 import com.netease.yidun.sdk.core.validation.limitation.Size;
 import com.netease.yidun.sdk.core.validation.validator.compare.MaxValidatorForBigDecimal;
@@ -25,6 +27,18 @@ import com.netease.yidun.sdk.core.validation.validator.compare.MinValidatorForFl
 import com.netease.yidun.sdk.core.validation.validator.compare.MinValidatorForInteger;
 import com.netease.yidun.sdk.core.validation.validator.compare.MinValidatorForLong;
 import com.netease.yidun.sdk.core.validation.validator.compare.MinValidatorForShort;
+import com.netease.yidun.sdk.core.validation.validator.notempty.NotEmptyValidatorForArray;
+import com.netease.yidun.sdk.core.validation.validator.notempty.NotEmptyValidatorForArraysOfBoolean;
+import com.netease.yidun.sdk.core.validation.validator.notempty.NotEmptyValidatorForArraysOfByte;
+import com.netease.yidun.sdk.core.validation.validator.notempty.NotEmptyValidatorForArraysOfChar;
+import com.netease.yidun.sdk.core.validation.validator.notempty.NotEmptyValidatorForArraysOfDouble;
+import com.netease.yidun.sdk.core.validation.validator.notempty.NotEmptyValidatorForArraysOfFloat;
+import com.netease.yidun.sdk.core.validation.validator.notempty.NotEmptyValidatorForArraysOfInt;
+import com.netease.yidun.sdk.core.validation.validator.notempty.NotEmptyValidatorForArraysOfLong;
+import com.netease.yidun.sdk.core.validation.validator.notempty.NotEmptyValidatorForArraysOfShort;
+import com.netease.yidun.sdk.core.validation.validator.notempty.NotEmptyValidatorForCharSequence;
+import com.netease.yidun.sdk.core.validation.validator.notempty.NotEmptyValidatorForCollection;
+import com.netease.yidun.sdk.core.validation.validator.notempty.NotEmptyValidatorForMap;
 import com.netease.yidun.sdk.core.validation.validator.size.SizeValidatorForArray;
 import com.netease.yidun.sdk.core.validation.validator.size.SizeValidatorForArraysOfBoolean;
 import com.netease.yidun.sdk.core.validation.validator.size.SizeValidatorForArraysOfByte;
@@ -62,6 +76,7 @@ public class LimitationValidatorManager {
         ANNOTATION_VALIDATOR_CLASS_MAP = new HashMap<>();
         ANNOTATION_VALIDATOR_CLASS_MAP.put(NotBlank.class, createValidatorClasses(NotBlankValidator.class));
         ANNOTATION_VALIDATOR_CLASS_MAP.put(NotNull.class, createValidatorClasses(NotNullValidator.class));
+        ANNOTATION_VALIDATOR_CLASS_MAP.put(Length.class, createValidatorClasses(LengthValidator.class));
         ANNOTATION_VALIDATOR_CLASS_MAP.put(Size.class, createValidatorClasses(SizeValidatorForArray.class,
                 SizeValidatorForArraysOfBoolean.class,
                 SizeValidatorForArraysOfByte.class,
@@ -92,6 +107,18 @@ public class LimitationValidatorManager {
                 MinValidatorForInteger.class,
                 MinValidatorForLong.class,
                 MinValidatorForShort.class));
+        ANNOTATION_VALIDATOR_CLASS_MAP.put(NotEmpty.class, createValidatorClasses(NotEmptyValidatorForArray.class,
+                NotEmptyValidatorForArraysOfBoolean.class,
+                NotEmptyValidatorForArraysOfByte.class,
+                NotEmptyValidatorForArraysOfChar.class,
+                NotEmptyValidatorForArraysOfDouble.class,
+                NotEmptyValidatorForArraysOfFloat.class,
+                NotEmptyValidatorForArraysOfInt.class,
+                NotEmptyValidatorForArraysOfLong.class,
+                NotEmptyValidatorForArraysOfShort.class,
+                NotEmptyValidatorForCharSequence.class,
+                NotEmptyValidatorForCollection.class,
+                NotEmptyValidatorForMap.class));
     }
 
     private static List<Class<? extends LimitationValidator>> createValidatorClasses(Class<? extends LimitationValidator>... classes) {

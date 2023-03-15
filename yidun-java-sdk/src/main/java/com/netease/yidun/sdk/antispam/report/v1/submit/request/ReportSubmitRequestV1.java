@@ -1,17 +1,16 @@
 package com.netease.yidun.sdk.antispam.report.v1.submit.request;
 
-import java.util.List;
-import java.util.Map;
-
-import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
-
 import com.google.gson.Gson;
 import com.netease.yidun.sdk.antispam.report.v1.submit.response.ReportCheckResponseV1;
 import com.netease.yidun.sdk.core.request.PostFormRequest;
 import com.netease.yidun.sdk.core.utils.StringHashMap;
 import com.netease.yidun.sdk.core.utils.StringUtils;
+import com.netease.yidun.sdk.core.validation.limitation.NotBlank;
+import com.netease.yidun.sdk.core.validation.limitation.Size;
+import com.netease.yidun.sdk.core.validation.limitation.Valid;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * 举报提交v1接口

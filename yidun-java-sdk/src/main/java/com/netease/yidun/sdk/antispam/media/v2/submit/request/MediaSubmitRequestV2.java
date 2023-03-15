@@ -1,18 +1,17 @@
 package com.netease.yidun.sdk.antispam.media.v2.submit.request;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
-
 import com.google.gson.Gson;
 import com.netease.yidun.sdk.antispam.media.v2.submit.response.MediaCheckResponseV2;
 import com.netease.yidun.sdk.core.request.PostFormRequest;
 import com.netease.yidun.sdk.core.utils.StringHashMap;
 import com.netease.yidun.sdk.core.utils.StringUtils;
+import com.netease.yidun.sdk.core.validation.limitation.NotBlank;
+import com.netease.yidun.sdk.core.validation.limitation.Size;
+import com.netease.yidun.sdk.core.validation.limitation.Valid;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 融媒体检测提交v2接口
