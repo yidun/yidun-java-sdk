@@ -37,6 +37,12 @@ public class Validator {
         return context.getValidationErrors();
     }
 
+    /**
+     * 验证对象可能是集合、map、对象等情况
+     *
+     * @param obj     obj
+     * @param context 上下文
+     */
     private static void validateHierarchy(Object obj, ValidateContext context) {
         if (obj == null) {
             return;
@@ -63,6 +69,12 @@ public class Validator {
         }
     }
 
+    /**
+     * 验证简单对象
+     *
+     * @param obj     obj
+     * @param context 上下文
+     */
     private static void validateHierarchyForSimple(Object obj, ValidateContext context) {
         BeanHierarchyDescriptor beanHierarchy = BeanHierarchyFactory.getBeanHierarchy(obj.getClass());
         if (beanHierarchy == null) {
@@ -91,6 +103,13 @@ public class Validator {
         }
     }
 
+    /**
+     * 验证所有待验证的对象
+     *
+     * @param obj            obj
+     * @param beanDescriptor bean描述符
+     * @return {@link List}<{@link String}>
+     */
     private static List<String> validateLimitation(Object obj, BeanDescriptor beanDescriptor) {
         List<String> violations = new ArrayList<>();
         Map<Field, List<LimitationDescriptor>> limitationDescriptorsMap = beanDescriptor.getLimitationDescriptors();
