@@ -69,10 +69,6 @@ public class FileCallbackV2Response extends CommonResponse {
          */
         private Integer label;
         /**
-         * 检测状态：2 检测成功、3 检测失败
-         */
-        private Integer status;
-        /**
          * 建议动作，0：通过，1：嫌疑，2：不通过
          */
         private Integer suggestion;
@@ -138,14 +134,6 @@ public class FileCallbackV2Response extends CommonResponse {
 
         public void setLabel(Integer label) {
             this.label = label;
-        }
-
-        public Integer getStatus() {
-            return status;
-        }
-
-        public void setStatus(Integer status) {
-            this.status = status;
         }
 
         public Integer getSuggestion() {
@@ -219,7 +207,6 @@ public class FileCallbackV2Response extends CommonResponse {
                     ", taskId='" + taskId + '\'' +
                     ", callback='" + callback + '\'' +
                     ", label='" + label + '\'' +
-                    ", status='" + status + '\'' +
                     ", suggestion=" + suggestion +
                     ", message='" + message + '\'' +
                     ", resultType=" + resultType +
@@ -246,10 +233,7 @@ public class FileCallbackV2Response extends CommonResponse {
          * 垃圾类型：0-正常，100-色情，200-广告，300-暴恐，400-违禁，500-涉政, 900-其他，1100-涉价值观
          */
         private Integer label;
-        /**
-         * 检测状态：2 检测成功、3 检测失败
-         */
-        private Integer status;
+
         public String getTaskId() {
             return taskId;
         }
@@ -322,14 +306,6 @@ public class FileCallbackV2Response extends CommonResponse {
             this.label = label;
         }
 
-        public Integer getStatus() {
-            return status;
-        }
-
-        public void setStatus(Integer status) {
-            this.status = status;
-        }
-
         @Override
         public String toString() {
             return "Detail{" +
@@ -342,7 +318,6 @@ public class FileCallbackV2Response extends CommonResponse {
                     ", failureReason=" + failureReason +
                     ", message='" + message + '\'' +
                     ", label='" + label + '\'' +
-                    ", status='" + status + '\'' +
                     '}';
         }
     }
@@ -698,7 +673,7 @@ public class FileCallbackV2Response extends CommonResponse {
         private String taskId;
         private Integer sequence;
         private String imageUrl;
-        private Integer suggestion;
+        private Integer level;
         private List<ImageEvidenceLabel> labels;
         private Integer page;
 
@@ -726,12 +701,12 @@ public class FileCallbackV2Response extends CommonResponse {
             this.imageUrl = imageUrl;
         }
 
-        public Integer getSuggestion() {
-            return suggestion;
+        public Integer getLevel() {
+            return level;
         }
 
-        public void setSuggestion(Integer suggestion) {
-            this.suggestion = suggestion;
+        public void setLevel(Integer level) {
+            this.level = level;
         }
 
         public List<ImageEvidenceLabel> getLabels() {
@@ -756,7 +731,7 @@ public class FileCallbackV2Response extends CommonResponse {
                     "taskId='" + taskId + '\'' +
                     ", sequence=" + sequence +
                     ", imageUrl='" + imageUrl + '\'' +
-                    ", suggestion=" + suggestion +
+                    ", level=" + level +
                     ", labels=" + labels +
                     ", page=" + page +
                     '}';

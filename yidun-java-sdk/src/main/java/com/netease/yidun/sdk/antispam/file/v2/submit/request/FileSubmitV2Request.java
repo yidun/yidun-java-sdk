@@ -45,7 +45,7 @@ public class FileSubmitV2Request extends PostFormRequest<FileSubmitV2Response> {
     private String content;
 
     /**
-     * 检测标记 1: 仅文本 2: 仅图片 4:强制解析文本中图片
+     * 检测标记 1: 仅检测文本， 2: 仅检测图片， 3：检测文本+图片， 7:检测文本+图片+img标签中的图片url，8：仅检测音视频，15：检测文本+图片+音视频，默认值为7
      */
     private Integer checkFlag = DEFAULT_CHECK_FLAG;
 
