@@ -104,7 +104,7 @@ public class MediaSubmitRequestV2 extends PostFormRequest<MediaCheckResponseV2> 
     public MediaSubmitRequestV2() {
         productCode = "mediaSubmit";
         uriPattern = "/v2/mediasolution/submit";
-        version = "v2";
+        version = "v2.1";
     }
 
     @Override

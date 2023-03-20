@@ -144,6 +144,9 @@ public class MediaImageEvidence {
         private String subLabel;
         private Double rate;
         private ImageSubLabelDetail details;
+        private Integer subLabelDepth;
+        private String secondLabel;
+        private String thirdLabel;
 
         public String getSubLabel() {
             return subLabel;
@@ -167,6 +170,42 @@ public class MediaImageEvidence {
 
         public void setDetails(ImageSubLabelDetail details) {
             this.details = details;
+        }
+
+        public Integer getSubLabelDepth() {
+            return subLabelDepth;
+        }
+
+        public void setSubLabelDepth(Integer subLabelDepth) {
+            this.subLabelDepth = subLabelDepth;
+        }
+
+        public String getSecondLabel() {
+            return secondLabel;
+        }
+
+        public void setSecondLabel(String secondLabel) {
+            this.secondLabel = secondLabel;
+        }
+
+        public String getThirdLabel() {
+            return thirdLabel;
+        }
+
+        public void setThirdLabel(String thirdLabel) {
+            this.thirdLabel = thirdLabel;
+        }
+
+        @Override
+        public String toString() {
+            return "ImageSubLabel{" +
+                    "subLabel='" + subLabel + '\'' +
+                    ", rate=" + rate +
+                    ", details=" + details +
+                    ", subLabelDepth=" + subLabelDepth +
+                    ", secondLabel='" + secondLabel + '\'' +
+                    ", thirdLabel='" + thirdLabel + '\'' +
+                    '}';
         }
     }
 }
