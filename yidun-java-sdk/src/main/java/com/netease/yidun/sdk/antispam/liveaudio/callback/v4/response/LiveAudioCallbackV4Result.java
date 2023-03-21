@@ -38,6 +38,7 @@ public class LiveAudioCallbackV4Result implements BaseResponse {
         private Integer riskLevel;
         private Integer riskScore;
         private Long duration;
+        private Long billDuration;
     }
 
     @Data
