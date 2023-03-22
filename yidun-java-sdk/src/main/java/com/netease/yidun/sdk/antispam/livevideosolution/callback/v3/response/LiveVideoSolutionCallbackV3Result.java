@@ -7,6 +7,8 @@ import java.util.Set;
 import com.netease.yidun.sdk.antispam.liveaudio.callback.v4.response.LiveAudioCallbackUnitRespV4;
 import com.netease.yidun.sdk.antispam.liveaudio.callback.v4.response.LiveAudioMonitorCallbackUnitRespV4;
 import com.netease.yidun.sdk.antispam.liveaudio.callback.v4.response.LiveAudioVoiceCallbackRespV4;
+import com.netease.yidun.sdk.antispam.liveaudio.callback.v4.response.LiveAudioQualityCallbackRespV4;
+import com.netease.yidun.sdk.antispam.liveaudio.callback.v4.response.LiveAudioVoiceCallbackRespV4;
 import com.netease.yidun.sdk.antispam.livevideo.callback.v4.response.LiveDataCallbackDiscernUnitV4;
 import com.netease.yidun.sdk.antispam.livevideo.callback.v4.response.LiveDataCallbackLogoUnitV4;
 import com.netease.yidun.sdk.antispam.livevideo.callback.v4.response.LiveDataCallbackOcrUnitV4;
@@ -42,6 +44,7 @@ public class LiveVideoSolutionCallbackV3Result implements BaseResponse {
         private Integer riskLevel;
         private Integer riskScore;
         private Long duration;
+        private Long billDuration;
     }
 
     @Data
