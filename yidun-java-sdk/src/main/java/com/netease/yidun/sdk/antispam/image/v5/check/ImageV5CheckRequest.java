@@ -48,7 +48,10 @@ public abstract class ImageV5CheckRequest<T extends BaseResponse> extends ImageC
     private String extStr2;
     private Long extLon1;
     private Long extLon2;
-
+    /**
+     * 人审扩展字段，用于人审调度中心的规则匹配
+     */
+    private String censorExt;
     private String subProduct;
 
     public Long getPublishTime() {
@@ -137,6 +140,14 @@ public abstract class ImageV5CheckRequest<T extends BaseResponse> extends ImageC
 
     public void setSubProduct(String subProduct) {
         this.subProduct = subProduct;
+    }
+
+    public String getCensorExt() {
+        return censorExt;
+    }
+
+    public void setCensorExt(String censorExt) {
+        this.censorExt = censorExt;
     }
 
     public static class ImageBeanRequest implements Serializable {
