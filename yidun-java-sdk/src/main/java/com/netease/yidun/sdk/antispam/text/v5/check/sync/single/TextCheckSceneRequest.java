@@ -237,6 +237,11 @@ public class TextCheckSceneRequest<T extends BaseResponse> extends BizPostFormRe
      * 智能风控businessId
      */
     private String riskControlBusinessId;
+    /**
+     * 人审扩展字段，用于人审调度中心的规则匹配
+     */
+    @Size(max = 1024, message = "censorExt最长1024个字符")
+    private String censorExt;
 
     public String getDataId() {
         return dataId;
@@ -965,7 +970,8 @@ public class TextCheckSceneRequest<T extends BaseResponse> extends BizPostFormRe
         params.put("extLon1", extLon1 != null ? String.valueOf(extLon1) : null);
         params.put("extLon2", extLon2 != null ? String.valueOf(extLon2) : null);
         params.put("riskControlBusinessId", riskControlBusinessId);
-        params.put("riskControlToken",riskControlToken);
+        params.put("riskControlToken", riskControlToken);
+        params.put("censorExt", censorExt);
         return params;
     }
 
@@ -1014,6 +1020,15 @@ public class TextCheckSceneRequest<T extends BaseResponse> extends BizPostFormRe
                 + ", extLon2=" + extLon2
                 + ", riskControlBusinessId=" + riskControlBusinessId
                 + ", riskControlBusinessId=" + riskControlBusinessId
+                + ", censorExt=" + censorExt
                 + ")";
+    }
+
+    public String getCensorExt() {
+        return censorExt;
+    }
+
+    public void setCensorExt(String censorExt) {
+        this.censorExt = censorExt;
     }
 }
