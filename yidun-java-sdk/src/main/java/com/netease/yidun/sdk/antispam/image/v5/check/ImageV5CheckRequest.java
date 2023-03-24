@@ -7,6 +7,7 @@ import org.hibernate.validator.constraints.Range;
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Set;
@@ -51,6 +52,7 @@ public abstract class ImageV5CheckRequest<T extends BaseResponse> extends ImageC
     /**
      * 人审扩展字段，用于人审调度中心的规则匹配
      */
+    @Size(max = 1024, message = "人审扩展字段长度不能超过1024")
     private String censorExt;
     private String subProduct;
 
