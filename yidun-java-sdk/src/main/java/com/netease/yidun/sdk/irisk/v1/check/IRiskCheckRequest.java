@@ -22,6 +22,7 @@ public class IRiskCheckRequest extends BizPostJsonRequest<IRiskCheckResponse> {
     /**
      * 用户/玩家的角色 ID，非游戏类型应用，roleId 可以与 roleAccount 相同
      */
+    @NotBlank(message = "roleId不能为空")
     private String roleId;
 
     /**
@@ -37,6 +38,7 @@ public class IRiskCheckRequest extends BizPostJsonRequest<IRiskCheckResponse> {
     /**
      * 用户/玩家的账号
      */
+    @NotBlank(message = "account不能为空")
     private String account;
 
     /**
