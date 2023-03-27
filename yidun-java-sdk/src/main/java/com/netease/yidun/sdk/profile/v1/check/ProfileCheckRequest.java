@@ -3,7 +3,7 @@ package com.netease.yidun.sdk.profile.v1.check;
 import com.google.gson.Gson;
 import com.netease.yidun.sdk.core.request.BizPostFormRequest;
 
-import javax.validation.constraints.NotNull;
+import com.netease.yidun.sdk.core.validation.limitation.NotNull;
 import java.util.List;
 import java.util.Map;
 

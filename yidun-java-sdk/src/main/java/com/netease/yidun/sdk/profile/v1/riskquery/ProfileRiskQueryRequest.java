@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.netease.yidun.sdk.core.request.PostFormRequest;
 import com.netease.yidun.sdk.profile.v1.common.Portrait;
 
-import javax.validation.constraints.NotNull;
+import com.netease.yidun.sdk.core.validation.limitation.NotNull;
 import java.util.Map;
 
 

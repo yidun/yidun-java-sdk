@@ -2,7 +2,7 @@ package com.netease.yidun.sdk.irisk.v1.detail;
 
 import com.netease.yidun.sdk.core.request.BizPostJsonRequest;
 
-import javax.validation.constraints.NotNull;
+import com.netease.yidun.sdk.core.validation.limitation.NotNull;
 import java.util.Map;
 
 public class IRiskDetailRequest extends BizPostJsonRequest<IRiskDetailResponse> {

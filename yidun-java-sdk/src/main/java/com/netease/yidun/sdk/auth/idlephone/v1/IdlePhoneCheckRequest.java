@@ -2,8 +2,8 @@ package com.netease.yidun.sdk.auth.idlephone.v1;
 
 import com.netease.yidun.sdk.core.request.BizPostFormRequest;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import com.netease.yidun.sdk.core.validation.limitation.NotNull;
+import com.netease.yidun.sdk.core.validation.limitation.Size;
 import java.util.Map;
 
 /**
