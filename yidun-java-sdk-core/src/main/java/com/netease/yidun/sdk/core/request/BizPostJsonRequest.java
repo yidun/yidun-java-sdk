@@ -8,7 +8,7 @@ package com.netease.yidun.sdk.core.request;
 
 import com.netease.yidun.sdk.core.response.BaseResponse;
 
-import javax.validation.constraints.NotBlank;
+import com.netease.yidun.sdk.core.validation.limitation.NotBlank;
 import java.util.Map;
 
 /**

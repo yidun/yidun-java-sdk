@@ -3,8 +3,8 @@ package com.netease.yidun.sdk.profile.v1.ipquery;
 import com.google.gson.Gson;
 import com.netease.yidun.sdk.core.request.BizPostFormRequest;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import com.netease.yidun.sdk.core.validation.limitation.NotNull;
+import com.netease.yidun.sdk.core.validation.limitation.Size;
 import java.util.List;
 import java.util.Map;
 

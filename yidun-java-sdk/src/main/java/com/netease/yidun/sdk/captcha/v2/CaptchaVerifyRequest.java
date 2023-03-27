@@ -2,8 +2,8 @@ package com.netease.yidun.sdk.captcha.v2;
 
 import com.netease.yidun.sdk.core.request.PostFormRequest;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+import com.netease.yidun.sdk.core.validation.limitation.NotBlank;
+import com.netease.yidun.sdk.core.validation.limitation.Size;
 import java.util.Map;
 
 /**

@@ -2,7 +2,7 @@ package com.netease.yidun.sdk.irisk.v1.config;
 
 import com.netease.yidun.sdk.core.request.BizPostJsonRequest;
 
-import javax.validation.constraints.NotBlank;
+import com.netease.yidun.sdk.core.validation.limitation.NotBlank;
 import java.util.Map;
 
 

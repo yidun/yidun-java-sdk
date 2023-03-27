@@ -4,7 +4,7 @@ package com.netease.yidun.sdk.antispam.list.imagelist.v1.update;
 import com.netease.yidun.sdk.core.request.PostFormRequest;
 import lombok.Data;
 
-import javax.validation.constraints.NotNull;
+import com.netease.yidun.sdk.core.validation.limitation.NotNull;
 import java.util.Map;
 
 /**

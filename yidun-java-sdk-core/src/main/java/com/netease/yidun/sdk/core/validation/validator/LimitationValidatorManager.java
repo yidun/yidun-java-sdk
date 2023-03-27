@@ -2,13 +2,7 @@ package com.netease.yidun.sdk.core.validation.validator;
 
 import com.netease.yidun.sdk.core.exception.YidunValidationException;
 import com.netease.yidun.sdk.core.utils.ClassUtils;
-import com.netease.yidun.sdk.core.validation.limitation.Length;
-import com.netease.yidun.sdk.core.validation.limitation.Max;
-import com.netease.yidun.sdk.core.validation.limitation.Min;
-import com.netease.yidun.sdk.core.validation.limitation.NotBlank;
-import com.netease.yidun.sdk.core.validation.limitation.NotEmpty;
-import com.netease.yidun.sdk.core.validation.limitation.NotNull;
-import com.netease.yidun.sdk.core.validation.limitation.Size;
+import com.netease.yidun.sdk.core.validation.limitation.*;
 import com.netease.yidun.sdk.core.validation.validator.compare.MaxValidatorForBigDecimal;
 import com.netease.yidun.sdk.core.validation.validator.compare.MaxValidatorForBigInteger;
 import com.netease.yidun.sdk.core.validation.validator.compare.MaxValidatorForByte;
@@ -119,6 +113,8 @@ public class LimitationValidatorManager {
                 NotEmptyValidatorForCharSequence.class,
                 NotEmptyValidatorForCollection.class,
                 NotEmptyValidatorForMap.class));
+        ANNOTATION_VALIDATOR_CLASS_MAP.put(CheckName.class, createValidatorClasses(NameValidator.class));
+        ANNOTATION_VALIDATOR_CLASS_MAP.put(CheckIdCard.class, createValidatorClasses(IdCardValidator.class));
     }
 
     private static List<Class<? extends LimitationValidator>> createValidatorClasses(Class<? extends LimitationValidator>... classes) {

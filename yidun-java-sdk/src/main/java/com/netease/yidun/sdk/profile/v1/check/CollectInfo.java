@@ -6,10 +6,10 @@
 
 package com.netease.yidun.sdk.profile.v1.check;
 
-import org.hibernate.validator.constraints.Length;
+import com.netease.yidun.sdk.core.validation.limitation.Length;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import com.netease.yidun.sdk.core.validation.limitation.NotBlank;
+import com.netease.yidun.sdk.core.validation.limitation.NotNull;
 
 public class CollectInfo {
 

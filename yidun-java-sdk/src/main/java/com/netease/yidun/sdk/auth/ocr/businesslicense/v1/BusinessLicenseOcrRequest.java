@@ -2,8 +2,8 @@ package com.netease.yidun.sdk.auth.ocr.businesslicense.v1;
 
 import java.util.Map;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+import com.netease.yidun.sdk.core.validation.limitation.NotBlank;
+import com.netease.yidun.sdk.core.validation.limitation.Size;
 
 import com.netease.yidun.sdk.core.request.BizPostFormRequest;
 
