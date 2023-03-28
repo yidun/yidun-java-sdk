@@ -1,5 +1,6 @@
 package com.netease.yidun.sdk.antispam.livevideosolution.query.v1.response;
 
+import com.netease.yidun.sdk.antispam.livevideo.callback.v4.response.LiveDataCallbackOcrUnitV4;
 import com.netease.yidun.sdk.common.Page;
 import com.netease.yidun.sdk.core.response.BaseResponse;
 import com.netease.yidun.sdk.core.response.CommonResponse;
@@ -53,6 +54,7 @@ public class LiveWallSolutionQueryImageV1Resp extends CommonResponse {
         private Long beginTime;
         private Long endTime;
         private String speakerId;
+        private LiveDataCallbackOcrUnitV4 ocr;
     }
 
 }
