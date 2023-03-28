@@ -10,6 +10,8 @@ import com.netease.yidun.sdk.antispam.videosolution.query.v1.request.VideoSoluti
 import com.netease.yidun.sdk.antispam.videosolution.query.v1.request.VideoSolutionQueryV1Req;
 import com.netease.yidun.sdk.antispam.videosolution.query.v1.response.VideoSolutionQueryImageV1Resp;
 import com.netease.yidun.sdk.antispam.videosolution.query.v1.response.VideoSolutionQueryV1Resp;
+import com.netease.yidun.sdk.antispam.videosolution.query.v2.request.VideoSolutionQueryV2Req;
+import com.netease.yidun.sdk.antispam.videosolution.query.v2.response.VideoSolutionQueryV2Resp;
 import com.netease.yidun.sdk.core.client.ClientProfile;
 
 public class VideoSolutionCommonClient extends AntispamClient {
@@ -57,4 +59,7 @@ public class VideoSolutionCommonClient extends AntispamClient {
         return client.execute(request);
     }
 
+    public VideoSolutionQueryV2Resp queryTaskV2(VideoSolutionQueryV2Req request) {
+        return client.execute(request);
+    }
 }
