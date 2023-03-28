@@ -11,6 +11,8 @@ import com.netease.yidun.sdk.antispam.videosolution.query.v1.request.VideoSoluti
 import com.netease.yidun.sdk.antispam.videosolution.query.v1.request.VideoSolutionQueryV1Req;
 import com.netease.yidun.sdk.antispam.videosolution.query.v1.response.VideoSolutionQueryImageV1Resp;
 import com.netease.yidun.sdk.antispam.videosolution.query.v1.response.VideoSolutionQueryV1Resp;
+import com.netease.yidun.sdk.antispam.videosolution.query.v2.request.VideoSolutionQueryV2Req;
+import com.netease.yidun.sdk.antispam.videosolution.query.v2.response.VideoSolutionQueryV2Resp;
 import com.netease.yidun.sdk.antispam.videosolution.submit.v2.request.VideoSolutionSubmitV2Req;
 import com.netease.yidun.sdk.antispam.videosolution.submit.v2.response.VideoSolutionSubmitV2Resp;
 
@@ -72,5 +74,15 @@ public class VideoSolutionClient extends BaseClient {
      */
     public VideoSolutionQueryV1Resp query(VideoSolutionQueryV1Req request) {
         return requester.getVideoSolutionCommonClient().query(request);
+    }
+
+    /**
+     * 点播音视频解决方案 v2 查询
+     *
+     * @param request 查询请求
+     * @return 查询响应
+     */
+    public VideoSolutionQueryV2Resp queryTaskV2(VideoSolutionQueryV2Req request) {
+        return requester.getVideoSolutionCommonClient().queryTaskV2(request);
     }
 }

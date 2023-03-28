@@ -6,6 +6,7 @@ import lombok.Data;
 
 @Data
 public class VideoDataOcrV4Response {
+    private String url;
     private Long startTime;
     private Long endTime;
     private Integer height;
