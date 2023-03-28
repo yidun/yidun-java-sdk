@@ -20,5 +20,6 @@ public class LiveDataCallbackOcrUnitV4 {
     private Long endTime;
     private Integer height;
     private Integer width;
+    private String url;
     private List<VideoDataOcrDetailBo> details;
 }
