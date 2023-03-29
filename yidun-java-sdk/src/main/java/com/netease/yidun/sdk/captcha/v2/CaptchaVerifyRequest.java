@@ -4,6 +4,8 @@ import com.netease.yidun.sdk.core.request.PostFormRequest;
 
 import com.netease.yidun.sdk.core.validation.limitation.NotBlank;
 import com.netease.yidun.sdk.core.validation.limitation.Size;
+
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -103,7 +105,7 @@ public class CaptchaVerifyRequest extends PostFormRequest<CaptchaVerifyResponse>
 
     @Override
     protected Map<String, String> getCustomSignParams() {
-        Map<String, String> params = super.getCustomSignParams();
+        Map<String, String> params = new HashMap<>();
         params.put("captchaId", captchaId);
         params.put("validate", validate);
         params.put("user", user);
