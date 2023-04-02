@@ -2,7 +2,6 @@ package com.netease.yidun.sdk.antispam.livevideosolution.query.v1.response;
 
 import java.util.List;
 
-import com.netease.yidun.sdk.antispam.liveaudio.callback.v4.response.LiveAudioCallbackV4Result;
 import com.netease.yidun.sdk.core.response.BaseResponse;
 import com.netease.yidun.sdk.core.response.CommonResponse;
 
@@ -51,7 +50,6 @@ public class LiveWallSolutionQueryAudioV1Resp extends CommonResponse {
         private String speakerId;
         private String segmentId;
         private String content;
-        private LiveAudioCallbackV4Result.LiveAudioAsrContentCallbackRespV3 asr;
     }
 
     @Data
