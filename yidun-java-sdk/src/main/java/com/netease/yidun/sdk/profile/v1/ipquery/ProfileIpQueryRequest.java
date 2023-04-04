@@ -16,7 +16,7 @@ public class ProfileIpQueryRequest extends BizPostFormRequest<ProfileIpQueryResp
     /**
      * 查询IP，每次最多查询100个IP
      */
-    @Size(max = 100, message = "单词支持最多查询100个ip")
+    @Size(max = 100, message = "单次支持最多查询100个ip")
     @NotNull(message = "ip不能为空")
     private List<String> ips;
 
