@@ -1,5 +1,6 @@
 package com.netease.yidun.sdk.irisk.v1.check;
 
+import com.alibaba.fastjson.JSONObject;
 import java.util.List;
 
 
@@ -29,6 +30,21 @@ public class IRiskCheckResult {
      * 购买设备指纹功能后，check结果中才会包含deviceId。
      */
     private String deviceId;
+
+    /**
+     * 设备信息
+     */
+    private JSONObject deviceInfo;
+
+    /**
+     * 命中规则
+     */
+    private List<String> matchedRules;
+
+    /**
+     * 命中自定义规则
+     */
+    private List<String> matchedCustomRules;
 
     public Integer getRiskLevel() {
         return riskLevel;
@@ -68,6 +84,30 @@ public class IRiskCheckResult {
 
     public void setDeviceId(String deviceId) {
         this.deviceId = deviceId;
+    }
+
+    public JSONObject getDeviceInfo() {
+        return deviceInfo;
+    }
+
+    public void setDeviceInfo(JSONObject deviceInfo) {
+        this.deviceInfo = deviceInfo;
+    }
+
+    public List<String> getMatchedRules() {
+        return matchedRules;
+    }
+
+    public void setMatchedRules(List<String> matchedRules) {
+        this.matchedRules = matchedRules;
+    }
+
+    public List<String> getMatchedCustomRules() {
+        return matchedCustomRules;
+    }
+
+    public void setMatchedCustomRules(List<String> matchedCustomRules) {
+        this.matchedCustomRules = matchedCustomRules;
     }
 
     @Override
