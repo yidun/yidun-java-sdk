@@ -1,11 +1,11 @@
 package com.netease.yidun.sdk.auth.entryexitpermit.v1;
 
-import java.util.Map;
-
+import com.netease.yidun.sdk.core.request.BizPostFormRequest;
+import com.netease.yidun.sdk.core.validation.limitation.CheckName;
+import com.netease.yidun.sdk.core.validation.limitation.NotNull;
 import com.netease.yidun.sdk.core.validation.limitation.Size;
 
-import com.netease.yidun.sdk.core.validation.limitation.CheckName;
-import com.netease.yidun.sdk.core.request.BizPostFormRequest;
+import java.util.Map;
 
 /**
  * 出入境证件核验请求
@@ -19,14 +19,20 @@ public class EntryExitPermitCheckRequest extends BizPostFormRequest<EntryExitPer
     /**
      * 证件号码
      */
+    @NotNull(message = "cardNo不能为空")
+    @Size(max = 18, message = "cardNo长度不合法")
     private String cardNo;
     /**
      * 证件类型
      */
+    @NotNull(message = "verifyType不能为空")
+    @Size(max = 11, message = "verifyType长度不合法")
     private int verifyType;
     /**
      * 国籍
      */
+    @NotNull(message = "nation不能为空")
+    @Size(max = 15, message = "nation长度不合法")
     private String nation;
 
     @Size(max = 64, message = "dataId长度不合法")
