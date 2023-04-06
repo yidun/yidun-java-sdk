@@ -9,6 +9,7 @@ public class LiveCallbackUnitV4 {
     private LiveDataCallbackDiscernUnitV4 discern;
     private LiveDataCallbackLogoUnitV4 logo;
     private LiveDataCallbackQualityUnitV4 quality;
+    private LiveDataCallbackFaceUnitV4 face;
 
     @Data
     public static class LiveWallCallbackUnitV4 {

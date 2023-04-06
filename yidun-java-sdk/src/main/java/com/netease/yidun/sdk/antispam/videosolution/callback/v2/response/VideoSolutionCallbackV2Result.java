@@ -5,12 +5,11 @@ import com.netease.yidun.sdk.antispam.audio.callback.v4.response.AudioLanguageCa
 import com.netease.yidun.sdk.antispam.audio.callback.v4.response.AudioQualityCallbackV4Response;
 import com.netease.yidun.sdk.antispam.audio.callback.v4.response.AudioVoiceCallbackV4Response;
 import com.netease.yidun.sdk.antispam.video.callback.v4.response.VideoCallbackDiscernV4Response;
+import com.netease.yidun.sdk.antispam.video.callback.v4.response.VideoCallbackFaceV4Response;
 import com.netease.yidun.sdk.antispam.video.callback.v4.response.VideoCallbackLogoV4Response;
 import com.netease.yidun.sdk.antispam.video.callback.v4.response.VideoCallbackOcrV4Response;
-
 import com.netease.yidun.sdk.antispam.video.callback.v4.response.VideoCallbackQualityV4Response;
 
-import com.netease.yidun.sdk.antispam.video.callback.v4.response.VideoCallbackQualityV4Response;
 import lombok.Data;
 
 @Data
@@ -47,6 +46,10 @@ public class VideoSolutionCallbackV2Result {
      * 视频质量
      */
     private CallbackQualityV4Response quality;
+    /**
+     * 视频人脸检测结果
+     */
+    private VideoCallbackFaceV4Response face;
 
     @Data
     public static class CallbackQualityV4Response {

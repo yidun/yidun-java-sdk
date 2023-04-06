@@ -12,4 +12,8 @@ public class VideoCallbackV4Result {
      * 视频质量
      */
     private VideoCallbackQualityV4Response quality;
+    /**
+     * 视频人脸检测结果
+     */
+    private VideoCallbackFaceV4Response face;
 }
