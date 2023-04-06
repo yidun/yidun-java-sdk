@@ -84,6 +84,14 @@ public class ImageV5QualityDetail implements Serializable {
         private Integer height;
         private Integer width;
         private String format;
+        /**
+         * 是否有隐藏
+         */
+        private Boolean hidden;
+        /**
+         * 隐藏文件的格式
+         */
+        private String hiddenFormat;
 
         public Long getByteSize() {
             return byteSize;
@@ -115,6 +123,22 @@ public class ImageV5QualityDetail implements Serializable {
 
         public void setFormat(String format) {
             this.format = format;
+        }
+
+        public Boolean getHidden() {
+            return hidden;
+        }
+
+        public void setHidden(Boolean hidden) {
+            this.hidden = hidden;
+        }
+
+        public String getHiddenFormat() {
+            return hiddenFormat;
+        }
+
+        public void setHiddenFormat(String hiddenFormat) {
+            this.hiddenFormat = hiddenFormat;
         }
     }
 
