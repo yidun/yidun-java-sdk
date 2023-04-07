@@ -95,7 +95,7 @@ public class IRiskCheckRequest extends BizPostJsonRequest<IRiskCheckResponse> {
 
     public IRiskCheckRequest(String businessId) {
         productCode = "irisk";
-        version = "400";
+        version = "500";
         uriPattern = "/v5/risk/check";
         this.businessId = businessId;
     }
