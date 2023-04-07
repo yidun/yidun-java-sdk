@@ -58,7 +58,7 @@ public class IRiskDetailRequest extends BizPostJsonRequest<IRiskDetailResponse> 
 
     public IRiskDetailRequest(String businessId) {
         productCode = "irisk";
-        version = "400";
+        version = "500";
         uriPattern = "/v5/risk/detail";
         this.businessId = businessId;
     }

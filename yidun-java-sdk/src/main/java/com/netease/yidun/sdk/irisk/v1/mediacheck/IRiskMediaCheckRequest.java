@@ -46,7 +46,7 @@ public class IRiskMediaCheckRequest extends BizPostJsonRequest<IRiskMediaCheckRe
 
     public IRiskMediaCheckRequest(String businessId) {
         productCode = "irisk";
-        version = "400";
+        version = "500";
         uriPattern = "/v5/risk/mediaCheck";
         this.businessId = businessId;
     }

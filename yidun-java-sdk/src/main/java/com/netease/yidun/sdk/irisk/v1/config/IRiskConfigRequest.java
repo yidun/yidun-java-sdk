@@ -21,7 +21,7 @@ public class IRiskConfigRequest extends BizPostJsonRequest<IRiskConfigResponse> 
 
     public IRiskConfigRequest(String businessId) {
         productCode = "irisk";
-        version = "400";
+        version = "500";
         uriPattern = "/v5/risk/getConfig";
         this.businessId = businessId;
     }
