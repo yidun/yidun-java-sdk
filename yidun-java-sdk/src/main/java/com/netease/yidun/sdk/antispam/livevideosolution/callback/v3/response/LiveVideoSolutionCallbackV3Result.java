@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Set;
 
 import com.netease.yidun.sdk.antispam.liveaudio.callback.v4.response.LiveAudioCallbackUnitRespV4;
+import com.netease.yidun.sdk.antispam.liveaudio.callback.v4.response.LiveAudioLanguageCallbackRespV3;
 import com.netease.yidun.sdk.antispam.liveaudio.callback.v4.response.LiveAudioMonitorCallbackUnitRespV4;
 import com.netease.yidun.sdk.antispam.liveaudio.callback.v4.response.LiveAudioQualityCallbackRespV4;
 import com.netease.yidun.sdk.antispam.liveaudio.callback.v4.response.LiveAudioVoiceCallbackRespV4;
@@ -36,7 +37,10 @@ public class LiveVideoSolutionCallbackV3Result implements BaseResponse {
     private LiveCallbackQualityUnitV4 quality;
 
     private LiveDataCallbackFaceUnitV4 face;
-
+    /**
+     * 语种识别结果
+     */
+    private LiveAudioLanguageCallbackRespV3 language;
     @Data
     public static class LiveCallbackQualityUnitV4 {
         private LiveDataCallbackQualityUnitV4 video;
