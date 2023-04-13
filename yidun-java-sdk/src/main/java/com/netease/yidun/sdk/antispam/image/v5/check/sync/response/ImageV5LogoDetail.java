@@ -12,6 +12,14 @@ public class ImageV5LogoDetail implements Serializable {
     private Float y1;
     private Float x2;
     private Float y2;
+    /**
+     * 子标签分数
+     */
+    private Float rate;
+    /**
+     * logo大小占比
+     */
+    private String sizeRatio;
 
     public String getLogoName() {
         return logoName;
@@ -51,5 +59,21 @@ public class ImageV5LogoDetail implements Serializable {
 
     public void setY2(Float y2) {
         this.y2 = y2;
+    }
+
+    public Float getRate() {
+        return rate;
+    }
+
+    public void setRate(Float rate) {
+        this.rate = rate;
+    }
+
+    public String getSizeRatio() {
+        return sizeRatio;
+    }
+
+    public void setSizeRatio(String sizeRatio) {
+        this.sizeRatio = sizeRatio;
     }
 }
