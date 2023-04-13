@@ -12,6 +12,10 @@ public class LiveAudioCallbackUnitRespV4 {
     private Long endTime;
     private String content;
     private Integer type;
+    /**
+     * 命中声纹检测模型分值
+     */
+    private Double rate;
     private List<SegmentsInfoV4> labels;
     private String url;
     private String speakerId;
