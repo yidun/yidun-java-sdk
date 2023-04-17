@@ -229,6 +229,18 @@
   "irisk": {
     "cn-hangzhou": [
       "ir-open.dun.163.com"
+    ],
+    "sg-singapore": [
+      "ir-open.guardease.com"
+    ],
+    "de-frankfurt": [
+      "ir-open.guardease.com"
+    ],
+    "us-virginia": [
+      "ir-open.guardease.com"
+    ],
+    "jp-tokyo": [
+      "ir-open.guardease.com"
     ]
   },
   "profile": {
