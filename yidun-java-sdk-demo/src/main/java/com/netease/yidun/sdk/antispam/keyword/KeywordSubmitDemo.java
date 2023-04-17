@@ -1,6 +1,6 @@
 package com.netease.yidun.sdk.antispam.keyword;
 
-import com.netease.yidun.sdk.antispam.AbstractDemo;
+import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.enums.KeywordCategory;
 import com.netease.yidun.sdk.antispam.enums.KeywordCustomLevel;

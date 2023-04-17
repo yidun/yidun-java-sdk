@@ -6,15 +6,20 @@
 
 package com.netease.yidun.sdk.auth.entryexitpermit.v1;
 
+import com.netease.yidun.sdk.AbstractDemo;
+
 /**
  * 出入境信息核验demo
  */
-public class EntryExitPermitCheckDemo {
+public class EntryExitPermitCheckDemo extends AbstractDemo {
 
     public static void main(String[] args) {
 
         // 实例化发起请求的client对象
         EntryExitPermitClient entryExitPermitClient = new EntryExitPermitClient("secretId", "secretKey");
+        // 如需自定义请求器参数，可使用参考如下方式创建ClientProfile，然后创建client
+//        ClientProfile profile = createProfile("secretId", "secretKey");
+//        EntryExitPermitClient client = new EntryExitPermitClient(profile);
         // 填充请求参数
         EntryExitPermitCheckRequest request = new EntryExitPermitCheckRequest("businessId");
         // 用户真实姓名，以身份证上姓名为准 (必填参数)

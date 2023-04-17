@@ -1,6 +1,6 @@
 package com.netease.yidun.sdk.antispam.report.v1;
 
-import com.netease.yidun.sdk.antispam.AbstractDemo;
+import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.media.v2.common.constant.DataType;
 import com.netease.yidun.sdk.antispam.report.v1.submit.request.ReportSubmitRequestV1;

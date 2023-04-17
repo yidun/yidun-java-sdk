@@ -1,7 +1,7 @@
 
 package com.netease.yidun.sdk.antispam.video.submit.v4;
 
-import com.netease.yidun.sdk.antispam.AbstractDemo;
+import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.video.VideoClient;
 import com.netease.yidun.sdk.antispam.video.submit.v4.request.VideoCheckReq;

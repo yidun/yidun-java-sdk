@@ -1,5 +1,6 @@
 package com.netease.yidun.sdk.irisk.v1;
 
+import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.irisk.v1.check.IRiskCheckRequest;
 import com.netease.yidun.sdk.irisk.v1.check.IRiskCheckResponse;
 import com.netease.yidun.sdk.irisk.v1.check.IRiskCheckResult;
@@ -7,12 +8,15 @@ import com.netease.yidun.sdk.irisk.v1.check.IRiskCheckResult;
 /**
  * 【智能风控】在线检测接口demo
  */
-public class IRiskCheckDemo {
+public class IRiskCheckDemo extends AbstractDemo {
 
     public static void main(String[] args) {
 
         // 实例化发起请求的client对象
         IRiskClient iRiskClient = new IRiskClient("SecretId", "SecretKey");
+        // 如需自定义请求器参数，可使用参考如下方式创建ClientProfile，然后创建client
+//        ClientProfile profile = createProfile("secretId", "secretKey");
+//        IRiskClient client = new IRiskClient(profile);
         // 填充请求参数
         IRiskCheckRequest request = new IRiskCheckRequest("businessId");
 

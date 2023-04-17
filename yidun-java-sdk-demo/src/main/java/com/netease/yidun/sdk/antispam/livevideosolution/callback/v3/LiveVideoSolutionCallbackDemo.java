@@ -1,7 +1,7 @@
 
 package com.netease.yidun.sdk.antispam.livevideosolution.callback.v3;
 
-import com.netease.yidun.sdk.antispam.AbstractDemo;
+import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.livevideosolution.LiveVideoSolutionClient;
 import com.netease.yidun.sdk.antispam.livevideosolution.callback.v3.request.LiveWallSolutionCallbackV3Req;

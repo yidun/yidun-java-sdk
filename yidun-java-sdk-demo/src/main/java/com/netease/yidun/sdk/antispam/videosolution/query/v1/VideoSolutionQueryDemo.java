@@ -1,7 +1,7 @@
 
 package com.netease.yidun.sdk.antispam.videosolution.query.v1;
 
-import com.netease.yidun.sdk.antispam.AbstractDemo;
+import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.videosolution.VideoSolutionClient;
 import com.netease.yidun.sdk.antispam.videosolution.query.v1.request.VideoSolutionQueryImageV1Req;

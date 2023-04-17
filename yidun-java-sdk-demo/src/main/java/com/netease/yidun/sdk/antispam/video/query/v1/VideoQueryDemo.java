@@ -3,7 +3,7 @@ package com.netease.yidun.sdk.antispam.video.query.v1;
 
 import java.util.List;
 
-import com.netease.yidun.sdk.antispam.AbstractDemo;
+import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.video.VideoClient;
 import com.netease.yidun.sdk.antispam.video.query.v1.request.VideoImageQueryReq;

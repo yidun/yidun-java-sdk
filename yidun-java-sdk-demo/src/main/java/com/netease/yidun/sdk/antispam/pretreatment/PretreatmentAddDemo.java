@@ -1,6 +1,6 @@
 package com.netease.yidun.sdk.antispam.pretreatment;
 
-import com.netease.yidun.sdk.antispam.AbstractDemo;
+import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.pretreatment.v2.add.PretreatmentAddRequest;
 import com.netease.yidun.sdk.antispam.pretreatment.v2.add.PretreatmentAddResponse;

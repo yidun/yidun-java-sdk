@@ -1,17 +1,21 @@
 package com.netease.yidun.sdk.auth.liveperson.interactive.v1;
 
+import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.auth.constant.PicType;
 import com.netease.yidun.sdk.auth.liveperson.LivePersonClient;
 
 /**
  * 交互式活体检测demo
  */
-public class InteractiveLivePersonCheckDemo {
+public class InteractiveLivePersonCheckDemo extends AbstractDemo {
 
     public static void main(String[] args) {
 
         // 实例化发起请求的client对象
         LivePersonClient livePersonClient = new LivePersonClient("secretId", "secretKey");
+        // 如需自定义请求器参数，可使用参考如下方式创建ClientProfile，然后创建client
+//        ClientProfile profile = createProfile("secretId", "secretKey");
+//        LivePersonClient client = new LivePersonClient(profile);
         // 填充请求参数
         InteractiveLivePersonCheckRequest request = new InteractiveLivePersonCheckRequest("businessId");
         // SDK认证通过的token，唯一标记一次活体检测(必填)

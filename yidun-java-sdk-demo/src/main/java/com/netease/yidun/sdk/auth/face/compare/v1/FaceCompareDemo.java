@@ -1,16 +1,20 @@
 package com.netease.yidun.sdk.auth.face.compare.v1;
 
+import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.auth.constant.PicType;
 import com.netease.yidun.sdk.auth.face.FaceClient;
 
 /**
  * 人脸比对接口demo
  */
-public class FaceCompareDemo {
+public class FaceCompareDemo extends AbstractDemo {
 
     public static void main(String[] args) {
         // 实例化发起请求的client对象
         FaceClient faceClient = new FaceClient("secretId", "secretKey");
+        // 如需自定义请求器参数，可使用参考如下方式创建ClientProfile，然后创建client
+//        ClientProfile profile = createProfile("secretId", "secretKey");
+//        FaceClient client = new FaceClient(profile);
         FaceCompareRequest request = new FaceCompareRequest("businessId")
                 // 人脸识照片1链接
                 .avatar1("http://test1.com")

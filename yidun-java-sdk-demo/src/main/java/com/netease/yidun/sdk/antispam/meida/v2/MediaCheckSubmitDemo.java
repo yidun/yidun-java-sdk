@@ -1,6 +1,6 @@
 package com.netease.yidun.sdk.antispam.meida.v2;
 
-import com.netease.yidun.sdk.antispam.AbstractDemo;
+import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.media.v2.MediaClient;
 import com.netease.yidun.sdk.antispam.media.v2.common.constant.DataType;

@@ -1,5 +1,7 @@
 package com.netease.yidun.sdk.auth.bankcard.v1;
 
+import com.netease.yidun.sdk.AbstractDemo;
+import com.netease.yidun.sdk.core.client.ClientProfile;
 import org.apache.commons.codec.binary.Base64;
 
 import java.io.ByteArrayOutputStream;
@@ -9,10 +11,14 @@ import java.io.InputStream;
 /**
  * 银行卡三四要素
  */
-public class BankCardCheckDemo {
+public class BankCardCheckDemo extends AbstractDemo {
 
     public static void main(String[] args) {
         BankCardClient client = new BankCardClient("secretId", "secretKey");
+        // 如需自定义请求器参数，可使用参考如下方式创建ClientProfile，然后创建client
+//        ClientProfile profile = createProfile("secretId", "secretKey");
+//        BankCardClient client = new BankCardClient(profile);
+
         BankCardCheckRequest request = new BankCardCheckRequest("businessId");
         request.setBankCardNo("123456");
         request.setName("张三");

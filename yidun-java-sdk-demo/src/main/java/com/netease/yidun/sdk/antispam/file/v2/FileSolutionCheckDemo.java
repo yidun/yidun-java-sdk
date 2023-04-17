@@ -1,6 +1,6 @@
 package com.netease.yidun.sdk.antispam.file.v2;
 
-import com.netease.yidun.sdk.antispam.AbstractDemo;
+import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.file.v2.submit.request.FileSubmitV2Request;
 import com.netease.yidun.sdk.antispam.file.v2.submit.response.FileSubmitV2Response;

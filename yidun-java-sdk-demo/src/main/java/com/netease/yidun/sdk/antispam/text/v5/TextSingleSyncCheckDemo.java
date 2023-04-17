@@ -1,6 +1,6 @@
 package com.netease.yidun.sdk.antispam.text.v5;
 
-import com.netease.yidun.sdk.antispam.AbstractDemo;
+import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.text.TextClient;
 import com.netease.yidun.sdk.antispam.text.v5.check.sync.single.TextCheckRequest;

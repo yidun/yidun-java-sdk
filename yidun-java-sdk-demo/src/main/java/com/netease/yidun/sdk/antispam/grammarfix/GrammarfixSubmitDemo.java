@@ -1,6 +1,6 @@
 package com.netease.yidun.sdk.antispam.grammarfix;
 
-import com.netease.yidun.sdk.antispam.AbstractDemo;
+import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.grammarfix.v1.submit.GrammarfixSubmitRequest;
 import com.netease.yidun.sdk.antispam.grammarfix.v1.submit.GrammarfixSubmitResponse;
