@@ -1,5 +1,6 @@
 package com.netease.yidun.sdk.irisk.v1;
 
+import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.irisk.v1.detail.DetailData;
 import com.netease.yidun.sdk.irisk.v1.detail.IRiskDetailRequest;
 import com.netease.yidun.sdk.irisk.v1.detail.IRiskDetailResponse;
@@ -10,12 +11,15 @@ import java.util.List;
 /**
  * 【智能风控】数据查询接口demo
  */
-public class IRiskDetailDemo {
+public class IRiskDetailDemo extends AbstractDemo {
 
     public static void main(String[] args) {
 
         // 实例化发起请求的client对象
         IRiskClient iRiskClient = new IRiskClient("SecretId", "SecretKey");
+        // 如需自定义请求器参数，可使用参考如下方式创建ClientProfile，然后创建client
+//        ClientProfile profile = createProfile("secretId", "secretKey");
+//        IRiskClient client = new IRiskClient(profile);
         // 填充请求参数
         IRiskDetailRequest request = new IRiskDetailRequest("businessId");
         // 传入查询时间范围，为毫秒时间戳，范围不能大于30天。（开始结束时间为必填字段）

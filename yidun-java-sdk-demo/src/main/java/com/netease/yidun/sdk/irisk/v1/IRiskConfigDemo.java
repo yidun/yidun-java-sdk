@@ -1,5 +1,6 @@
 package com.netease.yidun.sdk.irisk.v1;
 
+import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.irisk.v1.config.IRiskConfigRequest;
 import com.netease.yidun.sdk.irisk.v1.config.IRiskConfigResponse;
 import com.netease.yidun.sdk.irisk.v1.config.IRiskConfigResult;
@@ -7,12 +8,15 @@ import com.netease.yidun.sdk.irisk.v1.config.IRiskConfigResult;
 /**
  * 【智能风控】配置下发接口demo
  */
-public class IRiskConfigDemo {
+public class IRiskConfigDemo extends AbstractDemo {
 
     public static void main(String[] args) {
 
         // 实例化发起请求的client对象
         IRiskClient iRiskClient = new IRiskClient("SecretId", "SecretKey");
+        // 如需自定义请求器参数，可使用参考如下方式创建ClientProfile，然后创建client
+//        ClientProfile profile = createProfile("secretId", "secretKey");
+//        IRiskClient client = new IRiskClient(profile);
         // 填充请求参数
         IRiskConfigRequest request = new IRiskConfigRequest("businessId");
         request.setIp("192.168.0.1");

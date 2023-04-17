@@ -1,5 +1,6 @@
 package com.netease.yidun.sdk.irisk.v1;
 
+import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.irisk.v1.mediacheck.IRiskMediaCheckRequest;
 import com.netease.yidun.sdk.irisk.v1.mediacheck.IRiskMediaCheckResponse;
 import com.netease.yidun.sdk.irisk.v1.mediacheck.IRiskMediaCheckResult;
@@ -7,12 +8,15 @@ import com.netease.yidun.sdk.irisk.v1.mediacheck.IRiskMediaCheckResult;
 /**
  * 【智能风控】图片外挂识别接口demo
  */
-public class IRiskMediaCheckDemo {
+public class IRiskMediaCheckDemo extends AbstractDemo {
 
     public static void main(String[] args) {
 
         // 实例化发起请求的client对象
         IRiskClient iRiskClient = new IRiskClient("SecretId", "SecretKey");
+        // 如需自定义请求器参数，可使用参考如下方式创建ClientProfile，然后创建client
+//        ClientProfile profile = createProfile("secretId", "secretKey");
+//        IRiskClient client = new IRiskClient(profile);
         // 填充请求参数
         IRiskMediaCheckRequest request = new IRiskMediaCheckRequest("businessId");
         // 用户/玩家的角色 ID

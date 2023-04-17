@@ -1,5 +1,6 @@
 package com.netease.yidun.sdk.auth.ocr.bankcard.v1;
 
+import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.auth.ocr.OcrClient;
 import org.apache.commons.codec.binary.Base64;
 
@@ -10,7 +11,7 @@ import java.io.InputStream;
 /**
  * 银行卡OCR
  */
-public class BankCardOcrDemo {
+public class BankCardOcrDemo extends AbstractDemo {
 
     private static String image;
 
@@ -24,6 +25,9 @@ public class BankCardOcrDemo {
 
     public static void main(String[] args) {
         OcrClient ocrClient = new OcrClient("secretId", "secretKey");
+        // 如需自定义请求器参数，可使用参考如下方式创建ClientProfile，然后创建client
+//        ClientProfile profile = createProfile("secretId", "secretKey");
+//        OcrClient client = new OcrClient(profile);
         BankCardOcrRequest request = new BankCardOcrRequest("businessId");
         request.setImage(image);
         request.setDetectDirection("http://test1.com");

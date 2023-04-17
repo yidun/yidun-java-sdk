@@ -1,7 +1,7 @@
 
 package com.netease.yidun.sdk.antispam.audio.check.sync.v2;
 
-import com.netease.yidun.sdk.antispam.AbstractDemo;
+import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.audio.AudioClient;
 import com.netease.yidun.sdk.antispam.audio.check.sync.v2.request.AudioSyncCheckRequest;

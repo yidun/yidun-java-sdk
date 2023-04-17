@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import com.netease.yidun.sdk.antispam.AbstractDemo;
+import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.audio.AudioClient;
 import com.netease.yidun.sdk.antispam.audio.query.v3.request.AudioQueryV3Request;

@@ -1,7 +1,7 @@
 
 package com.netease.yidun.sdk.antispam.liveaudio.callback.v4;
 
-import com.netease.yidun.sdk.antispam.AbstractDemo;
+import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.liveaudio.LiveAudioClient;
 import com.netease.yidun.sdk.antispam.liveaudio.callback.v4.request.LiveAudioCallbackV4Req;

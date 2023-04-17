@@ -1,16 +1,20 @@
 package com.netease.yidun.sdk.auth.liveperson.interactive.composite.v1;
 
+import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.auth.constant.PicType;
 import com.netease.yidun.sdk.auth.liveperson.LivePersonClient;
 
 /**
  * 交互式人脸核身接口demo
  */
-public class InteractiveLivePersonIdCardCheckDemo {
+public class InteractiveLivePersonIdCardCheckDemo extends AbstractDemo {
 
     public static void main(String[] args) {
         // 实例化发起请求的client对象
         LivePersonClient livePersonClient = new LivePersonClient("secretId", "secretKey");
+        // 如需自定义请求器参数，可使用参考如下方式创建ClientProfile，然后创建client
+//        ClientProfile profile = createProfile("secretId", "secretKey");
+//        LivePersonClient client = new LivePersonClient(profile);
         // 填充请求参数
         InteractiveLivePersonIdCardCheckRequest request = new InteractiveLivePersonIdCardCheckRequest("businessId")
                 .cardNo("111234120001011236")

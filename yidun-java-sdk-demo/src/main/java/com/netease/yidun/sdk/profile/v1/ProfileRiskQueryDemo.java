@@ -1,5 +1,6 @@
 package com.netease.yidun.sdk.profile.v1;
 
+import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.profile.v1.common.Portrait;
 import com.netease.yidun.sdk.profile.v1.riskquery.*;
 
@@ -9,12 +10,15 @@ import java.util.List;
 /**
  * 【风险画像】混合风险画像数据获取接口demo
  */
-public class ProfileRiskQueryDemo {
+public class ProfileRiskQueryDemo extends AbstractDemo {
 
     public static void main(String[] args) {
 
         // 实例化发起请求的client对象
         ProfileClient profileClient = new ProfileClient("SecretId", "SecretKey");
+        // 如需自定义请求器参数，可使用参考如下方式创建ClientProfile，然后创建client
+//        ClientProfile profile = createProfile("secretId", "secretKey");
+//        ProfileClient client = new ProfileClient(profile);
         // 填充请求参数
         ProfileRiskQueryRequest request = new ProfileRiskQueryRequest();
 

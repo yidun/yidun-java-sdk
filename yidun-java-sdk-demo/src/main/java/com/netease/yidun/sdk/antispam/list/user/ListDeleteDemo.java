@@ -1,7 +1,7 @@
 package com.netease.yidun.sdk.antispam.list.user;
 
 import com.google.gson.Gson;
-import com.netease.yidun.sdk.antispam.AbstractDemo;
+import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.list.ListClient;
 import com.netease.yidun.sdk.antispam.list.user.v2.delete.ListDeleteRequest;

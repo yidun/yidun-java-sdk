@@ -1,7 +1,7 @@
 
 package com.netease.yidun.sdk.antispam.liveaudio.submit.v4;
 
-import com.netease.yidun.sdk.antispam.AbstractDemo;
+import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.enums.LiveAudioSubmitCodeEnum;
 import com.netease.yidun.sdk.antispam.liveaudio.LiveAudioClient;

@@ -1,7 +1,7 @@
 package com.netease.yidun.sdk.antispam.list.imagelist;
 
 import com.google.gson.Gson;
-import com.netease.yidun.sdk.antispam.AbstractDemo;
+import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.list.ListClient;
 import com.netease.yidun.sdk.antispam.list.imagelist.v1.submit.ImageListSubmitRequest;

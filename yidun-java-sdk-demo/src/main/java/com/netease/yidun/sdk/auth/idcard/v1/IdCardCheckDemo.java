@@ -6,15 +6,20 @@
 
 package com.netease.yidun.sdk.auth.idcard.v1;
 
+import com.netease.yidun.sdk.AbstractDemo;
+
 /**
  * 实证认证demo
  */
-public class IdCardCheckDemo {
+public class IdCardCheckDemo extends AbstractDemo {
 
     public static void main(String[] args) {
 
         // 实例化发起请求的client对象
         IdCardClient idCardClient = new IdCardClient("secretId", "secretKey");
+        // 如需自定义请求器参数，可使用参考如下方式创建ClientProfile，然后创建client
+//        ClientProfile profile = createProfile("secretId", "secretKey");
+//        IdCardClient client = new IdCardClient(profile);
         // 填充请求参数
         IdCardCheckRequest request = new IdCardCheckRequest("businessId");
         // 用户真实姓名，以身份证上姓名为准 (必填参数)
