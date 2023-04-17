@@ -20,7 +20,7 @@ public class RpCheckDemo extends AbstractDemo {
         RpCheckClient rpCheckClient = new RpCheckClient("secretId", "secretKey");
         // 如需自定义请求器参数，可使用参考如下方式创建ClientProfile，然后创建client
 //        ClientProfile profile = createProfile("secretId", "secretKey");
-//        OcrClient client = new OcrClient(profile);
+//        RpCheckClient client = new RpCheckClient(profile);
         // 填充请求参数
         RpCheckRequest request = new RpCheckRequest("businessId");
         // 用户真实姓名，以身份证上姓名为准 (必填参数)
