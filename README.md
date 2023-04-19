@@ -65,7 +65,6 @@ SDK中各接口调用方式基本相同，接入方式统一，并提供了一�
 * http请求各项参数配置
 
   ```
-   ClientProfile clientProfile = AntispamRequester.createDefaultProfile("SecretId", "SecretKey");
    // 按照需求设置http请求的多个参数配置
    HttpClientConfig httpClientConfig = clientProfile.getHttpClientConfig();
    httpClientConfig.setSocketTimeoutMillis(60000);
@@ -107,7 +106,6 @@ SDK中各接口调用方式基本相同，接入方式统一，并提供了一�
 * 熔断配置
 
   ```
-  ClientProfile clientProfile = AntispamRequester.createDefaultProfile("SecretId", "SecretKey");
   // 按照需求设置固定窗口的多个熔断参数配置
   FixedWindowBreakStrategy.Config breakerConfig = clientProfile.getBreakerConfig();
   breakerConfig.statWindowMillis(300000);
@@ -115,14 +113,12 @@ SDK中各接口调用方式基本相同，接入方式统一，并提供了一�
 * 同步重试
 
   ```
-  ClientProfile clientProfile = AntispamRequester.createDefaultProfile("SecretId", "SecretKey");
   // 最大10次
   clientProfile.setMaxRetryCount(2);
   ```
 * 故障恢复
 
   ```
-    ClientProfile clientProfile = AntispamRequester.createDefaultProfile("SecretId", "SecretKey");
     // 创建文件恢复的执行器，这个对象全局是单例的
     DefaultRequestRecover requestRecover = DefaultRequestRecover.createRecover("恢复文件所在的目录");
     // 注册故障恢复的handler，用于接口请求失败，异步重试成功后的处理逻辑，每个接口对应一个，否则对应接口不开启故障恢复
