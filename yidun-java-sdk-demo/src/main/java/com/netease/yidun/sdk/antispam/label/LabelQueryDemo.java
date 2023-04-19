@@ -6,7 +6,7 @@
 
 package com.netease.yidun.sdk.antispam.label;
 
-import com.netease.yidun.sdk.antispam.AbstractDemo;
+import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.enums.LabelBusinessTypeEnum;
 import com.netease.yidun.sdk.antispam.label.query.request.LabelQueryRequest;
