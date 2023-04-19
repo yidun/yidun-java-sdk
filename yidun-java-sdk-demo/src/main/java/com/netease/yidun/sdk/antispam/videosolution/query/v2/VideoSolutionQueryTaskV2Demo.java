@@ -4,7 +4,7 @@ package com.netease.yidun.sdk.antispam.videosolution.query.v2;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.netease.yidun.sdk.antispam.AbstractDemo;
+import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.videosolution.VideoSolutionClient;
 import com.netease.yidun.sdk.antispam.videosolution.query.v2.request.VideoSolutionQueryV2Req;
