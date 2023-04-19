@@ -1,6 +1,7 @@
 package com.netease.yidun.sdk.antispam.audio.callback.v4.response;
 
 import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -42,5 +43,8 @@ public class AudioLanguageCallbackV4Response {
     public static class SegmentsInfo {
         private Integer startTime;
         private Integer endTime;
+
+        private Long startTimeMillis;
+        private Long endTimeMillis;
     }
 }

@@ -21,5 +21,7 @@ public class AudioQualityCallbackV4Response {
     public static class AudioSilentCallbackUnitDetailResponse {
         private Integer startTime;
         private Integer endTime;
+        private Long startTimeMillis;
+        private Long endTimeMillis;
     }
 }
