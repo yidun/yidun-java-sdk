@@ -31,7 +31,7 @@ public class MediaQueryRequestV2 extends PostFormRequest<MediaCallbackResponseV2
     public MediaQueryRequestV2() {
         productCode = "media";
         uriPattern = "/v2/mediasolution/callback/query";
-        version = "v2";
+        version = "v2.1";
     }
 
     @Override
