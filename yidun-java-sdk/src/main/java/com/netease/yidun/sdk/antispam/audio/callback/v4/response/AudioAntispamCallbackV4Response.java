@@ -197,6 +197,9 @@ public class AudioAntispamCallbackV4Response implements BaseResponse {
     public static class AudioDataInfo {
         private Integer startTime;
         private Integer endTime;
+
+        private Long startTimeMillis;
+        private Long endTimeMillis;
         /**
          * 音频数据所在断句语音识别原文内容，支持返回异常数据所在断句内容或全部原文内容
          */

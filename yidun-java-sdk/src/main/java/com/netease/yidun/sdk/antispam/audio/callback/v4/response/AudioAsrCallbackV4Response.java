@@ -38,6 +38,9 @@ public class AudioAsrCallbackV4Response {
     public static class AsrContentBo implements BaseResponse {
         private Integer startTime;
         private Integer endTime;
+
+        private Long startTimeMillis;
+        private Long endTimeMillis;
         /**
          * 语音识别结果
          */
