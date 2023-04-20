@@ -41,6 +41,10 @@ public class LiveVideoSolutionCallbackV3Result implements BaseResponse {
      * 语种识别结果
      */
     private LiveAudioLanguageCallbackRespV3 language;
+    /**
+     * asr
+     */
+    private LiveAudioCallbackV4Result.LiveAudioAsrContentCallbackRespV3 asr;
     @Data
     public static class LiveCallbackQualityUnitV4 {
         private LiveDataCallbackQualityUnitV4 video;
