@@ -79,6 +79,10 @@ public class AudioAntispamCallbackV4Response implements BaseResponse {
      */
     private Long duration;
     /**
+     * 音频时长字段，单位毫秒
+     */
+    private Long durationMs;
+    /**
      * 自定义建议结果 0-通过 2-删除
      */
     private Integer customAction;

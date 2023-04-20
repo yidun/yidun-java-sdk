@@ -45,9 +45,13 @@ public class VideoSolutionAntispamCallbackV2Response {
      */
     private Long censorTime;
     /**
-     * 音视频时长字段，单位s
+     * 音视频时长字段，单位毫秒
      */
     private Long duration;
+    /**
+     * 音频时长字段，单位毫秒
+     */
+    private Long durationMs;
     /**
      * 一级垃圾类型
      */
