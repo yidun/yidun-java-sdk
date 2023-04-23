@@ -57,6 +57,10 @@ public class VideoSolutionAntispamCallbackV2Response {
      */
     private Integer label;
     /**
+     * 截图数量
+     */
+    private Long picCount;
+    /**
      * 机器检测证据信息，接入机器检测时参考证据信息
      */
     private VideoSolutionCallbackEvidenceV2Response evidences;
