@@ -73,6 +73,10 @@ public class VideoDataFaceDetailBo {
          */
         private String maskType;
         /**
+         * 遮挡分数
+         */
+        private Float maskScore;
+        /**
          * 人脸戴眼镜
          */
         private String glasses;

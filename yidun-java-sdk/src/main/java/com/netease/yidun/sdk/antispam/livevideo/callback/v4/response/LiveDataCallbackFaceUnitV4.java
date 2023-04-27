@@ -87,6 +87,10 @@ public class LiveDataCallbackFaceUnitV4 {
              */
             private String maskType;
             /**
+             * 遮挡分数
+             */
+            private Float maskScore;
+            /**
              * 人脸戴眼镜
              */
             private String glasses;
