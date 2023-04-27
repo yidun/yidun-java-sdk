@@ -76,6 +76,10 @@ public class ImageV5FaceDetail implements Serializable {
          */
         private String maskType;
         /**
+         * 遮挡分数
+         */
+        private Float maskScore;
+        /**
          * 成长阶段
          */
         private String growthStage;
@@ -190,6 +194,14 @@ public class ImageV5FaceDetail implements Serializable {
 
         public void setMaskType(String maskType) {
             this.maskType = maskType;
+        }
+
+        public Float getMaskScore() {
+            return maskScore;
+        }
+
+        public void setMaskScore(Float maskScore) {
+            this.maskScore = maskScore;
         }
     }
 }
