@@ -54,6 +54,7 @@ public class LiveAudioCallbackV4Result implements BaseResponse {
         private String speakerId;
         private String dataId;
         private String callback;
+        private String url;
     }
 
     @Data
