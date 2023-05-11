@@ -62,6 +62,10 @@ public class CrawlerJobSubmitV1Request extends PostFormRequest<CrawlerJobSubmitV
      *
      */
     private Integer checkStrategy;
+    /**
+     * 网站爬取配置
+     */
+    private String config;
 
     @Override
     protected Map<String, String> getCustomSignParams() {
@@ -77,6 +81,7 @@ public class CrawlerJobSubmitV1Request extends PostFormRequest<CrawlerJobSubmitV
         params.put("type", getType());
         params.put("callbackUrl", getCallbackUrl());
         params.put("checkStrategy", getCheckStrategy());
+        params.put("config", getConfig());
         return params;
     }
 
@@ -179,6 +184,14 @@ public class CrawlerJobSubmitV1Request extends PostFormRequest<CrawlerJobSubmitV
         this.siteName = siteName;
     }
 
+    public String getConfig() {
+        return config;
+    }
+
+    public void setConfig(String config) {
+        this.config = config;
+    }
+
     @Override
     public String toString() {
         return "CrawlerJobSubmitV1Request{" +
@@ -186,13 +199,14 @@ public class CrawlerJobSubmitV1Request extends PostFormRequest<CrawlerJobSubmitV
                 ", sliceStartTime=" + sliceStartTime +
                 ", sliceEndTime=" + sliceEndTime +
                 ", siteUrl='" + siteUrl + '\'' +
-                ", siteName='" + siteName + '\'' +
-                ", checkStrategy='" + checkStrategy + '\'' +
                 ", level=" + level +
                 ", frequency=" + frequency +
                 ", maxResourceAmount=" + maxResourceAmount +
                 ", type=" + type +
                 ", callbackUrl='" + callbackUrl + '\'' +
-                "} " + super.toString();
+                ", siteName='" + siteName + '\'' +
+                ", checkStrategy=" + checkStrategy +
+                ", config='" + config + '\'' +
+                '}';
     }
 }

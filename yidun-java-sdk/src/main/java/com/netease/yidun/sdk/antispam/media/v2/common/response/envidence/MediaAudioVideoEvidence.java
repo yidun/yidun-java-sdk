@@ -17,6 +17,8 @@ public class MediaAudioVideoEvidence {
     private Integer failureReason;
     private Long checkTime;
     private Long duration;
+
+    private Long durationMs;
     private MediaAudioVideoDetailEvidence evidences;
 
     public String getDataId() {
@@ -81,6 +83,14 @@ public class MediaAudioVideoEvidence {
 
     public void setDuration(Long duration) {
         this.duration = duration;
+    }
+
+    public Long getDurationMs() {
+        return durationMs;
+    }
+
+    public void setDurationMs(Long durationMs) {
+        this.durationMs = durationMs;
     }
 
     public MediaAudioVideoDetailEvidence getEvidences() {

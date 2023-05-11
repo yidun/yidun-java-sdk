@@ -15,6 +15,8 @@ public class MediaAudioEvidenceCommon {
     private Integer resultType;
     private Long checkTime;
     private Long duration;
+
+    private Long durationMs;
     private List<SegmentsInfo> segments;
 
     public Integer getSuggestion() {
@@ -71,6 +73,14 @@ public class MediaAudioEvidenceCommon {
 
     public void setSegments(List<SegmentsInfo> segments) {
         this.segments = segments;
+    }
+
+    public Long getDurationMs() {
+        return durationMs;
+    }
+
+    public void setDurationMs(Long durationMs) {
+        this.durationMs = durationMs;
     }
 
     public static class SegmentsInfo {
