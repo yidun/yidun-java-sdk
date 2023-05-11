@@ -1,5 +1,7 @@
 package com.netease.yidun.sdk.antispam.media.v2.common.response;
 
+import com.netease.yidun.sdk.antispam.grammarfix.v1.submit.GrammarfixSubmitResponse;
+
 import java.util.List;
 
 /**
@@ -15,6 +17,8 @@ public class MediaValueAddServiceResponse {
     private ImageDiscern imageDiscern;
     private EmotionAnalysis emotionAnalysis;
     private Language language;
+
+    private GrammarFix grammarFix;
 
     public Ocr getOcr() {
         return ocr;
@@ -80,6 +84,14 @@ public class MediaValueAddServiceResponse {
         this.language = language;
     }
 
+    public GrammarFix getGrammarFix() {
+        return grammarFix;
+    }
+
+    public void setGrammarFix(GrammarFix grammarFix) {
+        this.grammarFix = grammarFix;
+    }
+
     @Override
     public String toString() {
         return "MediaValueAddServiceResponse{" +
@@ -91,6 +103,7 @@ public class MediaValueAddServiceResponse {
                 ", imageDiscern=" + imageDiscern +
                 ", emotionAnalysis=" + emotionAnalysis +
                 ", language=" + language +
+                ", grammarFix=" + grammarFix +
                 '}';
     }
 
@@ -1207,4 +1220,47 @@ public class MediaValueAddServiceResponse {
             this.left = left;
         }
     }
+
+    public static class GrammarFix {
+        private List<GrammarValueServiceBaseUnit> texts;
+
+        public List<GrammarValueServiceBaseUnit> getTexts() {
+            return texts;
+        }
+
+        public void setTexts(List<GrammarValueServiceBaseUnit> texts) {
+            this.texts = texts;
+        }
+    }
+
+    public static class GrammarValueServiceBaseUnit {
+        private String taskId;
+        private List<GrammarfixSubmitResponse.Detail> details;
+        private Integer level;
+
+        public String getTaskId() {
+            return taskId;
+        }
+
+        public void setTaskId(String taskId) {
+            this.taskId = taskId;
+        }
+
+        public List<GrammarfixSubmitResponse.Detail> getDetails() {
+            return details;
+        }
+
+        public void setDetails(List<GrammarfixSubmitResponse.Detail> details) {
+            this.details = details;
+        }
+
+        public Integer getLevel() {
+            return level;
+        }
+
+        public void setLevel(Integer level) {
+            this.level = level;
+        }
+    }
+
 }
