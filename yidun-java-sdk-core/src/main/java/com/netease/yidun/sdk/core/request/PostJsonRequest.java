@@ -6,7 +6,7 @@
 
 package com.netease.yidun.sdk.core.request;
 
-import com.alibaba.fastjson.JSON;
+import com.google.gson.Gson;
 import com.netease.yidun.sdk.core.auth.Credentials;
 import com.netease.yidun.sdk.core.auth.SignResult;
 import com.netease.yidun.sdk.core.auth.SignatureMethodEnum;
@@ -39,6 +39,8 @@ public abstract class PostJsonRequest<T extends BaseResponse> extends BaseReques
     protected String version;
     protected long timestamp = System.currentTimeMillis();
     protected String nonce = UUID.randomUUID().toString().replace("-", "");
+
+    private static final Gson GSON = new Gson();
     /**
      * 请求签名的Hash计算方法。<br/>
      *
@@ -192,9 +194,7 @@ public abstract class PostJsonRequest<T extends BaseResponse> extends BaseReques
         params.put("secretId", signResult.getSecretId());
         params.put("signature", signResult.getSignature());
         params.putAll(getNonSignParams());
-
-        byte[] body = JSON.toJSONString(params).getBytes(StandardCharsets.UTF_8);
-
+        byte[] body = GSON.toJson(params).getBytes(StandardCharsets.UTF_8);
         if (gzipCompress) {
             body = toGzipBytes(body);
         }
