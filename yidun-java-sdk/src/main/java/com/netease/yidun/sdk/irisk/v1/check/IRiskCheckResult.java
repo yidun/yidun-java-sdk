@@ -1,6 +1,7 @@
 package com.netease.yidun.sdk.irisk.v1.check;
 
-import com.alibaba.fastjson.JSONObject;
+import com.google.gson.JsonObject;
+
 import java.util.List;
 
 
@@ -34,7 +35,7 @@ public class IRiskCheckResult {
     /**
      * 设备信息
      */
-    private JSONObject deviceInfo;
+    private JsonObject deviceInfo;
 
     /**
      * 命中规则
@@ -86,11 +87,11 @@ public class IRiskCheckResult {
         this.deviceId = deviceId;
     }
 
-    public JSONObject getDeviceInfo() {
+    public JsonObject getDeviceInfo() {
         return deviceInfo;
     }
 
-    public void setDeviceInfo(JSONObject deviceInfo) {
+    public void setDeviceInfo(JsonObject deviceInfo) {
         this.deviceInfo = deviceInfo;
     }
 
