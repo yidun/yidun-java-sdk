@@ -173,6 +173,7 @@ public abstract class PostJsonRequest<T extends BaseResponse> extends BaseReques
     public Map<String, String> getHeaders() {
         Map<String, String> headers = super.getHeaders();
         headers.put(HttpHeaders.CONTENT_TYPE, "application/json;charset=utf-8");
+        headers.put(HttpHeaders.SDK_VERSION, HttpHeaders.DEFAULT_SDK_VERSION);
 
         if (gzipCompress) {
             headers.put(HttpHeaders.CONTENT_ENCODING, "gzip");
