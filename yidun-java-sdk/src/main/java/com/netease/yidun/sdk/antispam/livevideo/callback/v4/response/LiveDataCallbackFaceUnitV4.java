@@ -33,6 +33,11 @@ public class LiveDataCallbackFaceUnitV4 {
          * 人脸数量
          */
         private Integer faceNumber;
+
+        /**
+         * 是否有伪造人脸 1：有 0：无
+         */
+        private Integer deepfake;
         /**
          * ocr文本详情
          */
