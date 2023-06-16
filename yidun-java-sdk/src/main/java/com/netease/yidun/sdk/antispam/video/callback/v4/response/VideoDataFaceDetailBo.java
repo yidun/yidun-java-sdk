@@ -20,6 +20,10 @@ public class VideoDataFaceDetailBo {
      */
     private Integer faceNumber;
     /**
+     * 是否有伪造人脸 1：有 0：无
+     */
+    private Integer deepfake;
+    /**
      * ocr文本详情
      */
     private List<FaceLineContent> faceContents;
