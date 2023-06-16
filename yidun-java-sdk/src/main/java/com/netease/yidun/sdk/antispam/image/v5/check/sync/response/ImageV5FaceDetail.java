@@ -10,7 +10,11 @@ public class ImageV5FaceDetail implements Serializable {
      */
     private Integer faceNumber;
     /**
-     * ocr文本详情
+     * 是否有伪造人脸，0：无，1：有
+     */
+    private Integer deepfake;
+    /**
+     * 人脸详情
      */
     private List<FaceLineContent> faceContents;
 
@@ -20,6 +24,14 @@ public class ImageV5FaceDetail implements Serializable {
 
     public void setFaceNumber(Integer faceNumber) {
         this.faceNumber = faceNumber;
+    }
+
+    public Integer getDeepfake() {
+        return deepfake;
+    }
+
+    public void setDeepfake(Integer deepfake) {
+        this.deepfake = deepfake;
     }
 
     public List<FaceLineContent> getFaceContents() {
