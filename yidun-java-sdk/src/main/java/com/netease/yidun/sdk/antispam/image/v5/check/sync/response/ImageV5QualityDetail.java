@@ -77,6 +77,44 @@ public class ImageV5QualityDetail implements Serializable {
             this.pureBackground = pureBackground;
         }
     }
+    public static class BoarderColor {
+        private Integer top;
+        private Integer right;
+        private Integer bottom;
+        private Integer left;
+
+        public Integer getTop() {
+            return top;
+        }
+
+        public void setTop(Integer top) {
+            this.top = top;
+        }
+
+        public Integer getRight() {
+            return right;
+        }
+
+        public void setRight(Integer right) {
+            this.right = right;
+        }
+
+        public Integer getBottom() {
+            return bottom;
+        }
+
+        public void setBottom(Integer bottom) {
+            this.bottom = bottom;
+        }
+
+        public Integer getLeft() {
+            return left;
+        }
+
+        public void setLeft(Integer left) {
+            this.left = left;
+        }
+    }
 
     public static class MetaInfo implements Serializable {
         private static final long serialVersionUID = -6683390533378310610L;
@@ -149,6 +187,19 @@ public class ImageV5QualityDetail implements Serializable {
         private Boolean right;
         private Boolean bottom;
         private Boolean left;
+
+        /**
+         * 图片边框颜色
+         */
+        private BoarderColor color;
+
+        public BoarderColor getColor() {
+            return color;
+        }
+
+        public void setColor(BoarderColor color) {
+            this.color = color;
+        }
 
         public Boolean getHit() {
             return hit;
