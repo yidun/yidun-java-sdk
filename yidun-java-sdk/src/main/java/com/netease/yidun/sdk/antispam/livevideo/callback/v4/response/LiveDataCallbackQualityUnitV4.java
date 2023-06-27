@@ -26,5 +26,5 @@ public class LiveDataCallbackQualityUnitV4 {
     private String speakerId;
     private Long beginTime;
     private Long endTime;
-    private List<MediaValueAddServiceResponse.ImageQualityImageDetail> details;
+    private List<LiveDataQualityResp> details;
 }

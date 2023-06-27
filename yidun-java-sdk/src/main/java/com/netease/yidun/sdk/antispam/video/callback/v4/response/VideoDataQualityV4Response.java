@@ -6,7 +6,6 @@
 
 package com.netease.yidun.sdk.antispam.video.callback.v4.response;
 
-import com.netease.yidun.sdk.antispam.media.v2.common.response.MediaValueAddServiceResponse;
 import lombok.Data;
 
 import java.util.List;
@@ -19,5 +18,5 @@ import java.util.List;
 public class VideoDataQualityV4Response {
     private Long startTime;
     private Long endTime;
-    private List<MediaValueAddServiceResponse.ImageQualityImageDetail> details;
+    private List<VideoDataQualityResp> details;
 }
