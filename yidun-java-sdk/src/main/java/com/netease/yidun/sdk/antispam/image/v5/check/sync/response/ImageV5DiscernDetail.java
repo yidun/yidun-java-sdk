@@ -13,6 +13,10 @@ public class ImageV5DiscernDetail implements Serializable {
      */
     private String discernName;
     /**
+     * 识别标识
+     */
+    private String discernKey;
+    /**
      * 分数
      */
     private Float rate;
