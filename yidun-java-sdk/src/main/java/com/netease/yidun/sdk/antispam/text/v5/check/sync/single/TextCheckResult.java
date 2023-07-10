@@ -97,6 +97,7 @@ public class TextCheckResult implements Serializable {
         private Boolean isRelatedHit;
         private List<AntispamLabel> labels;
         private String remark;
+        private String filteredContent;
 
         public String getTaskId() {
             return taskId;
@@ -218,6 +219,14 @@ public class TextCheckResult implements Serializable {
             this.remark = remark;
         }
 
+        public String getFilteredContent() {
+            return filteredContent;
+        }
+
+        public void setFilteredContent(String filteredContent) {
+            this.filteredContent = filteredContent;
+        }
+
         @Override
         public String toString() {
             return "Antispam("
@@ -236,6 +245,7 @@ public class TextCheckResult implements Serializable {
                     + ", isRelatedHit=" + isRelatedHit
                     + ", labels=" + labels
                     + ", remark=" + remark
+                    + ", filteredContent=" + filteredContent
                     + ")";
         }
     }
