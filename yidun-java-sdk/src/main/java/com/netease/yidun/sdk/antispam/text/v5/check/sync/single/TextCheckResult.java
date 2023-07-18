@@ -98,6 +98,7 @@ public class TextCheckResult implements Serializable {
         private List<AntispamLabel> labels;
         private String remark;
         private String filteredContent;
+        private List<String> mergeHints;
 
         public String getTaskId() {
             return taskId;
@@ -227,6 +228,14 @@ public class TextCheckResult implements Serializable {
             this.filteredContent = filteredContent;
         }
 
+        public List<String> getMergeHints() {
+            return mergeHints;
+        }
+
+        public void setMergeHints(List<String> mergeHints) {
+            this.mergeHints = mergeHints;
+        }
+
         @Override
         public String toString() {
             return "Antispam("
@@ -246,6 +255,7 @@ public class TextCheckResult implements Serializable {
                     + ", labels=" + labels
                     + ", remark=" + remark
                     + ", filteredContent=" + filteredContent
+                    + ", mergeHints=" + mergeHints
                     + ")";
         }
     }
