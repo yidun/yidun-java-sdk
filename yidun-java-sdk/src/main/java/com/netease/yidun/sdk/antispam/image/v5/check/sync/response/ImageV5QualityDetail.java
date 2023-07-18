@@ -77,7 +77,11 @@ public class ImageV5QualityDetail implements Serializable {
             this.pureBackground = pureBackground;
         }
     }
-    public static class BoarderColor {
+
+    public static class BoarderColor implements Serializable {
+
+        private static final long serialVersionUID = 4458873342676622865L;
+
         private Integer top;
         private Integer right;
         private Integer bottom;
