@@ -1,5 +1,10 @@
 package com.netease.yidun.sdk.antispam.image.v5.check.sync.response;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -95,6 +100,46 @@ public class ImageV5FaceDetail implements Serializable {
          * 成长阶段
          */
         private String growthStage;
+        /**
+         * 人脸角度list
+         */
+        private List<FacePoseInfo> poseInfoList;
+        
+        public static class FacePoseInfo implements Serializable {
+            private static final long serialVersionUID = -5971991704526674256L;
+            /**
+             * 人脸角度标签
+             */
+            private String label;
+            /**
+             * 人脸角度值
+             */
+            private Double angle;
+
+            public String getLabel() {
+                return label;
+            }
+
+            public void setLabel(String label) {
+                this.label = label;
+            }
+
+            public Double getAngle() {
+                return angle;
+            }
+
+            public void setAngle(Double angle) {
+                this.angle = angle;
+            }
+        }
+
+        public List<FacePoseInfo> getPoseInfoList() {
+            return poseInfoList;
+        }
+
+        public void setPoseInfoList(List<FacePoseInfo> poseInfoList) {
+            this.poseInfoList = poseInfoList;
+        }
 
         public String getGrowthStage() {
             return growthStage;
