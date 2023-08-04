@@ -3,9 +3,12 @@
 package com.netease.yidun.sdk.antispam.crawler.v1.submit.request;
 
 import java.util.Map;
+import java.util.Set;
 
 import com.netease.yidun.sdk.antispam.crawler.v1.submit.response.CrawlerJobSubmitV1Response;
 import com.netease.yidun.sdk.core.request.PostFormRequest;
+import com.netease.yidun.sdk.core.utils.CollectionUtils;
+import com.netease.yidun.sdk.core.utils.GsonUtils;
 import com.netease.yidun.sdk.core.utils.StringHashMap;
 
 /**
@@ -66,6 +69,24 @@ public class CrawlerJobSubmitV1Request extends PostFormRequest<CrawlerJobSubmitV
      * 网站爬取配置
      */
     private String config;
+    /**
+     * user agent 匹配规则
+     *
+     * @see com.netease.yidun.sdk.antispam.enums.UserAgentMatchType
+     */
+    private Integer userAgentMatchType;
+    /**
+     * 浏览器user agent
+     */
+    private String userAgent;
+    /**
+     * 重点关注资源
+     */
+    private Set<String> focusList;
+    /**
+     * URL过滤条件集
+     */
+    private Set<CrawlerUrlFilter> urlFilters;
 
     @Override
     protected Map<String, String> getCustomSignParams() {
@@ -82,6 +103,10 @@ public class CrawlerJobSubmitV1Request extends PostFormRequest<CrawlerJobSubmitV
         params.put("callbackUrl", getCallbackUrl());
         params.put("checkStrategy", getCheckStrategy());
         params.put("config", getConfig());
+        params.put("userAgentMatchType", getUserAgentMatchType());
+        params.put("userAgent", getUserAgent());
+        params.put("focusList", CollectionUtils.isEmpty(getFocusList()) ? null : String.join(",", getFocusList()));
+        params.put("urlFilters", GsonUtils.toJson(getUrlFilters()));
         return params;
     }
 
@@ -190,6 +215,38 @@ public class CrawlerJobSubmitV1Request extends PostFormRequest<CrawlerJobSubmitV
 
     public void setConfig(String config) {
         this.config = config;
+    }
+
+    public Integer getUserAgentMatchType() {
+        return userAgentMatchType;
+    }
+
+    public void setUserAgentMatchType(Integer userAgentMatchType) {
+        this.userAgentMatchType = userAgentMatchType;
+    }
+
+    public String getUserAgent() {
+        return userAgent;
+    }
+
+    public void setUserAgent(String userAgent) {
+        this.userAgent = userAgent;
+    }
+
+    public Set<String> getFocusList() {
+        return focusList;
+    }
+
+    public void setFocusList(Set<String> focusList) {
+        this.focusList = focusList;
+    }
+
+    public Set<CrawlerUrlFilter> getUrlFilters() {
+        return urlFilters;
+    }
+
+    public void setUrlFilters(Set<CrawlerUrlFilter> urlFilters) {
+        this.urlFilters = urlFilters;
     }
 
     @Override
