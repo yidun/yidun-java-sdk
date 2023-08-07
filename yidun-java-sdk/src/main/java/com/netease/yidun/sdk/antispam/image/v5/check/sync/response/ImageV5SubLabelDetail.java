@@ -10,6 +10,22 @@ public class ImageV5SubLabelDetail implements Serializable {
      */
     private String subLabel;
     /**
+     * 命中的最终细分类的层级
+     */
+    private Integer subLabelDepth;
+    /**
+     * 二级分类，必返回
+     */
+    private String secondLabel;
+    /**
+     * 三级分类，可能返回
+     */
+    private String thirdLabel;
+    /**
+     * 命中标识
+     */
+    private Integer hitStrategy;
+    /**
      * 判断结果，0-正常，1-不确定，2-确定
      */
     private float rate;
@@ -24,6 +40,38 @@ public class ImageV5SubLabelDetail implements Serializable {
 
     public void setSubLabel(String subLabel) {
         this.subLabel = subLabel;
+    }
+
+    public Integer getSubLabelDepth() {
+        return subLabelDepth;
+    }
+
+    public void setSubLabelDepth(Integer subLabelDepth) {
+        this.subLabelDepth = subLabelDepth;
+    }
+
+    public String getSecondLabel() {
+        return secondLabel;
+    }
+
+    public void setSecondLabel(String secondLabel) {
+        this.secondLabel = secondLabel;
+    }
+
+    public String getThirdLabel() {
+        return thirdLabel;
+    }
+
+    public void setThirdLabel(String thirdLabel) {
+        this.thirdLabel = thirdLabel;
+    }
+
+    public Integer getHitStrategy() {
+        return hitStrategy;
+    }
+
+    public void setHitStrategy(Integer hitStrategy) {
+        this.hitStrategy = hitStrategy;
     }
 
     public float getRate() {
