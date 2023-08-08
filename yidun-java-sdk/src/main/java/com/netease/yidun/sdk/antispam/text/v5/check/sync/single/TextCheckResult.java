@@ -383,6 +383,13 @@ public class TextCheckResult implements Serializable {
     public static class AntispamSubLabel {
 
         private String subLabel;
+
+        private Integer subLabelDepth;
+
+        private String secondLabel;
+
+        private String thirdLabel;
+
         private AntispamSubLabelDetail details;
 
         public String getSubLabel() {
@@ -401,10 +408,38 @@ public class TextCheckResult implements Serializable {
             this.details = details;
         }
 
+
+        public Integer getSubLabelDepth() {
+            return subLabelDepth;
+        }
+
+        public void setSubLabelDepth(Integer subLabelDepth) {
+            this.subLabelDepth = subLabelDepth;
+        }
+
+        public String getSecondLabel() {
+            return secondLabel;
+        }
+
+        public void setSecondLabel(String secondLabel) {
+            this.secondLabel = secondLabel;
+        }
+
+        public String getThirdLabel() {
+            return thirdLabel;
+        }
+
+        public void setThirdLabel(String thirdLabel) {
+            this.thirdLabel = thirdLabel;
+        }
+
         @Override
         public String toString() {
             return "AntispamSubLabel("
                     + "subLabel=" + subLabel
+                    + ", subLabelDepth=" + subLabelDepth
+                    + ", secondLabel=" + secondLabel
+                    + ", thirdLabel=" + thirdLabel
                     + ", details=" + details
                     + ")";
         }
