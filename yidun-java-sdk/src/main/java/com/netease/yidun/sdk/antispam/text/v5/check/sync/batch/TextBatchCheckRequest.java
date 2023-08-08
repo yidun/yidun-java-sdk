@@ -81,7 +81,7 @@ public class TextBatchCheckRequest extends BizPostFormRequest<TextBatchCheckResp
 
     public TextBatchCheckRequest() {
         productCode = "text-check";
-        version = "v5.2";
+        version = "v5.3";
         uriPattern = "/v5/text/batch-check";
     }
 

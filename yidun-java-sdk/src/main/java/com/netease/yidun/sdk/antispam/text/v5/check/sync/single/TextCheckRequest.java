@@ -57,7 +57,7 @@ public class TextCheckRequest extends TextCheckSceneRequest<TextCheckResponse> {
 
     public TextCheckRequest() {
         productCode = "text-check";
-        version = "v5.2";
+        version = "v5.3";
         uriPattern = "/v5/text/check";
     }
 
