@@ -52,6 +52,7 @@ public class DefaultClient implements Client, Closeable {
 
     private final String defaultRegionCode;
     private final ProtocolEnum defaultProtocol;
+    private final boolean fallbackHttp;
     private final Signer signer;
     private final Credentials credentials;
     /**
@@ -96,6 +97,7 @@ public class DefaultClient implements Client, Closeable {
         preheatValidationByInstance(profile.preheatRequestsForValidation());
 
         requestRecover = profile.requestRecover();
+        fallbackHttp = profile.fallbackHttp();
     }
 
     public String getDefaultRegionCode() {
@@ -201,6 +203,10 @@ public class DefaultClient implements Client, Closeable {
             request.regionCode(defaultRegionCode);
         }
 
+        if (request.getFallbackHttp() == null) {
+            request.setFallbackHttp(fallbackHttp);
+        }
+
         Context<R> ctx = new Context<>(request);
         YidunSdkException exception = null;
         while (ctx.canAttempt()) {
@@ -297,6 +303,10 @@ public class DefaultClient implements Client, Closeable {
          * 【域名动态获取场景】是否已向熔断器申请过所有域名
          */
         boolean allDomainsApplied = false;
+        /**
+         * 请求的协议
+         */
+        ProtocolEnum originalProtocol;
 
         Context(BaseRequest<R> request) {
             this.request = request;
@@ -306,6 +316,8 @@ public class DefaultClient implements Client, Closeable {
         ClassicHttpRequest createRequest() {
             // 每次尝试请求前都要先确定域名，以达到域名故障转移的效果
             resolveDomain();
+            // https请求不通时，重试http请求
+            resolveProtocol();
 
             HttpRequest tmpRequest = request.toHttpRequest(signer, credentials);
 
@@ -328,9 +340,38 @@ public class DefaultClient implements Client, Closeable {
             return builder.build();
         }
 
+        /**
+         * 在重试请求时，如果https的都失败，则请求http的
+         */
+        void resolveProtocol() {
+            if (!request.getFallbackHttp()) {
+                return;
+            }
+
+            if (originalProtocol == null) {
+                originalProtocol = request.protocol();
+            }
+
+            if (originalProtocol != ProtocolEnum.HTTPS) {
+                return;
+            }
+            // 所有https的domain都已经重试过了，则请求http的协议尝试
+            if (allDomainsApplied) {
+                request.protocol(ProtocolEnum.HTTP);
+                return;
+            }
+        }
+
         void resolveDomain() {
             // a. 如果使用请求对象中预置的域名（固定域名场景），则不再处理
             if (usePreassignedDomain) {
+                // 如果是固定域名，则首次请求之后，认为所有域名都使用过了
+                if (!firstAttempt) {
+                    allDomainsApplied = true;
+                } else {
+                    firstAttempt = false;
+                }
+
                 return;
             }
 
@@ -387,7 +428,7 @@ public class DefaultClient implements Client, Closeable {
             this.response = response;
 
             // 如果采用了自动域名选择机制，则需要告知熔断器此次请求失败
-            if (!usePreassignedDomain) {
+            if (!usePreassignedDomain && originalProtocol == request.protocol()) {
                 breakStrategy.requestFail(
                         request.productCode(),
                         request.regionCode(),
@@ -398,8 +439,8 @@ public class DefaultClient implements Client, Closeable {
         void requestSuccess(CloseableHttpResponse response) {
             this.response = response;
 
-            // 如果采用了自动域名选择机制，则需要告知熔断器此次请求成功
-            if (!usePreassignedDomain) {
+            // 如果采用了自动域名选择机制，且协议没有变更，则需要告知熔断器此次请求成功
+            if (!usePreassignedDomain && originalProtocol == request.protocol()) {
                 breakStrategy.requestSuccess(
                         request.productCode(),
                         request.regionCode(),
