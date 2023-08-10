@@ -37,6 +37,10 @@ public class ClientProfile {
     private FixedWindowBreakStrategy.Config breakerConfig;
     private int maxRetryCount = DEFAULT_MAX_RETRY_COUNT;
     private RequestRecover requestRecover;
+    /**
+     * 当HTTPS请求失败时，是否尝试使用HTTP协议进行重试
+     */
+    private boolean fallbackHttp = true;
 
     private List<Class<?>> preheatRequestClassesForValidation = new ArrayList<>();
     private List<BaseRequest> preheatRequestsForValidation = new ArrayList<>();
@@ -252,6 +256,23 @@ public class ClientProfile {
             preheatRequestsForValidation.add(request);
         }
 
+        return this;
+    }
+
+    public boolean isFallbackHttp() {
+        return fallbackHttp;
+    }
+
+    public void setFallbackHttp(boolean fallbackHttp) {
+        this.fallbackHttp = fallbackHttp;
+    }
+
+    public boolean fallbackHttp() {
+        return fallbackHttp;
+    }
+
+    public ClientProfile fallbackHttp(boolean fallbackHttp) {
+        this.fallbackHttp = fallbackHttp;
         return this;
     }
 

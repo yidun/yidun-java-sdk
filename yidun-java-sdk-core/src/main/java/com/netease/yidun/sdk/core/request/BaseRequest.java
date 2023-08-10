@@ -22,6 +22,11 @@ public abstract class BaseRequest<T extends BaseResponse> {
     protected ProtocolEnum protocol;
 
     /**
+     * 当HTTPS请求失败时，是否尝试使用HTTP协议进行重试
+     */
+    protected Boolean fallbackHttp;
+
+    /**
      * 指定域名
      */
     protected String domain;
@@ -158,6 +163,14 @@ public abstract class BaseRequest<T extends BaseResponse> {
         this.enableRecover = enableRecover;
     }
 
+    public Boolean getFallbackHttp() {
+        return fallbackHttp;
+    }
+
+    public void setFallbackHttp(Boolean fallbackHttp) {
+        this.fallbackHttp = fallbackHttp;
+    }
+
     @Override
     public String toString() {
         return "BaseRequest("
@@ -167,6 +180,7 @@ public abstract class BaseRequest<T extends BaseResponse> {
                 + ", productCode=" + productCode
                 + ", uriPattern=" + uriPattern
                 + ", method=" + method
+                + ", fallbackHttp=" + fallbackHttp
                 + ")";
     }
 }

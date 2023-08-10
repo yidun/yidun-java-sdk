@@ -28,8 +28,8 @@
       "as.dun.163yun.com"
     ],
     "sg-singapore": [
-      "as-media-sg.dun.163yun.com",
-      "as-media-sg.dun.163.com"
+      "as-media-sg.dun.163.com",
+      "as-media-sg.dun.163yun.com"
     ]
   },
   "report": {
@@ -50,8 +50,8 @@
       "as.dun.163yun.com"
     ],
     "sg-singapore": [
-      "as-audio-sg.dun.163yun.com",
-      "as-audio-sg.dun.163.com"
+      "as-audio-sg.dun.163.com",
+      "as-audio-sg.dun.163yun.com"
     ]
   },
   "audioCommon": {
@@ -66,8 +66,8 @@
       "as.dun.163yun.com"
     ],
     "sg-singapore": [
-      "as-video-sg.dun.163yun.com",
-      "as-video-sg.dun.163.com"
+      "as-video-sg.dun.163.com",
+      "as-video-sg.dun.163yun.com"
     ]
   },
   "videoCommon": {
@@ -82,8 +82,8 @@
       "as.dun.163yun.com"
     ],
     "sg-singapore": [
-      "as-videosolution-sg.dun.163yun.com",
-      "as-videosolution-sg.dun.163.com"
+      "as-videosolution-sg.dun.163.com",
+      "as-videosolution-sg.dun.163yun.com"
     ]
   },
   "videoSolutionCommon": {
@@ -110,8 +110,8 @@
       "as.dun.163yun.com"
     ],
     "sg-singapore": [
-      "as-livesolution-sg.dun.163yun.com",
-      "as-livesolution-sg.dun.163.com"
+      "as-livesolution-sg.dun.163.com",
+      "as-livesolution-sg.dun.163yun.com"
     ]
   },
   "liveVideoSolutionCommon": {
@@ -162,14 +162,26 @@
       "as.dun.163yun.com"
     ],
     "sg-singapore": [
-      "as-image-sg.dun.163yun.com",
-      "as-image-sg.dun.163.com"
+      "as-image-sg.dun.163.com",
+      "as-image-sg.dun.163yun.com"
+    ],
+    "us-virginia": [
+      "as-image-virginia.dun.163.com",
+      "as-image-virginia.dun.163yun.com"
     ]
   },
   "imageCommon": {
     "cn-hangzhou": [
       "as.dun.163.com",
       "as.dun.163yun.com"
+    ],
+    "sg-singapore": [
+      "as-image-sg.dun.163.com",
+      "as-image-sg.dun.163yun.com"
+    ],
+    "us-virginia": [
+      "as-image-virginia.dun.163.com",
+      "as-image-virginia.dun.163yun.com"
     ]
   },
   "text-check": {
@@ -181,21 +193,17 @@
       "as-text-bj.dun.163.com",
       "as-text-bj.dun.163yun.com"
     ],
-    "cn-shanghai": [
-      "as-text-sh.dun.163yun.com"
-    ],
-    "cn-guangzhou": [
-      "as-text-gz.dun.163yun.com"
-    ],
     "sg-singapore": [
-      "as-text-sg.dun.163yun.com",
-      "as-text-sg.dun.163.com"
+      "as-text-sg.dun.163.com",
+      "as-text-sg.dun.163yun.com"
     ],
     "de-frankfurt": [
-      "as-text-frankfurt.dun.163.com"
+      "as-text-frankfurt.dun.163.com",
+      "as-text-frankfurt.dun.163yun.com"
     ],
     "us-virginia": [
-      "as-text-virginia.dun.163.com"
+      "as-text-virginia.dun.163.com",
+      "as-text-virginia.dun.163yun.com"
     ],
     "jp-tokyo": [
       "as-text-tokyo.dun.163.com",
@@ -206,6 +214,26 @@
     "cn-hangzhou": [
       "as.dun.163.com",
       "as.dun.163yun.com"
+    ],
+    "cn-beijing": [
+      "as-text-bj.dun.163.com",
+      "as-text-bj.dun.163yun.com"
+    ],
+    "sg-singapore": [
+      "as-text-sg.dun.163.com",
+      "as-text-sg.dun.163yun.com"
+    ],
+    "de-frankfurt": [
+      "as-text-frankfurt.dun.163.com",
+      "as-text-frankfurt.dun.163yun.com"
+    ],
+    "us-virginia": [
+      "as-text-virginia.dun.163.com",
+      "as-text-virginia.dun.163yun.com"
+    ],
+    "jp-tokyo": [
+      "as-text-tokyo.dun.163.com",
+      "as-text-tokyo.dun.163yun.com"
     ]
   },
   "pretreatment": {
