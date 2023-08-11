@@ -1,11 +1,11 @@
 package com.netease.yidun.sdk.antispam.video.callback.v4.response;
 
-import java.util.List;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
 public class ImageV5SubLabelResp {
@@ -13,6 +13,22 @@ public class ImageV5SubLabelResp {
      * 对外的图片label
      */
     private int subLabel;
+    /**
+     * 命中的最终细分类的层级
+     */
+    private Integer subLabelDepth;
+    /**
+     * 二级分类，必返回
+     */
+    private String secondLabel;
+    /**
+     * 三级分类，可能返回
+     */
+    private String thirdLabel;
+    /**
+     * 命中标识
+     */
+    private Integer hitStrategy;
     /**
      * 判断结果，0-正常，1-不确定，2-确定
      */

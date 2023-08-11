@@ -1,15 +1,14 @@
 package com.netease.yidun.sdk.antispam.audio.check.sync.v2.request;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
 import com.google.gson.Gson;
 import com.netease.yidun.sdk.antispam.audio.check.sync.v2.response.AudioSyncCheckResponse;
 import com.netease.yidun.sdk.core.request.BizPostFormRequest;
 import com.netease.yidun.sdk.core.utils.StringHashMap;
-
 import lombok.Data;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 @Data
 public class AudioSyncCheckRequest extends BizPostFormRequest<AudioSyncCheckResponse> {
@@ -216,7 +215,7 @@ public class AudioSyncCheckRequest extends BizPostFormRequest<AudioSyncCheckResp
     public AudioSyncCheckRequest() {
         productCode = "audioCheck";
         uriPattern = "/v2/audio/check";
-        version = "v2.1";
+        version = "v2.2";
     }
 
     @Override

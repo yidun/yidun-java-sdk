@@ -1,8 +1,10 @@
 package com.netease.yidun.sdk.antispam.liveaudio.callback.v4.response;
 
-import java.util.List;
-
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
 public class LiveAudioCallbackUnitRespV4 {
@@ -33,7 +35,16 @@ public class LiveAudioCallbackUnitRespV4 {
     public static class SegmentsInfoV4 {
         private Integer label;
         private Integer level;
-        private List<AudioSubLabelV4> subLabels;
+        private List<AudioThirdLabel> subLabels;
+    }
+
+    @Data
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class AudioThirdLabel extends AudioSubLabelV4 {
+        private String secondLabel;
+        private String thirdLabel;
+        private Integer subLabelDepth;
     }
 
     @Data

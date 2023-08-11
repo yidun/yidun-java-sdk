@@ -1,12 +1,12 @@
 package com.netease.yidun.sdk.antispam.livevideo.callback.v4.response;
 
-import java.io.Serializable;
-import java.util.List;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
+import java.util.List;
 
 /**
  * 检测接口返回的图片label对象
@@ -20,6 +20,22 @@ public class ImageSubLabelResp implements Serializable {
      * 对外的图片label
      */
     private int subLabel;
+    /**
+     * 命中的最终细分类的层级
+     */
+    private Integer subLabelDepth;
+    /**
+     * 二级分类，必返回
+     */
+    private String secondLabel;
+    /**
+     * 三级分类，可能返回
+     */
+    private String thirdLabel;
+    /**
+     * 命中标识
+     */
+    private Integer hitStrategy;
     /**
      * 判断结果，0-正常，1-不确定，2-确定
      */

@@ -1,12 +1,11 @@
 package com.netease.yidun.sdk.antispam.video.callback.v4.request;
 
-import java.util.Map;
-
 import com.netease.yidun.sdk.antispam.video.callback.v4.response.VideoCallbackV4Resp;
 import com.netease.yidun.sdk.core.request.BizPostFormRequest;
-
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.Map;
 
 /**
  * 点播回调接口请求 V4 版本
@@ -23,7 +22,7 @@ public class VideoCallbackV4Req extends BizPostFormRequest<VideoCallbackV4Resp> 
     public VideoCallbackV4Req() {
         productCode = "videoCommon";
         uriPattern = "/v4/video/callback/results";
-        version = "v4";
+        version = "v4.1";
     }
 
     @Override
