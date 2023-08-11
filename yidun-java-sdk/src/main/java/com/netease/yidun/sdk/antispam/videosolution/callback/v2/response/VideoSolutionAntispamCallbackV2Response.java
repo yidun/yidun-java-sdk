@@ -65,11 +65,41 @@ public class VideoSolutionAntispamCallbackV2Response {
      */
     private VideoSolutionCallbackEvidenceV2Response evidences;
     /**
+     * 音视频解决方案额外信息
+     */
+    private VideoSolutionCallbackExtraV2Response solutionExtra;
+    /**
      * 人审证据信息，接入人工审核后，参考人审证据信息，人审证据信息与机器检测证据信息不共存
      */
     private VideoSolutionCallbackReviewEvidenceV2Response reviewEvidences;
     private List<CensorLabelInfoV2Response> censorLabels;
 
+    @Data
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class VideoSolutionCallbackExtraV2Response {
+        private VideoSolutionFailUnitResponse failUnit;
+    }
+    @Data
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class VideoSolutionFailUnitResponse {
+        private List<VideoSolutionImageFailUnitResponse> images;
+        private VideoSolutionTargetFailUnitResponse audio;
+        private VideoSolutionTargetFailUnitResponse video;
+    }
+    @Data
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class VideoSolutionTargetFailUnitResponse {
+        private Integer failureReason;
+    }
+    @Data
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class VideoSolutionImageFailUnitResponse {
+        private String name;
+    }
     @Data
     @Builder
     @AllArgsConstructor
