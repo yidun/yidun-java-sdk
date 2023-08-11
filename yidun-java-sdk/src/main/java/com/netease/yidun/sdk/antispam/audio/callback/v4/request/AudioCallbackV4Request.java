@@ -1,9 +1,9 @@
 package com.netease.yidun.sdk.antispam.audio.callback.v4.request;
 
-import java.util.Map;
-
 import com.netease.yidun.sdk.antispam.audio.callback.v4.response.AudioCallbackV4Response;
 import com.netease.yidun.sdk.core.request.BizPostFormRequest;
+
+import java.util.Map;
 
 public class AudioCallbackV4Request extends BizPostFormRequest<AudioCallbackV4Response> {
     /**
@@ -14,7 +14,7 @@ public class AudioCallbackV4Request extends BizPostFormRequest<AudioCallbackV4Re
     public AudioCallbackV4Request() {
         productCode = "audioCommon";
         uriPattern = "/v4/audio/callback/results";
-        version = "v4";
+        version = "v4.1";
     }
 
     @Override

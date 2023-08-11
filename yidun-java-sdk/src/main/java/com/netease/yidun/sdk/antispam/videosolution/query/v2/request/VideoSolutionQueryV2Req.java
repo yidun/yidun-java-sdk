@@ -6,15 +6,14 @@
 
 package com.netease.yidun.sdk.antispam.videosolution.query.v2.request;
 
-import java.util.Map;
-import java.util.Set;
-
 import com.google.gson.Gson;
 import com.netease.yidun.sdk.antispam.videosolution.query.v2.response.VideoSolutionQueryV2Resp;
 import com.netease.yidun.sdk.core.request.PostFormRequest;
 import com.netease.yidun.sdk.core.utils.StringHashMap;
-
 import lombok.Data;
+
+import java.util.Map;
+import java.util.Set;
 
 /**
  * @author maxiaofeng
@@ -31,7 +30,7 @@ public class VideoSolutionQueryV2Req extends PostFormRequest<VideoSolutionQueryV
     public VideoSolutionQueryV2Req() {
         productCode = "videoSolutionCommon";
         uriPattern = "/v2/videosolution/query/task";
-        version = "v2";
+        version = "v2.1";
     }
 
     @Override

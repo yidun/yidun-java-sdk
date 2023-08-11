@@ -1,11 +1,11 @@
 package com.netease.yidun.sdk.antispam.videosolution.callback.v2.response;
 
-import java.util.List;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 /**
  * 文本回调结果实体V3
@@ -45,5 +45,11 @@ public class TextCallbackUnit {
          * 值定义见SpamType
          */
         private String subLabel;
+
+        private Integer subLabelDepth;
+
+        private String secondLabel;
+
+        private String thirdLabel;
     }
 }

@@ -1,11 +1,10 @@
 package com.netease.yidun.sdk.antispam.liveaudio.callback.v4.request;
 
-import java.util.Map;
-
 import com.netease.yidun.sdk.antispam.liveaudio.callback.v4.response.LiveAudioCallbackV4Resp;
 import com.netease.yidun.sdk.core.request.BizPostFormRequest;
-
 import lombok.Data;
+
+import java.util.Map;
 
 @Data
 public class LiveAudioCallbackV4Req extends BizPostFormRequest<LiveAudioCallbackV4Resp> {
@@ -18,7 +17,7 @@ public class LiveAudioCallbackV4Req extends BizPostFormRequest<LiveAudioCallback
     public LiveAudioCallbackV4Req() {
         productCode = "liveAudio";
         uriPattern = "/v4/liveaudio/callback/results";
-        version = "v4";
+        version = "v4.1";
     }
 
     @Override

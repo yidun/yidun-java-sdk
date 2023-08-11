@@ -1,14 +1,13 @@
 package com.netease.yidun.sdk.antispam.audio.callback.v4.response;
 
-import java.util.List;
-
 import com.netease.yidun.sdk.core.response.BaseResponse;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
 @Builder
@@ -104,6 +103,7 @@ public class AudioAntispamCallbackV4Response implements BaseResponse {
          * 命中细分类信息
          */
         private List<AudioSubLabel> subLabels;
+
     }
 
     @Data
@@ -114,6 +114,9 @@ public class AudioAntispamCallbackV4Response implements BaseResponse {
          * 细分类
          */
         private String subLabel;
+        private Integer subLabelDepth;
+        private String secondLabel;
+        private String thirdLabel;
         /**
          * 其他信息
          */
