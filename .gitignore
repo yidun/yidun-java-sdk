@@ -2,3 +2,9 @@
 /yidun-java-sdk-core/target/
 /yidun-java-sdk-demo/target/
 /.idea/
+/target/
+/efficiency.json
+/yidun-java-sdk/yidun-java-sdk.iml
+/yidun-java-sdk-core/yidun-java-sdk-core.iml
+/yidun-java-sdk-demo/yidun-java-sdk-demo.iml
+/yidun-java-sdk-parent.iml
