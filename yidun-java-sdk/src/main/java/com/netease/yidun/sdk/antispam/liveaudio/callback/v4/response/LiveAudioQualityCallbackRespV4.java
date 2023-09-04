@@ -28,6 +28,7 @@ public class LiveAudioQualityCallbackRespV4 {
     private Long startTime;
     private Long endTime;
     private String callback;
+    private String speakerId;
     private LiveAudioQualityDetails details;
 
     @Data
