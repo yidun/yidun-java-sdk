@@ -26,4 +26,5 @@ public class LiveAudioVoiceCallbackRespV4 {
     private Double mainAgeGroupRate;
     private String callback;
     private String segmentId;
+    private String speakerId;
 }

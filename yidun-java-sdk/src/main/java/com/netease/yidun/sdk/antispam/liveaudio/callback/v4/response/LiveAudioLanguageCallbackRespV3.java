@@ -16,4 +16,5 @@ public class LiveAudioLanguageCallbackRespV3 {
     private String content;
     private String callback;
     private String segmentId;
+    private String speakerId;
 }
