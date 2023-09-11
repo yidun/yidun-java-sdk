@@ -25,6 +25,11 @@ public class CrawlerResourceSubmitV3Response extends CommonResponse {
          */
         private String dataId;
 
+        /**
+         * 缓冲池当前排队待处理数量
+         */
+        private Long dealingCount;
+
         public String getTaskId() {
             return taskId;
         }
@@ -41,12 +46,22 @@ public class CrawlerResourceSubmitV3Response extends CommonResponse {
             this.dataId = dataId;
         }
 
+        public Long getDealingCount() {
+            return dealingCount;
+        }
+
+        public void setDealingCount(Long dealingCount) {
+            this.dealingCount = dealingCount;
+        }
+
         @Override
         public String toString() {
-            return "CrawlerResourceSubmitResult{" +
-                    "taskId='" + taskId + '\'' +
-                    ", dataId='" + dataId + '\'' +
-                    '}';
+            if (dealingCount != null) {
+                return String.format("CrawlerResourceSubmitResult {taskId='%s', dataId='%s', dealingCount=%s", taskId,
+                        dataId, dealingCount);
+            } else {
+                return String.format("CrawlerResourceSubmitResult {taskId='%s', dataId='%s'}", taskId, dataId);
+            }
         }
     }
 
