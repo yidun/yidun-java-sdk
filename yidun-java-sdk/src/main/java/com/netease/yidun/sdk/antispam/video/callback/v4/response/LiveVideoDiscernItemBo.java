@@ -36,4 +36,8 @@ public class LiveVideoDiscernItemBo implements Serializable {
      * 分数
      */
     private Float rate;
+    /**
+     * 识别标识
+     */
+    private String discernKey;
 }
