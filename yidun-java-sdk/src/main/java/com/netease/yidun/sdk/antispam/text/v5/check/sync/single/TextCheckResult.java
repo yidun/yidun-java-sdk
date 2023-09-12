@@ -86,6 +86,10 @@ public class TextCheckResult implements Serializable {
         private String dataId;
         private Integer suggestion;
         private Integer suggestionLevel;
+        /**
+         * 客户自定义动作
+         */
+        private Integer customAction;
         private Integer resultType;
         private Integer censorType;
         private String callback;
@@ -130,6 +134,14 @@ public class TextCheckResult implements Serializable {
 
         public void setSuggestionLevel(Integer suggestionLevel) {
             this.suggestionLevel = suggestionLevel;
+        }
+
+        public Integer getCustomAction() {
+            return customAction;
+        }
+
+        public void setCustomAction(Integer customAction) {
+            this.customAction = customAction;
         }
 
         public Integer getResultType() {
@@ -243,6 +255,7 @@ public class TextCheckResult implements Serializable {
                     + ", dataId=" + dataId
                     + ", suggestion=" + suggestion
                     + ", suggestionLevel=" + suggestionLevel
+                    + ", customAction=" + customAction
                     + ", resultType=" + resultType
                     + ", censorType=" + censorType
                     + ", callback=" + callback
