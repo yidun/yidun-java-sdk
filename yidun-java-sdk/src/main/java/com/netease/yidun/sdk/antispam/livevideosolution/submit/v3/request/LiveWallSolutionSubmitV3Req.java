@@ -1,5 +1,6 @@
 package com.netease.yidun.sdk.antispam.livevideosolution.submit.v3.request;
 
+import java.util.List;
 import java.util.Map;
 
 import com.google.gson.Gson;
@@ -8,6 +9,7 @@ import com.netease.yidun.sdk.antispam.video.submit.v4.request.AdvancedFrequencyR
 import com.netease.yidun.sdk.core.request.PostFormRequest;
 import com.netease.yidun.sdk.core.utils.StringHashMap;
 
+import java.util.stream.Collectors;
 import lombok.Data;
 
 @Data
@@ -95,6 +97,17 @@ public class LiveWallSolutionSubmitV3Req extends PostFormRequest<LiveWallSolutio
 
     private Integer gender;
 
+    /**
+     * 指定监听必审列表范围内的数据 speakerId
+     */
+    private List<Long> checkSpeakerIds;
+
+    /**
+     * 指定不监听信任用户列表范围内的数据 speakerId
+     */
+    private List<Long> noCheckSpeakerIds;
+
+
     public LiveWallSolutionSubmitV3Req() {
         productCode = "liveVideoSolutionCheck";
         uriPattern = "/v3/livewallsolution/check";
@@ -134,6 +147,16 @@ public class LiveWallSolutionSubmitV3Req extends PostFormRequest<LiveWallSolutio
         params.put("screenMode", getScreenMode());
         params.put("checkLanguageCode", getCheckLanguageCode());
         params.put("gender", getGender());
+        List<Long> checkSpeakerIds = getCheckSpeakerIds();
+        if (checkSpeakerIds != null && checkSpeakerIds.size() > 0) {
+            params.put("checkSpeakerIds",
+                    checkSpeakerIds.stream().map(String::valueOf).collect(Collectors.joining(",")));
+        }
+        List<Long> noCheckSpeakerIds = getNoCheckSpeakerIds();
+        if (noCheckSpeakerIds != null && noCheckSpeakerIds.size() > 0) {
+            params.put("noCheckSpeakerIds",
+                    noCheckSpeakerIds.stream().map(String::valueOf).collect(Collectors.joining(",")));
+        }
         return params;
     }
 
