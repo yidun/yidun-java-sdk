@@ -1,11 +1,13 @@
 package com.netease.yidun.sdk.antispam.liveaudio.submit.v4.request;
 
+import java.util.List;
 import java.util.Map;
 
 import com.netease.yidun.sdk.antispam.liveaudio.submit.v4.response.LiveAudioSubmitV4Resp;
 import com.netease.yidun.sdk.core.request.BizPostFormRequest;
 import com.netease.yidun.sdk.core.utils.StringHashMap;
 
+import java.util.stream.Collectors;
 import lombok.Data;
 
 @Data
@@ -195,6 +197,16 @@ public class LiveAudioSubmitV4Req extends BizPostFormRequest<LiveAudioSubmitV4Re
      */
     private String roomId;
 
+    /**
+     * 指定监听必审列表范围内的数据 speakerId
+     */
+    private List<Long> checkSpeakerIds;
+
+    /**
+     * 指定不监听信任用户列表范围内的数据 speakerId
+     */
+    private List<Long> noCheckSpeakerIds;
+
     public LiveAudioSubmitV4Req() {
         productCode = "liveAudio";
         uriPattern = "/v4/liveaudio/check";
@@ -242,6 +254,16 @@ public class LiveAudioSubmitV4Req extends BizPostFormRequest<LiveAudioSubmitV4Re
         params.put("token", getToken());
         params.put("url", getUrl());
         params.put("checkLanguageCode", getCheckLanguageCode());
+        List<Long> checkSpeakerIds = getCheckSpeakerIds();
+        if (checkSpeakerIds != null && checkSpeakerIds.size() > 0) {
+            params.put("checkSpeakerIds",
+                    checkSpeakerIds.stream().map(String::valueOf).collect(Collectors.joining(",")));
+        }
+        List<Long> noCheckSpeakerIds = getNoCheckSpeakerIds();
+        if (noCheckSpeakerIds != null && noCheckSpeakerIds.size() > 0) {
+            params.put("noCheckSpeakerIds",
+                    noCheckSpeakerIds.stream().map(String::valueOf).collect(Collectors.joining(",")));
+        }
         return params;
     }
 
