@@ -27,4 +27,8 @@ public class LiveAudioVoiceCallbackRespV4 {
     private String callback;
     private String segmentId;
     private String speakerId;
+    /**
+     * 音频url
+     */
+    private String url;
 }
