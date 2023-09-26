@@ -204,6 +204,7 @@ public class LiveVideoSolutionCallbackV3Result implements BaseResponse {
         private long endTime;
         private String speakerId;
         private List<RelatedPicInfo> frontPics;
+        private String pictureId;
     }
 
     @Data

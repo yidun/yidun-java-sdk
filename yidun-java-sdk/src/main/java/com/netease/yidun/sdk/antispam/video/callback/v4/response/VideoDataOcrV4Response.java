@@ -12,4 +12,5 @@ public class VideoDataOcrV4Response {
     private Integer height;
     private Integer width;
     private List<VideoDataOcrDetailBo> details;
+    private String pictureId;
 }

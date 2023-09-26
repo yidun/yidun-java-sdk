@@ -27,4 +27,5 @@ public class LiveDataCallbackDiscernUnitV4 {
     private Long beginTime;
     private Long endTime;
     private List<LiveVideoDiscernItemBo> details;
+    private String pictureId;
 }

@@ -19,4 +19,5 @@ public class VideoDataQualityV4Response {
     private Long startTime;
     private Long endTime;
     private List<VideoDataQualityResp> details;
+    private String pictureId;
 }

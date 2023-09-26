@@ -13,4 +13,5 @@ public class VideoDataFaceV4Response {
      * face检测结果
      */
     private List<VideoDataFaceDetailBo> details;
+    private String pictureId;
 }

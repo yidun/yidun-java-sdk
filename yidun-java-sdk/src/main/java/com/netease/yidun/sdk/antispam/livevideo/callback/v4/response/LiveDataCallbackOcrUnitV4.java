@@ -22,4 +22,5 @@ public class LiveDataCallbackOcrUnitV4 {
     private Integer width;
     private String url;
     private List<VideoDataOcrDetailBo> details;
+    private String pictureId;
 }

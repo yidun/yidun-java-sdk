@@ -24,6 +24,7 @@ public class LiveDataCallbackFaceUnitV4 {
     private Long endTime;
     private String url;
     private List<LiveDataFaceDetailBo> details;
+    private String pictureId;
 
     @Data
     @AllArgsConstructor
