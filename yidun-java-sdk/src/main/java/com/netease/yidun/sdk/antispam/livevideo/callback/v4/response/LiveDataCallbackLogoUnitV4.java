@@ -19,6 +19,7 @@ public class LiveDataCallbackLogoUnitV4 {
     private Long beginTime;
     private Long endTime;
     private List<LiveVideoLogoItemBo> details;
+    private String pictureId;
 
     @Data
     @Builder

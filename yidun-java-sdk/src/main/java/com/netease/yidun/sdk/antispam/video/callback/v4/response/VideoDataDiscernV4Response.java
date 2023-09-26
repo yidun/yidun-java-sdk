@@ -19,4 +19,5 @@ public class VideoDataDiscernV4Response {
     private Long startTime;
     private Long endTime;
     private List<VideoDiscernItemBo> details;
+    private String pictureId;
 }

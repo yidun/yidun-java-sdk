@@ -35,6 +35,7 @@ public class VideoCallbackUnitV4Response {
         private Integer censorSource;
         private List<RelatedPicInfoResponse> frontPics;
         private List<RelatedPicInfoResponse> backPics;
+        private String pictureId;
 
     }
 

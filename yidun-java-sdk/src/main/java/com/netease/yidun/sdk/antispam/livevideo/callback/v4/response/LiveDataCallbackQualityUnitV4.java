@@ -27,4 +27,5 @@ public class LiveDataCallbackQualityUnitV4 {
     private Long beginTime;
     private Long endTime;
     private List<LiveDataQualityResp> details;
+    private String pictureId;
 }

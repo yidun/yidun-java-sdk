@@ -12,4 +12,5 @@ public class VideoDataLogoV4Response {
     private Long startTime;
     private Long endTime;
     private List<VideoLogoItemBo> details;
+    private String pictureId;
 }
