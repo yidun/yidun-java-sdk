@@ -30,6 +30,10 @@ public class FileSubmitV2Response extends CommonResponse {
          * 数据唯一标识，能够根据该值定位到该条数据，如对数据结果有异议，可以发送该值给客户经理查询
          */
         private String dataId;
+        /**
+         * 缓冲池当前缓冲数量
+         */
+        private Long dealingCount;
 
         public String getTaskId() {
             return taskId;
@@ -47,11 +51,20 @@ public class FileSubmitV2Response extends CommonResponse {
             this.dataId = dataId;
         }
 
+        public Long getDealingCount() {
+            return dealingCount;
+        }
+
+        public void setDealingCount(Long dealingCount) {
+            this.dealingCount = dealingCount;
+        }
+
         @Override
         public String toString() {
             return "FileSubmitV2Resp{" +
                     "taskId='" + taskId + '\'' +
                     ", dataId='" + dataId + '\'' +
+                    ", dealingCount=" + dealingCount +
                     '}';
         }
     }
