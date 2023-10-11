@@ -228,6 +228,7 @@ public class ImageV5AntispamResp implements Serializable {
     private static class CensorLabelInfo implements Serializable {
         private static final long serialVersionUID = -7913548400479437764L;
         private String code;
+        private String name;
         private String desc;
         private String customCode;
 
@@ -237,6 +238,14 @@ public class ImageV5AntispamResp implements Serializable {
 
         public void setCode(String code) {
             this.code = code;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
         }
 
         public String getDesc() {
