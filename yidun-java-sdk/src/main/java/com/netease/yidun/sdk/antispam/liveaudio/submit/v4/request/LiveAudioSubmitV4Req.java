@@ -207,6 +207,16 @@ public class LiveAudioSubmitV4Req extends BizPostFormRequest<LiveAudioSubmitV4Re
      */
     private List<Long> noCheckSpeakerIds;
 
+    private Long extLon1;
+
+    private Long extLon2;
+
+    private String extStr1;
+
+    private String extStr2;
+
+    private String subProduct;
+
     public LiveAudioSubmitV4Req() {
         productCode = "liveAudio";
         uriPattern = "/v4/liveaudio/check";
@@ -264,6 +274,11 @@ public class LiveAudioSubmitV4Req extends BizPostFormRequest<LiveAudioSubmitV4Re
             params.put("noCheckSpeakerIds",
                     noCheckSpeakerIds.stream().map(String::valueOf).collect(Collectors.joining(",")));
         }
+        params.put("extLon1", extLon1);
+        params.put("extLon2", extLon2);
+        params.put("extStr1", extStr1);
+        params.put("extStr2", extStr2);
+        params.put("subProduct", subProduct);
         return params;
     }
 
