@@ -107,6 +107,20 @@ public class LiveWallSolutionSubmitV3Req extends PostFormRequest<LiveWallSolutio
      */
     private List<Long> noCheckSpeakerIds;
 
+    private Long extLon1;
+
+    private Long extLon2;
+
+    private String extStr1;
+
+    private String extStr2;
+
+    /**
+     * 截图策略 0-易盾截图 1-云信上传截图
+     */
+    private Integer screenShotStrategy;
+
+    private String subProduct;
 
     public LiveWallSolutionSubmitV3Req() {
         productCode = "liveVideoSolutionCheck";
@@ -157,6 +171,12 @@ public class LiveWallSolutionSubmitV3Req extends PostFormRequest<LiveWallSolutio
             params.put("noCheckSpeakerIds",
                     noCheckSpeakerIds.stream().map(String::valueOf).collect(Collectors.joining(",")));
         }
+        params.put("extLon1", extLon1);
+        params.put("extLon2", extLon2);
+        params.put("extStr1", extStr1);
+        params.put("extStr2", extStr2);
+        params.put("screenShotStrategy", screenShotStrategy);
+        params.put("subProduct", subProduct);
         return params;
     }
 
