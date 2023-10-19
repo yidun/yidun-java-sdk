@@ -39,6 +39,10 @@ public class ImageV5Result implements Serializable {
      * 反作弊结果
      */
     private ImageAnticheatV5Resp anticheat;
+    /**
+     * 智能风控结果
+     */
+    private ImageRiskControlV5Resp riskControl;
 
     public ImageV5AntispamResp getAntispam() {
         return antispam;
@@ -102,5 +106,13 @@ public class ImageV5Result implements Serializable {
 
     public void setAnticheat(ImageAnticheatV5Resp anticheat) {
         this.anticheat = anticheat;
+    }
+
+    public ImageRiskControlV5Resp getRiskControl() {
+        return riskControl;
+    }
+
+    public void setRiskControl(ImageRiskControlV5Resp riskControl) {
+        this.riskControl = riskControl;
     }
 }
