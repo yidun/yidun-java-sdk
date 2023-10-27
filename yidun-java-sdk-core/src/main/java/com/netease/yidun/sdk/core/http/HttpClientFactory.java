@@ -2,6 +2,7 @@
 
 package com.netease.yidun.sdk.core.http;
 
+import com.netease.yidun.sdk.core.client.NoResponseRetryStrategy;
 import org.apache.hc.client5.http.config.RequestConfig;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
 import org.apache.hc.client5.http.impl.classic.HttpClientBuilder;
@@ -42,6 +43,7 @@ public class HttpClientFactory {
                 .useSystemProperties()
                 // 设置版本号在ua上，方便统计
                 .setUserAgent(getCustomizeSdkUserAgent())
+                .setRetryStrategy(new NoResponseRetryStrategy(config.maxNoResponseRetryCount(), 10))
                 .build();
     }
 

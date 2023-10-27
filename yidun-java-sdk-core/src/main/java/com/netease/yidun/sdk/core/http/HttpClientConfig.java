@@ -13,13 +13,14 @@ public class HttpClientConfig {
 
     public static final ProtocolEnum DEFAULT_PROTOCOL = ProtocolEnum.HTTPS;
     public static final int DEFAULT_SOCKET_TIMEOUT_MILLIS = 5000;
-    public static final long DEFAULT_MAX_IDLE_TIME_MILLIS = 60 * 1000L;
-    public static final long DEFAULT_CONNECTION_KEEP_ALIVE_MILLIS = 2 * 60 * 1000L;
+    public static final long DEFAULT_MAX_IDLE_TIME_MILLIS = 43 * 1000L;
+    public static final long DEFAULT_CONNECTION_KEEP_ALIVE_MILLIS = 43 * 1000L;
     public static final long DEFAULT_CONNECTION_REQUEST_TIMEOUT_MILLIS = 1000L;
     public static final long DEFAULT_CONNECTION_TIMEOUT_MILLIS = 15000L;
     public static final long DEFAULT_RESPONSE_TIMEOUT_MILLIS = 20000L;
     public static final int DEFAULT_MAX_CONNECTION_COUNT = 200;
     public static final int DEFAULT_MAX_CONNECTION_COUNT_PER_ROUTE = 20;
+    public static final int DEFAULT_MAX_RETRY_COUNT = 1;
 
     private ProtocolEnum protocol = DEFAULT_PROTOCOL;
     private int socketTimeoutMillis = DEFAULT_SOCKET_TIMEOUT_MILLIS;
@@ -30,6 +31,7 @@ public class HttpClientConfig {
     private long responseTimeoutMillis = DEFAULT_RESPONSE_TIMEOUT_MILLIS;
     private int maxConnectionCount = DEFAULT_MAX_CONNECTION_COUNT;
     private int maxConnectionCountPerRoute = DEFAULT_MAX_CONNECTION_COUNT_PER_ROUTE;
+    private int maxNoResponseRetryCount = DEFAULT_MAX_RETRY_COUNT;
 
     public ProtocolEnum getProtocol() {
         return protocol;
@@ -211,6 +213,26 @@ public class HttpClientConfig {
         return this;
     }
 
+    public int getMaxNoResponseRetryCount() {
+        return maxNoResponseRetryCount;
+    }
+
+    public void setMaxNoResponseRetryCount(int maxNoResponseRetryCount) {
+        this.maxNoResponseRetryCount = maxNoResponseRetryCount;
+    }
+
+    public int maxNoResponseRetryCount() {
+        return maxNoResponseRetryCount;
+    }
+
+    /**
+     * 主要是用于http client内部的部分必要重试，当前主要是作用于keep alive的no response重试。默认值：{@link #DEFAULT_MAX_RETRY_COUNT}
+     */
+    public HttpClientConfig maxNoResponseRetryCount(int maxNoResponseRetryCount) {
+        this.maxNoResponseRetryCount = maxNoResponseRetryCount;
+        return this;
+    }
+
     @Override
     public String toString() {
         return "HttpClientConfig(" +
@@ -223,6 +245,7 @@ public class HttpClientConfig {
                 ", responseTimeoutMillis=" + responseTimeoutMillis +
                 ", maxConnectionCount=" + maxConnectionCount +
                 ", maxConnectionCountPerRoute=" + maxConnectionCountPerRoute +
+                ", maxNoResponseRetryCount=" + maxNoResponseRetryCount +
                 ")";
     }
 
