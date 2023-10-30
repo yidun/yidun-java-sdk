@@ -3,6 +3,8 @@ package com.netease.yidun.sdk.antispam.audio;
 
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.BaseClient;
+import com.netease.yidun.sdk.antispam.CallbackRegistry;
+import com.netease.yidun.sdk.antispam.ClientRegistry;
 import com.netease.yidun.sdk.antispam.audio.callback.v4.AudioCallback;
 import com.netease.yidun.sdk.antispam.audio.callback.v4.request.AudioCallbackV4Request;
 import com.netease.yidun.sdk.antispam.audio.callback.v4.response.AudioCallbackV4Response;
@@ -16,6 +18,28 @@ import com.netease.yidun.sdk.antispam.audio.query.v3.request.AudioQueryV3Request
 import com.netease.yidun.sdk.antispam.audio.query.v3.response.AudioQueryV3Response;
 
 public class AudioClient extends BaseClient {
+
+    /**
+     * 获取secretId对应的唯一实例
+     *
+     * @param requester
+     * @return
+     */
+    public static AudioClient getInstance(AntispamRequester requester) {
+        return ClientRegistry.register(requester, AudioClient.class);
+    }
+
+    /**
+     * 获取secretId对应的唯一实例
+     *
+     * @param requester
+     * @param audioCallback
+     * @return
+     */
+    public static AudioClient getInstance(AntispamRequester requester, AudioCallback... audioCallback) {
+        CallbackRegistry.register(requester, audioCallback);
+        return ClientRegistry.register(requester, AudioClient.class);
+    }
 
     public AudioClient(AntispamRequester requester) {
         super(requester);

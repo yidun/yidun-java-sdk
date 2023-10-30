@@ -4,6 +4,8 @@ package com.netease.yidun.sdk.antispam.video;
 
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.BaseClient;
+import com.netease.yidun.sdk.antispam.CallbackRegistry;
+import com.netease.yidun.sdk.antispam.ClientRegistry;
 import com.netease.yidun.sdk.antispam.video.callback.v4.VideoCallback;
 import com.netease.yidun.sdk.antispam.video.callback.v4.request.VideoCallbackV4Req;
 import com.netease.yidun.sdk.antispam.video.callback.v4.response.VideoCallbackV4Resp;
@@ -16,6 +18,28 @@ import com.netease.yidun.sdk.antispam.video.submit.v4.response.VideoCheckResp;
 
 
 public class VideoClient extends BaseClient {
+
+    /**
+     * 获取secretId对应的唯一实例
+     *
+     * @param requester
+     * @return
+     */
+    public static VideoClient getInstance(AntispamRequester requester) {
+        return ClientRegistry.register(requester, VideoClient.class);
+    }
+
+    /**
+     * 获取secretId对应的唯一实例
+     *
+     * @param requester
+     * @param videoCallback
+     * @return
+     */
+    public static VideoClient getInstance(AntispamRequester requester, VideoCallback... videoCallback) {
+        CallbackRegistry.register(requester, videoCallback);
+        return ClientRegistry.register(requester, VideoClient.class);
+    }
 
     public VideoClient(AntispamRequester requester) {
         super(requester);

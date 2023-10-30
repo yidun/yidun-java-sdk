@@ -2,6 +2,8 @@ package com.netease.yidun.sdk.antispam.text;
 
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.BaseClient;
+import com.netease.yidun.sdk.antispam.CallbackRegistry;
+import com.netease.yidun.sdk.antispam.ClientRegistry;
 import com.netease.yidun.sdk.antispam.text.v2.feedback.TextFeedbackRequest;
 import com.netease.yidun.sdk.antispam.text.v2.feedback.TextFeedbackResponse;
 import com.netease.yidun.sdk.antispam.text.v5.callback.TextCallback;
@@ -20,6 +22,28 @@ import com.netease.yidun.sdk.antispam.text.v5.check.sync.single.TextCheckRespons
  * 文本client
  */
 public class TextClient extends BaseClient {
+
+    /**
+     * 获取secretId对应的唯一实例
+     *
+     * @param textRequester
+     * @return
+     */
+    public static TextClient getInstance(AntispamRequester textRequester) {
+        return ClientRegistry.register(textRequester, TextClient.class);
+    }
+
+    /**
+     * 获取secretId对应的唯一实例
+     *
+     * @param textRequester
+     * @param textCallback
+     * @return
+     */
+    public static TextClient getInstance(AntispamRequester textRequester, TextCallback... textCallback) {
+        CallbackRegistry.register(textRequester, textCallback);
+        return ClientRegistry.register(textRequester, TextClient.class);
+    }
 
     public TextClient(AntispamRequester textRequester) {
         super(textRequester);
