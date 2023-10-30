@@ -18,7 +18,7 @@ public class LiveAudioFeedbackDemo extends AbstractDemo {
         AntispamRequester antispamRequester = createAntispamRequester("SecretId", "SecretKey");
 
         // 实例化发起请求的client对象
-        LiveAudioClient liveAudioClient = new LiveAudioClient(antispamRequester);
+        LiveAudioClient liveAudioClient = LiveAudioClient.getInstance(antispamRequester);
 
         // 实例化反馈请求对象
         LiveAudioFeedbackV1Req feedbackRequest = new LiveAudioFeedbackV1Req();

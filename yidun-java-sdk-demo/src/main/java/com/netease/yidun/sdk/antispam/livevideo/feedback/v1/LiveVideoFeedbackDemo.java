@@ -17,7 +17,7 @@ public class LiveVideoFeedbackDemo extends AbstractDemo {
         // 实例化一个requester，入参需要传入易盾内容安全分配的secretId，secretKey
         AntispamRequester antispamRequester = createAntispamRequester("SecretId", "SecretKey");
         // 实例化发起请求的client对象
-        LiveVideoClient client = new LiveVideoClient(antispamRequester);
+        LiveVideoClient client = LiveVideoClient.getInstance(antispamRequester);
         LiveVideoFeedbackReq request = new LiveVideoFeedbackReq();
         request.setBusinessId("BusinessId");
         // 设置实时反馈信息列表

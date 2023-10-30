@@ -26,7 +26,7 @@ public class LabelQueryDemo extends AbstractDemo {
     public static void  main(String[] args) {
         AntispamRequester antispamRequester = createAntispamRequester("SecretId", "SecretKey");
 
-        LabelClient labelClient = new LabelClient(antispamRequester);
+        LabelClient labelClient = LabelClient.getInstance(antispamRequester);
 
         LabelQueryRequest labelQueryRequest = new LabelQueryRequest();
         labelQueryRequest.setBusinessId("businessId");

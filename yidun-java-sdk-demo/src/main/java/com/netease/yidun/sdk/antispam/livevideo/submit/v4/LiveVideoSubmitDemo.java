@@ -13,7 +13,7 @@ public class LiveVideoSubmitDemo extends AbstractDemo {
         AntispamRequester antispamRequester = createAntispamRequester("SecretId", "SecretKey");
 
         // 实例化发起请求的client对象
-        LiveVideoClient client = new LiveVideoClient(antispamRequester);
+        LiveVideoClient client = LiveVideoClient.getInstance(antispamRequester);
         // 直播视频异步检测结果建议通过轮询回调或者主动回调（2选1）的方式来获取最新的检测结果，并根据业务场景自行处理
         // 轮询回调初始化如下，如果需要启用轮询回调，请参考如下注释内容：
         // CallbackProfile callbackProfile = new CallbackProfile("BusinessId");
@@ -26,7 +26,7 @@ public class LiveVideoSubmitDemo extends AbstractDemo {
         // }
         // };
         // // 为了保证服务进程关闭时，回调数据能够被有效处理，不会因为进程关闭而丢失，建议在进程关闭的hook（例如：spring中的@PreDestroy）中调用 callback.close()
-        // LiveVideoClient client = new LiveVideoClient(antispamRequester, callback);
+        // LiveVideoClient client = LiveVideoClient.getInstance(antispamRequester, callback);
         LiveVideoCheckReq request = new LiveVideoCheckReq();
         request.setBusinessId("BusinessId");
         // 设置直播流地址

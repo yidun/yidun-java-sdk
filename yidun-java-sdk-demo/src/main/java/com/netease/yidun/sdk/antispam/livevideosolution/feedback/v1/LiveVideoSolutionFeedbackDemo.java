@@ -18,7 +18,7 @@ public class LiveVideoSolutionFeedbackDemo extends AbstractDemo {
         AntispamRequester antispamRequester = createAntispamRequester("SecretId", "SecretKey");
 
         // 实例化发起请求的client对象
-        LiveVideoSolutionClient client = new LiveVideoSolutionClient(antispamRequester);
+        LiveVideoSolutionClient client = LiveVideoSolutionClient.getInstance(antispamRequester);
         LiveWallSolutionFeedbackV1Req request = new LiveWallSolutionFeedbackV1Req();
         List<LiveWallSolutionFeedback> realTimeInfoList = new ArrayList<>();
         // 设置直播反馈对象

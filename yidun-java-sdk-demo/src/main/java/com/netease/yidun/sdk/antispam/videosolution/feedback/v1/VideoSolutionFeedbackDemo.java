@@ -19,7 +19,7 @@ public class VideoSolutionFeedbackDemo extends AbstractDemo {
         AntispamRequester antispamRequester = createAntispamRequester("SecretId", "SecretKey");
 
         // 实例化发起请求的client对象
-        VideoSolutionClient client = new VideoSolutionClient(antispamRequester);
+        VideoSolutionClient client = VideoSolutionClient.getInstance(antispamRequester);
         // 构建反馈请求
         VideoSolutionFeedbackV1Req request = new VideoSolutionFeedbackV1Req();
         // 新建反馈列表

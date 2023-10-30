@@ -17,7 +17,7 @@ public class ImageCallbackDemo extends AbstractDemo {
         AntispamRequester antispamRequester = createAntispamRequester("SecretId", "SecretKey");
 
         // 实例化发起请求的client对象
-        ImageClient imageClient = new ImageClient(antispamRequester);
+        ImageClient imageClient = ImageClient.getInstance(antispamRequester);
         // 实例化请求对象
         ImageV5CallbackRequest callbackRequest = new ImageV5CallbackRequest();
         // 设置易盾内容安全分配的businessId

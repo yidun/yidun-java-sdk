@@ -26,7 +26,7 @@ public class MediaCheckSubmitDemo extends AbstractDemo {
         AntispamRequester antispamRequester = createAntispamRequester("SecretId", "SecretKey");
 
         // 实例化发起请求的client对象
-        MediaClient mediaClient = new MediaClient(antispamRequester);
+        MediaClient mediaClient = MediaClient.getInstance(antispamRequester);
 
         // 构建一个文本解析内容
         List<MediaSubmitRequestV2.DataItem> list = new ArrayList<>();

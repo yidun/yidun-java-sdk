@@ -19,7 +19,7 @@ public class MediaQueryDemo extends AbstractDemo {
         AntispamRequester antispamRequester = createAntispamRequester("SecretId", "SecretKey");
 
         // 实例化发起请求的client对象
-        MediaClient mediaClient = new MediaClient(antispamRequester);
+        MediaClient mediaClient = MediaClient.getInstance(antispamRequester);
 
         // 实例化请求对象
         MediaQueryRequestV2 request = new MediaQueryRequestV2();

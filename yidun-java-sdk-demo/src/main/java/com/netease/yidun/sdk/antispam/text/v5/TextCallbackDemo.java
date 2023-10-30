@@ -18,7 +18,7 @@ public class TextCallbackDemo extends AbstractDemo {
         AntispamRequester antispamRequester = createAntispamRequester("SecretId", "SecretKey");
 
         // 实例化发起请求的client对象
-        TextClient textClient = new TextClient(antispamRequester);
+        TextClient textClient = TextClient.getInstance(antispamRequester);
         // 实例化请求对象
         TextCallBackRequest callbackRequest = new TextCallBackRequest();
         // 设置易盾内容安全分配的businessId

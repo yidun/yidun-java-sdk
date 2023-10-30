@@ -19,7 +19,7 @@ public class LiveVideoSolutionQueryDemo extends AbstractDemo {
         AntispamRequester antispamRequester = createAntispamRequester("SecretId", "SecretKey");
 
         // 实例化发起请求的client对象
-        LiveVideoSolutionClient client = new LiveVideoSolutionClient(antispamRequester);
+        LiveVideoSolutionClient client = LiveVideoSolutionClient.getInstance(antispamRequester);
         LiveWallSolutionQueryV1Req queryV1Req = new LiveWallSolutionQueryV1Req();
         LiveWallSolutionQueryV1Resp queryV1Resp = null;
         try {

@@ -18,7 +18,7 @@ public class VideoSolutionCallbackDemo extends AbstractDemo {
         AntispamRequester antispamRequester = createAntispamRequester("SecretId", "SecretKey");
 
         // 实例化发起请求的client对象
-        VideoSolutionClient client = new VideoSolutionClient(antispamRequester);
+        VideoSolutionClient client = VideoSolutionClient.getInstance(antispamRequester);
         // 设置回调请求对象
         VideoSolutionCallbackV2Req request = new VideoSolutionCallbackV2Req();
         // 发起回调请求

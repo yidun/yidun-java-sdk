@@ -18,7 +18,7 @@ public class CrawlerSubmitJobDemo extends AbstractDemo {
         AntispamRequester antispamRequester = createAntispamRequester("SecretId", "SecretKey");
 
         // 实例化发起请求的client对象
-        CrawlerClient crawlerClient = new CrawlerClient(antispamRequester);
+        CrawlerClient crawlerClient = CrawlerClient.getInstance(antispamRequester);
 
         // 实例化请求对象
         // 入参说明请看官网:https://support.dun.163.com/documents/606191408732381184?docId=611046863444135936
