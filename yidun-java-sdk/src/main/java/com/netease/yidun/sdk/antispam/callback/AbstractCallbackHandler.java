@@ -32,7 +32,7 @@ public abstract class AbstractCallbackHandler<T> {
     /**
      * 存储当前时间的QPS
      */
-    protected final ThreadPoolExecutor callbackExecutor;
+    protected ThreadPoolExecutor callbackExecutor;
     private CallbackProfile profile;
     protected AntispamRequester antispamRequester;
     private volatile Boolean isClose = false;
@@ -56,6 +56,16 @@ public abstract class AbstractCallbackHandler<T> {
 
         this.antispamRequester = antispamRequester;
         this.profile = profile;
+    }
+
+    public CallbackProfile getProfile() {
+        return profile;
+    }
+
+    public void start() {
+        AssertUtils.notNull(profile.getConcurrency(), "concurrency can not be null");
+        AssertUtils.notNull(antispamRequester, "antispamRequester can not be null");
+
         this.callbackExecutor = new ThreadPoolExecutor(profile.getConcurrency(), profile.getConcurrency(), 60L,
                 TimeUnit.SECONDS, new SynchronousQueue(), new ThreadFactory() {
             private AtomicInteger sn = new AtomicInteger(0);
@@ -65,12 +75,6 @@ public abstract class AbstractCallbackHandler<T> {
                 return new Thread(r, "Callback-Thread-" + sn.getAndIncrement());
             }
         });
-
-    }
-
-    public void start() {
-        AssertUtils.notNull(profile.getConcurrency(), "concurrency can not be null");
-        AssertUtils.notNull(antispamRequester, "antispamRequester can not be null");
 
         for (int i = 0; i < profile.getConcurrency(); i++) {
             callbackExecutor.execute(() -> {

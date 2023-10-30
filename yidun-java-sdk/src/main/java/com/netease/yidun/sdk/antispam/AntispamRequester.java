@@ -46,6 +46,27 @@ public class AntispamRequester {
     private ClientProfile clientProfile;
     private ConcurrentHashMap<String, Object> clientMap = new ConcurrentHashMap<>();
 
+    /**
+     * 获取secretId对应的唯一实例
+     *
+     * @param secretId
+     * @param secretKey
+     * @return
+     */
+    public static AntispamRequester getInstance(String secretId, String secretKey) {
+        return AntispamRequesterRegistry.register(secretId, secretKey);
+    }
+
+    /**
+     * 获取secretId对应的唯一实例
+     *
+     * @param clientProfile
+     * @return
+     */
+    public static AntispamRequester getInstance(ClientProfile clientProfile) {
+        return AntispamRequesterRegistry.register(clientProfile);
+    }
+
     public AntispamRequester(String secretId, String secretKey) {
         AssertUtils.notBlank(secretId, "secretId can not be null or empty");
         AssertUtils.notBlank(secretKey, "secretKey can not be null or empty");
@@ -59,6 +80,10 @@ public class AntispamRequester {
         AssertUtils.notBlank(clientProfile.credentials().secretKey(), "secretKey can not be null or empty");
 
         this.clientProfile = clientProfile;
+    }
+
+    public ClientProfile getClientProfile() {
+        return clientProfile;
     }
 
     public static ClientProfile createDefaultProfile(String secretId, String secretKey) {
