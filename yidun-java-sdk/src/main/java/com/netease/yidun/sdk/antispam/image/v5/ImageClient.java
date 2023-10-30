@@ -2,6 +2,8 @@ package com.netease.yidun.sdk.antispam.image.v5;
 
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.BaseClient;
+import com.netease.yidun.sdk.antispam.CallbackRegistry;
+import com.netease.yidun.sdk.antispam.ClientRegistry;
 import com.netease.yidun.sdk.antispam.image.v5.callback.ImageCallback;
 import com.netease.yidun.sdk.antispam.image.v5.callback.request.ImageV5CallbackRequest;
 import com.netease.yidun.sdk.antispam.image.v5.check.async.request.ImageV5AsyncCheckRequest;
@@ -15,6 +17,28 @@ import com.netease.yidun.sdk.antispam.image.v5.feedback.response.ImageV5FeedBack
  * 用于发起所有图像相关请求的入口类
  */
 public class ImageClient extends BaseClient {
+
+    /**
+     * 获取secretId对应的唯一实例
+     *
+     * @param antispamRequester
+     * @return
+     */
+    public static ImageClient getInstance(AntispamRequester antispamRequester) {
+        return ClientRegistry.register(antispamRequester, ImageClient.class);
+    }
+
+    /**
+     * 获取secretId对应的唯一实例
+     *
+     * @param imageRequester
+     * @param imageCallback
+     * @return
+     */
+    public static ImageClient getInstance(AntispamRequester imageRequester, ImageCallback... imageCallback) {
+        CallbackRegistry.register(imageRequester, imageCallback);
+        return ClientRegistry.register(imageRequester, ImageClient.class);
+    }
 
     public ImageClient(AntispamRequester imageRequester) {
         super(imageRequester);
