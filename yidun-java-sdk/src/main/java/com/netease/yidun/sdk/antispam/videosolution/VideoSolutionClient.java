@@ -2,6 +2,8 @@ package com.netease.yidun.sdk.antispam.videosolution;
 
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.BaseClient;
+import com.netease.yidun.sdk.antispam.CallbackRegistry;
+import com.netease.yidun.sdk.antispam.ClientRegistry;
 import com.netease.yidun.sdk.antispam.videosolution.callback.v2.VideoSolutionCallback;
 import com.netease.yidun.sdk.antispam.videosolution.callback.v2.request.VideoSolutionCallbackV2Req;
 import com.netease.yidun.sdk.antispam.videosolution.callback.v2.response.VideoSolutionCallbackV2Resp;
@@ -17,6 +19,28 @@ import com.netease.yidun.sdk.antispam.videosolution.submit.v2.request.VideoSolut
 import com.netease.yidun.sdk.antispam.videosolution.submit.v2.response.VideoSolutionSubmitV2Resp;
 
 public class VideoSolutionClient extends BaseClient {
+
+    /**
+     * 获取secretId对应的唯一实例
+     *
+     * @param requester
+     * @return
+     */
+    public static VideoSolutionClient getInstance(AntispamRequester requester) {
+        return ClientRegistry.register(requester, VideoSolutionClient.class);
+    }
+
+    /**
+     * 获取secretId对应的唯一实例
+     *
+     * @param requester
+     * @param videoSolutionCallback
+     * @return
+     */
+    public static VideoSolutionClient getInstance(AntispamRequester requester, VideoSolutionCallback videoSolutionCallback) {
+        CallbackRegistry.register(requester, videoSolutionCallback);
+        return ClientRegistry.register(requester, VideoSolutionClient.class);
+    }
 
     public VideoSolutionClient(AntispamRequester requester) {
         super(requester);

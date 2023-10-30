@@ -1,6 +1,7 @@
 package com.netease.yidun.sdk.antispam.pretreatment;
 
 import com.netease.yidun.sdk.antispam.AntispamRequester;
+import com.netease.yidun.sdk.antispam.ClientRegistry;
 import com.netease.yidun.sdk.antispam.pretreatment.v1.delete.PretreatmentDeleteRequest;
 import com.netease.yidun.sdk.antispam.pretreatment.v1.delete.PretreatmentDeleteResponse;
 import com.netease.yidun.sdk.antispam.pretreatment.v1.query.PretreatmentQueryRequest;
@@ -17,6 +18,16 @@ import com.netease.yidun.sdk.core.utils.AssertUtils;
 public class PretreatmentClient {
 
     private AntispamRequester pretreatmentRequester;
+
+    /**
+     * 获取secretId对应的唯一实例
+     *
+     * @param pretreatmentRequester
+     * @return
+     */
+    public static PretreatmentClient getInstance(AntispamRequester pretreatmentRequester) {
+        return ClientRegistry.register(pretreatmentRequester, PretreatmentClient.class);
+    }
 
     public PretreatmentClient(AntispamRequester pretreatmentRequester) {
         AssertUtils.notNull(pretreatmentRequester, "pretreatmentRequester can not be null");

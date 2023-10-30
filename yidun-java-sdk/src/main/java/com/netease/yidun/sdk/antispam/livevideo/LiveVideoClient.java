@@ -4,6 +4,8 @@ package com.netease.yidun.sdk.antispam.livevideo;
 
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.BaseClient;
+import com.netease.yidun.sdk.antispam.CallbackRegistry;
+import com.netease.yidun.sdk.antispam.ClientRegistry;
 import com.netease.yidun.sdk.antispam.livevideo.callback.v4.LiveVideoCallback;
 import com.netease.yidun.sdk.antispam.livevideo.callback.v4.request.LiveVideoCallbackReq;
 import com.netease.yidun.sdk.antispam.livevideo.callback.v4.response.LiveVideoCallbackResp;
@@ -20,6 +22,28 @@ import com.netease.yidun.sdk.antispam.livevideo.submit.v4.response.LiveVideoChec
 
 
 public class LiveVideoClient extends BaseClient {
+
+    /**
+     * 获取secretId对应的唯一实例
+     *
+     * @param requester
+     * @return
+     */
+    public static LiveVideoClient getInstance(AntispamRequester requester) {
+        return ClientRegistry.register(requester, LiveVideoClient.class);
+    }
+
+    /**
+     * 获取secretId对应的唯一实例
+     *
+     * @param requester
+     * @param liveVideoCallback
+     * @return
+     */
+    public static LiveVideoClient getInstance(AntispamRequester requester, LiveVideoCallback... liveVideoCallback) {
+        CallbackRegistry.register(requester, liveVideoCallback);
+        return ClientRegistry.register(requester, LiveVideoClient.class);
+    }
 
     public LiveVideoClient(AntispamRequester requester) {
         super(requester);

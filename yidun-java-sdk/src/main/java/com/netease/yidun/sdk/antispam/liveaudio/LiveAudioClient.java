@@ -4,6 +4,8 @@ package com.netease.yidun.sdk.antispam.liveaudio;
 
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.BaseClient;
+import com.netease.yidun.sdk.antispam.CallbackRegistry;
+import com.netease.yidun.sdk.antispam.ClientRegistry;
 import com.netease.yidun.sdk.antispam.liveaudio.barrage.v1.request.LiveAudioBarrageV1Req;
 import com.netease.yidun.sdk.antispam.liveaudio.barrage.v1.response.LiveAudioBarrageV1Resp;
 import com.netease.yidun.sdk.antispam.liveaudio.callback.v4.LiveAudioCallback;
@@ -23,6 +25,28 @@ import com.netease.yidun.sdk.antispam.liveaudio.submit.v4.request.LiveAudioSubmi
 import com.netease.yidun.sdk.antispam.liveaudio.submit.v4.response.LiveAudioSubmitV4Resp;
 
 public class LiveAudioClient extends BaseClient {
+
+    /**
+     * 获取secretId对应的唯一实例
+     *
+     * @param requester
+     * @return
+     */
+    public static LiveAudioClient getInstance(AntispamRequester requester) {
+        return ClientRegistry.register(requester, LiveAudioClient.class);
+    }
+
+    /**
+     * 获取secretId对应的唯一实例
+     *
+     * @param requester
+     * @param liveAudioCallback
+     * @return
+     */
+    public static LiveAudioClient getInstance(AntispamRequester requester, LiveAudioCallback... liveAudioCallback) {
+        CallbackRegistry.register(requester, liveAudioCallback);
+        return ClientRegistry.register(requester, LiveAudioClient.class);
+    }
 
     public LiveAudioClient(AntispamRequester requester) {
         super(requester);

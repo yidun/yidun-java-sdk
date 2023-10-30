@@ -10,7 +10,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * 客户端注册器，用于保证单个secretId对应的客户端实例唯一
  */
 public class ClientRegistry {
-    private static final Map<String, BaseClient> clientMap = new ConcurrentHashMap<>();
+    private static final Map<String, Object> clientMap = new ConcurrentHashMap<>();
 
     /**
      * 创建并注册client，如果已存在则直接返回
@@ -19,7 +19,7 @@ public class ClientRegistry {
      * @return
      * @param <T>
      */
-    public static <T extends BaseClient> T register(AntispamRequester antispamRequester, Class<T> clazz) {
+    public static <T> T register(AntispamRequester antispamRequester, Class<T> clazz) {
         AssertUtils.notNull(antispamRequester, "AntispamRequester can not be null");
         String key = new StringBuilder(antispamRequester.getClientProfile().getCredentials().getSecretId())
                 .append(",").append(clazz.getName())

@@ -2,6 +2,8 @@ package com.netease.yidun.sdk.antispam.crawler;
 
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.BaseClient;
+import com.netease.yidun.sdk.antispam.CallbackRegistry;
+import com.netease.yidun.sdk.antispam.ClientRegistry;
 import com.netease.yidun.sdk.antispam.crawler.v1.submit.request.CrawlerJobSubmitV1Request;
 import com.netease.yidun.sdk.antispam.crawler.v1.submit.response.CrawlerJobSubmitV1Response;
 import com.netease.yidun.sdk.antispam.crawler.v3.callback.CrawlerCallback;
@@ -10,12 +12,33 @@ import com.netease.yidun.sdk.antispam.crawler.v3.callback.response.CrawlerResour
 import com.netease.yidun.sdk.antispam.crawler.v3.query.request.CrawlerQueryRequest;
 import com.netease.yidun.sdk.antispam.crawler.v3.submit.request.CrawlerResourceSubmitV3Request;
 import com.netease.yidun.sdk.antispam.crawler.v3.submit.response.CrawlerResourceSubmitV3Response;
-import com.netease.yidun.sdk.core.utils.AssertUtils;
 
 /**
  * 网站检测client
  */
 public class CrawlerClient extends BaseClient {
+
+    /**
+     * 获取secretId对应的唯一实例
+     *
+     * @param requester
+     * @return
+     */
+    public static CrawlerClient getInstance(AntispamRequester requester) {
+        return ClientRegistry.register(requester, CrawlerClient.class);
+    }
+
+    /**
+     * 获取secretId对应的唯一实例
+     *
+     * @param requester
+     * @param crawlerCallback
+     * @return
+     */
+    public static CrawlerClient getInstance(AntispamRequester requester, CrawlerCallback... crawlerCallback) {
+        CallbackRegistry.register(requester, crawlerCallback);
+        return ClientRegistry.register(requester, CrawlerClient.class);
+    }
 
     public CrawlerClient(AntispamRequester antispamRequester) {
         super(antispamRequester);

@@ -1,6 +1,7 @@
 package com.netease.yidun.sdk.antispam.list;
 
 import com.netease.yidun.sdk.antispam.AntispamRequester;
+import com.netease.yidun.sdk.antispam.ClientRegistry;
 import com.netease.yidun.sdk.antispam.list.imagelist.v1.delete.ImageListDeleteRequest;
 import com.netease.yidun.sdk.antispam.list.imagelist.v1.delete.ImageListDeleteResponse;
 import com.netease.yidun.sdk.antispam.list.imagelist.v1.query.ImageListQueryRequest;
@@ -25,6 +26,16 @@ import com.netease.yidun.sdk.core.utils.AssertUtils;
 public class ListClient {
 
     private AntispamRequester listRequester;
+
+    /**
+     * 获取secretId对应的唯一实例
+     *
+     * @param listRequester
+     * @return
+     */
+    public static ListClient getInstance(AntispamRequester listRequester) {
+        return ClientRegistry.register(listRequester, ListClient.class);
+    }
 
     public ListClient(AntispamRequester listRequester) {
         AssertUtils.notNull(listRequester, "listRequester can not be null");
