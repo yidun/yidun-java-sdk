@@ -15,7 +15,7 @@ public class AudioSyncCheckDemo extends AbstractDemo {
         AntispamRequester antispamRequester = createAntispamRequester("SecretId", "SecretKey");
 
         // 实例化发起请求的client对象
-        AudioClient audioClient = new AudioClient(antispamRequester);
+        AudioClient audioClient = AudioClient.getInstance(antispamRequester);
         // 实例化请求对象
         AudioSyncCheckRequest checkRequest = new AudioSyncCheckRequest();
         // 根据需要设置请求的检测节点，默认杭州

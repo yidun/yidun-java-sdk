@@ -22,7 +22,7 @@ public class ReportCheckSubmitDemo extends AbstractDemo {
         AntispamRequester antispamRequester = createAntispamRequester("SecretId", "SecretKey");
 
         // 实例化发起请求的client对象
-        ReportClient reportClient = new ReportClient(antispamRequester);
+        ReportClient reportClient = ReportClient.getInstance(antispamRequester);
 
         // 构建一个文本解析内容
         // 详见官方文档了解更多可解析内容

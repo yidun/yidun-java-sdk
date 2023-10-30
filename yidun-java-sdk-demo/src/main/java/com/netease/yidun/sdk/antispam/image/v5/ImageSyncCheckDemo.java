@@ -21,7 +21,7 @@ public class ImageSyncCheckDemo extends AbstractDemo {
         AntispamRequester antispamRequester = createAntispamRequester("SecretId", "SecretKey");
 
         // 实例化发起请求的client对象
-        ImageClient imageClient = new ImageClient(antispamRequester);
+        ImageClient imageClient = ImageClient.getInstance(antispamRequester);
 
         // 图片检测结果会由于算法升级或者人工鉴别可能产生最新准确的结果，强烈建议通过轮询回调或者主动回调（2选1）的方式，来获取最新的检测结果，并根据业务场景自行处理
         // 轮询回调初始化如下，如果需要启用轮询回调，请参考如下注释内容：
@@ -36,7 +36,7 @@ public class ImageSyncCheckDemo extends AbstractDemo {
 //        };
 //        // 为了保证服务进程关闭时，回调数据能够被有效处理，不会因为进程关闭而丢失，建议在进程关闭的hook（例如：spring中的@PreDestroy）中调用 imageCallback.close()
 //
-//        ImageClient imageClient = new ImageClient(antispamRequester, imageCallback);
+//        ImageClient imageClient = ImageClient.getInstance(antispamRequester, imageCallback);
 
         // 实例化请求对象
         ImageV5SyncCheckRequest checkRequest = new ImageV5SyncCheckRequest();

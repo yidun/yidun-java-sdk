@@ -15,7 +15,7 @@ public class KeywordQueryDemo extends AbstractDemo {
         AntispamRequester antispamRequester = createAntispamRequester("SecretId", "SecretKey");
 
         // 实例化发起请求的client对象
-        KeywordClient keywordClient = new KeywordClient(antispamRequester);
+        KeywordClient keywordClient = KeywordClient.getInstance(antispamRequester);
         // 实例化请求对象
         KeywordQueryRequest queryRequest = new KeywordQueryRequest();
         // 设置易盾内容安全分配的businessId

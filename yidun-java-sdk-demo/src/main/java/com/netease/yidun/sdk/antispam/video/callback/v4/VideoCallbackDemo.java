@@ -15,7 +15,7 @@ public class VideoCallbackDemo extends AbstractDemo {
         // 实例化一个requester，入参需要传入易盾内容安全分配的secretId，secretKey
         AntispamRequester antispamRequester = createAntispamRequester("SecretId", "SecretKey");
         // 实例化发起请求的client对象
-        VideoClient client = new VideoClient(antispamRequester);
+        VideoClient client = VideoClient.getInstance(antispamRequester);
         // 构建回调请求
         VideoCallbackV4Req request = new VideoCallbackV4Req();
         request.setBusinessId("BusinessId");

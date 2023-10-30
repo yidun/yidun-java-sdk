@@ -13,7 +13,7 @@ public class VideoSubmitDemo extends AbstractDemo {
         AntispamRequester antispamRequester = createAntispamRequester("SecretId", "SecretKey");
 
         // 实例化发起请求的client对象
-        VideoClient client = new VideoClient(antispamRequester);
+        VideoClient client = VideoClient.getInstance(antispamRequester);
         // 点播视频异步检测结果建议通过轮询回调或者主动回调（2选1）的方式来获取最新的检测结果，并根据业务场景自行处理
         // 轮询回调初始化如下，如果需要启用轮询回调，请参考如下注释内容：
         // CallbackProfile profile = new CallbackProfile("BusinessId");
@@ -26,7 +26,7 @@ public class VideoSubmitDemo extends AbstractDemo {
         // }
         // };
         // // 为了保证服务进程关闭时，回调数据能够被有效处理，不会因为进程关闭而丢失，建议在进程关闭的hook（例如：spring中的@PreDestroy）中调用 callback.close()
-        // VideoClient client = new VideoClient(antispamRequester, callback);
+        // VideoClient client = VideoClient.getInstance(antispamRequester, callback);
 
         VideoCheckReq request = new VideoCheckReq();
         // 根据需要设置请求的检测节点，默认杭州

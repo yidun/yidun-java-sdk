@@ -21,7 +21,7 @@ public class DigitalBookQueryDemo extends AbstractDemo {
         AntispamRequester antispamRequester = createAntispamRequester("SecretId", "SecretKey");
 
         // 实例化发起请求的client对象
-        DigitalBookClient digitalBookClient = new DigitalBookClient(antispamRequester);
+        DigitalBookClient digitalBookClient = DigitalBookClient.getInstance(antispamRequester);
 
         // 实例化请求对象
         DigitalBookQueryRequestV2 request = new DigitalBookQueryRequestV2();

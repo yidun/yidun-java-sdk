@@ -15,7 +15,7 @@ public class LiveAudioSubmitDemo extends AbstractDemo {
         AntispamRequester antispamRequester = createAntispamRequester("SecretId", "SecretKey");
 
         // 实例化发起请求的client对象
-        LiveAudioClient client = new LiveAudioClient(antispamRequester);
+        LiveAudioClient client = LiveAudioClient.getInstance(antispamRequester);
         // 直播音频异步检测结果建议通过轮询回调或者主动回调（2选1）的方式来获取最新的检测结果，并根据业务场景自行处理
         // 轮询回调初始化如下，如果需要启用轮询回调，请参考如下注释内容：
         // CallbackProfile callbackProfile = new CallbackProfile("BusinessId");
@@ -28,7 +28,7 @@ public class LiveAudioSubmitDemo extends AbstractDemo {
         // }
         // };
         // // 为了保证服务进程关闭时，回调数据能够被有效处理，不会因为进程关闭而丢失，建议在进程关闭的hook（例如：spring中的@PreDestroy）中调用 audioCallback.close()
-        // LiveAudioClient client = new LiveAudioClient(antispamRequester, audioCallback);
+        // LiveAudioClient client = LiveAudioClient.getInstance(antispamRequester, audioCallback);
         // 构建直播音频提交请求
         LiveAudioSubmitV4Req request = new LiveAudioSubmitV4Req();
         // 设置易盾内容安全分配的businessId

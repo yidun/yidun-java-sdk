@@ -22,7 +22,7 @@ public class ListDeleteDemo extends AbstractDemo {
         AntispamRequester antispamRequester = createAntispamRequester("SecretId", "SecretKey");
 
         // 实例化发起请求的client对象
-        ListClient listClient = new ListClient(antispamRequester);
+        ListClient listClient = ListClient.getInstance(antispamRequester);
         // 实例化请求对象
         ListDeleteRequest deleteRequest = new ListDeleteRequest();
         // 设置易盾内容安全分配的businessId

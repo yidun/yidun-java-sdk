@@ -15,7 +15,7 @@ public class PretreatmentQueryDemo extends AbstractDemo {
         AntispamRequester antispamRequester = createAntispamRequester("SecretId", "SecretKey");
 
         // 实例化发起请求的client对象
-        PretreatmentClient pretreatmentClient = new PretreatmentClient(antispamRequester);
+        PretreatmentClient pretreatmentClient = PretreatmentClient.getInstance(antispamRequester);
         // 实例化请求对象
         PretreatmentQueryRequest queryRequest = new PretreatmentQueryRequest();
         // 设置易盾内容安全分配的businessId
