@@ -1,5 +1,7 @@
 package com.netease.yidun.sdk.antispam.text.v5.check.sync.single;
 
+import com.netease.yidun.sdk.irisk.v1.check.HitInfo;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -28,6 +30,8 @@ public class TextCheckResult implements Serializable {
      * 文本语种检测结果
      */
     private Language language;
+
+    private RiskControl riskControl;
 
     public Antispam getAntispam() {
         return antispam;
@@ -69,6 +73,13 @@ public class TextCheckResult implements Serializable {
         this.language = language;
     }
 
+    public RiskControl getRiskControl() {
+        return riskControl;
+    }
+    public void setRiskControl(RiskControl riskControl) {
+        this.riskControl = riskControl;
+    }
+
     @Override
     public String toString() {
         return "TextCheckResult("
@@ -77,6 +88,7 @@ public class TextCheckResult implements Serializable {
                 + ", anticheat=" + anticheat
                 + ", userRisk=" + userRisk
                 + ", language=" + language
+                + ", riskControl=" + riskControl
                 + ")";
     }
 
@@ -1005,6 +1017,92 @@ public class TextCheckResult implements Serializable {
             return "LanguageDetail("
                     + "type=" + type
                     + ")";
+        }
+    }
+
+    public static class RiskControl {
+        /**
+         * 检测任务ID
+         */
+        private String taskId;
+
+        /**
+         * 数据id
+         */
+        private String dataId;
+
+        /**
+         * 智能风控命中详情
+         */
+        private List<RiskControlDetail> details;
+
+        public String getTaskId() {
+            return taskId;
+        }
+
+        public void setTaskId(String taskId) {
+            this.taskId = taskId;
+        }
+
+        public String getDataId() {
+            return dataId;
+        }
+
+        public void setDataId(String dataId) {
+            this.dataId = dataId;
+        }
+
+        public List<RiskControlDetail> getDetails() {
+            return details;
+        }
+
+        public void setDetails(List<RiskControlDetail> details) {
+            this.details = details;
+        }
+
+        @Override
+        public String toString() {
+            return "RiskControl{" +
+                    "taskId='" + taskId +
+                    ", dataId='" + dataId +
+                    ", details=" + details +
+                    '}';
+        }
+    }
+
+    public static class RiskControlDetail {
+        /**
+         * 风险等级
+         */
+        private Integer riskLevel;
+
+        /**
+         * 命中的风险标签信息
+         */
+        private List<HitInfo> hitInfos;
+
+        public Integer getRiskLevel() {
+            return riskLevel;
+        }
+
+        public void setRiskLevel(Integer riskLevel) {
+            this.riskLevel = riskLevel;
+        }
+
+        public List<HitInfo> getHitInfos() {
+            return hitInfos;
+        }
+
+        public void setHitInfos(List<HitInfo> hitInfos) {
+            this.hitInfos = hitInfos;
+        }
+
+        @Override
+        public String toString() {
+            return "RiskControlDetail{" +
+                    "riskLevel=" + riskLevel +
+                    ", hitInfos=" + hitInfos +
+                    '}';
         }
     }
 }
