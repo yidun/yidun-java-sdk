@@ -114,6 +114,10 @@ public class LiveWallSolutionSubmitV3Req extends PostFormRequest<LiveWallSolutio
     private String extStr1;
 
     private String extStr2;
+    /**
+     * 业务扩展字段,json字符串
+     */
+    private String extension;
 
     /**
      * 截图策略 0-易盾截图 1-云信上传截图

@@ -214,6 +214,10 @@ public class LiveAudioSubmitV4Req extends BizPostFormRequest<LiveAudioSubmitV4Re
     private String extStr1;
 
     private String extStr2;
+    /**
+     * 业务扩展字段,json字符串
+     */
+    private String extension;
 
     private String subProduct;
 
