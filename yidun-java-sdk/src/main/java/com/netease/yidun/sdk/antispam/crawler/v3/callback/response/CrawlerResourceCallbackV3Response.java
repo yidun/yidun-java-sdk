@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.netease.yidun.sdk.antispam.media.v2.common.response.MediaAntispamResponse;
 import com.netease.yidun.sdk.antispam.media.v2.common.response.MediaCensorResponse;
+import com.netease.yidun.sdk.antispam.media.v2.common.response.MediaValueAddServiceResponse;
 import com.netease.yidun.sdk.core.response.CommonResponse;
 
 /**
@@ -33,6 +34,11 @@ public class CrawlerResourceCallbackV3Response extends CommonResponse {
         private CrawlerAntispamResponse antispam;
 
         /**
+         * 增值服务结果
+         */
+        private CrawlerValueAddServiceResponse valueAddService;
+
+        /**
          * 审核信息
          */
         private CrawlerCensorResponse censor;
@@ -53,12 +59,29 @@ public class CrawlerResourceCallbackV3Response extends CommonResponse {
             this.censor = censor;
         }
 
+        public CrawlerValueAddServiceResponse getValueAddService() {
+            return valueAddService;
+        }
+
+        public void setValueAddService(CrawlerValueAddServiceResponse valueAddService) {
+            this.valueAddService = valueAddService;
+        }
+
         @Override
         public String toString() {
             return "CrawlerResourceResult{" +
                     "antispam=" + antispam +
+                    ", valueAddService=" + valueAddService +
+                    ", censor=" + censor +
                     '}';
         }
+    }
+
+    /**
+     * 网站增值结果
+     */
+    public static class CrawlerValueAddServiceResponse extends MediaValueAddServiceResponse {
+
     }
 
     public static class CrawlerAntispamResponse extends MediaAntispamResponse {
