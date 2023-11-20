@@ -48,7 +48,7 @@ public class TextCallbackUnitV2 {
      * 垃圾类型
      */
     @Data
-    public class LabelInfo {
+    public static class LabelInfo {
         private int label;
         private int level;
         /**
