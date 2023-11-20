@@ -1,5 +1,6 @@
 package com.netease.yidun.sdk.antispam.videosolution.callback.v2.response;
 
+import com.netease.yidun.sdk.antispam.text.v5.check.sync.single.TextCheckResult;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,28 +14,47 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Deprecated
-public class TextCallbackUnit {
-
-    private int action;
+public class TextCallbackUnitV2 {
+    /**
+     * taskId
+     */
     private String taskId;
-    private Integer suggestReason;
+    /**
+     * dataId
+     */
+    private String dataId;
+    /**
+     * suggestion
+     */
+    private Integer suggestion;
+    /**
+     * resultType
+     */
+    private Integer resultType;
+    /**
+     * censorType
+     */
+    private Integer censorType;
+    /**
+     * isRelatedHit
+     */
+    private Boolean isRelatedHit;
+    /**
+     * labels
+     */
     private List<LabelInfo> labels;
 
+    /**
+     * 垃圾类型
+     */
     @Data
     public class LabelInfo {
         private int label;
         private int level;
-        private HintInfo details;
         /**
          * 二级分类标签
          */
         private List<TextSubLabel> subLabels;
-    }
-
-    @Data
-    public class HintInfo {
-        private List<String> hint;
     }
 
     @Data
@@ -46,11 +66,21 @@ public class TextCallbackUnit {
          * 值定义见SpamType
          */
         private String subLabel;
-
+        /**
+         * subLabelDepth
+         */
         private Integer subLabelDepth;
-
+        /**
+         * secondLabel
+         */
         private String secondLabel;
-
+        /**
+         * thirdLabel
+         */
         private String thirdLabel;
+        /**
+         * details
+         */
+        private TextCheckResult.AntispamSubLabelDetail details;
     }
 }
