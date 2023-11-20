@@ -108,11 +108,11 @@ public class VideoSolutionAntispamCallbackV2Response {
         /**
          * 标题证据信息
          */
-        private TextCallbackUnit text;
+        private TextCallbackUnitV2 text;
         /**
          * 图片证据信息
          */
-        private List<ImageCallbackUnit> images;
+        private List<ImageCallbackUnitV2> images;
         /**
          * 语音证据信息
          */
