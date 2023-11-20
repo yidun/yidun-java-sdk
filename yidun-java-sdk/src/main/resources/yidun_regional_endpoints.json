@@ -7,29 +7,25 @@
   "crawler": {
     "cn-hangzhou": [
       "as.dun.163.com",
-      "as.dun.163yun.com",
-      "antispam.dun.163.com"
+      "antispam.dun.163yun.com"
     ]
   },
   "file": {
     "cn-hangzhou": [
       "as.dun.163.com",
-      "as.dun.163yun.com",
-      "antispam.dun.163.com"
+      "antispam.dun.163yun.com"
     ]
   },
   "media": {
     "cn-hangzhou": [
       "as.dun.163.com",
-      "as.dun.163yun.com",
-      "antispam.dun.163.com"
+      "antispam.dun.163yun.com"
     ]
   },
   "mediaSubmit": {
     "cn-hangzhou": [
       "as.dun.163.com",
-      "as.dun.163yun.com",
-      "antispam.dun.163.com"
+      "antispam.dun.163yun.com"
     ],
     "sg-singapore": [
       "as-media-sg.dun.163.com",
@@ -39,22 +35,19 @@
   "report": {
     "cn-hangzhou": [
       "as.dun.163.com",
-      "as.dun.163yun.com",
-      "antispam.dun.163.com"
+      "antispam.dun.163yun.com"
     ]
   },
   "digitalBook": {
     "cn-hangzhou": [
       "as.dun.163.com",
-      "as.dun.163yun.com",
-      "antispam.dun.163.com"
+      "antispam.dun.163yun.com"
     ]
   },
   "audioCheck": {
     "cn-hangzhou": [
       "as.dun.163.com",
-      "as.dun.163yun.com",
-      "antispam.dun.163.com"
+      "antispam.dun.163yun.com"
     ],
     "sg-singapore": [
       "as-audio-sg.dun.163.com",
@@ -64,15 +57,13 @@
   "audioCommon": {
     "cn-hangzhou": [
       "as.dun.163.com",
-      "as.dun.163yun.com",
-      "antispam.dun.163.com"
+      "antispam.dun.163yun.com"
     ]
   },
   "videoCheck": {
     "cn-hangzhou": [
       "as.dun.163.com",
-      "as.dun.163yun.com",
-      "antispam.dun.163.com"
+      "antispam.dun.163yun.com"
     ],
     "sg-singapore": [
       "as-video-sg.dun.163.com",
@@ -82,15 +73,13 @@
   "videoCommon": {
     "cn-hangzhou": [
       "as.dun.163.com",
-      "as.dun.163yun.com",
-      "antispam.dun.163.com"
+      "antispam.dun.163yun.com"
     ]
   },
   "videoSolutionCheck": {
     "cn-hangzhou": [
       "as.dun.163.com",
-      "as.dun.163yun.com",
-      "antispam.dun.163.com"
+      "antispam.dun.163yun.com"
     ],
     "sg-singapore": [
       "as-videosolution-sg.dun.163.com",
@@ -100,29 +89,25 @@
   "videoSolutionCommon": {
     "cn-hangzhou": [
       "as.dun.163.com",
-      "as.dun.163yun.com",
-      "antispam.dun.163.com"
+      "antispam.dun.163yun.com"
     ]
   },
   "liveAudio": {
     "cn-hangzhou": [
       "as.dun.163.com",
-      "as.dun.163yun.com",
-      "antispam.dun.163.com"
+      "antispam.dun.163yun.com"
     ]
   },
   "liveVideo": {
     "cn-hangzhou": [
       "as.dun.163.com",
-      "as.dun.163yun.com",
-      "antispam.dun.163.com"
+      "antispam.dun.163yun.com"
     ]
   },
   "liveVideoSolutionCheck": {
     "cn-hangzhou": [
       "as.dun.163.com",
-      "as.dun.163yun.com",
-      "antispam.dun.163.com"
+      "antispam.dun.163yun.com"
     ],
     "sg-singapore": [
       "as-livesolution-sg.dun.163.com",
@@ -132,15 +117,13 @@
   "liveVideoSolutionCommon": {
     "cn-hangzhou": [
       "as.dun.163.com",
-      "as.dun.163yun.com",
-      "antispam.dun.163.com"
+      "antispam.dun.163yun.com"
     ]
   },
   "keyword": {
     "cn-hangzhou": [
       "as.dun.163.com",
-      "as.dun.163yun.com",
-      "antispam.dun.163.com"
+      "antispam.dun.163yun.com"
     ]
   },
   "anticheat": {
@@ -176,8 +159,7 @@
   "imageCheck": {
     "cn-hangzhou": [
       "as.dun.163.com",
-      "as.dun.163yun.com",
-      "antispam.dun.163.com"
+      "antispam.dun.163yun.com"
     ],
     "sg-singapore": [
       "as-image-sg.dun.163.com",
@@ -191,8 +173,7 @@
   "imageCommon": {
     "cn-hangzhou": [
       "as.dun.163.com",
-      "as.dun.163yun.com",
-      "antispam.dun.163.com"
+      "antispam.dun.163yun.com"
     ],
     "sg-singapore": [
       "as-image-sg.dun.163.com",
@@ -206,8 +187,7 @@
   "text-check": {
     "cn-hangzhou": [
       "as.dun.163.com",
-      "as.dun.163yun.com",
-      "antispam.dun.163.com"
+      "antispam.dun.163yun.com"
     ],
     "cn-beijing": [
       "as-text-bj.dun.163.com",
@@ -233,8 +213,7 @@
   "text-api": {
     "cn-hangzhou": [
       "as.dun.163.com",
-      "as.dun.163yun.com",
-      "antispam.dun.163.com"
+      "antispam.dun.163yun.com"
     ],
     "cn-beijing": [
       "as-text-bj.dun.163.com",
@@ -260,15 +239,13 @@
   "pretreatment": {
     "cn-hangzhou": [
       "as.dun.163.com",
-      "as.dun.163yun.com",
-      "antispam.dun.163.com"
+      "antispam.dun.163yun.com"
     ]
   },
   "list": {
     "cn-hangzhou": [
       "as.dun.163.com",
-      "as.dun.163yun.com",
-      "antispam.dun.163.com"
+      "antispam.dun.163yun.com"
     ]
   },
   "fingerprint": {
