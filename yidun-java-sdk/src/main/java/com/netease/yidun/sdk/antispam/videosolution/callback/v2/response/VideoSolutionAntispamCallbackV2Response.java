@@ -98,6 +98,7 @@ public class VideoSolutionAntispamCallbackV2Response {
     @AllArgsConstructor
     @NoArgsConstructor
     public static class VideoSolutionImageFailUnitResponse {
+        private Integer failureReason;
         private String name;
     }
     @Data
