@@ -18,6 +18,10 @@ public class VideoCallbackUnitV4Response {
     private Integer suggestionLevel;
     private Integer resultType;
     private Integer censorSource;
+    /**
+     * 策略类型
+     */
+    private Integer strategySource;
     private Long censorTime;
     private Long duration;
     private Integer customAction;

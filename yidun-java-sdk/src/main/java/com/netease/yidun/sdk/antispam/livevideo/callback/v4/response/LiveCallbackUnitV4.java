@@ -32,6 +32,10 @@ public class LiveCallbackUnitV4 {
          */
         private Integer censorSource;
         /**
+         * 策略类型
+         */
+        private Integer strategySource;
+        /**
          * 状态
          */
         private Integer status;

@@ -62,6 +62,10 @@ public class AudioAntispamCallbackV4Response implements BaseResponse {
      */
     private Integer censorSource;
     /**
+     * 策略类型
+     */
+    private Integer strategySource;
+    /**
      * 人工审核完成时间，毫秒单位时间戳(13位)
      */
     private Long censorTime;
