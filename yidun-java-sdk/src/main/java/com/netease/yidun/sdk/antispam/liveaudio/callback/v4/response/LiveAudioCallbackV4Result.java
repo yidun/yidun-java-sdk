@@ -35,8 +35,13 @@ public class LiveAudioCallbackV4Result implements BaseResponse {
         private String callback;
         private String dataId;
         private Integer censorSource;
+        /**
+         * 策略类型
+         */
+        private Integer strategySource;
         private Integer status;
         private Integer failureReason;
+        private String languageCode;
         private LiveAudioCallbackUnitRespV4 evidences;
         private LiveAudioMonitorCallbackUnitRespV4 reviewEvidences;
         private Integer riskLevel;

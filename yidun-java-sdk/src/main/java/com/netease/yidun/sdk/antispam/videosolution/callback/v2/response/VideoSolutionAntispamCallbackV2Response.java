@@ -36,6 +36,10 @@ public class VideoSolutionAntispamCallbackV2Response {
      */
     private Integer censorSource;
     /**
+     * 策略类型
+     */
+    private Integer strategySource;
+    /**
      * 机器检测结束时间，毫秒单位的时间戳形式 <br>
      * （2021.1.1 01:00转换时间戳1609434000000）
      */
