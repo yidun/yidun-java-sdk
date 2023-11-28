@@ -61,6 +61,10 @@ public class LiveVideoSolutionCallbackV3Result implements BaseResponse {
         private Long time;
         private Integer censorSource;
         /**
+         * 策略类型
+         */
+        private Integer strategySource;
+        /**
          * 检测失败原因，当检测失败时返回，1：下载失败，2：直播流不存在，3：解析失败，4：格式错误
          */
         private Integer failureReason;
