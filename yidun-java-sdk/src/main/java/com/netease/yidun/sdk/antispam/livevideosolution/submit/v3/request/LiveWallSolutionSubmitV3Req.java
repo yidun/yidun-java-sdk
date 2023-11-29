@@ -126,7 +126,6 @@ public class LiveWallSolutionSubmitV3Req extends PostFormRequest<LiveWallSolutio
 
     private String subProduct;
 
-    private String censorStreamUrl;
 
     public LiveWallSolutionSubmitV3Req() {
         productCode = "liveVideoSolutionCheck";
@@ -160,7 +159,6 @@ public class LiveWallSolutionSubmitV3Req extends PostFormRequest<LiveWallSolutio
         params.put("title", getTitle());
         params.put("uniqueKey", getUniqueKey());
         params.put("url", getUrl());
-        params.put("censorStreamUrl", getCensorStreamUrl());
         if (advancedFrequency != null) {
             params.put("advancedFrequency", GSON.toJson(getAdvancedFrequency()));
         }
