@@ -41,6 +41,9 @@ public class LiveAudioCallbackV4Result implements BaseResponse {
         private Integer strategySource;
         private Integer status;
         private Integer failureReason;
+        /**
+         * 语种类型码
+         */
         private String languageCode;
         private LiveAudioCallbackUnitRespV4 evidences;
         private LiveAudioMonitorCallbackUnitRespV4 reviewEvidences;

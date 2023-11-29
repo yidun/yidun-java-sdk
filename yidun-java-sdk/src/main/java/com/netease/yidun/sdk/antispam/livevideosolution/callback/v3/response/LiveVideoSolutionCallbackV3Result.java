@@ -68,6 +68,10 @@ public class LiveVideoSolutionCallbackV3Result implements BaseResponse {
          * 检测失败原因，当检测失败时返回，1：下载失败，2：直播流不存在，3：解析失败，4：格式错误
          */
         private Integer failureReason;
+        /**
+         * 音频语种码
+         */
+        private String languageCode;
         private LiveSolutionDataCallbackResult evidences;
         private LiveSolutionCensorCallbackResult reviewEvidences;
         private Integer riskLevel;
