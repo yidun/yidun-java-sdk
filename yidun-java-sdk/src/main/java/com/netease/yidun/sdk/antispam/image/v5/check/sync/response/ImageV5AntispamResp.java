@@ -80,6 +80,30 @@ public class ImageV5AntispamResp implements Serializable {
      * 隐藏文件的格式
      */
     private String hiddenFormat;
+    /**
+     * 合并成的图片url
+     */
+    private List<String> urls;
+    /**
+     * 图像那边命中黑白名单库的标识，是图片的nos_path
+     */
+    private String hitNosPath;
+
+    public List<String> getUrls() {
+        return urls;
+    }
+
+    public void setUrls(List<String> urls) {
+        this.urls = urls;
+    }
+
+    public String getHitNosPath() {
+        return hitNosPath;
+    }
+
+    public void setHitNosPath(String hitNosPath) {
+        this.hitNosPath = hitNosPath;
+    }
 
     public Boolean getHidden() {
         return hidden;
