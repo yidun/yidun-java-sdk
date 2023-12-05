@@ -471,6 +471,10 @@ public class DefaultClient implements Client, Closeable {
             if (statusCode >= HttpStatus.SC_OK
                     && statusCode < HttpStatus.SC_REDIRECTION) {
                 try {
+                    // 智能风控新版client方法开始支持泛型，使用 getResponseType方法声明当前支持类型，兼容更新，只有 getResponseType有值的时候才处理并返回，否则使用老逻辑
+                    if (null != request.getResponseType()) {
+                        return gson.fromJson(strBody, request.getResponseType());
+                    }
                     return gson.fromJson(strBody, request.getResponseClass());
                 } catch (Exception e) {
                     String errorMessage = String.format(

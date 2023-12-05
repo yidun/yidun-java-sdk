@@ -152,6 +152,11 @@ public abstract class BaseRequest<T extends BaseResponse> {
     }
 
     public abstract Class<T> getResponseClass();
+    
+    // 默认全局返回nul，即不支持使用泛型
+    public java.lang.reflect.Type getResponseType() {
+        return null;
+    }
 
     public abstract HttpRequest toHttpRequest(Signer signer, Credentials credentials);
 
