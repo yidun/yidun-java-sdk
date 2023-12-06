@@ -59,7 +59,7 @@ public class BizPostFormRequestTest {
     @Test
     public void testValidation() {
         TestRequest request = new TestRequest();
-        ValidationHelper.testInvalidObject(request, "businessId不能为空");
+        ValidationHelper.testInvalidObject(request, "businessId is invalid, businessId不能为空");
 
         request.setBusinessId(businessId);
         ValidationUtils.validate(request);

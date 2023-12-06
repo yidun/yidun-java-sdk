@@ -32,6 +32,7 @@ public class BaseRequestTest {
                 ", productCode=" + productCode +
                 ", uriPattern=" + uriPattern +
                 ", method=" + method +
+                ", fallbackHttp=null" +
                 ")";
         BaseRequest<?> request = createRequestWithFluentApi();
 
@@ -78,19 +79,19 @@ public class BaseRequestTest {
     @Test
     public void testBlankProductCode() {
         BaseRequest<?> request = new TestRequest(" ", uriPattern, method);
-        ValidationHelper.testInvalidObject(request, "productCode不能为空");
+        ValidationHelper.testInvalidObject(request, "productCode is invalid, productCode不能为空");
     }
 
     @Test
     public void testBlankUriPattern() {
         BaseRequest<?> request = new TestRequest(productCode, " ", method);
-        ValidationHelper.testInvalidObject(request, "uriPattern不能为空");
+        ValidationHelper.testInvalidObject(request, "uriPattern is invalid, uriPattern不能为空");
     }
 
     @Test
     public void testNullMethod() {
         BaseRequest<?> request = new TestRequest(productCode, uriPattern, null);
-        ValidationHelper.testInvalidObject(request, "method不能为空");
+        ValidationHelper.testInvalidObject(request, "method is invalid, method不能为空");
     }
 
     @Test
@@ -109,7 +110,8 @@ public class BaseRequestTest {
         return new TestRequest(productCode, uriPattern, method)
                 .regionCode(regionCode)
                 .protocol(protocol)
-                .domain(domain);
+                .domain(domain)
+                ;
     }
 
     private static class TestRequest extends BaseRequest<BaseResponse> {
