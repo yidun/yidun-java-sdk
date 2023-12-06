@@ -229,6 +229,14 @@ public class FileCallbackV2Response extends CommonResponse {
             this.censorTime = censorTime;
         }
 
+        public Integer getStatus() {
+            return status;
+        }
+
+        public void setStatus(Integer status) {
+            this.status = status;
+        }
+
         @Override
         public String toString() {
             return "AntispamCheckResult{" +
@@ -245,6 +253,7 @@ public class FileCallbackV2Response extends CommonResponse {
                     ", details=" + details +
                     ", censorLabels=" + censorLabels +
                     ", censorTime=" + censorTime +
+                    ", status=" + status +
                     '}';
         }
     }
