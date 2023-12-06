@@ -4,6 +4,7 @@ package com.netease.yidun.sdk.antispam.crawler.v1.submit.request;
 
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import com.netease.yidun.sdk.antispam.crawler.v1.submit.response.CrawlerJobSubmitV1Response;
 import com.netease.yidun.sdk.core.request.PostFormRequest;
@@ -87,6 +88,10 @@ public class CrawlerJobSubmitV1Request extends PostFormRequest<CrawlerJobSubmitV
      * URL过滤条件集
      */
     private Set<CrawlerUrlFilter> urlFilters;
+    /**
+     * 检测标记  检测内容, 默认为1和2。1-检测文本，2-检测图片，4-检测点播音频，5-检测文档附件，6-检测点播音视频
+     */
+    private Set<Integer> checkFlags;
 
     @Override
     protected Map<String, String> getCustomSignParams() {
@@ -107,6 +112,12 @@ public class CrawlerJobSubmitV1Request extends PostFormRequest<CrawlerJobSubmitV
         params.put("userAgent", getUserAgent());
         params.put("focusList", CollectionUtils.isEmpty(getFocusList()) ? null : String.join(",", getFocusList()));
         params.put("urlFilters", GsonUtils.toJson(getUrlFilters()));
+        if (!CollectionUtils.isEmpty(getCheckFlags())) {
+            String checkFlagStr = getCheckFlags().stream()
+                                                 .map(String::valueOf)
+                                                 .collect(Collectors.joining(","));
+            params.put("checkFlags", checkFlagStr);
+        }
         return params;
     }
 
@@ -249,6 +260,14 @@ public class CrawlerJobSubmitV1Request extends PostFormRequest<CrawlerJobSubmitV
         this.urlFilters = urlFilters;
     }
 
+    public Set<Integer> getCheckFlags() {
+        return checkFlags;
+    }
+
+    public void setCheckFlags(Set<Integer> checkFlags) {
+        this.checkFlags = checkFlags;
+    }
+
     @Override
     public String toString() {
         return "CrawlerJobSubmitV1Request{" +
@@ -264,6 +283,11 @@ public class CrawlerJobSubmitV1Request extends PostFormRequest<CrawlerJobSubmitV
                 ", siteName='" + siteName + '\'' +
                 ", checkStrategy=" + checkStrategy +
                 ", config='" + config + '\'' +
+                ", userAgentMatchType=" + userAgentMatchType +
+                ", userAgent='" + userAgent + '\'' +
+                ", focusList=" + focusList +
+                ", urlFilters=" + urlFilters +
+                ", checkFlags=" + checkFlags +
                 '}';
     }
 }

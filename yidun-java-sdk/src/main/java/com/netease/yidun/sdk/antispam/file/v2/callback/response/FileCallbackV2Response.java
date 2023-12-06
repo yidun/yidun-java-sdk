@@ -254,6 +254,7 @@ public class FileCallbackV2Response extends CommonResponse {
                     ", details=" + details +
                     ", censorLabels=" + censorLabels +
                     ", censorTime=" + censorTime +
+                    ", status=" + status +
                     '}';
         }
     }
