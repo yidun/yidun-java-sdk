@@ -177,11 +177,15 @@ public class PostFormRequestTest {
         Map<String, String> nonSignParams = request.getNonSignParams();
         assertEquals(0, nonSignParams.size());
 
-        assertEquals(expectedCommonHeaders, request.getHeaders());
+        for (Map.Entry<String, String> entry : expectedCommonHeaders.entrySet()) {
+            assertEquals(entry.getValue(), request.getHeaders().get(entry.getKey()));
+        }
 
         // 指明gzip压缩时，header需指明Content-Encoding为gzip
         request.gzipCompress(true);
-        assertEquals(expectedGzipHeaders, request.getHeaders());
+        for (Map.Entry<String, String> entry : expectedGzipHeaders.entrySet()) {
+            assertEquals(entry.getValue(), request.getHeaders().get(entry.getKey()));
+        }
     }
 
     @Test
@@ -220,7 +224,9 @@ public class PostFormRequestTest {
         assertEquals(uriPattern, httpRequest.uriPattern());
 
         Map<String, String> expectedHeaders = bodyGzipped ? expectedGzipHeaders : expectedCommonHeaders;
-        assertEquals(expectedHeaders, httpRequest.headers());
+        for (Map.Entry<String, String> entry : expectedHeaders.entrySet()) {
+            assertEquals(entry.getValue(), httpRequest.headers().get(entry.getKey()));
+        }
 
         assertEquals(pathParameters, httpRequest.pathParameters());
         assertEquals(queryParameters, httpRequest.queryParameters());

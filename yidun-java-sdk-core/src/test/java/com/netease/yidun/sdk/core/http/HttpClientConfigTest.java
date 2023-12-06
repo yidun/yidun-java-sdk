@@ -12,9 +12,9 @@ public class HttpClientConfigTest {
 
         assertEquals(ProtocolEnum.HTTPS, config.protocol());
         assertEquals(5000, config.socketTimeoutMillis());
-        assertEquals(60000, config.maxIdleTimeMillis());
+        assertEquals(43000, config.maxIdleTimeMillis());
         assertEquals(1000, config.connectionRequestTimeoutMillis());
-        assertEquals(120000, config.connectionKeepAliveMillis());
+        assertEquals(43000, config.connectionKeepAliveMillis());
         assertEquals(15000, config.connectionTimeoutMillis());
         assertEquals(20000, config.responseTimeoutMillis());
         assertEquals(200, config.maxConnectionCount());
@@ -26,13 +26,14 @@ public class HttpClientConfigTest {
         String expectedStr = "HttpClientConfig(" +
                 "protocol=https" +
                 ", socketTimeoutMillis=5000" +
-                ", maxIdleTimeMillis=60000" +
+                ", maxIdleTimeMillis=43000" +
                 ", connectionRequestTimeoutMillis=1000" +
-                ", connectionKeepAliveMillis=120000" +
+                ", connectionKeepAliveMillis=43000" +
                 ", connectionTimeoutMillis=15000" +
                 ", responseTimeoutMillis=20000" +
                 ", maxConnectionCount=200" +
-                ", maxConnectionCountPerRoute=20)";
+                ", maxConnectionCountPerRoute=20" +
+                ", maxNoResponseRetryCount=1)";
 
         HttpClientConfig config = HttpClientConfig.defaultConfig();
 
