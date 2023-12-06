@@ -311,6 +311,7 @@ public class DefaultClient implements Client, Closeable {
         Context(BaseRequest<R> request) {
             this.request = request;
             usePreassignedDomain = StringUtils.isNotBlank(request.domain());
+            this.originalProtocol = request.protocol();
         }
 
         ClassicHttpRequest createRequest() {
@@ -346,10 +347,6 @@ public class DefaultClient implements Client, Closeable {
         void resolveProtocol() {
             if (!request.getFallbackHttp()) {
                 return;
-            }
-
-            if (originalProtocol == null) {
-                originalProtocol = request.protocol();
             }
 
             if (originalProtocol != ProtocolEnum.HTTPS) {
