@@ -25,6 +25,10 @@ public class VideoSolutionAntispamCallbackV2Response {
      */
     private String callback;
     private Integer suggestion;
+    /**
+     * 自定义建议结果 0-通过 2-删除
+     */
+    private Integer customAction;
     private Integer status;
     private Integer resultType;
     /**
