@@ -23,6 +23,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;
 import org.apache.hc.core5.http.ClassicHttpRequest;
@@ -94,7 +95,7 @@ public class DefaultClientExecutionTest {
         TestRequest request = spy(new TestRequest());
         request.regionCode(regionCode);
 
-        DefaultClient client = createClient(httpClient, endpointResolver, breakStrategy);
+        DefaultClient client = createClient(httpClient, endpointResolver, breakStrategy, false);
 
         // 执行
         TestResponse response = client.execute(request);
@@ -425,9 +426,7 @@ public class DefaultClientExecutionTest {
         // 构建 HTTP Request
         inOrder.verify(request).toHttpRequest(client.signer(), client.credentials());
         // 提交请求
-        inOrder.verify(httpClient).execute(argThat(createHttpRequestMatcher(domain1)));
-        // 反馈请求失败
-        inOrder.verify(breakStrategy).requestFail(productCode, regionCode, domain1);
+        inOrder.verify(httpClient).execute(argThat(createHttpRequestMatcher(domain1, ProtocolEnum.HTTP)));
 
         // 第4轮
         // 已尝试过所有域名，不再询问熔断器，直接使用下一个域名
@@ -435,34 +434,43 @@ public class DefaultClientExecutionTest {
         // 构建 HTTP Request
         inOrder.verify(request).toHttpRequest(client.signer(), client.credentials());
         // 提交请求
-        inOrder.verify(httpClient).execute(argThat(createHttpRequestMatcher(domain2)));
-        // 反馈请求失败
-        inOrder.verify(breakStrategy).requestFail(productCode, regionCode, domain2);
+        inOrder.verify(httpClient).execute(argThat(createHttpRequestMatcher(domain2, ProtocolEnum.HTTP)));
 
         // 验证：无其它调用
         verifyNoMoreInteractions(httpClient, endpointResolver, breakStrategy);
     }
 
     private static DefaultClient createClient(
-            CloseableHttpClient httpClient, EndpointResolver endpointResolver, BreakStrategy breakStrategy) {
-        DefaultClient client = DefaultClient.createDefault(secretId, secretKey);
+            CloseableHttpClient httpClient, EndpointResolver endpointResolver, BreakStrategy breakStrategy, boolean fallbackHttp) {
+        ClientProfile profile = ClientProfile.defaultProfile(secretId, secretKey);
+        profile.setFallbackHttp(fallbackHttp);
+        DefaultClient client = new DefaultClient(profile);
         client.httpClient(httpClient);
         client.endpointResolver(endpointResolver);
         client.breakStrategy(breakStrategy);
         return client;
     }
 
+    private static DefaultClient createClient(
+            CloseableHttpClient httpClient, EndpointResolver endpointResolver, BreakStrategy breakStrategy) {
+        return createClient(httpClient, endpointResolver, breakStrategy, true);
+    }
+
     private ArgumentMatcher<ClassicHttpRequest> createHttpRequestMatcher(String domain) {
+        return createHttpRequestMatcher(domain, ProtocolEnum.HTTPS);
+    }
+
+    private ArgumentMatcher<ClassicHttpRequest> createHttpRequestMatcher(String domain, ProtocolEnum protocol) {
         return request -> "POST".equals(request.getMethod())
-                && isExpectedUri(request, domain)
+                && isExpectedUri(request, domain, protocol)
                 && isExpectedHeaders(request)
                 && isExpectedBody(request);
     }
 
-    private static boolean isExpectedUri(ClassicHttpRequest request, String expectedDomain) {
+    private static boolean isExpectedUri(ClassicHttpRequest request, String expectedDomain, ProtocolEnum protocol) {
         try {
             URI uri = request.getUri();
-            if (!"https".equals(uri.getScheme())) {
+            if (!protocol.toString().equals(uri.getScheme())) {
                 return false;
             }
 
