@@ -41,6 +41,11 @@ public class LiveWallSolutionFeedback {
      */
     private LiveTag liveTag;
 
+    /**
+     * 直播回放地址，支持针对已结束的直播进行回放
+     */
+    private String censorReplayUrl;
+
     @Data
     public static class LiveTag {
         /**
