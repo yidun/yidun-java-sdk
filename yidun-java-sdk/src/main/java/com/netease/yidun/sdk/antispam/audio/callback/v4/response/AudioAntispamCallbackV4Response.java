@@ -104,6 +104,10 @@ public class AudioAntispamCallbackV4Response implements BaseResponse {
          */
         private Integer level;
         /**
+         * 置信度，取值范围 0-1
+         */
+        private Float rate;
+        /**
          * 命中细分类信息
          */
         private List<AudioSubLabel> subLabels;
@@ -121,6 +125,10 @@ public class AudioAntispamCallbackV4Response implements BaseResponse {
         private Integer subLabelDepth;
         private String secondLabel;
         private String thirdLabel;
+        /**
+         * 置信度，取值范围 0-1
+         */
+        private Float rate;
         /**
          * 其他信息
          */
@@ -200,6 +208,10 @@ public class AudioAntispamCallbackV4Response implements BaseResponse {
          * 命中的敏感词或者声纹检测的分值
          */
         private String value;
+        /**
+         * 命中的涉政歌曲名称
+         */
+        private String songName;
     }
 
     @Data
