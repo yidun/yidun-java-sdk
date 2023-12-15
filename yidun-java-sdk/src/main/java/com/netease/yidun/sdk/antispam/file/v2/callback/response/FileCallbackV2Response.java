@@ -942,7 +942,7 @@ public class FileCallbackV2Response extends CommonResponse {
         private String taskId;
         private Integer sequence;
         private String imageUrl;
-        private Integer level;
+        private Integer suggestion;
         private List<ImageEvidenceLabel> labels;
         private Integer page;
         private Integer status;
@@ -971,14 +971,6 @@ public class FileCallbackV2Response extends CommonResponse {
             this.imageUrl = imageUrl;
         }
 
-        public Integer getLevel() {
-            return level;
-        }
-
-        public void setLevel(Integer level) {
-            this.level = level;
-        }
-
         public List<ImageEvidenceLabel> getLabels() {
             return labels;
         }
@@ -1003,15 +995,24 @@ public class FileCallbackV2Response extends CommonResponse {
             this.status = status;
         }
 
+        public Integer getSuggestion() {
+            return suggestion;
+        }
+
+        public void setSuggestion(Integer suggestion) {
+            this.suggestion = suggestion;
+        }
+
         @Override
         public String toString() {
             return "ImageEvidence{" +
                     "taskId='" + taskId + '\'' +
                     ", sequence=" + sequence +
                     ", imageUrl='" + imageUrl + '\'' +
-                    ", level=" + level +
+                    ", suggestion=" + suggestion +
                     ", labels=" + labels +
                     ", page=" + page +
+                    ", status=" + status +
                     '}';
         }
     }
