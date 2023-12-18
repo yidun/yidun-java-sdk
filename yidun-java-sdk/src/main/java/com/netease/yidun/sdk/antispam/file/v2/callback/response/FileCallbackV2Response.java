@@ -126,6 +126,8 @@ public class FileCallbackV2Response extends CommonResponse {
          */
         private Integer status;
 
+        private Integer customAction;
+
         public String getDataId() {
             return dataId;
         }
@@ -238,6 +240,14 @@ public class FileCallbackV2Response extends CommonResponse {
             this.status = status;
         }
 
+        public Integer getCustomAction() {
+            return customAction;
+        }
+
+        public void setCustomAction(Integer customAction) {
+            this.customAction = customAction;
+        }
+
         @Override
         public String toString() {
             return "AntispamCheckResult{" +
@@ -255,6 +265,7 @@ public class FileCallbackV2Response extends CommonResponse {
                     ", censorLabels=" + censorLabels +
                     ", censorTime=" + censorTime +
                     ", status=" + status +
+                    ", CustomAction=" + customAction +
                     '}';
         }
     }
