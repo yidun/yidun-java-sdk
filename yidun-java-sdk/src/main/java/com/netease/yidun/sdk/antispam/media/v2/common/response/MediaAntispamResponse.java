@@ -30,6 +30,17 @@ public class MediaAntispamResponse {
      * 检测状态, 1:检测中 2:检测成功 3:检测失败
      */
     private Integer checkStatus;
+
+    /**
+     *  检测完成时间
+     */
+    private Long censorTime;
+
+    /**
+     * 自定义动作 0:通过  2:不通过
+     */
+    private Integer customAction;
+
     /**
      * 底层业务返回结果
      */
@@ -105,6 +116,22 @@ public class MediaAntispamResponse {
 
     public void setEvidences(MediaAntispamEvidence evidences) {
         this.evidences = evidences;
+    }
+
+    public Long getCensorTime() {
+        return censorTime;
+    }
+
+    public void setCensorTime(Long censorTime) {
+        this.censorTime = censorTime;
+    }
+
+    public Integer getCustomAction() {
+        return customAction;
+    }
+
+    public void setCustomAction(Integer customAction) {
+        this.customAction = customAction;
     }
 
     public SolutionEnrichEvidence getSolutionEnrichEvidence() {
