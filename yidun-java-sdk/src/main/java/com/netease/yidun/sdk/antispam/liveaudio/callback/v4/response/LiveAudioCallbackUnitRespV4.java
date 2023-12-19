@@ -35,6 +35,7 @@ public class LiveAudioCallbackUnitRespV4 {
     public static class SegmentsInfoV4 {
         private Integer label;
         private Integer level;
+        private Double rate;
         private List<AudioThirdLabel> subLabels;
     }
 
@@ -45,6 +46,7 @@ public class LiveAudioCallbackUnitRespV4 {
         private String secondLabel;
         private String thirdLabel;
         private Integer subLabelDepth;
+        private Double rate;
     }
 
     @Data
