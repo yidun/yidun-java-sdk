@@ -85,7 +85,7 @@ public class PostFormRequestTest {
         queryParameters = Collections.singletonMap("q1", "q-v-1");
         Map<String, String> commonMap = new HashMap<>();
         commonMap.put("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
-        commonMap.put("SdkVer", "1.0");
+        commonMap.put("SdkVer", "1.2");
 
         expectedCommonHeaders = Collections.unmodifiableMap(commonMap);
 
