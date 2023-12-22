@@ -250,6 +250,10 @@ public class LiveVideoSolutionCallbackV3Result implements BaseResponse {
          */
         private int warnCount;
         /**
+         * 针对接入SDK监听客户，针对房间内具体说话人的处罚，返回说话人ID信息，若为空，则针对房间维度处罚
+         */
+        private String speakerId;
+        /**
          * 审核员账号
          */
         private String censorAccount;
