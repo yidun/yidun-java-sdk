@@ -69,6 +69,10 @@ public class VideoSolutionSubmitV2Req extends PostFormRequest<VideoSolutionSubmi
      * 截图帧数，默认5
      */
     private String scFrequency;
+    /**
+     * 固定截帧数
+     */
+    private Integer checkFrameCount;
 
     /**
      * 高级截图频率配置，结构是json结构
@@ -150,6 +154,7 @@ public class VideoSolutionSubmitV2Req extends PostFormRequest<VideoSolutionSubmi
         params.put("relationId", getRelationId());
         params.put("relationSearchId", getRelationSearchId());
         params.put("priorityId", getPriorityId());
+        params.put("checkFrameCount", getCheckFrameCount());
         params.put("checkLanguageCode", getCheckLanguageCode());
         params.put("nickname", getNickname());
         if (getTags() != null) {
