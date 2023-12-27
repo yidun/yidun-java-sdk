@@ -67,6 +67,10 @@ public class VideoCheckReq extends BizPostFormRequest<VideoCheckResp> {
      * 截图间隔
      */
     private Float scFrequency = 5f;
+    /**
+     * 固定截帧数
+     */
+    private Integer checkFrameCount;
 
     /**
      * 高级截图频率配置，结构是json结构
@@ -226,6 +230,7 @@ public class VideoCheckReq extends BizPostFormRequest<VideoCheckResp> {
         if (advancedFrequency != null) {
             params.put("advancedFrequency", GSON.toJson(getAdvancedFrequency()));
         }
+        params.put("checkFrameCount", getCheckFrameCount());
         params.put("uniqueKey", getUniqueKey());
         params.put("nickname", getNickname());
         params.put("phone", getPhone());
