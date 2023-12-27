@@ -25,7 +25,10 @@ public class LiveWallSolutionFeedback {
      * 弹幕数,-1或者null代表不更新
      */
     private Integer barrageCount;
-
+    /**
+     * 垃圾弹幕数
+     */
+    private Integer garbageBarrageCount;
     /**
      * 直播状态 100：直播结束 @see LiveVideoFeedBackStatusEnum
      */
