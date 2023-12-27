@@ -67,6 +67,12 @@ public class TextCheckSceneRequest<T extends BaseResponse> extends BizPostFormRe
     private String phone;
 
     /**
+     * 自定义业务标识
+     */
+    private String subProduct;
+
+
+    /**
      * 用户昵称
      */
     @Size(max = 128, message = "nickname最长128个字符")
@@ -242,6 +248,15 @@ public class TextCheckSceneRequest<T extends BaseResponse> extends BizPostFormRe
      */
     @Size(max = 1024, message = "censorExt最长1024个字符")
     private String censorExt;
+
+
+    /**
+     * 客户提交的扩展字段，需要严格按照 json 格式
+     */
+    private String extension;
+
+
+
 
     public String getDataId() {
         return dataId;
@@ -921,6 +936,22 @@ public class TextCheckSceneRequest<T extends BaseResponse> extends BizPostFormRe
     public void setRiskControlBusinessId(String riskControlBusinessId) {
         this.riskControlBusinessId = riskControlBusinessId;
     }
+    public String getExtension() {
+        return extension;
+    }
+
+    public void setExtension(String extension) {
+        this.extension = extension;
+    }
+
+
+    public String getSubProduct() {
+        return subProduct;
+    }
+
+    public void setSubProduct(String subProduct) {
+        this.subProduct = subProduct;
+    }
 
     @Override
     public Class<T> getResponseClass() {
@@ -972,6 +1003,8 @@ public class TextCheckSceneRequest<T extends BaseResponse> extends BizPostFormRe
         params.put("riskControlBusinessId", riskControlBusinessId);
         params.put("riskControlToken", riskControlToken);
         params.put("censorExt", censorExt);
+        params.put("extension",extension);
+        params.put("subProduct",subProduct);
         return params;
     }
 
@@ -1021,6 +1054,8 @@ public class TextCheckSceneRequest<T extends BaseResponse> extends BizPostFormRe
                 + ", riskControlBusinessId=" + riskControlBusinessId
                 + ", riskControlBusinessId=" + riskControlBusinessId
                 + ", censorExt=" + censorExt
+                + ", extension=" + extension
+                + ", subProduct=" + subProduct
                 + ")";
     }
 
