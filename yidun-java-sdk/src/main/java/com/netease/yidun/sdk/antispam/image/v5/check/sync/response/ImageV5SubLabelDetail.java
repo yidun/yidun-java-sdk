@@ -97,6 +97,10 @@ public class ImageV5SubLabelDetail implements Serializable {
          */
         private List<AntispamInfo> keywords;
         /**
+         * 命中的用户自定义规则的信息
+         */
+        private List<RuleInfo> rules;
+        /**
          * 反垃圾自定义图片名单结果
          */
         private List<AntispamInfo> libInfos;
@@ -139,6 +143,14 @@ public class ImageV5SubLabelDetail implements Serializable {
 
         public void setAnticheat(AnticheatInfo anticheat) {
             this.anticheat = anticheat;
+        }
+
+        public List<RuleInfo> getRules() {
+            return rules;
+        }
+
+        public void setRules(List<RuleInfo> rules) {
+            this.rules = rules;
         }
     }
 
@@ -258,6 +270,22 @@ public class ImageV5SubLabelDetail implements Serializable {
 
         public void setReleaseTime(Long releaseTime) {
             this.releaseTime = releaseTime;
+        }
+    }
+
+    /**
+     * 命中的用户自定义规则的信息
+     */
+    public static class RuleInfo implements Serializable {
+        private static final long serialVersionUID = -9114963157829445482L;
+        private String name;
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
         }
     }
 }
