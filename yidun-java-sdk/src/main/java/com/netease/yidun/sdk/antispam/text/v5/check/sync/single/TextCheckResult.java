@@ -473,6 +473,7 @@ public class TextCheckResult implements Serializable {
     public static class AntispamSubLabelDetail {
 
         private List<AntispamSubLabelDetailKeyword> keywords;
+        private List<AntispamSubLabelDetailRule> rules;
         private List<AntispamSubLabelDetailLibInfo> libInfos;
         private AntispamSubLabelDetailAnticheat anticheat;
         private List<AntispamSubLabelDetailHitInfo> hitInfos;
@@ -483,6 +484,14 @@ public class TextCheckResult implements Serializable {
 
         public void setKeywords(List<AntispamSubLabelDetailKeyword> keywords) {
             this.keywords = keywords;
+        }
+
+        public List<AntispamSubLabelDetailRule> getRules() {
+            return rules;
+        }
+
+        public void setRules(List<AntispamSubLabelDetailRule> rules) {
+            this.rules = rules;
         }
 
         public List<AntispamSubLabelDetailLibInfo> getLibInfos() {
@@ -513,9 +522,29 @@ public class TextCheckResult implements Serializable {
         public String toString() {
             return "AntispamSubLabelDetail("
                     + "keywords=" + keywords
+                    + ", rules=" + rules
                     + ", libInfos=" + libInfos
                     + ", anticheat=" + anticheat
                     + ", hitInfos=" + hitInfos
+                    + ")";
+        }
+    }
+
+    public static class AntispamSubLabelDetailRule implements Serializable {
+        private static final long serialVersionUID = -9114963157829445482L;
+        private String name;
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+        @Override
+        public String toString() {
+            return "AntispamSubLabelDetailRule("
+                    + "name=" + name
                     + ")";
         }
     }
