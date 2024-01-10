@@ -64,6 +64,16 @@ public class ImageSubLabelResp implements Serializable {
          * 反作弊结果
          */
         private AnticheatInfo anticheat;
+        /**
+         * 命中的用户自定义规则的信息
+         */
+        private List<RuleInfo> rules;
+    }
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class RuleInfo {
+        private String name;
     }
 
     @Data

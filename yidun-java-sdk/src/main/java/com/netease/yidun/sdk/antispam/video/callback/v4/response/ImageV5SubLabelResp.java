@@ -1,5 +1,6 @@
 package com.netease.yidun.sdk.antispam.video.callback.v4.response;
 
+import com.netease.yidun.sdk.antispam.image.v5.check.sync.response.ImageV5SubLabelDetail;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -59,8 +60,18 @@ public class ImageV5SubLabelResp {
          * 反作弊结果
          */
         private AnticheatInfo anticheat;
+        /**
+         * 命中的用户自定义规则的信息
+         */
+        private List<RuleInfo> rules;
     }
 
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class RuleInfo {
+        private String name;
+    }
     @Data
     @Builder
     @NoArgsConstructor
