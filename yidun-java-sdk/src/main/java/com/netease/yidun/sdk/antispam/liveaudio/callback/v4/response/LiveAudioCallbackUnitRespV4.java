@@ -61,6 +61,12 @@ public class LiveAudioCallbackUnitRespV4 {
         private List<LeaderV4> hitLeaders;
         private List<Keywords> keywords;
         private IntentUnit intent;
+        private List<Rule> rules;
+    }
+
+    @Data
+    public static class Rule {
+        private String name;
     }
 
     @Data
