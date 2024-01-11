@@ -149,6 +149,15 @@ public class AudioAntispamCallbackV4Response implements BaseResponse {
          * 自定义名单线索分类信息
          */
         private List<LibResult> libInfos;
+        /**
+         * 自定义规则
+         */
+        private List<Rule> rules;
+    }
+
+    @Data
+    public static class Rule {
+        private String name;
     }
 
     @Data
