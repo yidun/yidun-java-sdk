@@ -1,16 +1,15 @@
 package com.netease.yidun.sdk.antispam.livevideosolution.submit.v3.request;
 
-import java.util.List;
-import java.util.Map;
-
 import com.google.gson.Gson;
 import com.netease.yidun.sdk.antispam.livevideosolution.submit.v3.response.LiveWallSolutionSubmitV3Resp;
 import com.netease.yidun.sdk.antispam.video.submit.v4.request.AdvancedFrequencyRequest;
 import com.netease.yidun.sdk.core.request.PostFormRequest;
 import com.netease.yidun.sdk.core.utils.StringHashMap;
-
-import java.util.stream.Collectors;
 import lombok.Data;
+
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Data
 public class LiveWallSolutionSubmitV3Req extends PostFormRequest<LiveWallSolutionSubmitV3Resp> {
@@ -132,7 +131,7 @@ public class LiveWallSolutionSubmitV3Req extends PostFormRequest<LiveWallSolutio
     public LiveWallSolutionSubmitV3Req() {
         productCode = "liveVideoSolutionCheck";
         uriPattern = "/v3/livewallsolution/check";
-        version = "v3";
+        version = "v3.1";
     }
 
     @Override
