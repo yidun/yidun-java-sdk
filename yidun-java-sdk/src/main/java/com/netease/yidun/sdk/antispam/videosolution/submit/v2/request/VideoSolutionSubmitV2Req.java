@@ -1,15 +1,14 @@
 package com.netease.yidun.sdk.antispam.videosolution.submit.v2.request;
 
-import java.util.List;
-import java.util.Map;
-
 import com.google.gson.Gson;
 import com.netease.yidun.sdk.antispam.video.submit.v4.request.AdvancedFrequencyRequest;
 import com.netease.yidun.sdk.antispam.videosolution.submit.v2.response.VideoSolutionSubmitV2Resp;
 import com.netease.yidun.sdk.core.request.PostFormRequest;
 import com.netease.yidun.sdk.core.utils.StringHashMap;
-
 import lombok.Data;
+
+import java.util.List;
+import java.util.Map;
 
 @Data
 public class VideoSolutionSubmitV2Req extends PostFormRequest<VideoSolutionSubmitV2Resp> {
@@ -121,7 +120,7 @@ public class VideoSolutionSubmitV2Req extends PostFormRequest<VideoSolutionSubmi
     public VideoSolutionSubmitV2Req() {
         productCode = "videoSolutionCheck";
         uriPattern = "/v2/videosolution/submit";
-        version = "v2";
+        version = "v2.1";
     }
 
     @Override

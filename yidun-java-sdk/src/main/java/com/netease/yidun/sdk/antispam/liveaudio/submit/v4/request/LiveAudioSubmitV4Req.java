@@ -1,14 +1,13 @@
 package com.netease.yidun.sdk.antispam.liveaudio.submit.v4.request;
 
-import java.util.List;
-import java.util.Map;
-
 import com.netease.yidun.sdk.antispam.liveaudio.submit.v4.response.LiveAudioSubmitV4Resp;
 import com.netease.yidun.sdk.core.request.BizPostFormRequest;
 import com.netease.yidun.sdk.core.utils.StringHashMap;
-
-import java.util.stream.Collectors;
 import lombok.Data;
+
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Data
 public class LiveAudioSubmitV4Req extends BizPostFormRequest<LiveAudioSubmitV4Resp> {
@@ -224,7 +223,7 @@ public class LiveAudioSubmitV4Req extends BizPostFormRequest<LiveAudioSubmitV4Re
     public LiveAudioSubmitV4Req() {
         productCode = "liveAudio";
         uriPattern = "/v4/liveaudio/check";
-        version = "v4";
+        version = "v4.1";
     }
 
     @Override

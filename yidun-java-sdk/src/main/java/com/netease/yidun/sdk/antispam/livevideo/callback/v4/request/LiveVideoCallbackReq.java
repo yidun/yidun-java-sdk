@@ -1,12 +1,11 @@
 package com.netease.yidun.sdk.antispam.livevideo.callback.v4.request;
 
-import java.util.Map;
-
 import com.netease.yidun.sdk.antispam.livevideo.callback.v4.response.LiveVideoCallbackResp;
 import com.netease.yidun.sdk.core.request.BizPostFormRequest;
-
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.Map;
 
 /**
  * 视频直播回调请求
@@ -23,7 +22,7 @@ public class LiveVideoCallbackReq extends BizPostFormRequest<LiveVideoCallbackRe
     public LiveVideoCallbackReq() {
         productCode = "liveVideo";
         uriPattern = "/v4/livevideo/callback/results";
-        version = "v4";
+        version = "v4.1";
     }
 
     @Override

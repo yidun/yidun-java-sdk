@@ -3,9 +3,10 @@ package com.netease.yidun.sdk.antispam.livevideo.submit.v4.request;
 import com.netease.yidun.sdk.antispam.livevideo.submit.v4.response.LiveVideoCheckResp;
 import com.netease.yidun.sdk.core.request.BizPostFormRequest;
 import com.netease.yidun.sdk.core.utils.StringHashMap;
-import java.util.Map;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.Map;
 
 /**
  * 直播检测请求
@@ -134,7 +135,7 @@ public class LiveVideoCheckReq extends BizPostFormRequest<LiveVideoCheckResp> {
     public LiveVideoCheckReq() {
         productCode = "liveVideo";
         uriPattern = "/v4/livevideo/submit";
-        version = "v4";
+        version = "v4.1";
     }
 
     @Override
