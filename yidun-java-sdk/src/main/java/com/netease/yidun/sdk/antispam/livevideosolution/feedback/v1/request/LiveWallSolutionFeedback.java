@@ -2,7 +2,9 @@ package com.netease.yidun.sdk.antispam.livevideosolution.feedback.v1.request;
 
 import java.util.List;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 public class LiveWallSolutionFeedback {
@@ -48,6 +50,10 @@ public class LiveWallSolutionFeedback {
      * 直播回放地址，支持针对已结束的直播进行回放
      */
     private String censorReplayUrl;
+    /**
+     * 在房间内的主播信息
+     */
+    private LivingSpeakerInfo livingSpeakerInfo;
 
     @Data
     public static class LiveTag {
@@ -59,5 +65,17 @@ public class LiveWallSolutionFeedback {
          * 直播标签更新时间
          */
         private long updateTime;
+    }
+
+    @Data
+    public static class LivingSpeakerInfo {
+        /**
+         * 针对接入SDK监听客户，填入在房间内的所有说话人ID信息
+         */
+        private List<String> livingSpeakerIds;
+        /**
+         * 更新时间，用来解决乱序问题
+         */
+        private Long updateTime;
     }
 }
