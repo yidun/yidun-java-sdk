@@ -20,6 +20,10 @@ public enum LabelEnum {
     FLOOD(700, "灌水"),
     NAUSEA(800, "恶心类"),
     OTHER(900, "其他"),
+    BLACK_SCREEN(1020, "黑屏"),
+    HANGUP      (1030, "挂机"),
+    SILENT      (1040, "黑麦"),
+    SCREECH     (1050, "噪音"),
     VALUES_INVOLVED(1100, "涉价值观"),
     ;
 
