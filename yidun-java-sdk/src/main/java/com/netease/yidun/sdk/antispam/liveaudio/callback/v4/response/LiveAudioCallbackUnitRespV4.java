@@ -1,6 +1,7 @@
 package com.netease.yidun.sdk.antispam.liveaudio.callback.v4.response;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -60,6 +61,10 @@ public class LiveAudioCallbackUnitRespV4 {
         private List<HintDetailV4> hitInfos;
         private List<LeaderV4> hitLeaders;
         private List<Keywords> keywords;
+        /**
+         * 命中的名单信息
+         */
+        private List<LibResultV4> libInfos;
         private IntentUnit intent;
         private List<Rule> rules;
     }
@@ -67,6 +72,25 @@ public class LiveAudioCallbackUnitRespV4 {
     @Data
     public static class Rule {
         private String name;
+    }
+
+    /**
+     * 名单命中结果
+     */
+    @Data
+    public static class LibResultV4 {
+        /**
+         * 命中类型;
+         */
+        private Integer listType;
+        /**
+         * 命中原因
+         */
+        private String entity;
+        /**
+         * 策略组名称
+         */
+        private String strategyGroupName;
     }
 
     @Data
