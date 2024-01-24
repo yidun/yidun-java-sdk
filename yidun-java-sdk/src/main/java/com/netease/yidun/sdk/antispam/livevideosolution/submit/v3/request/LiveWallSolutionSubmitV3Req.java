@@ -183,6 +183,7 @@ public class LiveWallSolutionSubmitV3Req extends PostFormRequest<LiveWallSolutio
         params.put("extStr2", extStr2);
         params.put("screenShotStrategy", screenShotStrategy);
         params.put("subProduct", subProduct);
+        params.put("extension", extension);
         return params;
     }
 
