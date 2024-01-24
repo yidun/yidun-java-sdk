@@ -281,6 +281,7 @@ public class LiveAudioSubmitV4Req extends BizPostFormRequest<LiveAudioSubmitV4Re
         params.put("extLon2", extLon2);
         params.put("extStr1", extStr1);
         params.put("extStr2", extStr2);
+        params.put("extension", extension);
         params.put("subProduct", subProduct);
         return params;
     }
