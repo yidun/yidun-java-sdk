@@ -21,6 +21,11 @@ public class MediaImageEvidence {
     private String name;
     private List<ImageLabelInfo> labels;
 
+    /**
+     *  多图url
+     */
+    private List<String> urls;
+
     public Integer getStatus() {
         return status;
     }
@@ -99,6 +104,14 @@ public class MediaImageEvidence {
 
     public void setLabels(List<ImageLabelInfo> labels) {
         this.labels = labels;
+    }
+
+    public List<String> getUrls() {
+        return urls;
+    }
+
+    public void setUrls(List<String> urls) {
+        this.urls = urls;
     }
 
     public static class ImageLabelInfo {
