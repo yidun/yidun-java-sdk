@@ -20,9 +20,11 @@ import com.netease.yidun.sdk.irisk.v6.check.v603.ip.IpRiskInfo;
 import com.netease.yidun.sdk.irisk.v6.check.v603.phone.PhoneBasicInfo;
 import com.netease.yidun.sdk.irisk.v6.check.v603.phone.PhoneInfo;
 import com.netease.yidun.sdk.irisk.v6.check.v603.phone.PhoneRiskInfo;
+import com.netease.yidun.sdk.irisk.v6.detail.IRiskDetailV6Request;
+import com.netease.yidun.sdk.irisk.v6.detail.IRiskDetailV6Response;
 
 /**
- * 适用场景：【智能风控】在线检测V6
+ * 适用场景：【智能风控】在线检测V6, 数据查询V6
  */
 public class IRiskV6Client {
 
@@ -35,7 +37,9 @@ public class IRiskV6Client {
     public IRiskV6Client(String secretId, String secretKey) {
         ClientProfile profile = ClientProfile
                 .defaultProfile(secretId, secretKey)
-                .preheatRequestsForValidation(new IRiskCheckV6Request(null));
+                .preheatRequestsForValidation(
+                        new IRiskCheckV6Request(null),
+                        new IRiskDetailV6Request(null));
 
         client = new DefaultClient(profile);
     }
@@ -70,6 +74,10 @@ public class IRiskV6Client {
 
     public DataResponse<IRiskCheckV603Result<HitInfoV602, PhoneInfo<PhoneBasicInfo, PhoneRiskInfo>, IpInfo<IpBasicInfo, IpRiskInfo>>> check(
             IRiskCheckV603Request request) {
+        return client.execute(request);
+    }
+
+    public IRiskDetailV6Response detailV6(IRiskDetailV6Request request) {
         return client.execute(request);
     }
 
