@@ -1,11 +1,13 @@
 package com.netease.yidun.sdk.irisk.v1;
 
+import com.google.gson.Gson;
 import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.irisk.v1.detail.DetailData;
 import com.netease.yidun.sdk.irisk.v1.detail.IRiskDetailRequest;
 import com.netease.yidun.sdk.irisk.v1.detail.IRiskDetailResponse;
 import com.netease.yidun.sdk.irisk.v1.detail.IRiskDetailResult;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,8 +29,28 @@ public class IRiskDetailDemo extends AbstractDemo {
         request.setEndTimestamp(1677143036000L);
 
         request.setRoleId("用户/玩家的id");
+
+        List<String> roleIdList = new ArrayList<>();
+        roleIdList.add("用户/玩家的id1");
+        request.setRoleIds(new Gson().toJson(roleIdList));
+
         request.setIp("192.168.0.1");
+
+        List<String> ipList = new ArrayList<>();
+        ipList.add("192.168.0.1");
+        request.setIps(new Gson().toJson(ipList));
+
+        request.setSdkIp("192.168.0.1");
+
+        List<String> sdkIpList = new ArrayList<>();
+        sdkIpList.add("192.168.0.1");
+        request.setSdkIps(new Gson().toJson(sdkIpList));
+
         request.setAccount("用户/玩家的账号");
+
+        List<String> accountList = new ArrayList<>();
+        accountList.add("用户/玩家的账号");
+        request.setAccounts(new Gson().toJson(accountList));
         // 客户端的包名
         request.setPackageName("com.xxx.test");
         // 用于分页查询的关联标记。第一次查询时，该字段填充空字符串""或不传该字段均可。

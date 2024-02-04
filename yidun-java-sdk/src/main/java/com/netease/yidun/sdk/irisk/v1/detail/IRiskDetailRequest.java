@@ -32,9 +32,19 @@ public class IRiskDetailRequest extends BizPostJsonRequest<IRiskDetailResponse> 
     private String account;
 
     /**
+     * 用户/玩家的账号集合(转成JSON后的字符串)
+     */
+    private String accounts;
+
+    /**
      * 用户/玩家的角色ID
      */
     private String roleId;
+
+    /**
+     * 用户/玩家的角色ID集合(转成JSON后的字符串)
+     */
+    private String roleIds;
 
     /**
      * 风险等级，1-高风险，2-中风险，3-低风险
@@ -52,9 +62,22 @@ public class IRiskDetailRequest extends BizPostJsonRequest<IRiskDetailResponse> 
     private String appVersion;
 
     /**
-     * ip地址
+     * 服务端ip地址
      */
     private String ip;
+
+    /**
+     * 服务端ip地址集合(转成JSON后的字符串)
+     */
+    private String ips;
+    /**
+     * sdk ip
+     */
+    private String sdkIp;
+    /**
+     * sdk ip集合(转成JSON后的字符串)
+     */
+    private String sdkIps;
 
     public IRiskDetailRequest(String businessId) {
         productCode = "irisk";
@@ -70,13 +93,18 @@ public class IRiskDetailRequest extends BizPostJsonRequest<IRiskDetailResponse> 
         customSignParams.put("endTimestamp", String.valueOf(endTimestamp));
         customSignParams.put("startFlag", startFlag);
         customSignParams.put("account", account);
+        customSignParams.put("accounts", accounts);
         customSignParams.put("roleId", roleId);
+        customSignParams.put("roleIds", roleIds);
         if (riskLevel != null) {
             customSignParams.put("riskLevel", String.valueOf(riskLevel));
         }
         customSignParams.put("packageName", packageName);
         customSignParams.put("appVersion", appVersion);
         customSignParams.put("ip", ip);
+        customSignParams.put("ips", ips);
+        customSignParams.put("sdkIp", sdkIp);
+        customSignParams.put("sdkIps", sdkIps);
         return customSignParams;
     }
 
@@ -157,6 +185,45 @@ public class IRiskDetailRequest extends BizPostJsonRequest<IRiskDetailResponse> 
         this.ip = ip;
     }
 
+    public String getAccounts() {
+        return accounts;
+    }
+
+    public void setAccounts(String accounts) {
+        this.accounts = accounts;
+    }
+
+    public String getRoleIds() {
+        return roleIds;
+    }
+
+    public void setRoleIds(String roleIds) {
+        this.roleIds = roleIds;
+    }
+
+    public String getIps() {
+        return ips;
+    }
+
+    public void setIps(String ips) {
+        this.ips = ips;
+    }
+
+    public String getSdkIp() {
+        return sdkIp;
+    }
+
+    public void setSdkIp(String sdkIp) {
+        this.sdkIp = sdkIp;
+    }
+
+    public String getSdkIps() {
+        return sdkIps;
+    }
+
+    public void setSdkIps(String sdkIps) {
+        this.sdkIps = sdkIps;
+    }
 
     public IRiskDetailRequest beginTimestamp(Long beginTimestamp) {
         this.beginTimestamp = beginTimestamp;
@@ -178,8 +245,18 @@ public class IRiskDetailRequest extends BizPostJsonRequest<IRiskDetailResponse> 
         return this;
     }
 
+    public IRiskDetailRequest accounts(String accounts) {
+        this.accounts = accounts;
+        return this;
+    }
+
     public IRiskDetailRequest roleId(String roleId) {
         this.roleId = roleId;
+        return this;
+    }
+
+    public IRiskDetailRequest roleIds(String roleIds) {
+        this.roleIds = roleIds;
         return this;
     }
 
@@ -203,6 +280,21 @@ public class IRiskDetailRequest extends BizPostJsonRequest<IRiskDetailResponse> 
         return this;
     }
 
+    public IRiskDetailRequest ips(String ips) {
+        this.ips = ips;
+        return this;
+    }
+
+    public IRiskDetailRequest sdkIp(String sdkIp) {
+        this.sdkIp = sdkIp;
+        return this;
+    }
+
+    public IRiskDetailRequest sdkIps(String sdkIps) {
+        this.sdkIps = sdkIps;
+        return this;
+    }
+
     @Override
     public String toString() {
         return "IRiskDetailRequest(" +
@@ -211,11 +303,16 @@ public class IRiskDetailRequest extends BizPostJsonRequest<IRiskDetailResponse> 
                 ", endTimestamp=" + endTimestamp +
                 ", startFlag=" + startFlag +
                 ", account=" + account +
+                ", accounts=" + accounts +
                 ", roleId=" + roleId +
+                ", roleIds=" + roleIds +
                 ", riskLevel=" + riskLevel +
                 ", packageName=" + packageName +
                 ", appVersion=" + appVersion +
                 ", ip=" + ip +
+                ", ips=" + ips +
+                ", sdkIp=" + sdkIp +
+                ", sdkIps=" + sdkIps +
                 ")";
     }
 
