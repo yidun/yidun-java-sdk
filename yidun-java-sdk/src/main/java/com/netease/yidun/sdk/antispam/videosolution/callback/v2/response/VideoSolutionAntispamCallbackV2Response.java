@@ -20,6 +20,11 @@ public class VideoSolutionAntispamCallbackV2Response {
      * 调用音视频检测时传递的dataId字段
      */
     private String dataId;
+
+    /**
+     * md5 值
+     */
+    private String md5;
     /**
      * 调用音视频检测时传递的callback字段
      */
