@@ -8,7 +8,6 @@ import com.netease.yidun.sdk.antispam.callback.AbstractCallbackHandler;
 import com.netease.yidun.sdk.antispam.callback.CallbackProfile;
 import com.netease.yidun.sdk.antispam.crawler.v3.callback.request.CrawlerResourceCallbackV3Request;
 import com.netease.yidun.sdk.antispam.crawler.v3.callback.response.CrawlerResourceCallbackV3Response;
-import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 public abstract class CrawlerCallback
         extends AbstractCallbackHandler<CrawlerResourceCallbackV3Response.CrawlerResourceResult> {
@@ -29,7 +28,7 @@ public abstract class CrawlerCallback
     protected List<CrawlerResourceCallbackV3Response.CrawlerResourceResult> requestCallback(String businessId, String requestId) {
         CrawlerResourceCallbackV3Request request = new CrawlerResourceCallbackV3Request();
         request.setYidunRequestId(requestId);
-        CrawlerResourceCallbackV3Response callbackResponse = antispamRequester.getCrawlerCallbackClient()
+        CrawlerResourceCallbackV3Response callbackResponse = antispamRequester.getCrawlerCommonClient()
                 .callbackResource(request);
         if (callbackResponse == null) {
             return Collections.emptyList();
