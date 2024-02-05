@@ -2,7 +2,7 @@ package com.netease.yidun.sdk.antispam;
 
 import com.netease.yidun.sdk.antispam.audio.AudioCheckClient;
 import com.netease.yidun.sdk.antispam.audio.AudioCommonClient;
-import com.netease.yidun.sdk.antispam.crawler.CrawlerCallbackClient;
+import com.netease.yidun.sdk.antispam.crawler.CrawlerCommonClient;
 import com.netease.yidun.sdk.antispam.crawler.CrawlerSubmitClient;
 import com.netease.yidun.sdk.antispam.digitalbook.v2.DigitalBookCheckClient;
 import com.netease.yidun.sdk.antispam.digitalbook.v2.DigitalBookQueryClient;
@@ -192,8 +192,8 @@ public class AntispamRequester {
         return createIfAbsent(FileSolutionCallbackClient.class);
     }
 
-    public CrawlerCallbackClient getCrawlerCallbackClient() {
-        return createIfAbsent(CrawlerCallbackClient.class);
+    public CrawlerCommonClient getCrawlerCommonClient() {
+        return createIfAbsent(CrawlerCommonClient.class);
     }
 
     public CrawlerSubmitClient getCrawlerSubmitClient() {
