@@ -957,6 +957,14 @@ public class FileCallbackV2Response extends CommonResponse {
         private List<ImageEvidenceLabel> labels;
         private Integer page;
         private Integer status;
+        /**
+         * 长图、gif图片拆帧后的分帧数，默认为1
+         */
+        private Integer frameSize;
+        /**
+         * 长图或者gif图的分帧截图url
+         */
+        private List<String> urls;
 
         public String getTaskId() {
             return taskId;
@@ -1014,6 +1022,22 @@ public class FileCallbackV2Response extends CommonResponse {
             this.suggestion = suggestion;
         }
 
+        public Integer getFrameSize() {
+            return frameSize;
+        }
+
+        public void setFrameSize(Integer frameSize) {
+            this.frameSize = frameSize;
+        }
+
+        public List<String> getUrls() {
+            return urls;
+        }
+
+        public void setUrls(List<String> urls) {
+            this.urls = urls;
+        }
+
         @Override
         public String toString() {
             return "ImageEvidence{" +
@@ -1024,6 +1048,8 @@ public class FileCallbackV2Response extends CommonResponse {
                     ", labels=" + labels +
                     ", page=" + page +
                     ", status=" + status +
+                    ", frameSize=" + frameSize +
+                    ", urls=" + urls +
                     '}';
         }
     }
@@ -1300,6 +1326,7 @@ public class FileCallbackV2Response extends CommonResponse {
         private Integer type;
         private String leaderName;
         private String content;
+        private String url;
         private List<AudioEvidenceLabel> labels = new ArrayList<>();
 
         public Long getStartTime() {
@@ -1350,6 +1377,14 @@ public class FileCallbackV2Response extends CommonResponse {
             this.labels = labels;
         }
 
+        public String getUrl() {
+            return url;
+        }
+
+        public void setUrl(String url) {
+            this.url = url;
+        }
+
         @Override
         public String toString() {
             return "AudioEvidenceSegment{" +
@@ -1358,6 +1393,7 @@ public class FileCallbackV2Response extends CommonResponse {
                     ", type=" + type +
                     ", leaderName='" + leaderName + '\'' +
                     ", content='" + content + '\'' +
+                    ", url='" + url + '\'' +
                     ", labels=" + labels +
                     '}';
         }
