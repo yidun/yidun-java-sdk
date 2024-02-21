@@ -18,11 +18,17 @@ import com.netease.yidun.sdk.antispam.crawler.v1.query.response.CrawlerJobBatchQ
 import com.netease.yidun.sdk.antispam.crawler.v1.query.response.JobCallbackQueryResponse;
 import com.netease.yidun.sdk.antispam.crawler.v1.query.response.OfficialAccountsBatchQueryV1Response;
 import com.netease.yidun.sdk.antispam.crawler.v1.query.response.WeiboBatchQueryV1Response;
+import com.netease.yidun.sdk.antispam.crawler.v1.submit.request.CrawlerJobBatchSubmitV1Request;
 import com.netease.yidun.sdk.antispam.crawler.v1.submit.request.CrawlerJobSubmitV1Request;
+import com.netease.yidun.sdk.antispam.crawler.v1.submit.request.OfficialAccountsBatchSubmitV1Request;
 import com.netease.yidun.sdk.antispam.crawler.v1.submit.request.OfficialAccountsSubmitV1Request;
+import com.netease.yidun.sdk.antispam.crawler.v1.submit.request.WeiboBatchSubmitV1Request;
 import com.netease.yidun.sdk.antispam.crawler.v1.submit.request.WeiboSubmitV1Request;
+import com.netease.yidun.sdk.antispam.crawler.v1.submit.response.CrawlerJobBatchSubmitV1Response;
 import com.netease.yidun.sdk.antispam.crawler.v1.submit.response.CrawlerJobSubmitV1Response;
+import com.netease.yidun.sdk.antispam.crawler.v1.submit.response.OfficialAccountsBatchSubmitV1Response;
 import com.netease.yidun.sdk.antispam.crawler.v1.submit.response.OfficialAccountsSubmitV1Response;
+import com.netease.yidun.sdk.antispam.crawler.v1.submit.response.WeiboBatchSubmitV1Response;
 import com.netease.yidun.sdk.antispam.crawler.v1.submit.response.WeiboSubmitV1Response;
 import com.netease.yidun.sdk.antispam.crawler.v3.callback.CrawlerCallback;
 import com.netease.yidun.sdk.antispam.crawler.v3.callback.request.CrawlerResourceCallbackV3Request;
@@ -68,6 +74,16 @@ public class CrawlerClient extends BaseClient {
 
     public CrawlerJobSubmitV1Response submitJob(CrawlerJobSubmitV1Request request) {
         return requester.getCrawlerSubmitClient().submitJob(request);
+    }
+
+    /**
+     * 批量提交主站任务
+     *
+     * @param request
+     * @return
+     */
+    public CrawlerJobBatchSubmitV1Response batchSubmitJob(CrawlerJobBatchSubmitV1Request request) {
+        return requester.getCrawlerSubmitClient().batchSubmitJob(request);
     }
 
     public CrawlerResourceSubmitV3Response submitResource(CrawlerResourceSubmitV3Request request) {
@@ -121,6 +137,16 @@ public class CrawlerClient extends BaseClient {
     }
 
     /**
+     * 批量提交公众号任务
+     *
+     * @param request
+     * @return
+     */
+    public OfficialAccountsBatchSubmitV1Response batchSubmitOfficialAccounts(OfficialAccountsBatchSubmitV1Request request) {
+        return requester.getCrawlerSubmitClient().batchSubmitOfficialAccounts(request);
+    }
+
+    /**
      * 删除公众号任务
      *
      * @param request
@@ -148,6 +174,16 @@ public class CrawlerClient extends BaseClient {
      */
     public WeiboSubmitV1Response submitWeibo(WeiboSubmitV1Request request) {
         return requester.getCrawlerSubmitClient().submitWeibo(request);
+    }
+
+    /**
+     * 批量提交微博任务
+     *
+     * @param request
+     * @return
+     */
+    public WeiboBatchSubmitV1Response batchSubmitWeibo(WeiboBatchSubmitV1Request request) {
+        return requester.getCrawlerSubmitClient().batchSubmitWeibo(request);
     }
 
     /**

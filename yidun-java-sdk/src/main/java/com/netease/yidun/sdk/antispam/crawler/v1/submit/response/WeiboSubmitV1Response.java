@@ -51,7 +51,7 @@ public class WeiboSubmitV1Response extends CommonResponse {
 
         @Override
         public String toString() {
-            return "OfficialAccountsSubmitResult{" +
+            return "WeiboSubmitResult{" +
                     "jobId=" + jobId +
                     ", taskId='" + taskId + '\'' +
                     '}';
