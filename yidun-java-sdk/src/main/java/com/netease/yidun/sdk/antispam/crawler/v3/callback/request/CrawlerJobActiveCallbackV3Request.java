@@ -1,43 +1,39 @@
-/*
- * @(#) CrawlerJobActiveCallbackRequest.java 2023-12-05
- *
- * Copyright 2023 NetEase.com, Inc. All rights reserved.
- */
-
-package com.netease.yidun.sdk.antispam.crawler.v1.callback.request;
+package com.netease.yidun.sdk.antispam.crawler.v3.callback.request;
 
 import com.netease.yidun.sdk.antispam.callback.ActiveCallbackRequest;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * @author xietieli
  * @version 2023-12-05
  */
-public class CrawlerJobActiveCallbackRequest extends ActiveCallbackRequest {
+public class CrawlerJobActiveCallbackV3Request extends ActiveCallbackRequest {
 
+    private static final long serialVersionUID = -932622585056873765L;
     /**
      * 机器检测结果
      */
-    private JobAntispamCallbackResponseV4 antispam;
+    private JobAntispamCallbackV3Response antispam;
     /**
      * 人工审核结果
      */
-    private JobCensorCallbackResponse censor;
+    private JobCensorCallbackV3Response censor;
 
-    public JobAntispamCallbackResponseV4 getAntispam() {
+    public JobAntispamCallbackV3Response getAntispam() {
         return antispam;
     }
 
-    public void setAntispam(JobAntispamCallbackResponseV4 antispam) {
+    public void setAntispam(JobAntispamCallbackV3Response antispam) {
         this.antispam = antispam;
     }
 
-    public JobCensorCallbackResponse getCensor() {
+    public JobCensorCallbackV3Response getCensor() {
         return censor;
     }
 
-    public void setCensor(JobCensorCallbackResponse censor) {
+    public void setCensor(JobCensorCallbackV3Response censor) {
         this.censor = censor;
     }
 
@@ -49,31 +45,21 @@ public class CrawlerJobActiveCallbackRequest extends ActiveCallbackRequest {
                 '}';
     }
 
-    public CrawlerJobActiveCallbackRequest parseCrawlerJobCallbackData() {
-        return parseCallbackData(CrawlerJobActiveCallbackRequest.class);
+    public CrawlerJobActiveCallbackV3Request parseCrawlerJobCallbackData() {
+        return parseCallbackData(CrawlerJobActiveCallbackV3Request.class);
     }
 
-    private static class JobAntispamCallbackResponseV4 {
+    private static class JobAntispamCallbackV3Response implements Serializable {
+
+        private static final long serialVersionUID = 6746975220966160013L;
         /**
          * 任务jobId
          */
         private Long jobId;
         /**
-         * 任务taskId
+         * 主站url
          */
-        private String taskId;
-        /**
-         * 资源名称
-         */
-        private String resourceName;
-        /**
-         * 资源
-         */
-        private String resource;
-        /**
-         * 资源类型
-         */
-        private Integer resourceType;
+        private String siteUrl;
         /**
          * 检测状态
          */
@@ -119,36 +105,12 @@ public class CrawlerJobActiveCallbackRequest extends ActiveCallbackRequest {
             this.jobId = jobId;
         }
 
-        public String getTaskId() {
-            return taskId;
+        public String getSiteUrl() {
+            return siteUrl;
         }
 
-        public void setTaskId(String taskId) {
-            this.taskId = taskId;
-        }
-
-        public String getResourceName() {
-            return resourceName;
-        }
-
-        public void setResourceName(String resourceName) {
-            this.resourceName = resourceName;
-        }
-
-        public String getResource() {
-            return resource;
-        }
-
-        public void setResource(String resource) {
-            this.resource = resource;
-        }
-
-        public Integer getResourceType() {
-            return resourceType;
-        }
-
-        public void setResourceType(Integer resourceType) {
-            this.resourceType = resourceType;
+        public void setSiteUrl(String siteUrl) {
+            this.siteUrl = siteUrl;
         }
 
         public Integer getCheckStatus() {
@@ -225,12 +187,9 @@ public class CrawlerJobActiveCallbackRequest extends ActiveCallbackRequest {
 
         @Override
         public String toString() {
-            return "JobAntispamCallbackResponseV4{" +
+            return "JobAntispamCallbackV3Response{" +
                     "jobId=" + jobId +
-                    ", taskId='" + taskId + '\'' +
-                    ", resourceName='" + resourceName + '\'' +
-                    ", resource='" + resource + '\'' +
-                    ", resourceType=" + resourceType +
+                    ", siteUrl='" + siteUrl + '\'' +
                     ", checkStatus=" + checkStatus +
                     ", suggestion=" + suggestion +
                     ", labels=" + labels +
@@ -244,11 +203,12 @@ public class CrawlerJobActiveCallbackRequest extends ActiveCallbackRequest {
         }
     }
 
-
     /**
      * 人审回调结果
      */
-    private static class JobCensorCallbackResponse {
+    private static class JobCensorCallbackV3Response implements Serializable {
+
+        private static final long serialVersionUID = 2139350884044020948L;
         /**
          * 任务id
          */
@@ -360,7 +320,7 @@ public class CrawlerJobActiveCallbackRequest extends ActiveCallbackRequest {
 
         @Override
         public String toString() {
-            return "JobCensorCallbackUnit{" +
+            return "JobCensorCallbackV3Response{" +
                     "jobId=" + jobId +
                     ", siteUrl='" + siteUrl + '\'' +
                     ", suggestion=" + suggestion +
@@ -374,7 +334,9 @@ public class CrawlerJobActiveCallbackRequest extends ActiveCallbackRequest {
         }
     }
 
-    public static class LabelInfo {
+    public static class LabelInfo implements Serializable {
+
+        private static final long serialVersionUID = -1805428824876189381L;
         private Integer label;
 
         public Integer getLabel() {
