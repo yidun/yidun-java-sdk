@@ -1,8 +1,9 @@
 package com.netease.yidun.sdk.common;
 
 import com.google.gson.Gson;
-import com.netease.yidun.sdk.core.request.BizPostFormRequest;
+import com.netease.yidun.sdk.core.request.PostFormRequest;
 import com.netease.yidun.sdk.core.response.BaseResponse;
+import com.netease.yidun.sdk.core.utils.ClassUtils;
 import com.netease.yidun.sdk.core.utils.StringUtils;
 
 import java.lang.reflect.Field;
@@ -14,7 +15,7 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public abstract class CustomSignParamRequest<T extends BaseResponse> extends BizPostFormRequest<T> {
+public abstract class CustomSignParamRequest<T extends BaseResponse> extends PostFormRequest<T> {
 
     /**
      * 通用的请求参数赋值
@@ -39,17 +40,15 @@ public abstract class CustomSignParamRequest<T extends BaseResponse> extends Biz
                         customSignParams.put(declaredField.getName(), (String) value);
                         continue;
                     }
-                    if (value instanceof Collection && value.getClass().getGenericInterfaces().length > 0) {
-                        Type type = value.getClass().getGenericInterfaces()[0];
-                        if (type instanceof ParameterizedType) {
-                            ParameterizedType parameterizedType = (ParameterizedType) type;
-                            Type[] typeArguments = parameterizedType.getActualTypeArguments();
-                            if (typeArguments.length > 0 && typeArguments[0] instanceof Class && ((Class<?>) typeArguments[0]).isPrimitive()) {
-                                // value 的声明类型是泛型类型是基础类型的集合
-                                Object signValue = ((Collection) value).stream().map(String::valueOf).collect(Collectors.joining(","));
-                                customSignParams.put(declaredField.getName(), signValue.toString());
-                                continue;
-                            }
+                    if (value instanceof Collection && declaredField.getGenericType() != null &&
+                            declaredField.getGenericType() instanceof ParameterizedType) {
+                        ParameterizedType parameterizedType = (ParameterizedType) declaredField.getGenericType();
+                        Type[] typeArguments = parameterizedType.getActualTypeArguments();
+                        if (typeArguments.length > 0 && typeArguments[0] instanceof Class && ClassUtils.isPrimitiveOrWrapper((Class<?>) typeArguments[0])) {
+                            // value 的声明类型是泛型类型是基础类型的集合
+                            Object signValue = ((Collection) value).stream().map(String::valueOf).collect(Collectors.joining(","));
+                            customSignParams.put(declaredField.getName(), signValue.toString());
+                            continue;
                         }
                     }
 
