@@ -174,6 +174,11 @@ public class DetailData {
     private String ip;
 
     /**
+     * IP地址
+     */
+    private String sdkIp;
+
+    /**
      * 地区
      */
     private String location;
@@ -189,14 +194,17 @@ public class DetailData {
     private String execAction;
 
     /**
-     * 命中的规则编号, 以";"连接
-     */
-    private String matchedRules;
-
-    /**
      * 命中的风险标签, 以";"连接
      */
     private String matchedRiskTags;
+    /**
+     * 证据信息
+     */
+    private String evidence;
+    /**
+     * 检测来源
+     */
+    private String checkSource;
 
     public String getBusinessId() {
         return businessId;
@@ -494,19 +502,35 @@ public class DetailData {
         this.execAction = execAction;
     }
 
-    public String getMatchedRules() {
-        return matchedRules;
-    }
-
-    public void setMatchedRules(String matchedRules) {
-        this.matchedRules = matchedRules;
-    }
-
     public String getMatchedRiskTags() {
         return matchedRiskTags;
     }
 
     public void setMatchedRiskTags(String matchedRiskTags) {
         this.matchedRiskTags = matchedRiskTags;
+    }
+
+    public String getSdkIp() {
+        return sdkIp;
+    }
+
+    public void setSdkIp(String sdkIp) {
+        this.sdkIp = sdkIp;
+    }
+
+    public String getEvidence() {
+        return evidence;
+    }
+
+    public void setEvidence(String evidence) {
+        this.evidence = evidence;
+    }
+
+    public String getCheckSource() {
+        return checkSource;
+    }
+
+    public void setCheckSource(String checkSource) {
+        this.checkSource = checkSource;
     }
 }
