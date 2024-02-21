@@ -16,14 +16,14 @@ public class CrawlerJobBatchSubmitV1Request extends CrawlerJobBaseSubmitV1Reques
     /**
      * 网站任务列表
      */
-    private List<CrawlerJobWebSite> webSites;
+    private List<CrawlerJobWebSite> websites;
 
-    public List<CrawlerJobWebSite> getWebSites() {
-        return webSites;
+    public List<CrawlerJobWebSite> getWebsites() {
+        return websites;
     }
 
-    public void setWebSites(List<CrawlerJobWebSite> webSites) {
-        this.webSites = webSites;
+    public void setWebsites(List<CrawlerJobWebSite> websites) {
+        this.websites = websites;
     }
 
     public static class CrawlerJobWebSite implements Serializable {
@@ -116,7 +116,7 @@ public class CrawlerJobBatchSubmitV1Request extends CrawlerJobBaseSubmitV1Reques
     @Override
     public String toString() {
         return "CrawlerJobBatchSubmitV1Request{" +
-                "webSites=" + webSites +
+                "webSites=" + websites +
                 '}' + " " + super.toString();
     }
 }

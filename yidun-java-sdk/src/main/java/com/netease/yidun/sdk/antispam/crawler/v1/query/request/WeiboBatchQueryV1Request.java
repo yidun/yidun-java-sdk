@@ -34,7 +34,7 @@ public class WeiboBatchQueryV1Request extends CustomSignParamRequest<WeiboBatchQ
 
     public WeiboBatchQueryV1Request() {
         productCode = "crawler";
-        uriPattern = "/v1/weibo-job/job/batchQuery";
+        uriPattern = "/v1/crawler/weibo-job/batchQuery";
         version = "v1.0";
     }
 

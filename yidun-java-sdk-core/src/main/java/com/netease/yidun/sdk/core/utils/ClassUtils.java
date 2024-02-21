@@ -19,6 +19,8 @@ public class ClassUtils {
 
     private static final Map<Class<?>, Class<?>> PRIMITIVE_TO_WRAPPER_TYPES;
 
+    private static final Map<Class<?>, Class<?>> WRAPPER_PRIMITIVE_MAP;
+
     static {
         Map<Class<?>, Class<?>> tmpMap = new HashMap<>(9);
 
@@ -33,6 +35,42 @@ public class ClassUtils {
         tmpMap.put(Void.TYPE, Void.TYPE);
 
         PRIMITIVE_TO_WRAPPER_TYPES = Collections.unmodifiableMap(tmpMap);
+
+        Map<Class<?>, Class<?>> tmpWrapperMap = new HashMap<>(9);
+        tmpWrapperMap.put(Boolean.class, Boolean.TYPE);
+        tmpWrapperMap.put(Byte.class, Byte.TYPE);
+        tmpWrapperMap.put(Character.class, Character.TYPE);
+        tmpWrapperMap.put(Short.class, Short.TYPE);
+        tmpWrapperMap.put(Integer.class, Integer.TYPE);
+        tmpWrapperMap.put(Long.class, Long.TYPE);
+        tmpWrapperMap.put(Double.class, Double.TYPE);
+        tmpWrapperMap.put(Float.class, Float.TYPE);
+        tmpWrapperMap.put(Void.TYPE, Void.TYPE);
+
+        WRAPPER_PRIMITIVE_MAP = Collections.unmodifiableMap(tmpWrapperMap);
+    }
+
+    /**
+     * 判断是否是基本类型的包装类
+     *
+     * @param type
+     * @return
+     */
+    public static boolean isPrimitiveWrapper(final Class<?> type) {
+        return WRAPPER_PRIMITIVE_MAP.containsKey(type);
+    }
+
+    /**
+     * 判断是否是基本类型或者基本类型的包装类
+     *
+     * @param type
+     * @return
+     */
+    public static boolean isPrimitiveOrWrapper(final Class<?> type) {
+        if (type == null) {
+            return false;
+        }
+        return type.isPrimitive() || isPrimitiveWrapper(type);
     }
 
     public static boolean isYidunClass(Class clazz) {
