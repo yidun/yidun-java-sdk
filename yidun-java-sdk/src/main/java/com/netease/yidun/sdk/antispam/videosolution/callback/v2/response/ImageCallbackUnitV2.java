@@ -40,6 +40,10 @@ public class ImageCallbackUnitV2 {
      * status
      */
     private Integer status;
+    /**
+     * 合并成的图片url
+     */
+    private List<String> urls;
 
     @AllArgsConstructor
     @Data
