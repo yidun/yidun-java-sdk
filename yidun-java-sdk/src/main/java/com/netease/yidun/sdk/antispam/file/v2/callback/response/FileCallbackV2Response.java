@@ -6,7 +6,8 @@ import java.util.List;
 import java.util.Set;
 
 import com.netease.yidun.sdk.antispam.audio.callback.v4.response.AudioAntispamCallbackV4Response;
-import com.netease.yidun.sdk.antispam.media.v2.common.response.envidence.TextSubLabelDetail;
+import com.netease.yidun.sdk.antispam.image.v5.check.sync.response.ImageV5SubLabelDetail;
+import com.netease.yidun.sdk.antispam.text.v5.check.sync.single.TextCheckResult;
 import com.netease.yidun.sdk.antispam.video.callback.v4.response.ImageV5SubLabelResp;
 import com.netease.yidun.sdk.core.response.CommonResponse;
 
@@ -866,6 +867,7 @@ public class FileCallbackV2Response extends CommonResponse {
     public static class TextEvidenceLabel {
         private Integer label;
         private Integer level;
+        private Double rate;
         private List<TextSubLabel> subLabels;
 
         public Integer getLabel() {
@@ -892,11 +894,21 @@ public class FileCallbackV2Response extends CommonResponse {
             this.subLabels = subLabels;
         }
 
+        public Double getRate() {
+            return rate;
+        }
+
+        public void setRate(Double rate) {
+            this.rate = rate;
+        }
+
+
         @Override
         public String toString() {
             return "TextEvidenceLabel{" +
                     "label=" + label +
                     ", level=" + level +
+                    ", rate=" + rate +
                     ", subLabels=" + subLabels +
                     '}';
         }
@@ -908,9 +920,21 @@ public class FileCallbackV2Response extends CommonResponse {
          */
         private String subLabel;
         /**
+         * 二级分类深度
+         */
+        private Integer subLabelDepth;
+        /**
+         * 二级分类标签
+         */
+        private String secondLabel;
+        /**
+         * 三级分类标签
+         */
+        private String thirdLabel;
+        /**
          * 文本垃圾详情
          */
-        private TextSubLabelDetail details;
+        private TextCheckResult.AntispamSubLabelDetail details;
 
         public String getSubLabel() {
             return subLabel;
@@ -920,11 +944,35 @@ public class FileCallbackV2Response extends CommonResponse {
             this.subLabel = subLabel;
         }
 
-        public TextSubLabelDetail getDetails() {
+        public Integer getSubLabelDepth() {
+            return subLabelDepth;
+        }
+
+        public void setSubLabelDepth(Integer subLabelDepth) {
+            this.subLabelDepth = subLabelDepth;
+        }
+
+        public String getSecondLabel() {
+            return secondLabel;
+        }
+
+        public void setSecondLabel(String secondLabel) {
+            this.secondLabel = secondLabel;
+        }
+
+        public String getThirdLabel() {
+            return thirdLabel;
+        }
+
+        public void setThirdLabel(String thirdLabel) {
+            this.thirdLabel = thirdLabel;
+        }
+
+        public TextCheckResult.AntispamSubLabelDetail getDetails() {
             return details;
         }
 
-        public void setDetails(TextSubLabelDetail details) {
+        public void setDetails(TextCheckResult.AntispamSubLabelDetail details) {
             this.details = details;
         }
 
@@ -932,6 +980,9 @@ public class FileCallbackV2Response extends CommonResponse {
         public String toString() {
             return "TextSubLabel{" +
                     "subLabel='" + subLabel + '\'' +
+                    ", subLabelDepth=" + subLabelDepth +
+                    ", secondLabel='" + secondLabel + '\'' +
+                    ", thirdLabel='" + thirdLabel + '\'' +
                     ", details=" + details +
                     '}';
         }
@@ -1065,15 +1116,27 @@ public class FileCallbackV2Response extends CommonResponse {
     }
 
     public static class ImageSubLabel {
-        private int subLabel;
+        private String subLabel;
+        /**
+         * 二级标签深度
+         */
+        private Integer subLabelDepth;
+        /**
+         * 二级分类标签
+         */
+        private String secondLabel;
+        /**
+         * 三级分类标签
+         */
+        private String thirdLabel;
         private Double rate;
-        private ImageSubLabelDetail details;
+        private ImageV5SubLabelDetail.SubLabelDetails details;
 
-        public int getSubLabel() {
+        public String getSubLabel() {
             return subLabel;
         }
 
-        public void setSubLabel(int subLabel) {
+        public void setSubLabel(String subLabel) {
             this.subLabel = subLabel;
         }
 
@@ -1085,11 +1148,35 @@ public class FileCallbackV2Response extends CommonResponse {
             this.rate = rate;
         }
 
-        public ImageSubLabelDetail getDetails() {
+        public Integer getSubLabelDepth() {
+            return subLabelDepth;
+        }
+
+        public void setSubLabelDepth(Integer subLabelDepth) {
+            this.subLabelDepth = subLabelDepth;
+        }
+
+        public String getSecondLabel() {
+            return secondLabel;
+        }
+
+        public void setSecondLabel(String secondLabel) {
+            this.secondLabel = secondLabel;
+        }
+
+        public String getThirdLabel() {
+            return thirdLabel;
+        }
+
+        public void setThirdLabel(String thirdLabel) {
+            this.thirdLabel = thirdLabel;
+        }
+
+        public ImageV5SubLabelDetail.SubLabelDetails getDetails() {
             return details;
         }
 
-        public void setDetails(ImageSubLabelDetail details) {
+        public void setDetails(ImageV5SubLabelDetail.SubLabelDetails details) {
             this.details = details;
         }
 
@@ -1097,6 +1184,9 @@ public class FileCallbackV2Response extends CommonResponse {
         public String toString() {
             return "ImageSubLabel{" +
                     "subLabel=" + subLabel +
+                    ", subLabelDepth=" + subLabelDepth +
+                    ", secondLabel='" + secondLabel + '\'' +
+                    ", thirdLabel='" + thirdLabel + '\'' +
                     ", rate=" + rate +
                     ", details=" + details +
                     '}';
@@ -1356,6 +1446,7 @@ public class FileCallbackV2Response extends CommonResponse {
     public static class AudioEvidenceLabel {
         private Integer label;
         private Integer level;
+        private Double rate;
         private List<AudioEvidenceSubLabel> subLabels = new ArrayList<>();
 
         public Integer getLabel() {
@@ -1382,11 +1473,20 @@ public class FileCallbackV2Response extends CommonResponse {
             this.subLabels = subLabels;
         }
 
+        public Double getRate() {
+            return rate;
+        }
+
+        public void setRate(Double rate) {
+            this.rate = rate;
+        }
+
         @Override
         public String toString() {
             return "AudioEvidenceLabel{" +
                     "label=" + label +
                     ", level=" + level +
+                    ", rate=" + rate +
                     ", subLabels=" + subLabels +
                     '}';
         }
@@ -1396,14 +1496,22 @@ public class FileCallbackV2Response extends CommonResponse {
      * 音频证据子标签信息
      */
     public static class AudioEvidenceSubLabel {
-        private Integer subLabel;
+        private String subLabel;
+
+        private Integer subLabelDepth;
+
+        private String secondLabel;
+
+        private String thirdLabel;
+
+        private Double rate;
         private AudioAntispamCallbackV4Response.HintInfo details;
 
-        public Integer getSubLabel() {
+        public String getSubLabel() {
             return subLabel;
         }
 
-        public void setSubLabel(Integer subLabel) {
+        public void setSubLabel(String subLabel) {
             this.subLabel = subLabel;
         }
 
@@ -1415,10 +1523,47 @@ public class FileCallbackV2Response extends CommonResponse {
             this.details = details;
         }
 
+
+        public Double getRate() {
+            return rate;
+        }
+
+        public void setRate(Double rate) {
+            this.rate = rate;
+        }
+
+        public Integer getSubLabelDepth() {
+            return subLabelDepth;
+        }
+
+        public void setSubLabelDepth(Integer subLabelDepth) {
+            this.subLabelDepth = subLabelDepth;
+        }
+
+        public String getSecondLabel() {
+            return secondLabel;
+        }
+
+        public void setSecondLabel(String secondLabel) {
+            this.secondLabel = secondLabel;
+        }
+
+        public String getThirdLabel() {
+            return thirdLabel;
+        }
+
+        public void setThirdLabel(String thirdLabel) {
+            this.thirdLabel = thirdLabel;
+        }
+
         @Override
         public String toString() {
             return "AudioEvidenceSubLabel{" +
                     "subLabel=" + subLabel +
+                    ", subLabelDepth=" + subLabelDepth +
+                    ", secondLabel='" + secondLabel + '\'' +
+                    ", thirdLabel='" + thirdLabel + '\'' +
+                    ", rate=" + rate +
                     ", details=" + details +
                     '}';
         }
@@ -1607,15 +1752,18 @@ public class FileCallbackV2Response extends CommonResponse {
      * 视频证据子标签信息
      */
     public static class VideoEvidenceSubLabel {
-        private Integer subLabel;
+        private String subLabel;
+        private Integer subLabelDepth;
+        private String secondLabel;
+        private String thirdLabel;
         private Float rate;
         private ImageV5SubLabelResp.SubLabelDetails details;
 
-        public Integer getSubLabel() {
+        public String getSubLabel() {
             return subLabel;
         }
 
-        public void setSubLabel(Integer subLabel) {
+        public void setSubLabel(String subLabel) {
             this.subLabel = subLabel;
         }
 
@@ -1635,10 +1783,37 @@ public class FileCallbackV2Response extends CommonResponse {
             this.details = details;
         }
 
+        public Integer getSubLabelDepth() {
+            return subLabelDepth;
+        }
+
+        public void setSubLabelDepth(Integer subLabelDepth) {
+            this.subLabelDepth = subLabelDepth;
+        }
+
+        public String getSecondLabel() {
+            return secondLabel;
+        }
+
+        public void setSecondLabel(String secondLabel) {
+            this.secondLabel = secondLabel;
+        }
+
+        public String getThirdLabel() {
+            return thirdLabel;
+        }
+
+        public void setThirdLabel(String thirdLabel) {
+            this.thirdLabel = thirdLabel;
+        }
+
         @Override
         public String toString() {
             return "VideoEvidenceSubLabel{" +
                     "subLabel=" + subLabel +
+                    ", subLabelDepth=" + subLabelDepth +
+                    ", secondLabel='" + secondLabel + '\'' +
+                    ", thirdLabel='" + thirdLabel + '\'' +
                     ", rate=" + rate +
                     ", details=" + details +
                     '}';
