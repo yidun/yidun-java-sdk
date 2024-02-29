@@ -5,6 +5,7 @@ import java.util.List;
 /**
  * 文本标签详细信息
  */
+@Deprecated
 public class TextSubLabelDetail {
     private List<Keyword> keywords;
     private List<LibInfo> libInfos;

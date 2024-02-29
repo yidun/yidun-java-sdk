@@ -5,6 +5,7 @@ import java.util.List;
 /**
  * 图片标签详细信息
  */
+@Deprecated
 public class ImageSubLabelDetail {
 
     /**
