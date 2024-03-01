@@ -211,6 +211,24 @@ public class AudioSyncCheckRequest extends BizPostFormRequest<AudioSyncCheckResp
      * 商品id
      */
     private String commodityId;
+    /**
+     * 自定义扩展参数 extStr1
+     */
+    private String extStr1;
+
+    /**
+     * 自定义扩展参数 extStr2
+     */
+    private String extStr2;
+    /**
+     * 自定义扩展参数 extLon1
+     */
+    private Long extLon1;
+    /**
+     * 自定义扩展参数 extLon2
+     */
+    private Long extLon2;
+
 
     public AudioSyncCheckRequest() {
         productCode = "audioCheck";
@@ -260,6 +278,14 @@ public class AudioSyncCheckRequest extends BizPostFormRequest<AudioSyncCheckResp
         params.put("publishTime", getPublishTime());
         params.put("dataCheckType", getDataCheckType());
         params.put("data", getData());
+        params.put("extStr1", getExtStr1());
+        params.put("extStr2", getExtStr2());
+        if (getExtLon1() != null) {
+            params.put("extLon1", getExtLon1());
+        }
+        if (getExtLon2() != null) {
+            params.put("extLon2", getExtLon2());
+        }
         if (relatedKeys != null) {
             params.put("relatedKeys", GSON.toJson(relatedKeys));
         }
