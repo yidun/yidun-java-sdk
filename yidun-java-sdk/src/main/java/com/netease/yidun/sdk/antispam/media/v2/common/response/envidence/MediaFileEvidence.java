@@ -1,5 +1,7 @@
 package com.netease.yidun.sdk.antispam.media.v2.common.response.envidence;
 
+import com.netease.yidun.sdk.antispam.file.v2.callback.response.FileCallbackV2Response;
+
 import java.util.List;
 
 /**
@@ -251,7 +253,7 @@ public class MediaFileEvidence {
     public static class TextEvidenceLabel {
         private Integer label;
         private Integer level;
-        private List<TextEvidenceSubLabel> subLabels;
+        private List<FileCallbackV2Response.TextEvidenceLabel> subLabels;
 
         public Integer getLabel() {
             return label;
@@ -269,17 +271,33 @@ public class MediaFileEvidence {
             this.level = level;
         }
 
-        public List<TextEvidenceSubLabel> getSubLabels() {
+        public List<FileCallbackV2Response.TextEvidenceLabel> getSubLabels() {
             return subLabels;
         }
 
-        public void setSubLabels(List<TextEvidenceSubLabel> subLabels) {
+        public void setSubLabels(List<FileCallbackV2Response.TextEvidenceLabel> subLabels) {
             this.subLabels = subLabels;
         }
     }
 
+    /**
+     * 直接用文档回调结果里的TextEvidenceLabel结构
+     */
+    @Deprecated
     public static class TextEvidenceSubLabel {
         private String subLabel;
+        /**
+         * 二级分类深度
+         */
+        private Integer subLabelDepth;
+        /**
+         * 二级分类标签
+         */
+        private String secondLabel;
+        /**
+         * 三级分类标签
+         */
+        private String thirdLabel;
         private TextSubLabelDetail details;
 
         public String getSubLabel() {
@@ -297,13 +315,37 @@ public class MediaFileEvidence {
         public void setDetails(TextSubLabelDetail details) {
             this.details = details;
         }
+
+        public Integer getSubLabelDepth() {
+            return subLabelDepth;
+        }
+
+        public void setSubLabelDepth(Integer subLabelDepth) {
+            this.subLabelDepth = subLabelDepth;
+        }
+
+        public String getSecondLabel() {
+            return secondLabel;
+        }
+
+        public void setSecondLabel(String secondLabel) {
+            this.secondLabel = secondLabel;
+        }
+
+        public String getThirdLabel() {
+            return thirdLabel;
+        }
+
+        public void setThirdLabel(String thirdLabel) {
+            this.thirdLabel = thirdLabel;
+        }
     }
 
     public static class ImageEvidence {
         private Integer sequence;
         private String imageUrl;
         private Integer suggestion;
-        private List<ImageEvidenceLabel> labels;
+        private List<FileCallbackV2Response.ImageEvidenceLabel> labels;
         private Integer page;
 
         public Integer getSequence() {
@@ -330,11 +372,11 @@ public class MediaFileEvidence {
             this.suggestion = suggestion;
         }
 
-        public List<ImageEvidenceLabel> getLabels() {
+        public List<FileCallbackV2Response.ImageEvidenceLabel> getLabels() {
             return labels;
         }
 
-        public void setLabels(List<ImageEvidenceLabel> labels) {
+        public void setLabels(List<FileCallbackV2Response.ImageEvidenceLabel> labels) {
             this.labels = labels;
         }
 
@@ -347,6 +389,10 @@ public class MediaFileEvidence {
         }
     }
 
+    /**
+     * 直接用文档回调结果里的ImageEvidenceLabel结构
+     */
+    @Deprecated
     public static class ImageEvidenceLabel {
         private Integer label;
         private Integer level;
@@ -388,6 +434,18 @@ public class MediaFileEvidence {
 
     public static class ImageEvidenceLabelSubLabel {
         private String subLabel;
+        /**
+         * 二级分类深度
+         */
+        private Integer subLabelDepth;
+        /**
+         * 二级分类标签
+         */
+        private String secondLabel;
+        /**
+         * 三级分类标签
+         */
+        private String thirdLabel;
         private Double rate;
         private ImageSubLabelDetail details;
 
@@ -413,6 +471,30 @@ public class MediaFileEvidence {
 
         public void setDetails(ImageSubLabelDetail details) {
             this.details = details;
+        }
+
+        public Integer getSubLabelDepth() {
+            return subLabelDepth;
+        }
+
+        public void setSubLabelDepth(Integer subLabelDepth) {
+            this.subLabelDepth = subLabelDepth;
+        }
+
+        public String getSecondLabel() {
+            return secondLabel;
+        }
+
+        public void setSecondLabel(String secondLabel) {
+            this.secondLabel = secondLabel;
+        }
+
+        public String getThirdLabel() {
+            return thirdLabel;
+        }
+
+        public void setThirdLabel(String thirdLabel) {
+            this.thirdLabel = thirdLabel;
         }
     }
 

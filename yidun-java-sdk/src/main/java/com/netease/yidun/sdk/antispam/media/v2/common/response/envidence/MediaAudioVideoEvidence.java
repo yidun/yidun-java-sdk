@@ -1,5 +1,7 @@
 package com.netease.yidun.sdk.antispam.media.v2.common.response.envidence;
 
+import com.netease.yidun.sdk.antispam.video.callback.v4.response.ImageV5SubLabelResp;
+
 import java.util.List;
 
 /**
@@ -296,7 +298,10 @@ public class MediaAudioVideoEvidence {
     public static class AudioSubLabel {
         private String subLabel;
         private Double rate;
-        private ImageSubLabelDetail details;
+        private Integer subLabelDepth;
+        private String secondLabel;
+        private String thirdLabel;
+        private ImageV5SubLabelResp.SubLabelDetails details;
 
         public String getSubLabel() {
             return subLabel;
@@ -314,12 +319,36 @@ public class MediaAudioVideoEvidence {
             this.rate = rate;
         }
 
-        public ImageSubLabelDetail getDetails() {
+        public ImageV5SubLabelResp.SubLabelDetails getDetails() {
             return details;
         }
 
-        public void setDetails(ImageSubLabelDetail details) {
+        public void setDetails(ImageV5SubLabelResp.SubLabelDetails details) {
             this.details = details;
+        }
+
+        public Integer getSubLabelDepth() {
+            return subLabelDepth;
+        }
+
+        public void setSubLabelDepth(Integer subLabelDepth) {
+            this.subLabelDepth = subLabelDepth;
+        }
+
+        public String getSecondLabel() {
+            return secondLabel;
+        }
+
+        public void setSecondLabel(String secondLabel) {
+            this.secondLabel = secondLabel;
+        }
+
+        public String getThirdLabel() {
+            return thirdLabel;
+        }
+
+        public void setThirdLabel(String thirdLabel) {
+            this.thirdLabel = thirdLabel;
         }
     }
 

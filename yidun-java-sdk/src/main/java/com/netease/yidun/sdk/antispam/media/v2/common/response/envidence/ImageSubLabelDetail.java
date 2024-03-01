@@ -19,6 +19,10 @@ public class ImageSubLabelDetail {
      * 反垃圾其他命中信息
      */
     private List<ImageSubLabelDetailInfo> hitInfos;
+    /**
+     * saas自定义规则
+     */
+    private List<ImageSubLabelDetailInfo> rules;
 
     public List<ImageSubLabelDetailInfo> getKeywords() {
         return keywords;
@@ -44,6 +48,14 @@ public class ImageSubLabelDetail {
         this.hitInfos = hitInfos;
     }
 
+    public List<ImageSubLabelDetailInfo> getRules() {
+        return rules;
+    }
+
+    public void setRules(List<ImageSubLabelDetailInfo> rules) {
+        this.rules = rules;
+    }
+
     public static class ImageSubLabelDetailInfo {
         /**
          * 自定义敏感词
@@ -66,6 +78,10 @@ public class ImageSubLabelDetail {
         private Float y1;
         private Float x2;
         private Float y2;
+        /**
+         * saas自定义规则
+         */
+        private String name;
 
         public String getWord() {
             return word;

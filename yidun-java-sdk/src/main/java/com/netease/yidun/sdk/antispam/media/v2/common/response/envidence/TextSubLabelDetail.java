@@ -9,6 +9,7 @@ public class TextSubLabelDetail {
     private List<Keyword> keywords;
     private List<LibInfo> libInfos;
     private List<HintInfo> hitInfos;
+    private List<RuleInfo> rules;
 
     public List<Keyword> getKeywords() {
         return keywords;
@@ -32,6 +33,14 @@ public class TextSubLabelDetail {
 
     public void setHitInfos(List<HintInfo> hitInfos) {
         this.hitInfos = hitInfos;
+    }
+
+    public List<RuleInfo> getRules() {
+        return rules;
+    }
+
+    public void setRules(List<RuleInfo> rules) {
+        this.rules = rules;
     }
 
     public static class HintInfo {
@@ -115,6 +124,18 @@ public class TextSubLabelDetail {
 
         public void setWord(String word) {
             this.word = word;
+        }
+    }
+
+    public static class RuleInfo {
+        private String name;
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
         }
     }
 }
