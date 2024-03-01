@@ -206,6 +206,24 @@ public class AudioAsyncCheckRequest extends BizPostFormRequest<AudioAsyncCheckRe
      * 商品id
      */
     private String commodityId;
+    /**
+     * 自定义扩展参数 extStr1
+     */
+    private String extStr1;
+
+    /**
+     * 自定义扩展参数 extStr2
+     */
+    private String extStr2;
+    /**
+     * 自定义扩展参数 extLon1
+     */
+    private Long extLon1;
+    /**
+     * 自定义扩展参数 extLon2
+     */
+    private Long extLon2;
+
 
     @Override
     protected Map<String, String> getCustomSignParams() {
@@ -248,6 +266,14 @@ public class AudioAsyncCheckRequest extends BizPostFormRequest<AudioAsyncCheckRe
         params.put("relationship", getRelationship());
         params.put("publishTime", getPublishTime());
         params.put("checkLanguageCode", getCheckLanguageCode());
+        params.put("extStr1", getExtStr1());
+        params.put("extStr2", getExtStr2());
+        if (getExtLon1() != null) {
+            params.put("extLon1", getExtLon1());
+        }
+        if (getExtLon2() != null) {
+            params.put("extLon2", getExtLon2());
+        }
         if (relatedKeys != null) {
             params.put("relatedKeys", GSON.toJson(relatedKeys));
         }
