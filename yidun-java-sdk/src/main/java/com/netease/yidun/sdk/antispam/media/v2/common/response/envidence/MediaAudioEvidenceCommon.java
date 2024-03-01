@@ -1,5 +1,7 @@
 package com.netease.yidun.sdk.antispam.media.v2.common.response.envidence;
 
+import com.netease.yidun.sdk.antispam.audio.callback.v4.response.AudioAntispamCallbackV4Response;
+
 import java.util.List;
 
 /**
@@ -163,7 +165,10 @@ public class MediaAudioEvidenceCommon {
 
     public static class AudioSubLabel {
         private String subLabel;
-        private AudioSubLabelDetail details;
+        private AudioAntispamCallbackV4Response.HintInfo details;
+        private Integer subLabelDepth;
+        private String secondLabel;
+        private String thirdLabel;
 
         public String getSubLabel() {
             return subLabel;
@@ -173,15 +178,44 @@ public class MediaAudioEvidenceCommon {
             this.subLabel = subLabel;
         }
 
-        public AudioSubLabelDetail getDetails() {
+        public AudioAntispamCallbackV4Response.HintInfo getDetails() {
             return details;
         }
 
-        public void setDetails(AudioSubLabelDetail details) {
+        public void setDetails(AudioAntispamCallbackV4Response.HintInfo details) {
             this.details = details;
+        }
+
+        public Integer getSubLabelDepth() {
+            return subLabelDepth;
+        }
+
+        public void setSubLabelDepth(Integer subLabelDepth) {
+            this.subLabelDepth = subLabelDepth;
+        }
+
+        public String getSecondLabel() {
+            return secondLabel;
+        }
+
+        public void setSecondLabel(String secondLabel) {
+            this.secondLabel = secondLabel;
+        }
+
+        public String getThirdLabel() {
+            return thirdLabel;
+        }
+
+        public void setThirdLabel(String thirdLabel) {
+            this.thirdLabel = thirdLabel;
         }
     }
 
+    /**
+     * 直接使用AudioAntispamCallbackV4Response.HintInfo，不需要融媒体业务自己维护
+     * @deprecated
+     */
+    @Deprecated
     public static class AudioSubLabelDetail {
         /**
          * 命中内容

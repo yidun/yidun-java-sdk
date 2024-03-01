@@ -1,5 +1,7 @@
 package com.netease.yidun.sdk.antispam.media.v2.common.response.envidence;
 
+import com.netease.yidun.sdk.antispam.text.v5.check.sync.single.TextCheckResult;
+
 import java.util.List;
 
 /**
@@ -114,7 +116,7 @@ public class MediaTextEvidence {
 
     public static class TextSubLabel {
         private String subLabel;
-        private TextSubLabelDetail details;
+        private TextCheckResult.AntispamSubLabelDetail details;
         private Integer subLabelDepth;
         private String secondLabel;
         private String thirdLabel;
@@ -127,11 +129,11 @@ public class MediaTextEvidence {
             this.subLabel = subLabel;
         }
 
-        public TextSubLabelDetail getDetails() {
+        public TextCheckResult.AntispamSubLabelDetail getDetails() {
             return details;
         }
 
-        public void setDetails(TextSubLabelDetail details) {
+        public void setDetails(TextCheckResult.AntispamSubLabelDetail details) {
             this.details = details;
         }
 
