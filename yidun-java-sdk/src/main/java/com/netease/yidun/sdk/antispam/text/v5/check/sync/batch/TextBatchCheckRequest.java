@@ -19,6 +19,12 @@ public class TextBatchCheckRequest extends BizPostFormRequest<TextBatchCheckResp
     @Size(max = 512, message = "checkLabels最长512个字符")
     private String checkLabels;
 
+    /**
+     * 业务指定过检策略组id,多个策略组id以逗号分隔（"xxx,xxx"），最多支持传20个
+     */
+    @Size(max = 512, message = "checkStrategyGroupIds最长512个字符")
+    private String checkStrategyGroupIds;
+
     @Size(min = 1, max = 100, message = "1-100条文本数据")
     private List<TextCheckSceneRequest> texts;
 
@@ -42,6 +48,19 @@ public class TextBatchCheckRequest extends BizPostFormRequest<TextBatchCheckResp
 
     public TextBatchCheckRequest checkLabels(String checkLabels) {
         this.checkLabels = checkLabels;
+        return this;
+    }
+
+    public String getCheckStrategyGroupIds() {
+        return checkStrategyGroupIds;
+    }
+
+    public void setCheckStrategyGroupIds(String checkStrategyGroupIds) {
+        this.checkStrategyGroupIds = checkStrategyGroupIds;
+    }
+
+    public TextBatchCheckRequest checkStrategyGroupIds(String checkStrategyGroupIds) {
+        this.checkStrategyGroupIds = checkStrategyGroupIds;
         return this;
     }
 

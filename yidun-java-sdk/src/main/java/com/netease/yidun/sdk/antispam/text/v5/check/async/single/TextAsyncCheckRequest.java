@@ -17,6 +17,12 @@ public class TextAsyncCheckRequest extends TextCheckSceneRequest<TextAsyncCheckR
     private String checkLabels;
 
     /**
+     * 业务指定过检策略组id,多个策略组id以逗号分隔（"xxx,xxx"），最多支持传20个
+     */
+    @Size(max = 512, message = "checkStrategyGroupIds最长512个字符")
+    private String checkStrategyGroupIds;
+
+    /**
      * 内容安全与反作弊融合版专属字段，来自易盾反作弊SDK返回的token，接入SDK必传,接入流程请参考防刷版说明文档
      */
     @Size(max = 256, message = "token最长256个字符")
@@ -32,6 +38,14 @@ public class TextAsyncCheckRequest extends TextCheckSceneRequest<TextAsyncCheckR
 
     public String checkLabels() {
         return checkLabels;
+    }
+
+    public String getCheckStrategyGroupIds() {
+        return checkStrategyGroupIds;
+    }
+
+    public void setCheckStrategyGroupIds(String checkStrategyGroupIds) {
+        this.checkStrategyGroupIds = checkStrategyGroupIds;
     }
 
     public TextAsyncCheckRequest checkLabels(String checkLabels) {
