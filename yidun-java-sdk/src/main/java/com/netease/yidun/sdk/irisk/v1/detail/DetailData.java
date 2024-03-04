@@ -197,6 +197,11 @@ public class DetailData {
      * 命中的风险标签, 以";"连接
      */
     private String matchedRiskTags;
+
+    /**
+     * 命中的风险标签type, 以";"连接
+     */
+    private String matchedTypes;
     /**
      * 证据信息
      */
@@ -508,6 +513,14 @@ public class DetailData {
 
     public void setMatchedRiskTags(String matchedRiskTags) {
         this.matchedRiskTags = matchedRiskTags;
+    }
+
+    public String getMatchedTypes() {
+        return matchedTypes;
+    }
+
+    public void setMatchedTypes(String matchedTypes) {
+        this.matchedTypes = matchedTypes;
     }
 
     public String getSdkIp() {

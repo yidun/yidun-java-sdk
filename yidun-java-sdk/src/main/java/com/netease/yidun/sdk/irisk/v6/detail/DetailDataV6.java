@@ -213,6 +213,10 @@ public class DetailDataV6 {
      */
     private String matchedRiskTags;
     /**
+     * 风险标签type
+     */
+    private String matchedTypes;
+    /**
      * 执行动作
      */
     private String execAction;
@@ -677,6 +681,14 @@ public class DetailDataV6 {
         this.matchedRiskTags = matchedRiskTags;
     }
 
+    public String getMatchedTypes() {
+        return matchedTypes;
+    }
+
+    public void setMatchedTypes(String matchedTypes) {
+        this.matchedTypes = matchedTypes;
+    }
+
     public String getExecAction() {
         return execAction;
     }
@@ -828,6 +840,7 @@ public class DetailDataV6 {
                 ", sceneData='" + sceneData + '\'' +
                 ", riskLevel='" + riskLevel + '\'' +
                 ", matchedRiskTags='" + matchedRiskTags + '\'' +
+                ", matchedTypes='" + matchedTypes + '\'' +
                 ", execAction='" + execAction + '\'' +
                 ", protectionResult='" + protectionResult + '\'' +
                 ", evidence='" + evidence + '\'' +
