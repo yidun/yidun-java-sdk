@@ -7,6 +7,7 @@ import com.netease.yidun.sdk.irisk.v1.antigold.IRiskAntiGoldCheckRequest;
 import com.netease.yidun.sdk.irisk.v1.antigold.IRiskAntiGoldCheckResponse;
 import com.netease.yidun.sdk.irisk.v1.dispose.IRiskDisposeUploadRequest;
 import com.netease.yidun.sdk.irisk.v1.dispose.IRiskDisposeUploadResponse;
+import com.netease.yidun.sdk.irisk.v1.list.*;
 import com.netease.yidun.sdk.irisk.v1.mediacheck.IRiskMediaCheckResponse;
 import com.netease.yidun.sdk.irisk.v1.check.IRiskCheckRequest;
 import com.netease.yidun.sdk.irisk.v1.check.IRiskCheckResponse;
@@ -39,7 +40,10 @@ public class IRiskClient {
                         new IRiskDetailRequest(null),
                         new IRiskDisposeUploadRequest(null),
                         new IRiskAntiGoldCheckRequest(null),
-                        new IRiskReportDataRequest(null));
+                        new IRiskReportDataRequest(null),
+                        new IRiskListQueryRequest(null),
+                        new IRiskListAddRequest(null)
+                );
 
         client = new DefaultClient(profile);
     }
@@ -81,6 +85,13 @@ public class IRiskClient {
     }
 
     public IRiskReportDataResponse reportData(IRiskReportDataRequest request) {
+        return client.execute(request);
+    }
+
+    public IRiskListQueryResponse listQuery(IRiskListQueryRequest request) {
+        return client.execute(request);
+    }
+    public IRiskListAddResponse listAdd(IRiskListAddRequest request) {
         return client.execute(request);
     }
 
