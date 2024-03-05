@@ -30,6 +30,12 @@ import com.netease.yidun.sdk.antispam.crawler.v1.submit.response.OfficialAccount
 import com.netease.yidun.sdk.antispam.crawler.v1.submit.response.OfficialAccountsSubmitV1Response;
 import com.netease.yidun.sdk.antispam.crawler.v1.submit.response.WeiboBatchSubmitV1Response;
 import com.netease.yidun.sdk.antispam.crawler.v1.submit.response.WeiboSubmitV1Response;
+import com.netease.yidun.sdk.antispam.crawler.v1.update.request.CrawlerJobUpdateV1Request;
+import com.netease.yidun.sdk.antispam.crawler.v1.update.request.OfficialAccountsUpdateV1Request;
+import com.netease.yidun.sdk.antispam.crawler.v1.update.request.WeiboUpdateV1Request;
+import com.netease.yidun.sdk.antispam.crawler.v1.update.response.CrawlerJobUpdateV1Response;
+import com.netease.yidun.sdk.antispam.crawler.v1.update.response.OfficialAccountsUpdateV1Response;
+import com.netease.yidun.sdk.antispam.crawler.v1.update.response.WeiboUpdateV1Response;
 import com.netease.yidun.sdk.antispam.crawler.v3.callback.CrawlerCallback;
 import com.netease.yidun.sdk.antispam.crawler.v3.callback.request.CrawlerResourceCallbackV3Request;
 import com.netease.yidun.sdk.antispam.crawler.v3.callback.response.CrawlerResourceCallbackV3Response;
@@ -127,6 +133,16 @@ public class CrawlerClient extends BaseClient {
     }
 
     /**
+     * 更新主站任务
+     *
+     * @param request
+     * @return
+     */
+    public CrawlerJobUpdateV1Response updateCrawlerJob(CrawlerJobUpdateV1Request request) {
+        return requester.getCrawlerCommonClient().updateCrawlerJob(request);
+    }
+
+    /**
      * 提交公众号检测任务
      *
      * @param request
@@ -167,6 +183,16 @@ public class CrawlerClient extends BaseClient {
     }
 
     /**
+     * 更新公众号任务
+     *
+     * @param request
+     * @return
+     */
+    public OfficialAccountsUpdateV1Response updateOfficialAccounts(OfficialAccountsUpdateV1Request request) {
+        return requester.getCrawlerCommonClient().updateOfficialAccounts(request);
+    }
+
+    /**
      * 提交微博检测任务
      *
      * @param request
@@ -204,5 +230,15 @@ public class CrawlerClient extends BaseClient {
      */
     public WeiboBatchQueryV1Response batchQueryWeibo(WeiboBatchQueryV1Request request) {
         return requester.getCrawlerCommonClient().batchQueryWeibo(request);
+    }
+
+    /**
+     * 更新微博任务
+     *
+     * @param request
+     * @return
+     */
+    public WeiboUpdateV1Response updateWeibo(WeiboUpdateV1Request request) {
+        return requester.getCrawlerCommonClient().updateWeibo(request);
     }
 }
