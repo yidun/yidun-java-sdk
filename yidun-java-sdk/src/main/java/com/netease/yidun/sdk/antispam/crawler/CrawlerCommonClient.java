@@ -15,6 +15,12 @@ import com.netease.yidun.sdk.antispam.crawler.v1.query.response.CrawlerJobBatchQ
 import com.netease.yidun.sdk.antispam.crawler.v1.query.response.JobCallbackQueryResponse;
 import com.netease.yidun.sdk.antispam.crawler.v1.query.response.OfficialAccountsBatchQueryV1Response;
 import com.netease.yidun.sdk.antispam.crawler.v1.query.response.WeiboBatchQueryV1Response;
+import com.netease.yidun.sdk.antispam.crawler.v1.update.request.CrawlerJobUpdateV1Request;
+import com.netease.yidun.sdk.antispam.crawler.v1.update.request.OfficialAccountsUpdateV1Request;
+import com.netease.yidun.sdk.antispam.crawler.v1.update.request.WeiboUpdateV1Request;
+import com.netease.yidun.sdk.antispam.crawler.v1.update.response.CrawlerJobUpdateV1Response;
+import com.netease.yidun.sdk.antispam.crawler.v1.update.response.OfficialAccountsUpdateV1Response;
+import com.netease.yidun.sdk.antispam.crawler.v1.update.response.WeiboUpdateV1Response;
 import com.netease.yidun.sdk.antispam.crawler.v3.callback.request.CrawlerResourceCallbackV3Request;
 import com.netease.yidun.sdk.antispam.crawler.v3.callback.response.CrawlerResourceCallbackV3Response;
 import com.netease.yidun.sdk.antispam.crawler.v3.query.request.CrawlerQueryRequest;
@@ -66,6 +72,16 @@ public class CrawlerCommonClient extends AntispamClient {
     }
 
     /**
+     * 更新主站任务
+     *
+     * @param request
+     * @return
+     */
+    public CrawlerJobUpdateV1Response updateCrawlerJob(CrawlerJobUpdateV1Request request) {
+        return client.execute(request);
+    }
+
+    /**
      * 删除公众号任务
      *
      * @param request
@@ -86,6 +102,16 @@ public class CrawlerCommonClient extends AntispamClient {
     }
 
     /**
+     * 更新公众号任务
+     *
+     * @param request
+     * @return
+     */
+    public OfficialAccountsUpdateV1Response updateOfficialAccounts(OfficialAccountsUpdateV1Request request) {
+        return client.execute(request);
+    }
+
+    /**
      * 删除微博任务
      *
      * @param request
@@ -102,6 +128,16 @@ public class CrawlerCommonClient extends AntispamClient {
      * @return
      */
     public WeiboBatchQueryV1Response batchQueryWeibo(WeiboBatchQueryV1Request request) {
+        return client.execute(request);
+    }
+
+    /**
+     * 更新微博任务
+     *
+     * @param request
+     * @return
+     */
+    public WeiboUpdateV1Response updateWeibo(WeiboUpdateV1Request request) {
         return client.execute(request);
     }
 }
