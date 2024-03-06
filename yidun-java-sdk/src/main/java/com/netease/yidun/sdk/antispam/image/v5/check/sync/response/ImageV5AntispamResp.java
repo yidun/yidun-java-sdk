@@ -80,6 +80,10 @@ public class ImageV5AntispamResp implements Serializable {
      * 隐藏文件的格式
      */
     private String hiddenFormat;
+    /**
+     * 图片md5
+     */
+    private String imgMd5;
 
     public Boolean getHidden() {
         return hidden;
@@ -223,6 +227,14 @@ public class ImageV5AntispamResp implements Serializable {
 
     public void setCustomAction(Integer customAction) {
         this.customAction = customAction;
+    }
+
+    public String getImgMd5() {
+        return imgMd5;
+    }
+
+    public void setImgMd5(String imgMd5) {
+        this.imgMd5 = imgMd5;
     }
 
     private static class CensorLabelInfo implements Serializable {
