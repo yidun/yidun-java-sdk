@@ -7,7 +7,7 @@
     <groupId>com.netease.yidun</groupId>
     <artifactId>yidun-java-sdk-parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.3.10</version>
+    <version>1.3.11</version>
 
     <name>yidun-java-sdk-parent</name>
     <description>Pom parent of Yidun OpenAPI SDK for Java</description>
