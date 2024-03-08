@@ -215,7 +215,7 @@ public abstract class PostFormRequest<T extends BaseResponse> extends BaseReques
                 .protocol(protocol)
                 .method(method)
                 .domain(domain)
-                .uriPattern(uriPattern)
+                .uriPattern(uriPattern())
                 .headers(getHeaders())
                 .pathParameters(getPathParameters())
                 .queryParameters(getQueryParameters())

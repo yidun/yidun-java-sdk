@@ -111,10 +111,6 @@ public abstract class BaseRequest<T extends BaseResponse> {
         return uriPattern;
     }
 
-    public void setUriPattern(String uriPattern) {
-        this.uriPattern = uriPattern;
-    }
-
     public String uriPattern() {
         return uriPattern;
     }
