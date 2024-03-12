@@ -358,6 +358,16 @@ public class TextCheckResult implements Serializable {
     public static class AntispamLabel {
 
         private Integer label;
+
+        /**
+         * 二级标签，必返回字段
+         */
+        private String secondLabel;
+
+        /**
+         * 三级标签，非必返回字段
+         */
+        private String thirdLabel;
         private Integer level;
         private Double rate;
         private List<AntispamSubLabel> subLabels;
@@ -368,6 +378,22 @@ public class TextCheckResult implements Serializable {
 
         public void setLabel(Integer label) {
             this.label = label;
+        }
+
+        public String getSecondLabel() {
+            return secondLabel;
+        }
+
+        public void setSecondLabel(String secondLabel) {
+            this.secondLabel = secondLabel;
+        }
+
+        public String getThirdLabel() {
+            return thirdLabel;
+        }
+
+        public void setThirdLabel(String thirdLabel) {
+            this.thirdLabel = thirdLabel;
         }
 
         public Integer getLevel() {
@@ -398,6 +424,8 @@ public class TextCheckResult implements Serializable {
         public String toString() {
             return "AntispamLabel("
                     + "label=" + label
+                    + "secondLabel=" + secondLabel
+                    + "thirdLabel=" + thirdLabel
                     + ", level=" + level
                     + ", rate=" + rate
                     + ", subLabels=" + subLabels
