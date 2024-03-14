@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.netease.yidun</groupId>
         <artifactId>yidun-java-sdk-parent</artifactId>
-        <version>1.3.12</version>
+        <version>1.3.13</version>
     </parent>
     <artifactId>yidun-java-sdk-core</artifactId>
     <packaging>jar</packaging>
