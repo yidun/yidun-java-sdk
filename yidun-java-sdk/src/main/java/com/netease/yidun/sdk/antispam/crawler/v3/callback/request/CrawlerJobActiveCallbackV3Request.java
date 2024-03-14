@@ -49,7 +49,7 @@ public class CrawlerJobActiveCallbackV3Request extends ActiveCallbackRequest {
         return parseCallbackData(CrawlerJobActiveCallbackV3Request.class);
     }
 
-    private static class JobAntispamCallbackV3Response implements Serializable {
+    public static class JobAntispamCallbackV3Response implements Serializable {
 
         private static final long serialVersionUID = 6746975220966160013L;
         /**
@@ -206,7 +206,7 @@ public class CrawlerJobActiveCallbackV3Request extends ActiveCallbackRequest {
     /**
      * 人审回调结果
      */
-    private static class JobCensorCallbackV3Response implements Serializable {
+    public static class JobCensorCallbackV3Response implements Serializable {
 
         private static final long serialVersionUID = 2139350884044020948L;
         /**
