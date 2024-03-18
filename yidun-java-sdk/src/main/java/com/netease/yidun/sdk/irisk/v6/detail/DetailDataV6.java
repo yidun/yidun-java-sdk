@@ -201,6 +201,10 @@ public class DetailDataV6 {
      */
     private String ip;
     /**
+     * 网络运营商
+     */
+    private String isp;
+    /**
      * 场景数据
      */
     private String sceneData;
@@ -657,6 +661,14 @@ public class DetailDataV6 {
         this.ip = ip;
     }
 
+    public String getIsp() {
+        return isp;
+    }
+
+    public void setIsp(String isp) {
+        this.isp = isp;
+    }
+
     public String getSceneData() {
         return sceneData;
     }
@@ -837,6 +849,7 @@ public class DetailDataV6 {
                 ", location='" + location + '\'' +
                 ", sdkIp='" + sdkIp + '\'' +
                 ", ip='" + ip + '\'' +
+                ", isp='" + isp + '\'' +
                 ", sceneData='" + sceneData + '\'' +
                 ", riskLevel='" + riskLevel + '\'' +
                 ", matchedRiskTags='" + matchedRiskTags + '\'' +
