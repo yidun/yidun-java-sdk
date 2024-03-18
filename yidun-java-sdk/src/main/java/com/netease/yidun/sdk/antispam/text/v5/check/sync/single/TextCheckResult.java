@@ -96,6 +96,9 @@ public class TextCheckResult implements Serializable {
 
         private String taskId;
         private String dataId;
+        private int label;
+        private String secondLabel;
+        private String thirdLabel;
         private Integer suggestion;
         private Integer suggestionLevel;
         /**
@@ -130,6 +133,30 @@ public class TextCheckResult implements Serializable {
 
         public void setDataId(String dataId) {
             this.dataId = dataId;
+        }
+
+        public int getLabel() {
+            return label;
+        }
+
+        public void setLabel(int label) {
+            this.label = label;
+        }
+
+        public String getSecondLabel() {
+            return secondLabel;
+        }
+
+        public void setSecondLabel(String secondLabel) {
+            this.secondLabel = secondLabel;
+        }
+
+        public String getThirdLabel() {
+            return thirdLabel;
+        }
+
+        public void setThirdLabel(String thirdLabel) {
+            this.thirdLabel = thirdLabel;
         }
 
         public Integer getSuggestion() {
@@ -265,6 +292,9 @@ public class TextCheckResult implements Serializable {
             return "Antispam("
                     + "taskId=" + taskId
                     + ", dataId=" + dataId
+                    + ", label=" + label
+                    + ", secondLabel=" + secondLabel
+                    + ", thirdLabel=" + thirdLabel
                     + ", suggestion=" + suggestion
                     + ", suggestionLevel=" + suggestionLevel
                     + ", customAction=" + customAction
@@ -358,15 +388,7 @@ public class TextCheckResult implements Serializable {
     public static class AntispamLabel {
 
         private Integer label;
-
-        /**
-         * 二级标签，必返回字段
-         */
         private String secondLabel;
-
-        /**
-         * 三级标签，非必返回字段
-         */
         private String thirdLabel;
         private Integer level;
         private Double rate;
