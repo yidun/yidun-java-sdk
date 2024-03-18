@@ -10,9 +10,12 @@ import com.netease.yidun.sdk.antispam.audio.check.async.v4.response.AudioAsyncCh
 public class AudioAsyncCheckDemo extends AbstractDemo {
 
     public static void main(String[] args) {
+        String secretId = System.getenv("SECRET_ID");
+        String secretKey = System.getenv("SECRET_KEY");
+        String businessId = System.getenv("BUSINESS_ID");
 
         // 实例化一个requester，入参需要传入易盾内容安全分配的secretId，secretKey
-        AntispamRequester antispamRequester = createAntispamRequester("SecretId", "SecretKey");
+        AntispamRequester antispamRequester = createAntispamRequester(secretId, secretKey);
 
         // 实例化发起请求的client对象
         AudioClient audioClient = AudioClient.getInstance(antispamRequester);
@@ -36,7 +39,7 @@ public class AudioAsyncCheckDemo extends AbstractDemo {
         // 根据需要设置请求的检测节点，默认杭州
         checkRequest.setRegionCode("cn-hangzhou");
         // 设置易盾内容安全分配的businessId
-        checkRequest.setBusinessId("BusinessId");
+        checkRequest.setBusinessId(businessId);
         // 必填，要检测的音频 url
         checkRequest.setUrl("音频下载 url");
         // 非必填，建议设置获取最新的检测结果。主动回调数据接口超时时间默认设置为2s，为了保证顺利接收数据，需保证接收接口性能稳定并且保证幂等性。

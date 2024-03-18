@@ -10,9 +10,13 @@ import com.netease.yidun.sdk.antispam.enums.AudioCheckDataTypeEnum;
 
 public class AudioSyncCheckDemo extends AbstractDemo {
     public static void main(String[] args) {
+        String secretId = System.getenv("SECRET_ID");
+        String secretKey = System.getenv("SECRET_KEY");
+        String businessId = System.getenv("BUSINESS_ID");
+
 
         // 实例化一个requester，入参需要传入易盾内容安全分配的secretId，secretKey
-        AntispamRequester antispamRequester = createAntispamRequester("SecretId", "SecretKey");
+        AntispamRequester antispamRequester = createAntispamRequester(secretId, secretKey);
 
         // 实例化发起请求的client对象
         AudioClient audioClient = AudioClient.getInstance(antispamRequester);
@@ -21,11 +25,15 @@ public class AudioSyncCheckDemo extends AbstractDemo {
         // 根据需要设置请求的检测节点，默认杭州
         checkRequest.setRegionCode("cn-hangzhou");
         // 设置易盾内容安全分配的businessId
-        checkRequest.setBusinessId("BusinessId");
+        checkRequest.setBusinessId(businessId);
         // 设置同步检测的音频类型（BASE64 和 URL 二选一）
         checkRequest.setDataCheckType(AudioCheckDataTypeEnum.URL.getCode());
         // 检测类型为 url 时必填，要检测的音频 url
-        checkRequest.setUrl("音频下载 url");
+        checkRequest.setUrl("http://nisptools.nos.netease.com/f6f7238d94a0447f87857e3278e4718b.mp4");
+        checkRequest.setExtLon1(1L);
+        checkRequest.setExtLon2(2L);
+        checkRequest.setExtStr1("extStr1");
+        checkRequest.setExtStr2("extStr2");
         // 设置同步检测的音频类型为 base64
         // checkRequest.setDataCheckType(AudioCheckDataTypeEnum.BASE64.getCode());
         // 检测类型为 base64 时必填，要检测的音频 base64

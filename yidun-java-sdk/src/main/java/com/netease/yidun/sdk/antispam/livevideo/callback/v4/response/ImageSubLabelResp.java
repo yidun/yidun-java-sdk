@@ -19,7 +19,7 @@ public class ImageSubLabelResp implements Serializable {
     /**
      * 对外的图片label
      */
-    private int subLabel;
+    private String subLabel;
     /**
      * 命中的最终细分类的层级
      */

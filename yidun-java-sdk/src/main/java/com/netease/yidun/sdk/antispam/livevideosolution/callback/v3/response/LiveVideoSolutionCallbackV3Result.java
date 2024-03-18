@@ -131,7 +131,7 @@ public class LiveVideoSolutionCallbackV3Result implements BaseResponse {
         /**
          * 对外的图片label
          */
-        private int subLabel;
+        private String subLabel;
         /**
          * 判断结果，0-正常，1-不确定，2-确定
          */
