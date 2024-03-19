@@ -11,6 +11,9 @@ import java.util.List;
 public class LiveAudioCallbackUnitRespV4 {
     private Integer suggestion;
     private Integer suggestionLevel;
+    private Integer label;
+    private String secondLabel;
+    private String thirdLabel;
     private Long startTime;
     private Long endTime;
     private String content;
