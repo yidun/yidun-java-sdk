@@ -16,6 +16,9 @@ import lombok.NoArgsConstructor;
 public class VideoEvidence {
     private Integer suggestion;
     private Integer suggestionLevel;
+    private Integer label;
+    private String secondLabel;
+    private String thirdLabel;
     private int type;
     private String url;
     private long beginTime;
