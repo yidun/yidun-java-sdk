@@ -24,18 +24,6 @@ public class ImageV5AntispamResp implements Serializable {
      */
     private Integer suggestion;
     /**
-     * 垃圾类别
-     */
-    private Integer label;
-    /**
-     * 二级标签，必返回字段
-     */
-    private Long secondLabel;
-    /**
-     * 三级标签，非必返回字段
-     */
-    private String thirdLabel;
-    /**
      * 图片人审状态{@link CensorTypeEnum}
      */
     private Integer censorType;
@@ -147,30 +135,6 @@ public class ImageV5AntispamResp implements Serializable {
 
     public Integer getSuggestion() {
         return suggestion;
-    }
-
-    public Integer getLabel() {
-        return label;
-    }
-
-    public void setLabel(Integer label) {
-        this.label = label;
-    }
-
-    public Long getSecondLabel() {
-        return secondLabel;
-    }
-
-    public void setSecondLabel(Long secondLabel) {
-        this.secondLabel = secondLabel;
-    }
-
-    public String getThirdLabel() {
-        return thirdLabel;
-    }
-
-    public void setThirdLabel(String thirdLabel) {
-        this.thirdLabel = thirdLabel;
     }
 
     public void setSuggestion(Integer suggestion) {
