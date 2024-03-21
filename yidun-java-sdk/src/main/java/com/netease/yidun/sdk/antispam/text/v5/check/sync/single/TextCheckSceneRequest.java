@@ -206,6 +206,11 @@ public class TextCheckSceneRequest<T extends BaseResponse> extends BizPostFormRe
      */
     @Size(max = 128, message = "ip最长128个字符")
     private String ip;
+    /**
+     * 接收者IP地址
+     */
+    @Size(max = 128, message = "接收者ip最长128个字符")
+    private String receiveIp;
 
     /**
      * 上下文关联key列表
@@ -833,6 +838,23 @@ public class TextCheckSceneRequest<T extends BaseResponse> extends BizPostFormRe
 
     public TextCheckSceneRequest<T> ip(String ip) {
         this.ip = ip;
+        return this;
+    }
+
+    public String getReceiveIp() {
+        return receiveIp;
+    }
+
+    public void setReceiveIp(String receiveIp) {
+        this.receiveIp = receiveIp;
+    }
+
+    public String receiveIp() {
+        return receiveIp;
+    }
+
+    public TextCheckSceneRequest<T> receiveIp(String receiveIp) {
+        this.receiveIp = receiveIp;
         return this;
     }
 
