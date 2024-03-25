@@ -28,6 +28,8 @@ public class AudioAntispamCallbackV4Response implements BaseResponse {
      * 0：正常，100：色情，200：广告，260：广告法，300：暴恐，400：违禁，500：涉政，600：谩骂，1100：涉价值观
      */
     private Integer label;
+    private String secondLabel;
+    private String thirdLabel;
     /**
      * 人审标签
      */

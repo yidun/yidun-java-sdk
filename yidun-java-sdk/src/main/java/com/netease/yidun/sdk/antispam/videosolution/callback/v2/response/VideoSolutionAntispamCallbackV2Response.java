@@ -30,6 +30,7 @@ public class VideoSolutionAntispamCallbackV2Response {
      */
     private String callback;
     private Integer suggestion;
+
     private Integer status;
     private Integer resultType;
     /**
@@ -65,6 +66,8 @@ public class VideoSolutionAntispamCallbackV2Response {
      * 一级垃圾类型
      */
     private Integer label;
+    private String secondLabel;
+    private String thirdLabel;
     /**
      * 截图数量
      */
