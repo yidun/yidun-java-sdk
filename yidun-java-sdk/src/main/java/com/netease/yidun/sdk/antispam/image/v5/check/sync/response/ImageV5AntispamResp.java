@@ -97,6 +97,18 @@ public class ImageV5AntispamResp implements Serializable {
      * 图片md5
      */
     private String imgMd5;
+    /**
+     * 图片转存地址
+     */
+    private String url;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
     public Boolean getHidden() {
         return hidden;
