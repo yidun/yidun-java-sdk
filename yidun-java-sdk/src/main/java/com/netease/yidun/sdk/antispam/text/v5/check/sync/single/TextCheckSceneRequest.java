@@ -1017,6 +1017,7 @@ public class TextCheckSceneRequest<T extends BaseResponse> extends BizPostFormRe
         params.put("commentId", commentId);
         params.put("commodityId", commodityId);
         params.put("ip", ip);
+        params.put("receiveIp", receiveIp);
         params.put("relatedKeys", relatedKeys != null ? String.join(",", relatedKeys) : null);
         params.put("extStr1", extStr1);
         params.put("extStr2", extStr2);
