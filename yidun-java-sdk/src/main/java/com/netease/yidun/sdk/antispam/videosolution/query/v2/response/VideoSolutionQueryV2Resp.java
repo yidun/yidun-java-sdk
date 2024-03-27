@@ -24,6 +24,14 @@ public class VideoSolutionQueryV2Resp extends CommonResponse {
          */
         private int status;
         /**
+         * 音频地址
+         */
+        private String audioUrl;
+        /**
+         * 视频地址
+         */
+        private String videoUrl;
+        /**
          * 反垃圾检测结果
          */
         private VideoSolutionAntispamCallbackV2Response antispam;
