@@ -43,6 +43,18 @@ public class ImageV5Result implements Serializable {
      * 智能风控结果
      */
     private ImageRiskControlV5Resp riskControl;
+    /**
+     * 图片aigc结果
+     */
+    private ImageV5AigcResp aigc;
+
+    public ImageV5AigcResp getAigc() {
+        return aigc;
+    }
+
+    public void setAigc(ImageV5AigcResp aigc) {
+        this.aigc = aigc;
+    }
 
     public ImageV5AntispamResp getAntispam() {
         return antispam;
