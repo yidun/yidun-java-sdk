@@ -78,6 +78,7 @@ public class LiveVideoSolutionCallbackV3Result implements BaseResponse {
         private Integer riskScore;
         private Long duration;
         private Long billDuration;
+        private Long picCount;
     }
 
     @Data
