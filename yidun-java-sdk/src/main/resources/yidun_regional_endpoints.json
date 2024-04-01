@@ -20,6 +20,14 @@
     "cn-hangzhou": [
       "as.dun.163.com",
       "antispam.dun.163yun.com"
+    ],
+    "sg-singapore": [
+      "as-media-sg.dun.163.com",
+      "as-media-sg.dun.163yun.com"
+    ],
+    "us-virginia": [
+      "as-media-virginia.dun.163.com",
+      "as-media-virginia.dun.163yun.com"
     ]
   },
   "mediaSubmit": {
@@ -30,12 +38,20 @@
     "sg-singapore": [
       "as-media-sg.dun.163.com",
       "as-media-sg.dun.163yun.com"
+    ],
+    "us-virginia": [
+      "as-media-virginia.dun.163.com",
+      "as-media-virginia.dun.163yun.com"
     ]
   },
   "report": {
     "cn-hangzhou": [
       "as.dun.163.com",
       "antispam.dun.163yun.com"
+    ],
+    "sg-singapore": [
+      "as-media-sg.dun.163.com",
+      "as-media-sg.dun.163yun.com"
     ]
   },
   "digitalBook": {
