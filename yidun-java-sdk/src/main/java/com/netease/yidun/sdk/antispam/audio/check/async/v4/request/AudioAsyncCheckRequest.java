@@ -224,6 +224,11 @@ public class AudioAsyncCheckRequest extends BizPostFormRequest<AudioAsyncCheckRe
      */
     private Long extLon2;
 
+    /**
+     * 用户个人主页地址
+     */
+    private String profileUrl;
+
 
     @Override
     protected Map<String, String> getCustomSignParams() {
@@ -268,6 +273,7 @@ public class AudioAsyncCheckRequest extends BizPostFormRequest<AudioAsyncCheckRe
         params.put("checkLanguageCode", getCheckLanguageCode());
         params.put("extStr1", getExtStr1());
         params.put("extStr2", getExtStr2());
+        params.put("profileUrl", getProfileUrl());
         if (getExtLon1() != null) {
             params.put("extLon1", getExtLon1());
         }
