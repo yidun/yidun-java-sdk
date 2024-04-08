@@ -3,12 +3,14 @@
 package com.netease.yidun.sdk.core.http;
 
 import com.netease.yidun.sdk.core.client.NoResponseRetryStrategy;
+import com.netease.yidun.sdk.core.utils.StringUtils;
 import org.apache.hc.client5.http.config.RequestConfig;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
 import org.apache.hc.client5.http.impl.classic.HttpClientBuilder;
 import org.apache.hc.client5.http.impl.classic.HttpClients;
 import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager;
 import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManagerBuilder;
+import org.apache.hc.core5.http.HttpHost;
 import org.apache.hc.core5.http.io.SocketConfig;
 import org.apache.hc.core5.util.TimeValue;
 import org.apache.hc.core5.util.VersionInfo;
@@ -23,6 +25,7 @@ public class HttpClientFactory {
                 .setConnectionRequestTimeout(config.connectionRequestTimeoutMillis(), TimeUnit.MILLISECONDS)
                 .setConnectTimeout(config.connectionTimeoutMillis(), TimeUnit.MILLISECONDS)
                 .setResponseTimeout(config.responseTimeoutMillis(), TimeUnit.MILLISECONDS)
+                .setProxy(StringUtils.isNotBlank(config.getProxyHost()) ? new HttpHost(config.proxyScheme(), config.proxyHost(), config.proxyPort()) : null)
                 .build();
 
         SocketConfig socketConfig = SocketConfig.custom()
