@@ -121,6 +121,11 @@ public class VideoSolutionSubmitV2Req extends PostFormRequest<VideoSolutionSubmi
 
     private String subProduct;
 
+    /**
+     * 用户个人主页地址
+     */
+    private String profileUrl;
+
     public VideoSolutionSubmitV2Req() {
         productCode = "videoSolutionCheck";
         uriPattern = "/v2/videosolution/submit";
@@ -160,6 +165,7 @@ public class VideoSolutionSubmitV2Req extends PostFormRequest<VideoSolutionSubmi
             params.put("tags", new Gson().toJson(getTags()));
         }
         params.put("subProduct", getSubProduct());
+        params.put("profileUrl", getProfileUrl());
         return params;
     }
 

@@ -230,6 +230,11 @@ public class AudioSyncCheckRequest extends BizPostFormRequest<AudioSyncCheckResp
     private Long extLon2;
 
 
+    /**
+     * 用户个人主页地址
+     */
+    private String profileUrl;
+
     public AudioSyncCheckRequest() {
         productCode = "audioCheck";
         uriPattern = "/v2/audio/check";
@@ -280,6 +285,7 @@ public class AudioSyncCheckRequest extends BizPostFormRequest<AudioSyncCheckResp
         params.put("data", getData());
         params.put("extStr1", getExtStr1());
         params.put("extStr2", getExtStr2());
+        params.put("profileUrl", getProfileUrl());
         if (getExtLon1() != null) {
             params.put("extLon1", getExtLon1());
         }
