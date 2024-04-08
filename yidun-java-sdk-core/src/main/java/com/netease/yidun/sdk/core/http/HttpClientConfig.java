@@ -21,6 +21,7 @@ public class HttpClientConfig {
     public static final int DEFAULT_MAX_CONNECTION_COUNT = 200;
     public static final int DEFAULT_MAX_CONNECTION_COUNT_PER_ROUTE = 20;
     public static final int DEFAULT_MAX_RETRY_COUNT = 1;
+    public static final int DEFAULT_PROXY_PORT = -1;
 
     private ProtocolEnum protocol = DEFAULT_PROTOCOL;
     private int socketTimeoutMillis = DEFAULT_SOCKET_TIMEOUT_MILLIS;
@@ -32,6 +33,9 @@ public class HttpClientConfig {
     private int maxConnectionCount = DEFAULT_MAX_CONNECTION_COUNT;
     private int maxConnectionCountPerRoute = DEFAULT_MAX_CONNECTION_COUNT_PER_ROUTE;
     private int maxNoResponseRetryCount = DEFAULT_MAX_RETRY_COUNT;
+    private String proxyScheme;
+    private String proxyHost;
+    private int proxyPort = DEFAULT_PROXY_PORT;
 
     public ProtocolEnum getProtocol() {
         return protocol;
@@ -233,6 +237,92 @@ public class HttpClientConfig {
         return this;
     }
 
+    public String getProxyScheme() {
+        return proxyScheme;
+    }
+
+    /**
+     * 设置代理协议，默认http
+     *
+     * @param proxyScheme
+     */
+    public void setProxyScheme(String proxyScheme) {
+        this.proxyScheme = proxyScheme;
+    }
+
+    public String proxyScheme() {
+        return proxyScheme;
+    }
+
+    /**
+     * 设置代理协议，默认http
+     *
+     * @param proxyScheme
+     * @return
+     */
+    public HttpClientConfig proxyScheme(String proxyScheme) {
+        this.proxyScheme = proxyScheme;
+        return this;
+    }
+
+    public String getProxyHost() {
+        return proxyHost;
+    }
+
+    /**
+     * 设置代理主机
+     *
+     * @param proxyHost
+     */
+    public void setProxyHost(String proxyHost) {
+        this.proxyHost = proxyHost;
+    }
+
+    public String proxyHost() {
+        return proxyHost;
+    }
+
+    /**
+     * 设置代理主机
+     *
+     * @param proxyHost
+     * @return
+     */
+    public HttpClientConfig proxyHost(String proxyHost) {
+        this.proxyHost = proxyHost;
+        return this;
+    }
+
+    public int getProxyPort() {
+        return proxyPort;
+    }
+
+    /**
+     * 设置代理端口
+     * 默认值：{@link #DEFAULT_PROXY_PORT}
+     *
+     * @param proxyPort
+     */
+    public void setProxyPort(int proxyPort) {
+        this.proxyPort = proxyPort;
+    }
+
+    public int proxyPort() {
+        return proxyPort;
+    }
+
+    /**
+     * 设置代理端口
+     * 默认值：{@link #DEFAULT_PROXY_PORT}
+     *
+     * @param proxyPort
+     * @return
+     */
+    public HttpClientConfig proxyPort(int proxyPort) {
+        this.proxyPort = proxyPort;
+        return this;
+    }
+
     @Override
     public String toString() {
         return "HttpClientConfig(" +
@@ -246,6 +336,9 @@ public class HttpClientConfig {
                 ", maxConnectionCount=" + maxConnectionCount +
                 ", maxConnectionCountPerRoute=" + maxConnectionCountPerRoute +
                 ", maxNoResponseRetryCount=" + maxNoResponseRetryCount +
+                ", proxyScheme=" + proxyScheme +
+                ", proxyHost=" + proxyHost +
+                ", proxyPort=" + proxyPort +
                 ")";
     }
 
