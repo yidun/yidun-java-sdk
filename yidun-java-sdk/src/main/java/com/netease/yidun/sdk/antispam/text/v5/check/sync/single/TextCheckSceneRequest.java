@@ -59,6 +59,11 @@ public class TextCheckSceneRequest<T extends BaseResponse> extends BizPostFormRe
      */
     @Size(max = 128, message = "account最长128个字符")
     private String account;
+    /**
+     * 用户主页地址，用于传输这次数据的用户ID的后台地址，便于快速跳转
+     */
+    @Size(max = 2048, message = "profileUrl最长2048个字符")
+    private String profileUrl;
 
     /**
      * 手机号
@@ -413,6 +418,23 @@ public class TextCheckSceneRequest<T extends BaseResponse> extends BizPostFormRe
 
     public TextCheckSceneRequest<T> account(String account) {
         this.account = account;
+        return this;
+    }
+    
+    public String getProfileUrl() {
+        return profileUrl;
+    }
+    
+    public void setProfileUrl(String profileUrl) {
+        this.profileUrl = profileUrl;
+    }
+    
+    public String profileUrl() {
+        return profileUrl;
+    }
+
+    public TextCheckSceneRequest<T> profileUrl(String profileUrl) {
+        this.profileUrl = profileUrl;
         return this;
     }
 
@@ -992,6 +1014,7 @@ public class TextCheckSceneRequest<T extends BaseResponse> extends BizPostFormRe
         params.put("callbackUrl", callbackUrl);
         params.put("category", category);
         params.put("account", account);
+        params.put("profileUrl", profileUrl);
         params.put("phone", phone);
         params.put("nickname", nickname);
         params.put("gender", gender != null ? String.valueOf(gender) : null);
@@ -1044,6 +1067,7 @@ public class TextCheckSceneRequest<T extends BaseResponse> extends BizPostFormRe
                 + ", callbackUrl=" + callbackUrl
                 + ", category=" + category
                 + ", account=" + account
+                + ", profileUrl=" + profileUrl
                 + ", phone=" + phone
                 + ", nickname=" + nickname
                 + ", gender=" + gender
