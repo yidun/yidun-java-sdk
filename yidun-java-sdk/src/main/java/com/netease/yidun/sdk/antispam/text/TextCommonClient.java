@@ -2,6 +2,8 @@ package com.netease.yidun.sdk.antispam.text;
 
 
 import com.netease.yidun.sdk.antispam.AntispamClient;
+import com.netease.yidun.sdk.antispam.text.query.TextTaskIdsQueryRequest;
+import com.netease.yidun.sdk.antispam.text.query.TextTaskIdsQueryResponse;
 import com.netease.yidun.sdk.antispam.text.v2.feedback.TextFeedbackRequest;
 import com.netease.yidun.sdk.antispam.text.v2.feedback.TextFeedbackResponse;
 import com.netease.yidun.sdk.antispam.text.v5.callback.request.TextCallBackRequest;
@@ -19,6 +21,10 @@ public class TextCommonClient extends AntispamClient {
     }
 
     public TextFeedbackResponse feedback(TextFeedbackRequest request) {
+        return client.execute(request);
+    }
+
+    public TextTaskIdsQueryResponse queryTaskIds(TextTaskIdsQueryRequest request) {
         return client.execute(request);
     }
 }
