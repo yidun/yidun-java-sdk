@@ -92,6 +92,11 @@ public class DetailDataV6 {
      * 注册天数
      */
     private String registerDays;
+
+    /**
+     * 在线时长
+     */
+    private String onlineTimes;
     /**
      * 性别
      */
@@ -439,6 +444,14 @@ public class DetailDataV6 {
 
     public String getRegisterDays() {
         return registerDays;
+    }
+
+    public String getOnlineTimes() {
+        return onlineTimes;
+    }
+
+    public void setOnlineTimes(String onlineTimes) {
+        this.onlineTimes = onlineTimes;
     }
 
     public void setRegisterDays(String registerDays) {
@@ -822,6 +835,7 @@ public class DetailDataV6 {
                 ", level='" + level + '\'' +
                 ", registerChannel='" + registerChannel + '\'' +
                 ", registerDays='" + registerDays + '\'' +
+                ", onlineTimes='" + onlineTimes + '\'' +
                 ", gender='" + gender + '\'' +
                 ", appName='" + appName + '\'' +
                 ", packageName='" + packageName + '\'' +
