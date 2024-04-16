@@ -100,6 +100,19 @@ public class ImageV5FaceDetail implements Serializable {
          * 人脸角度list
          */
         private List<FacePoseInfo> poseInfoList;
+        /**
+         * 人脸完整性
+         * 0：不完整，1：完整，2: 未知
+         */
+        private Integer completeness;
+
+        public Integer getCompleteness() {
+            return completeness;
+        }
+
+        public void setCompleteness(Integer completeness) {
+            this.completeness = completeness;
+        }
         
         public static class FacePoseInfo implements Serializable {
             private static final long serialVersionUID = -5971991704526674256L;
