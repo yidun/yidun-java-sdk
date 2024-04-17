@@ -91,6 +91,10 @@ public class CrawlerResourceCallbackV3Response extends CommonResponse {
          * 5：连接失败；6：404网页不存在；7：正在爬取中,重复提交；100：其他原因-内容检测失败；<br/>
          */
         private Integer failureReason;
+        /**
+         * md5值
+         */
+        private String md5;
 
         public Integer getFailureReason() {
             return failureReason;
@@ -98,6 +102,14 @@ public class CrawlerResourceCallbackV3Response extends CommonResponse {
 
         public void setFailureReason(Integer failureReason) {
             this.failureReason = failureReason;
+        }
+
+        public String getMd5() {
+            return md5;
+        }
+
+        public void setMd5(String md5) {
+            this.md5 = md5;
         }
     }
 
