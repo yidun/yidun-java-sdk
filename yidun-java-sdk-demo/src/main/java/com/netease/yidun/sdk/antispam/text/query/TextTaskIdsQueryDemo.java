@@ -11,6 +11,8 @@ import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.text.TextClient;
 
+import java.util.Arrays;
+
 /**
  * @author zhuliyang02
  * @version 2024-04-15
@@ -28,7 +30,7 @@ public class TextTaskIdsQueryDemo extends AbstractDemo {
         TextTaskIdsQueryRequest taskIdsQueryRequest = new TextTaskIdsQueryRequest();
         // 设置易盾内容安全分配的businessId
         taskIdsQueryRequest.setBusinessId("BusinessId");
-        taskIdsQueryRequest.setTaskIds(new Gson().toJson(new String[]{"taskIdA", "taskIdB"}));
+        taskIdsQueryRequest.setTaskIds(Arrays.asList("taskId1", "taskId2"));
 
         // 请求对象中的其他参数如果有需要，请参考官方接口文档中字段说明，按需添加
 
