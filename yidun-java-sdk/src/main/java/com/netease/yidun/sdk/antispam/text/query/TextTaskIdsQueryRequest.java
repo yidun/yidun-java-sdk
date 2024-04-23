@@ -6,10 +6,13 @@
 
 package com.netease.yidun.sdk.antispam.text.query;
 
+import com.google.gson.Gson;
 import com.netease.yidun.sdk.core.request.BizPostFormRequest;
 import com.netease.yidun.sdk.core.validation.limitation.NotBlank;
+import com.netease.yidun.sdk.core.validation.limitation.NotEmpty;
 import lombok.Data;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -22,8 +25,8 @@ public class TextTaskIdsQueryRequest extends BizPostFormRequest<TextTaskIdsQuery
     /**
      * taskId json数组
      */
-    @NotBlank(message = "taskIds不能为空")
-    private String taskIds;
+    @NotEmpty(message = "taskIds不能为空")
+    private List<String> taskIds;
 
     public TextTaskIdsQueryRequest() {
         productCode = "text-api";
@@ -34,7 +37,7 @@ public class TextTaskIdsQueryRequest extends BizPostFormRequest<TextTaskIdsQuery
     @Override
     protected Map<String, String> getCustomSignParams() {
         Map<String, String> params = super.getCustomSignParams();
-        params.put("taskIds", taskIds);
+        params.put("taskIds", new Gson().toJson(taskIds));
         return params;
     }
 
