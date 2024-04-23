@@ -445,6 +445,12 @@ public class TextCheckResult implements Serializable {
 
         private String thirdLabel;
 
+        /**
+         * 涉政标签正负向属性检测结果，如有需要请联系您的专属商务，未开通状态下不返回
+         * 枚举值：正向-0、负向-1、中性-2
+         */
+        private Integer politicalSentiment;
+
         private AntispamSubLabelDetail details;
 
         public String getSubLabel() {
@@ -487,6 +493,14 @@ public class TextCheckResult implements Serializable {
         public void setThirdLabel(String thirdLabel) {
             this.thirdLabel = thirdLabel;
         }
+        
+        public Integer getPoliticalSentiment() {
+            return politicalSentiment;
+        }
+        
+        public void setPoliticalSentiment(Integer politicalSentiment) {
+            this.politicalSentiment = politicalSentiment;
+        }
 
         @Override
         public String toString() {
@@ -495,6 +509,7 @@ public class TextCheckResult implements Serializable {
                     + ", subLabelDepth=" + subLabelDepth
                     + ", secondLabel=" + secondLabel
                     + ", thirdLabel=" + thirdLabel
+                    + ", politicalSentiment=" + politicalSentiment
                     + ", details=" + details
                     + ")";
         }
