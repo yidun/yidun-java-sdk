@@ -33,7 +33,10 @@ public class HttpClientConfigTest {
                 ", responseTimeoutMillis=20000" +
                 ", maxConnectionCount=200" +
                 ", maxConnectionCountPerRoute=20" +
-                ", maxNoResponseRetryCount=1)";
+                ", maxNoResponseRetryCount=1" +
+                ", proxyScheme=null" +
+                ", proxyHost=null" +
+                ", proxyPort=-1)";
 
         HttpClientConfig config = HttpClientConfig.defaultConfig();
 
