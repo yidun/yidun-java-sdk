@@ -104,6 +104,11 @@ public class LiveDataCallbackFaceUnitV4 {
              * 成长阶段，对应枚举FaceAgeRangeEnum
              */
             private String growthStage;
+            /**
+             * 人脸完整性
+             * 0：不完整，1：完整，2: 未知
+             */
+            private Integer completeness;
 
         }
 
