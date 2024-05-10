@@ -32,6 +32,8 @@ public class TextCheckResult implements Serializable {
     private Language language;
 
     private RiskControl riskControl;
+    
+    private AigcPrompt aigcPrompt;
 
     public Antispam getAntispam() {
         return antispam;
@@ -79,6 +81,14 @@ public class TextCheckResult implements Serializable {
     public void setRiskControl(RiskControl riskControl) {
         this.riskControl = riskControl;
     }
+    
+    public AigcPrompt getAigcPrompt() {
+        return aigcPrompt;
+    }
+    
+    public void setAigcPrompt(AigcPrompt aigcPrompt) {
+        this.aigcPrompt = aigcPrompt;
+    }
 
     @Override
     public String toString() {
@@ -89,6 +99,7 @@ public class TextCheckResult implements Serializable {
                 + ", userRisk=" + userRisk
                 + ", language=" + language
                 + ", riskControl=" + riskControl
+                + ", aigcPrompt=" + aigcPrompt
                 + ")";
     }
 
@@ -1176,6 +1187,93 @@ public class TextCheckResult implements Serializable {
             return "RiskControlDetail{" +
                     "riskLevel=" + riskLevel +
                     ", hitInfos=" + hitInfos +
+                    '}';
+        }
+    }
+
+    public static class AigcPrompt {
+        
+        /**
+         * 任务id
+         */
+        private String taskId;
+
+        /**
+         * 数据id
+         */
+        private String dataId;
+        
+        /**
+         * 详情
+         */
+        private List<AigcPromptDetail> details;
+
+        public String getTaskId() {
+            return taskId;
+        }
+
+        public void setTaskId(String taskId) {
+            this.taskId = taskId;
+        }
+
+        public String getDataId() {
+            return dataId;
+        }
+
+        public void setDataId(String dataId) {
+            this.dataId = dataId;
+        }
+
+        public List<AigcPromptDetail> getDetails() {
+            return details;
+        }
+
+        public void setDetails(List<AigcPromptDetail> details) {
+            this.details = details;
+        }
+
+        @Override
+        public String toString() {
+            return "AigcPrompt{" +
+                    "taskId='" + taskId + '\'' +
+                    ", dataId='" + dataId + '\'' +
+                    ", details=" + details +
+                    '}';
+        }
+    }
+
+    public static class AigcPromptDetail {
+        /**
+         * prompt分类的枚举值
+         */
+        private Integer type;
+
+        /**
+         * 需要回答且能找到回答时返回
+         */
+        private String answer;
+
+        public Integer getType() {
+            return type;
+        }
+
+        public void setType(Integer type) {
+            this.type = type;
+        }
+
+        public String getAnswer() {
+            return answer;
+        }
+
+        public void setAnswer(String answer) {
+            this.answer = answer;
+        }
+
+        @Override
+        public String toString() {
+            return "AigcPromptDetail{" +
+                    "type=" + type +
+                    ", answer='" + answer + '\'' +
                     '}';
         }
     }
