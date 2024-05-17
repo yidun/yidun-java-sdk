@@ -16,6 +16,8 @@ import com.netease.yidun.sdk.irisk.v1.config.IRiskConfigResponse;
 import com.netease.yidun.sdk.irisk.v1.detail.IRiskDetailRequest;
 import com.netease.yidun.sdk.irisk.v1.detail.IRiskDetailResponse;
 import com.netease.yidun.sdk.irisk.v1.mediacheck.IRiskMediaCheckRequest;
+import com.netease.yidun.sdk.irisk.v1.mediacheck.IRiskMediaQueryRequest;
+import com.netease.yidun.sdk.irisk.v1.mediacheck.IRiskMediaQueryResponse;
 import com.netease.yidun.sdk.irisk.v1.report.IRiskReportDataRequest;
 import com.netease.yidun.sdk.irisk.v1.report.IRiskReportDataResponse;
 
@@ -65,6 +67,10 @@ public class IRiskClient {
     }
 
     public IRiskMediaCheckResponse mediaCheck(IRiskMediaCheckRequest request) {
+        return client.execute(request);
+    }
+
+    public IRiskMediaQueryResponse mediaQuery(IRiskMediaQueryRequest request) {
         return client.execute(request);
     }
 
