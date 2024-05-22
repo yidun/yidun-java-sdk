@@ -58,6 +58,10 @@ public class LiveVideoSolutionCallbackV3Result implements BaseResponse {
         private String callback;
         private String dataId;
         private Integer status;
+        /**
+         * 结束类型：0易盾结束（拉不到流）；1客户结束（feedback）
+         */
+        private Integer finishType;
         private Long time;
         private Integer censorSource;
         /**

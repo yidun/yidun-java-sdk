@@ -40,6 +40,10 @@ public class LiveAudioCallbackV4Result implements BaseResponse {
          */
         private Integer strategySource;
         private Integer status;
+        /**
+         * 结束类型：0易盾结束（拉不到流）；1客户结束（feedback）
+         */
+        private Integer finishType;
         private Integer failureReason;
         /**
          * 语种类型码
