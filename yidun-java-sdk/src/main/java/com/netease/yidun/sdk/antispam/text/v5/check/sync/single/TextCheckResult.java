@@ -1045,7 +1045,7 @@ public class TextCheckResult implements Serializable {
         }
     }
 
-    private static class Language {
+    public static class Language {
 
         private String taskId;
         private String dataId;
