@@ -1253,6 +1253,11 @@ public class TextCheckResult implements Serializable {
          */
         private String answer;
 
+        /**
+         * 标记对外输出内容由知识库结果还是大模型生成的结果（0代表知识库,1代表大模型）
+         */
+        private Integer source;
+
         public Integer getType() {
             return type;
         }
@@ -1269,11 +1274,20 @@ public class TextCheckResult implements Serializable {
             this.answer = answer;
         }
 
+        public Integer getSource() {
+            return source;
+        }
+
+        public void setSource(Integer source) {
+            this.source = source;
+        }
+
         @Override
         public String toString() {
             return "AigcPromptDetail{" +
                     "type=" + type +
                     ", answer='" + answer + '\'' +
+                    ", source='" + source + '\'' +
                     '}';
         }
     }
