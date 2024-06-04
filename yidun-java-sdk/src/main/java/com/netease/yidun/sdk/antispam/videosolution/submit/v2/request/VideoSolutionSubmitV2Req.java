@@ -121,6 +121,14 @@ public class VideoSolutionSubmitV2Req extends PostFormRequest<VideoSolutionSubmi
 
     private String subProduct;
 
+    private String extStr1;
+
+    private String extStr2;
+
+    private Long extLon1;
+
+    private Long extLon2;
+
     /**
      * 用户个人主页地址
      */
@@ -166,6 +174,10 @@ public class VideoSolutionSubmitV2Req extends PostFormRequest<VideoSolutionSubmi
         }
         params.put("subProduct", getSubProduct());
         params.put("profileUrl", getProfileUrl());
+        params.put("extStr1", getExtStr1());
+        params.put("extStr2", getExtStr2());
+        params.put("extLon1", getExtLon1());
+        params.put("extLon2", getExtLon2());
         return params;
     }
 
