@@ -24,6 +24,8 @@ import com.netease.yidun.sdk.antispam.media.v2.MediaQueryClient;
 import com.netease.yidun.sdk.antispam.pretreatment.PretreatmentCommonClient;
 import com.netease.yidun.sdk.antispam.report.v1.ReportCheckClient;
 import com.netease.yidun.sdk.antispam.report.v1.ReportQueryClient;
+import com.netease.yidun.sdk.antispam.stream.v1.AigcStreamPushClient;
+import com.netease.yidun.sdk.antispam.stream.v1.AigcStreamCommonClient;
 import com.netease.yidun.sdk.antispam.text.TextCheckClient;
 import com.netease.yidun.sdk.antispam.text.TextCommonClient;
 import com.netease.yidun.sdk.antispam.video.VideoCheckClient;
@@ -166,6 +168,14 @@ public class AntispamRequester {
 
     public MediaQueryClient getMediaQueryClient() {
         return createIfAbsent(MediaQueryClient.class);
+    }
+
+    public AigcStreamPushClient getAigcStreamPushClient() {
+        return createIfAbsent(AigcStreamPushClient.class);
+    }
+
+    public AigcStreamCommonClient getAigcStreamCommonClient() {
+        return createIfAbsent(AigcStreamCommonClient.class);
     }
 
     public ReportCheckClient getReportCheckClient() {
