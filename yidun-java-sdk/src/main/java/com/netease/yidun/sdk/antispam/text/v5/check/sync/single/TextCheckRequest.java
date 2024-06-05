@@ -88,6 +88,7 @@ public class TextCheckRequest extends TextCheckSceneRequest<TextCheckResponse> {
     protected Map<String, String> getCustomSignParams() {
         Map<String, String> params = super.getCustomSignParams();
         params.put("checkLabels", checkLabels);
+        params.put("checkStrategyGroupIds", checkStrategyGroupIds);
         params.put("token", token);
         return params;
     }
