@@ -20,6 +20,11 @@ public class MediaTextEvidence {
     private List<TextLabelInfo> labels;
     private Boolean isRelatedHit;
 
+    /**
+     * 过滤后文本内容
+     */
+    private String filteredContent;
+
     public String getDataId() {
         return dataId;
     }
@@ -62,6 +67,14 @@ public class MediaTextEvidence {
 
     public List<StrategyVersion> getStrategyVersions() {
         return strategyVersions;
+    }
+
+    public String getFilteredContent() {
+        return filteredContent;
+    }
+
+    public void setFilteredContent(String filteredContent) {
+        this.filteredContent = filteredContent;
     }
 
     public void setStrategyVersions(List<StrategyVersion> strategyVersions) {
