@@ -39,6 +39,10 @@ public class CrawlerJobSubmitV1Request extends CrawlerJobBaseSubmitV1Request<Cra
      * URL过滤条件集
      */
     private Set<CrawlerUrlFilter> urlFilters;
+    /**
+     * 业务指定过检策略组id
+     */
+    private Set<Long> checkStrategyGroupIds;
 
     @Override
     protected Map<String, String> getCustomSignParams() {
@@ -64,6 +68,9 @@ public class CrawlerJobSubmitV1Request extends CrawlerJobBaseSubmitV1Request<Cra
                                                  .map(String::valueOf)
                                                  .collect(Collectors.joining(","));
             params.put("checkFlags", checkFlagStr);
+        }
+        if (!CollectionUtils.isEmpty(checkStrategyGroupIds)) {
+            params.put("checkStrategyGroupIds", checkStrategyGroupIds.stream().map(String::valueOf).collect(Collectors.joining(",")));
         }
         return params;
     }
@@ -119,6 +126,14 @@ public class CrawlerJobSubmitV1Request extends CrawlerJobBaseSubmitV1Request<Cra
         this.urlFilters = urlFilters;
     }
 
+    public Set<Long> getCheckStrategyGroupIds() {
+        return checkStrategyGroupIds;
+    }
+
+    public void setCheckStrategyGroupIds(Set<Long> checkStrategyGroupIds) {
+        this.checkStrategyGroupIds = checkStrategyGroupIds;
+    }
+
     @Override
     public String toString() {
         return "CrawlerJobSubmitV1Request{" +
@@ -127,6 +142,7 @@ public class CrawlerJobSubmitV1Request extends CrawlerJobBaseSubmitV1Request<Cra
                 ", siteName='" + siteName + '\'' +
                 ", focusList=" + focusList +
                 ", urlFilters=" + urlFilters +
+                ", checkStrategyGroupIds=" + checkStrategyGroupIds +
                 '}' + " " + super.toString();
     }
 }
