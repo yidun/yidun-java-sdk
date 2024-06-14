@@ -65,6 +65,10 @@ public abstract class CrawlerJobBaseSubmitV1Request<T extends BaseResponse> exte
      * 检测标记  检测内容, 默认为1和2。1-检测文本，2-检测图片，4-检测点播音频，5-检测文档附件，6-检测点播音视频
      */
     private Set<Integer> checkFlags;
+    /**
+     * 业务指定过检策略组id
+     */
+    private Set<Long> checkStrategyGroupIds;
 
     public Long getSliceStartTime() {
         return sliceStartTime;
@@ -162,6 +166,14 @@ public abstract class CrawlerJobBaseSubmitV1Request<T extends BaseResponse> exte
         this.checkFlags = checkFlags;
     }
 
+    public Set<Long> getCheckStrategyGroupIds() {
+        return checkStrategyGroupIds;
+    }
+
+    public void setCheckStrategyGroupIds(Set<Long> checkStrategyGroupIds) {
+        this.checkStrategyGroupIds = checkStrategyGroupIds;
+    }
+
     @Override
     public String toString() {
         return "CrawlerJobBaseSubmitV1Request{" +
@@ -177,6 +189,7 @@ public abstract class CrawlerJobBaseSubmitV1Request<T extends BaseResponse> exte
                 ", userAgentMatchType=" + userAgentMatchType +
                 ", userAgent='" + userAgent + '\'' +
                 ", checkFlags=" + checkFlags +
+                ", checkStrategyGroupIds=" + checkStrategyGroupIds +
                 '}';
     }
 }

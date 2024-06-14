@@ -40,6 +40,10 @@ public abstract class OfficialAccountsBaseSubmitV1Request<T extends BaseResponse
      * 检测标记  检测内容
      */
     private Set<Integer> checkFlags;
+    /**
+     * 业务指定过检策略组id
+     */
+    private Set<Long> checkStrategyGroupIds;
 
     public Long getStartTime() {
         return startTime;
@@ -97,6 +101,14 @@ public abstract class OfficialAccountsBaseSubmitV1Request<T extends BaseResponse
         this.checkFlags = checkFlags;
     }
 
+    public Set<Long> getCheckStrategyGroupIds() {
+        return checkStrategyGroupIds;
+    }
+
+    public void setCheckStrategyGroupIds(Set<Long> checkStrategyGroupIds) {
+        this.checkStrategyGroupIds = checkStrategyGroupIds;
+    }
+
     @Override
     public String toString() {
         return "OfficialAccountsBaseSubmitV1Request{" +
@@ -107,6 +119,7 @@ public abstract class OfficialAccountsBaseSubmitV1Request<T extends BaseResponse
                 ", callbackUrl='" + callbackUrl + '\'' +
                 ", strategy=" + strategy +
                 ", checkFlags=" + checkFlags +
+                ", checkStrategyGroupIds=" + checkStrategyGroupIds +
                 '}';
     }
 }

@@ -3,6 +3,7 @@ package com.netease.yidun.sdk.antispam.crawler.v3.submit.request;
 import com.netease.yidun.sdk.antispam.crawler.v3.submit.response.CrawlerResourceSubmitV3Response;
 import com.netease.yidun.sdk.core.http.HttpMethodEnum;
 import com.netease.yidun.sdk.core.request.PostFormRequest;
+import com.netease.yidun.sdk.core.utils.CollectionUtils;
 import com.netease.yidun.sdk.core.utils.StringHashMap;
 import com.netease.yidun.sdk.core.validation.limitation.Length;
 import com.netease.yidun.sdk.core.validation.limitation.NotEmpty;
@@ -12,6 +13,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
@@ -61,6 +63,11 @@ public class CrawlerResourceSubmitV3Request extends PostFormRequest<CrawlerResou
      */
     private String config;
 
+    /**
+     * 业务指定过检策略组id
+     */
+    private Set<Long> checkStrategyGroupIds;
+
     public CrawlerResourceSubmitV3Request() {
         productCode = "crawler";
         uriPattern = "/v3/crawler/submit";
@@ -80,6 +87,9 @@ public class CrawlerResourceSubmitV3Request extends PostFormRequest<CrawlerResou
         params.put("siteName", getSiteName());
         params.put("content", getContent());
         params.put("config", getConfig());
+        if (!CollectionUtils.isEmpty(checkStrategyGroupIds)) {
+            params.put("checkStrategyGroupIds", checkStrategyGroupIds.stream().map(String::valueOf).collect(Collectors.joining(",")));
+        }
         return params;
     }
 
@@ -161,6 +171,14 @@ public class CrawlerResourceSubmitV3Request extends PostFormRequest<CrawlerResou
         this.config = config;
     }
 
+    public Set<Long> getCheckStrategyGroupIds() {
+        return checkStrategyGroupIds;
+    }
+
+    public void setCheckStrategyGroupIds(Set<Long> checkStrategyGroupIds) {
+        this.checkStrategyGroupIds = checkStrategyGroupIds;
+    }
+
     @Override
     public String toString() {
         return "CrawlerResourceSubmitV3Request{" +
@@ -172,6 +190,7 @@ public class CrawlerResourceSubmitV3Request extends PostFormRequest<CrawlerResou
                 ", siteName='" + siteName + '\'' +
                 ", content='" + content + '\'' +
                 ", config='" + config + '\'' +
+                ", checkStrategyGroupIds=" + checkStrategyGroupIds +
                 '}';
     }
 }
