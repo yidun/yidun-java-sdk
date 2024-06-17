@@ -40,6 +40,15 @@ public class CaptchaVerifyResponse implements BaseResponse {
      */
     private String sdkReduce;
 
+    /**
+     * 客户端IP
+     */
+    private String clientIp;
+    /**
+     * 客户端UA
+     */
+    private String clientUa;
+
     public int getError() {
         return error;
     }
@@ -103,6 +112,22 @@ public class CaptchaVerifyResponse implements BaseResponse {
     public void setSdkReduce(String sdkReduce) {
         this.sdkReduce = sdkReduce;
     }
+    
+    public String getClientIp() {
+        return clientIp;
+    }
+    
+    public void setClientIp(String clientIp) {
+        this.clientIp = clientIp;
+    }
+    
+    public String getClientUa() {
+        return clientUa;
+    }
+    
+    public void setClientUa(String clientUa) {
+        this.clientUa = clientUa;
+    }
 
     @Override
     public String toString() {
@@ -112,14 +137,24 @@ public class CaptchaVerifyResponse implements BaseResponse {
                 + ", result=" + result
                 + ", phone=" + phone
                 + ", extraData=" + extraData
+                + ", captchaType=" + captchaType
+                + ", token=" + token
+                + ", sdkReduce=" + sdkReduce
+                + ", clientIp=" + clientIp
+                + ", clientUa=" + clientUa
                 + ")";
     }
 
-    public CaptchaVerifyResponse(int error, String msg, boolean result, String phone, String extraData) {
+    public CaptchaVerifyResponse(int error, String msg, boolean result, String phone, String extraData, int captchaType, String token, String sdkReduce, String clientIp, String clientUa) {
         this.error = error;
         this.msg = msg;
         this.result = result;
         this.phone = phone;
         this.extraData = extraData;
+        this.captchaType = captchaType;
+        this.token = token;
+        this.sdkReduce = sdkReduce;
+        this.clientIp = clientIp;
+        this.clientUa = clientUa;
     }
 }
