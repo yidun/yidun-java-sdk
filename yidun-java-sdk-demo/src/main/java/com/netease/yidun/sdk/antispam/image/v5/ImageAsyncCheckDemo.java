@@ -31,6 +31,7 @@ public class ImageAsyncCheckDemo extends AbstractDemo {
 //            @Override
 //            public void handle(List<ImageV5Result> callbackData) {
 //                // 处理轮询回调的结果，需保证幂等性
+//                // 注意需保证这里是不抛出异常的，建议做好try catch处理，否则会一直获取当前处理失败的回调数据
 //            }
 //        };
 //        // 为了保证服务进程关闭时，回调数据能够被有效处理，不会因为进程关闭而丢失，建议在进程关闭的hook（例如：spring中的@PreDestroy）中调用 imageCallback.close()
