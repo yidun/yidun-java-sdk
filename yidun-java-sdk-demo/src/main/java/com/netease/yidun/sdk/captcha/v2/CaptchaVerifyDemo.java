@@ -23,12 +23,15 @@ public class CaptchaVerifyDemo extends AbstractDemo {
         // 填充请求参数
         CaptchaVerifyRequest request = new CaptchaVerifyRequest();
         // 验证码id (必填参数)
-        request.setCaptchaId("captchaId");
+        request.setCaptchaId("a05f036b70ab447b87cc788af9a60974");
         // 提交二次校验的验证数据，即NECaptchaValidate值(必填参数)
         request.setValidate("validate");
         // 用户信息(必填参数, 值可为空)
         request.setUser("用户A");
-
+        // 客户端IP(非必填参数)        
+        request.setClientIp("127.0.0.1");
+        // 客户端UA(非必填参数)
+        request.setClientUa("Mozilla/5.0");
         CaptchaVerifyResponse verifyResponse = null;
         try {
             verifyResponse = captchaClient.verify(request);
