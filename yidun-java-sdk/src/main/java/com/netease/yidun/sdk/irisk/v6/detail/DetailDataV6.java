@@ -238,6 +238,10 @@ public class DetailDataV6 {
      */
     private String evidence;
     /**
+     * 命中规则
+     */
+    private String matchedRules;
+    /**
      * 号码运营商
      */
     private String phoneCarrierName;
@@ -738,6 +742,14 @@ public class DetailDataV6 {
         this.evidence = evidence;
     }
 
+    public String getMatchedRules() {
+        return matchedRules;
+    }
+
+    public void setMatchedRules(String matchedRules) {
+        this.matchedRules = matchedRules;
+    }
+
     public String getPhoneCarrierName() {
         return phoneCarrierName;
     }
@@ -871,6 +883,7 @@ public class DetailDataV6 {
                 ", execAction='" + execAction + '\'' +
                 ", protectionResult='" + protectionResult + '\'' +
                 ", evidence='" + evidence + '\'' +
+                ", matchedRules='" + matchedRules + '\'' +
                 ", phoneCarrierName='" + phoneCarrierName + '\'' +
                 ", phoneLocation='" + phoneLocation + '\'' +
                 ", phoneRiskType='" + phoneRiskType + '\'' +
