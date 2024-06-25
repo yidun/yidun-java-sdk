@@ -101,6 +101,7 @@ public class MediaTextEvidence {
         private Integer label;
         private List<TextSubLabel> subLabels;
         private Integer level;
+        private Double rate;
 
         public Integer getLabel() {
             return label;
@@ -124,6 +125,14 @@ public class MediaTextEvidence {
 
         public void setLevel(Integer level) {
             this.level = level;
+        }
+
+        public Double getRate() {
+            return rate;
+        }
+
+        public void setRate(Double rate) {
+            this.rate = rate;
         }
     }
 
