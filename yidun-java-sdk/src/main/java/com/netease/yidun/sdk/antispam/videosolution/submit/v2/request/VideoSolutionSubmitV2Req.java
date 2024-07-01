@@ -144,6 +144,43 @@ public class VideoSolutionSubmitV2Req extends PostFormRequest<VideoSolutionSubmi
      */
     private String profileUrl;
 
+    private String eId;
+
+    private String receiveUid;
+
+    private String groupId;
+
+    private String roomId;
+
+    private String topic;
+
+    private String commentId;
+
+    private String commodityId;
+
+    private Long friendNum;
+
+    private Long fansNum;
+
+    private Integer isPremiumUse;
+
+    private String role;
+
+    private String mac;
+
+    private String imei;
+
+    private String idfa;
+
+    private String idfv;
+
+    private String appVersion;
+
+    private Integer relationship;
+
+    private String relatedKeys;
+
+
     public VideoSolutionSubmitV2Req() {
         productCode = "videoSolutionCheck";
         uriPattern = "/v2/videosolution/submit";
@@ -193,6 +230,24 @@ public class VideoSolutionSubmitV2Req extends PostFormRequest<VideoSolutionSubmi
         params.put("extStr2", getExtStr2());
         params.put("extLon1", getExtLon1());
         params.put("extLon2", getExtLon2());
+        params.put("eId", getEId());
+        params.put("receiveUid", getReceiveUid());
+        params.put("groupId", getGroupId());
+        params.put("roomId", getRoomId());
+        params.put("topic", getTopic());
+        params.put("commentId", getCommentId());
+        params.put("commodityId", getCommodityId());
+        params.put("friendNum", getFriendNum());
+        params.put("fansNum", getFansNum());
+        params.put("isPremiumUse", getIsPremiumUse());
+        params.put("role", getRole());
+        params.put("mac", getMac());
+        params.put("imei", getImei());
+        params.put("idfa", getIdfa());
+        params.put("idfv", getIdfv());
+        params.put("appVersion", getAppVersion());
+        params.put("relationship", getRelationship());
+        params.put("relatedKeys", getRelatedKeys());
         return params;
     }
 
