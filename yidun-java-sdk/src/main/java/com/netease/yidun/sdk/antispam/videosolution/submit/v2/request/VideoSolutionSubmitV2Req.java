@@ -129,6 +129,16 @@ public class VideoSolutionSubmitV2Req extends PostFormRequest<VideoSolutionSubmi
 
     private Long extLon2;
 
+    private Integer level;
+
+    private Long registerTime;
+
+    private Integer gender;
+
+    private Integer age;
+
+    private String phone;
+
     /**
      * 用户个人主页地址
      */
@@ -146,6 +156,11 @@ public class VideoSolutionSubmitV2Req extends PostFormRequest<VideoSolutionSubmi
         params.putAll(super.getCustomSignParams());
         params.put("ip", getIp());
         params.put("account", getAccount());
+        params.put("level", getLevel());
+        params.put("registerTime", getRegisterTime());
+        params.put("gender", getGender());
+        params.put("age", getAge());
+        params.put("phone", getPhone());
         params.put("deviceId", getDeviceId());
         params.put("deviceType", getDeviceType());
         params.put("dataId", getDataId());
