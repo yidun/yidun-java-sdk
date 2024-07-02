@@ -180,6 +180,8 @@ public class VideoSolutionSubmitV2Req extends PostFormRequest<VideoSolutionSubmi
 
     private String relatedKeys;
 
+    private String extension;
+
 
     public VideoSolutionSubmitV2Req() {
         productCode = "videoSolutionCheck";
@@ -248,6 +250,7 @@ public class VideoSolutionSubmitV2Req extends PostFormRequest<VideoSolutionSubmi
         params.put("appVersion", getAppVersion());
         params.put("relationship", getRelationship());
         params.put("relatedKeys", getRelatedKeys());
+        params.put("extension", getExtension());
         return params;
     }
 
