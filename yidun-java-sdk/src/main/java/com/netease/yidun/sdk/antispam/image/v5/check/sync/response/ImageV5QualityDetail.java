@@ -13,6 +13,14 @@ public class ImageV5QualityDetail implements Serializable {
      */
     private Float sharpnessRate;
     /**
+     * 分屏重复分数
+     */
+    private Float similarityScore;
+    /**
+     * true表示分屏重复分数
+     */
+    private Boolean similarityImage;
+    /**
      * 图片基本信息
      */
     private MetaInfo metaInfo;
@@ -24,6 +32,22 @@ public class ImageV5QualityDetail implements Serializable {
      * 背景信息
      */
     private BackgroundInfo backgroundInfo;
+
+    public Float getSimilarityScore() {
+        return similarityScore;
+    }
+
+    public void setSimilarityScore(Float similarityScore) {
+        this.similarityScore = similarityScore;
+    }
+
+    public Boolean getSimilarityImage() {
+        return similarityImage;
+    }
+
+    public void setSimilarityImage(Boolean similarityImage) {
+        this.similarityImage = similarityImage;
+    }
 
     public Float getAestheticsRate() {
         return aestheticsRate;
