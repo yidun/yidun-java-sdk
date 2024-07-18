@@ -265,6 +265,21 @@ public class TextCheckSceneRequest<T extends BaseResponse> extends BizPostFormRe
      */
     private String extension;
 
+    /**
+     * 用户传入的关联检测历史文本
+     * 用户传入历史数据用于和新一段文本关联过检
+     */
+    @Size(max = 10000, message = "relateContext最长10000个字符")
+    private String relateContext;
+
+    public String getRelateContext() {
+        return relateContext;
+    }
+
+    public void setRelateContext(String relateContext) {
+        this.relateContext = relateContext;
+    }
+
 
 
 
@@ -1051,6 +1066,7 @@ public class TextCheckSceneRequest<T extends BaseResponse> extends BizPostFormRe
         params.put("censorExt", censorExt);
         params.put("extension",extension);
         params.put("subProduct",subProduct);
+        params.put("relateContext",relateContext);
         return params;
     }
 
@@ -1103,6 +1119,7 @@ public class TextCheckSceneRequest<T extends BaseResponse> extends BizPostFormRe
                 + ", censorExt=" + censorExt
                 + ", extension=" + extension
                 + ", subProduct=" + subProduct
+                + ", relateContext=" + relateContext
                 + ")";
     }
 
