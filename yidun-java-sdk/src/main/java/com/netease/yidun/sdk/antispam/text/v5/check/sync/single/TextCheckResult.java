@@ -129,6 +129,7 @@ public class TextCheckResult implements Serializable {
         private String remark;
         private String filteredContent;
         private List<String> mergeHints;
+        private Integer status;
 
         public String getTaskId() {
             return taskId;
@@ -184,6 +185,14 @@ public class TextCheckResult implements Serializable {
 
         public void setSuggestionLevel(Integer suggestionLevel) {
             this.suggestionLevel = suggestionLevel;
+        }
+
+        public Integer getStatus() {
+            return status;
+        }
+
+        public void setStatus(Integer status) {
+            this.status = status;
         }
 
         public Integer getCustomAction() {
@@ -308,6 +317,7 @@ public class TextCheckResult implements Serializable {
                     + ", thirdLabel=" + thirdLabel
                     + ", suggestion=" + suggestion
                     + ", suggestionLevel=" + suggestionLevel
+                    + ", status=" + status
                     + ", customAction=" + customAction
                     + ", resultType=" + resultType
                     + ", censorType=" + censorType
