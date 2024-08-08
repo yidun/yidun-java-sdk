@@ -54,6 +54,11 @@ public class WeiboBatchSubmitV1Request extends WeiboBaseSubmitV1Request<WeiboBat
          */
         @Length(max = 64)
         private String blogger;
+        /**
+         * 数据唯一标识，能够根据该值定位到该条数据，如对数据结果有异议，可以发送该值给客户经理查询
+         */
+        @Length(max = 128, message = "最大长度128")
+        private String dataId;
 
         public String getUrl() {
             return url;
@@ -71,11 +76,20 @@ public class WeiboBatchSubmitV1Request extends WeiboBaseSubmitV1Request<WeiboBat
             this.blogger = blogger;
         }
 
+        public String getDataId() {
+            return dataId;
+        }
+
+        public void setDataId(String dataId) {
+            this.dataId = dataId;
+        }
+
         @Override
         public String toString() {
             return "WeiboConfig{" +
                     ", url='" + url + '\'' +
                     ", blogger='" + blogger + '\'' +
+                    ", dataId='" + dataId + '\'' +
                     '}' + " " + super.toString();
         }
     }
