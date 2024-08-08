@@ -10,14 +10,33 @@ import java.util.List;
 public class WeiboBatchSubmitV1Response extends CommonResponse {
 
     private static final long serialVersionUID = 1128347123649598960L;
-    private List<WeiboSubmitV1Response.WeiboSubmitResult> result;
+    private List<WeiboBatchSubmitResult> result;
 
-    public List<WeiboSubmitV1Response.WeiboSubmitResult> getResult() {
+    public List<WeiboBatchSubmitResult> getResult() {
         return result;
     }
 
-    public void setResult(List<WeiboSubmitV1Response.WeiboSubmitResult> result) {
+    public void setResult(List<WeiboBatchSubmitResult> result) {
         this.result = result;
+    }
+
+    public static class WeiboBatchSubmitResult extends WeiboSubmitV1Response.WeiboSubmitResult {
+        private String dataId;
+
+        public String getDataId() {
+            return dataId;
+        }
+
+        public void setDataId(String dataId) {
+            this.dataId = dataId;
+        }
+
+        @Override
+        public String toString() {
+            return "WeiboBatchSubmitResult{" +
+                    "dataId='" + dataId + '\'' +
+                    "} " + super.toString();
+        }
     }
 
     @Override
