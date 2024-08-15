@@ -16,4 +16,8 @@ public class VideoCallbackV4Result {
      * 视频人脸检测结果
      */
     private VideoCallbackFaceV4Response face;
+    /**
+     * 视频广告检测结果
+     */
+    private VideoCallbackAdV4Response ad;
 }
