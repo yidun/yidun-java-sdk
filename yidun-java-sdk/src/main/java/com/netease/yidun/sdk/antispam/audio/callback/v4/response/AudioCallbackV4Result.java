@@ -23,6 +23,10 @@ public class AudioCallbackV4Result {
      * 质量检测结果
      */
     private AudioQualityCallbackV4Response quality;
+    /**
+     * 广告检测结果
+     */
+    private AudioAdCallbackUnitV4Response ad;
 
     public AudioAntispamCallbackV4Response getAntispam() {
         return antispam;
@@ -62,5 +66,13 @@ public class AudioCallbackV4Result {
 
     public void setQuality(AudioQualityCallbackV4Response quality) {
         this.quality = quality;
+    }
+
+    public AudioAdCallbackUnitV4Response getAd() {
+        return ad;
+    }
+
+    public void setAd(AudioAdCallbackUnitV4Response ad) {
+        this.ad = ad;
     }
 }
