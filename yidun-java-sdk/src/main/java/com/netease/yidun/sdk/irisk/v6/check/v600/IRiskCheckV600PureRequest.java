@@ -32,7 +32,6 @@ public abstract class IRiskCheckV600PureRequest<T extends BaseResponse> extends 
     /**
      * 用户/玩家的角色 ID，非游戏类型应用，roleId 可以与 roleAccount 相同
      */
-    @NotBlank(message = "roleId不能为空")
     private String roleId;
 
     /**
@@ -91,6 +90,11 @@ public abstract class IRiskCheckV600PureRequest<T extends BaseResponse> extends 
      */
     private String sceneData;
 
+    /**
+     * 客户端接口状态码
+     */
+    private Integer clientCode;
+
     @Override
     protected Map<String, String> getCustomSignParams() {
         Map<String, String> customSignParams = super.getCustomSignParams();
@@ -110,6 +114,9 @@ public abstract class IRiskCheckV600PureRequest<T extends BaseResponse> extends 
         customSignParams.put("deviceId", deviceId);
         customSignParams.put("extData", extData);
         customSignParams.put("sceneData", sceneData);
+        if (clientCode != null) {
+            customSignParams.put("clientCode", String.valueOf(clientCode));
+        }
         return customSignParams;
     }
 
@@ -225,6 +232,14 @@ public abstract class IRiskCheckV600PureRequest<T extends BaseResponse> extends 
         this.sceneData = sceneData;
     }
 
+    public Integer getClientCode() {
+        return clientCode;
+    }
+
+    public void setClientCode(Integer clientCode) {
+        this.clientCode = clientCode;
+    }
+
     @Override
     public String toString() {
         return "IRiskCheckV600PureRequest(" +
@@ -243,6 +258,7 @@ public abstract class IRiskCheckV600PureRequest<T extends BaseResponse> extends 
                 ", deviceId=" + deviceId +
                 ", extData=" + extData +
                 ", sceneData=" + sceneData +
+                ", clientCode=" + clientCode +
                 ")";
     }
 }
