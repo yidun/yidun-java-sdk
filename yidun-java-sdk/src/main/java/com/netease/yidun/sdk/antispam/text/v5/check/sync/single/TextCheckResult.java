@@ -472,6 +472,11 @@ public class TextCheckResult implements Serializable {
          */
         private Integer politicalSentiment;
 
+        /**
+         * 是否是关联命中返回的标签 默认不返回
+         */
+        private Boolean isRelatedLabel;
+
         private AntispamSubLabelDetail details;
 
         public String getSubLabel() {
@@ -490,6 +495,13 @@ public class TextCheckResult implements Serializable {
             this.details = details;
         }
 
+        public Boolean getRelatedLabel() {
+            return isRelatedLabel;
+        }
+
+        public void setRelatedLabel(Boolean relatedLabel) {
+            isRelatedLabel = relatedLabel;
+        }
 
         public Integer getSubLabelDepth() {
             return subLabelDepth;
@@ -531,6 +543,7 @@ public class TextCheckResult implements Serializable {
                     + ", secondLabel=" + secondLabel
                     + ", thirdLabel=" + thirdLabel
                     + ", politicalSentiment=" + politicalSentiment
+                    + ", isRelatedLabel=" + isRelatedLabel
                     + ", details=" + details
                     + ")";
         }
