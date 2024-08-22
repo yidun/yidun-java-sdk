@@ -711,6 +711,11 @@ public class TextCheckResult implements Serializable {
     public static class AntispamSubLabelDetailHitInfo {
 
         private String value;
+
+        /**
+         * type:1，“通用反垃圾线索信息”，type:2，“增强版线索信息”
+         */
+        private Integer type;
         private List<AntispamSubLabelDetailHitInfoPosition> positions;
 
         public String getValue() {
@@ -719,6 +724,14 @@ public class TextCheckResult implements Serializable {
 
         public void setValue(String value) {
             this.value = value;
+        }
+        
+        public Integer getType() {
+            return type;
+        }
+        
+        public void setType(Integer type) {
+            this.type = type;
         }
 
         public List<AntispamSubLabelDetailHitInfoPosition> getPositions() {
@@ -733,6 +746,7 @@ public class TextCheckResult implements Serializable {
         public String toString() {
             return "AntispamSubLabelDetailHitInfo("
                     + "value=" + value
+                    + ", type=" + type
                     + ", positions=" + positions
                     + ")";
         }
