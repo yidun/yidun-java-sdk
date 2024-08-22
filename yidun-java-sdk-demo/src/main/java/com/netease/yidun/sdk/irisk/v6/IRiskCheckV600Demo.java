@@ -45,7 +45,7 @@ public class IRiskCheckV600Demo {
         request.setRegisterIp("");
         request.setDeviceId("");
         request.setExtData("");
-
+        request.setClientCode(1);
         // 不同场景接入需要提供的场景数据字段如请参照官网文档。
         // 注意：如接入场景未在已罗列支持的场景范围之内，sceneData内容可传入空串
         // 此处示例为注册场景的场景数据
