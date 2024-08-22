@@ -1,14 +1,13 @@
 package com.netease.yidun.sdk.antispam.videosolution.callback.v2.response;
 
-import java.util.List;
-
 import com.netease.yidun.sdk.antispam.audio.callback.v4.response.AudioAntispamCallbackV4Response;
 import com.netease.yidun.sdk.antispam.video.callback.v4.response.VideoCallbackUnitV4Response;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
 public class VideoSolutionAntispamCallbackV2Response {
@@ -33,6 +32,10 @@ public class VideoSolutionAntispamCallbackV2Response {
 
     private Integer status;
     private Integer resultType;
+    /**
+     * 审核操作人，各业务统一字段，只返回 censorSource 为客户来源时的值
+     */
+    private String censor;
     /**
      * 人审轮次
      */
