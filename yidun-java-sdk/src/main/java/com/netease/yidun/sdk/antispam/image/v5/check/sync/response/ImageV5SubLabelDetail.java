@@ -170,6 +170,10 @@ public class ImageV5SubLabelDetail implements Serializable {
     public static class AntispamInfo implements Serializable {
         private static final long serialVersionUID = -7293935029976375265L;
         /**
+         * 类型
+         */
+        private Integer type;
+        /**
          * 自定义敏感词
          */
         private String word;
@@ -270,6 +274,14 @@ public class ImageV5SubLabelDetail implements Serializable {
 
         public void setReleaseTime(Long releaseTime) {
             this.releaseTime = releaseTime;
+        }
+
+        public Integer getType() {
+            return type;
+        }
+
+        public void setType(Integer type) {
+            this.type = type;
         }
     }
 
