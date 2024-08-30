@@ -176,10 +176,6 @@ public class VideoSubLabelDetail {
 
 
     public static class VideoSubLabelHitInfo {
-        /**
-         * 类型
-         */
-        private Integer type;
         private String value;
         private String group;
         /**
@@ -189,14 +185,6 @@ public class VideoSubLabelDetail {
         private Float y1;
         private Float x2;
         private Float y2;
-
-        public Integer getType() {
-            return type;
-        }
-
-        public void setType(Integer type) {
-            this.type = type;
-        }
 
         public String getValue() {
             return value;
