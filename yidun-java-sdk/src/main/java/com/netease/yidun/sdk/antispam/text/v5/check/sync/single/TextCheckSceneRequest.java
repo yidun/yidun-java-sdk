@@ -83,6 +83,14 @@ public class TextCheckSceneRequest<T extends BaseResponse> extends BizPostFormRe
     @Size(max = 128, message = "nickname最长128个字符")
     private String nickname;
 
+
+    /**
+     * 客户指定的语种类型 如果客户有传入则直接作为语种类型，不再进行检测
+     * ","连接的字符串 语种类型列表参考{<a href="https://support.dun.163.com/documents/588434200783982592?docId=891095487301275648"/a>}
+     */
+    @Size(max = 64, message = "customLangCodes最长64个字符")
+    private String customLangCodes;
+
     /**
      * 性别， 0: 未知，1: 男性，2: 女性
      */
@@ -484,6 +492,23 @@ public class TextCheckSceneRequest<T extends BaseResponse> extends BizPostFormRe
 
     public TextCheckSceneRequest<T> nickname(String nickname) {
         this.nickname = nickname;
+        return this;
+    }
+    
+    public String getCustomLangCodes() {
+        return customLangCodes;
+    }
+    
+    public void setCustomLangCodes(String customLangCodes) {
+        this.customLangCodes = customLangCodes;
+    }
+    
+    public String customLangCodes() {
+        return customLangCodes;
+    }
+    
+    public TextCheckSceneRequest<T> customLangCodes(String customLangCodes) {
+        this.customLangCodes = customLangCodes;
         return this;
     }
 
@@ -1032,6 +1057,7 @@ public class TextCheckSceneRequest<T extends BaseResponse> extends BizPostFormRe
         params.put("profileUrl", profileUrl);
         params.put("phone", phone);
         params.put("nickname", nickname);
+        params.put("customLangCodes", customLangCodes);
         params.put("gender", gender != null ? String.valueOf(gender) : null);
         params.put("age", age != null ? String.valueOf(age) : null);
         params.put("level", level != null ? String.valueOf(level) : null);
@@ -1086,6 +1112,7 @@ public class TextCheckSceneRequest<T extends BaseResponse> extends BizPostFormRe
                 + ", profileUrl=" + profileUrl
                 + ", phone=" + phone
                 + ", nickname=" + nickname
+                + ", customLangCodes=" + customLangCodes
                 + ", gender=" + gender
                 + ", age=" + age
                 + ", level=" + level
