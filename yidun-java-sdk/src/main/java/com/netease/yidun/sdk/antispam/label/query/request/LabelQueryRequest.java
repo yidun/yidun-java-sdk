@@ -30,6 +30,7 @@ public class LabelQueryRequest extends OpenApiGetRequest<LabelQueryResponse> {
     /**
      * 客户ID
      */
+    @Deprecated
     private String clientId;
 
     /**

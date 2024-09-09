@@ -6,6 +6,8 @@
 
 package com.netease.yidun.sdk.core.utils;
 
+import java.util.Collection;
+
 public class AssertUtils {
 
     private AssertUtils() {
@@ -19,6 +21,18 @@ public class AssertUtils {
 
     public static void notNull(Object obj, String message) {
         if (obj == null) {
+            throw new IllegalArgumentException(message);
+        }
+    }
+
+    /**
+     * 判断集合是否为空
+     *
+     * @param collection
+     * @param message
+     */
+    public static void notEmpty(Collection collection, String message) {
+        if (CollectionUtils.isEmpty(collection)) {
             throw new IllegalArgumentException(message);
         }
     }
