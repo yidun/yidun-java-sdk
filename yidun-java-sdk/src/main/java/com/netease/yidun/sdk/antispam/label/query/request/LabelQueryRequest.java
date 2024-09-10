@@ -47,7 +47,10 @@ public class LabelQueryRequest extends OpenApiGetRequest<LabelQueryResponse> {
      * 最大标签层级
      */
     private Integer maxDepth = DEFAULT_DEPTH;
-
+    /**
+     * 是否获取客户维度的标签
+     */
+    private Boolean fetchClientLabel;
 
     public LabelQueryRequest() {
         productCode = "label";
@@ -89,11 +92,20 @@ public class LabelQueryRequest extends OpenApiGetRequest<LabelQueryResponse> {
         this.maxDepth = maxDepth;
     }
 
+    public Boolean getFetchClientLabel() {
+        return fetchClientLabel;
+    }
+
+    public void setFetchClientLabel(Boolean fetchClientLabel) {
+        this.fetchClientLabel = fetchClientLabel;
+    }
+
     @Override
     protected Map<String, String> getCustomSignParams() {
         Map<String, String> params = super.getCustomSignParams();
         params.put("clientId", clientId);
         params.put("businessId", businessId);
+        params.put("fetchClientLabel", Boolean.TRUE.equals(fetchClientLabel) ? "true" : "false");
         params.put("maxDepth", String.valueOf(maxDepth));
         params.put("businessTypes", StringUtils.join(businessTypes, ","));
         return params;
@@ -105,6 +117,7 @@ public class LabelQueryRequest extends OpenApiGetRequest<LabelQueryResponse> {
                 "clientId='" + clientId + '\'' +
                 ", businessTypes=" + businessTypes +
                 ", businessId='" + businessId + '\'' +
+                ", fetchClientLabel='" + fetchClientLabel + '\'' +
                 ", maxDepth=" + maxDepth +
                 '}';
     }
