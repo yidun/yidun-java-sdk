@@ -20,6 +20,14 @@ public class ImageV5DiscernDetail implements Serializable {
      * 分数
      */
     private Float rate;
+    /**
+     * gpt返回label
+     */
+    private String label;
+    /**
+     * 图片explain
+     */
+    private String explain;
 
     public Integer getType() {
         return type;
@@ -43,5 +51,29 @@ public class ImageV5DiscernDetail implements Serializable {
 
     public void setRate(Float rate) {
         this.rate = rate;
+    }
+
+    public String getDiscernKey() {
+        return discernKey;
+    }
+
+    public void setDiscernKey(String discernKey) {
+        this.discernKey = discernKey;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public String getExplain() {
+        return explain;
+    }
+
+    public void setExplain(String explain) {
+        this.explain = explain;
     }
 }
