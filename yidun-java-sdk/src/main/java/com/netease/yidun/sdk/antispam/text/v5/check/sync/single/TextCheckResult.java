@@ -107,7 +107,7 @@ public class TextCheckResult implements Serializable {
 
         private String taskId;
         private String dataId;
-        private int label;
+        private Integer label;
         private String secondLabel;
         private String thirdLabel;
         private Integer suggestion;
@@ -125,6 +125,9 @@ public class TextCheckResult implements Serializable {
         private Integer censorRound;
         private Long censorTime;
         private Boolean isRelatedHit;
+
+        private Integer relatedHitType;
+        
         private List<AntispamLabel> labels;
         private String remark;
         private String filteredContent;
@@ -147,11 +150,11 @@ public class TextCheckResult implements Serializable {
             this.dataId = dataId;
         }
 
-        public int getLabel() {
+        public Integer getLabel() {
             return label;
         }
 
-        public void setLabel(int label) {
+        public void setLabel(Integer label) {
             this.label = label;
         }
 
@@ -267,12 +270,20 @@ public class TextCheckResult implements Serializable {
             this.censorTime = censorTime;
         }
 
-        public Boolean getRelatedHit() {
+        public Boolean getIsRelatedHit() {
             return isRelatedHit;
         }
 
-        public void setRelatedHit(Boolean relatedHit) {
+        public void setIsRelatedHit(Boolean relatedHit) {
             isRelatedHit = relatedHit;
+        }
+
+        public Integer getRelatedHitType() {
+            return relatedHitType;
+        }
+
+        public void setRelatedHitType(Integer relatedHitType) {
+            this.relatedHitType = relatedHitType;
         }
 
         public List<AntispamLabel> getLabels() {
@@ -478,6 +489,8 @@ public class TextCheckResult implements Serializable {
         private Boolean isRelatedLabel;
 
         private AntispamSubLabelDetail details;
+        
+        private Double rate;
 
         public String getSubLabel() {
             return subLabel;
@@ -495,11 +508,11 @@ public class TextCheckResult implements Serializable {
             this.details = details;
         }
 
-        public Boolean getRelatedLabel() {
+        public Boolean getIsRelatedLabel() {
             return isRelatedLabel;
         }
 
-        public void setRelatedLabel(Boolean relatedLabel) {
+        public void setIsRelatedLabel(Boolean relatedLabel) {
             isRelatedLabel = relatedLabel;
         }
 
@@ -535,6 +548,14 @@ public class TextCheckResult implements Serializable {
             this.politicalSentiment = politicalSentiment;
         }
 
+        public Double getRate() {
+            return rate;
+        }
+
+        public void setRate(Double rate) {
+            this.rate = rate;
+        }
+
         @Override
         public String toString() {
             return "AntispamSubLabel("
@@ -544,6 +565,7 @@ public class TextCheckResult implements Serializable {
                     + ", thirdLabel=" + thirdLabel
                     + ", politicalSentiment=" + politicalSentiment
                     + ", isRelatedLabel=" + isRelatedLabel
+                    + ", rate=" + rate
                     + ", details=" + details
                     + ")";
         }
@@ -652,7 +674,7 @@ public class TextCheckResult implements Serializable {
 
         private Integer type;
         private String entity;
-        private String releaseTime;
+        private Long releaseTime;
 
         public Integer getType() {
             return type;
@@ -670,11 +692,11 @@ public class TextCheckResult implements Serializable {
             this.entity = entity;
         }
 
-        public String getReleaseTime() {
+        public Long getReleaseTime() {
             return releaseTime;
         }
 
-        public void setReleaseTime(String releaseTime) {
+        public void setReleaseTime(Long releaseTime) {
             this.releaseTime = releaseTime;
         }
 
@@ -690,21 +712,21 @@ public class TextCheckResult implements Serializable {
 
     public static class AntispamSubLabelDetailAnticheat {
 
-        private Integer hitType;
+        private Integer type;
 
-        public Integer getHitType() {
-            return hitType;
+        public Integer getType() {
+            return type;
         }
-
-        public void setHitType(Integer hitType) {
-            this.hitType = hitType;
+        
+        public void setType(Integer type) {
+            this.type = type;
         }
 
         @Override
         public String toString() {
-            return "AntispamSubLabelDetailAnticheat("
-                    + "hitType=" + hitType
-                    + ")";
+            return "AntispamSubLabelDetailAnticheat{" +
+                    "type=" + type +
+                    '}';
         }
     }
 
@@ -1015,6 +1037,11 @@ public class TextCheckResult implements Serializable {
     public static class UserRiskDetail {
 
         private String account;
+
+        /**
+         * 账号风险等级
+         */
+        private Integer accountLevel;
         private List<UserRiskAcDetail> acDetails;
 
         public String getAccount() {
@@ -1023,6 +1050,14 @@ public class TextCheckResult implements Serializable {
 
         public void setAccount(String account) {
             this.account = account;
+        }
+        
+        public Integer getAccountLevel() {
+            return accountLevel;
+        }
+        
+        public void setAccountLevel(Integer accountLevel) {
+            this.accountLevel = accountLevel;
         }
 
         public List<UserRiskAcDetail> getAcDetails() {
@@ -1037,6 +1072,7 @@ public class TextCheckResult implements Serializable {
         public String toString() {
             return "UserRiskDetail("
                     + "account=" + account
+                    + ", accountLevel=" + accountLevel
                     + ", acDetails=" + acDetails
                     + ")";
         }
