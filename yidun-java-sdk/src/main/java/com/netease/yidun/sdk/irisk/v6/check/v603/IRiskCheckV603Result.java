@@ -24,6 +24,16 @@ public class IRiskCheckV603Result<H extends HitInfoV602, P extends AbstractPhone
 
     private I ipInfo;
 
+    private Integer action;
+
+    public Integer getAction() {
+        return action;
+    }
+
+    public void setAction(Integer action) {
+        this.action = action;
+    }
+
     public String getPcId() {
         return pcId;
     }
@@ -55,6 +65,7 @@ public class IRiskCheckV603Result<H extends HitInfoV602, P extends AbstractPhone
                 "pcId='" + pcId + '\'' +
                 ", phoneInfo=" + phoneInfo +
                 ", ipInfo=" + ipInfo +
+                ", action=" + action +
                 '}';
     }
 }
