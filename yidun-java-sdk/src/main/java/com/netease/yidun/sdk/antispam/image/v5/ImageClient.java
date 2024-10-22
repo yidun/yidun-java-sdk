@@ -5,7 +5,9 @@ import com.netease.yidun.sdk.antispam.BaseClient;
 import com.netease.yidun.sdk.antispam.CallbackRegistry;
 import com.netease.yidun.sdk.antispam.ClientRegistry;
 import com.netease.yidun.sdk.antispam.image.query.request.ImageQueryRequest;
+import com.netease.yidun.sdk.antispam.image.query.request.ImageQueryV2Request;
 import com.netease.yidun.sdk.antispam.image.query.response.ImageQueryResponse;
+import com.netease.yidun.sdk.antispam.image.query.response.ImageQueryV2Response;
 import com.netease.yidun.sdk.antispam.image.v5.callback.ImageCallback;
 import com.netease.yidun.sdk.antispam.image.v5.callback.request.ImageV5CallbackRequest;
 import com.netease.yidun.sdk.antispam.image.v5.check.async.request.ImageV5AsyncCheckRequest;
@@ -102,6 +104,16 @@ public class ImageClient extends BaseClient {
      */
     public ImageQueryResponse query(ImageQueryRequest request) {
         return requester.getImageCommonClient().query(request);
+    }
+
+    /**
+     * 图片taskIds查询接口
+     *
+     * @param request
+     * @return
+     */
+    public ImageQueryV2Response queryV2(ImageQueryV2Request request) {
+        return requester.getImageCommonClient().queryV2(request);
     }
 
 }

@@ -1,10 +1,12 @@
 package com.netease.yidun.sdk.antispam.image.v5.check.sync.response;
 
 import com.netease.yidun.sdk.antispam.image.v5.enums.CensorTypeEnum;
+import lombok.ToString;
 
 import java.io.Serializable;
 import java.util.List;
 
+@ToString
 public class ImageV5AntispamResp implements Serializable {
     private static final long serialVersionUID = 7854363534480715087L;
     /**

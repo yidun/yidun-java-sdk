@@ -5,6 +5,8 @@
  */
 package com.netease.yidun.sdk.antispam.image.v5.check.sync.response;
 
+import lombok.ToString;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -14,6 +16,7 @@ import java.util.List;
  * @author hzhumin1
  * @version 2021-05-18
  */
+@ToString
 public class ImageRiskControlV5Resp implements Serializable {
     /**
      * 任务id

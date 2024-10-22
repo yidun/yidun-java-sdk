@@ -49,6 +49,10 @@ public class CrawlerJobBatchSubmitV1Request extends CrawlerJobBaseSubmitV1Reques
          * URL过滤条件集
          */
         private Set<CrawlerUrlFilter> urlFilters;
+        /**
+         * 用户账号
+         */
+        private String account;
 
         public String getDataId() {
             return dataId;
@@ -90,6 +94,14 @@ public class CrawlerJobBatchSubmitV1Request extends CrawlerJobBaseSubmitV1Reques
             this.urlFilters = urlFilters;
         }
 
+        public String getAccount() {
+            return account;
+        }
+
+        public void setAccount(String account) {
+            this.account = account;
+        }
+
         @Override
         public String toString() {
             return "CrawlerJobWebSite{" +
@@ -98,6 +110,7 @@ public class CrawlerJobBatchSubmitV1Request extends CrawlerJobBaseSubmitV1Reques
                     ", siteName='" + siteName + '\'' +
                     ", focusList=" + focusList +
                     ", urlFilters=" + urlFilters +
+                    ", account='" + account + '\'' +
                     '}';
         }
     }

@@ -43,6 +43,11 @@ public class CrawlerJobSubmitV1Request extends CrawlerJobBaseSubmitV1Request<Cra
      * 业务指定过检策略组id
      */
     private Set<Long> checkStrategyGroupIds;
+    
+    /**
+     * 用户账号
+     */
+    private String account;
 
     @Override
     protected Map<String, String> getCustomSignParams() {
@@ -72,6 +77,7 @@ public class CrawlerJobSubmitV1Request extends CrawlerJobBaseSubmitV1Request<Cra
         if (!CollectionUtils.isEmpty(checkStrategyGroupIds)) {
             params.put("checkStrategyGroupIds", checkStrategyGroupIds.stream().map(String::valueOf).collect(Collectors.joining(",")));
         }
+        params.put("account", getAccount());
         return params;
     }
 
@@ -134,6 +140,14 @@ public class CrawlerJobSubmitV1Request extends CrawlerJobBaseSubmitV1Request<Cra
         this.checkStrategyGroupIds = checkStrategyGroupIds;
     }
 
+    public String getAccount() {
+        return account;
+    }
+
+    public void setAccount(String account) {
+        this.account = account;
+    }
+
     @Override
     public String toString() {
         return "CrawlerJobSubmitV1Request{" +
@@ -143,6 +157,7 @@ public class CrawlerJobSubmitV1Request extends CrawlerJobBaseSubmitV1Request<Cra
                 ", focusList=" + focusList +
                 ", urlFilters=" + urlFilters +
                 ", checkStrategyGroupIds=" + checkStrategyGroupIds +
+                ", account='" + account + '\'' +
                 '}' + " " + super.toString();
     }
 }

@@ -1,8 +1,11 @@
 package com.netease.yidun.sdk.antispam.image.v5.check.sync.response;
 
+import lombok.ToString;
+
 import java.io.Serializable;
 import java.util.List;
 
+@ToString
 public class ImageV5LogoResp implements Serializable {
     private static final long serialVersionUID = 1773991345069025705L;
     /**

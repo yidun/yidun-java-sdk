@@ -35,6 +35,7 @@ public class CrawlerSubmitJobDemo extends AbstractDemo {
         request.setSliceEndTime(1672288435000L);
         request.setCheckStrategy(2);
         request.setCheckFlags(new HashSet<>(Arrays.asList(1, 2)));
+        request.setAccount("Account_111223");
         // 请求对象中的其他参数如果有需要，请参考官方接口文档中字段说明，按需添加
         CrawlerJobSubmitV1Response response = null;
         try {
