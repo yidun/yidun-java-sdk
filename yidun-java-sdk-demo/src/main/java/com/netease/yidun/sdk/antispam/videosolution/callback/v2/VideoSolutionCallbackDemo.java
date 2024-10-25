@@ -21,6 +21,8 @@ public class VideoSolutionCallbackDemo extends AbstractDemo {
         VideoSolutionClient client = VideoSolutionClient.getInstance(antispamRequester);
         // 设置回调请求对象
         VideoSolutionCallbackV2Req request = new VideoSolutionCallbackV2Req();
+        // 适用于指定taskId回调，此功能默认关闭，需联系策略经理在产品维度开启后方可生效，每次请求可传入一个taskId
+        // request.setTaskId("taskId");
         // 发起回调请求
         VideoSolutionCallbackV2Resp response = null;
         try {

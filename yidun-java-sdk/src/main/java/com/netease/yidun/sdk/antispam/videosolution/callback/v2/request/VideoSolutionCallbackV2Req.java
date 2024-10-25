@@ -13,6 +13,10 @@ public class VideoSolutionCallbackV2Req extends PostFormRequest<VideoSolutionCal
      * 请求的唯一ID
      */
     private String yidunRequestId;
+    /**
+     * 任务ID
+     */
+    private String taskId;
 
     public VideoSolutionCallbackV2Req() {
         productCode = "videoSolutionCommon";
@@ -26,6 +30,9 @@ public class VideoSolutionCallbackV2Req extends PostFormRequest<VideoSolutionCal
         if (yidunRequestId != null) {
             params.put("yidunRequestId", getYidunRequestId());
         }
+        if (taskId != null) {
+            params.put("taskId", getTaskId());
+        }
         return params;
     }
 
@@ -36,6 +43,15 @@ public class VideoSolutionCallbackV2Req extends PostFormRequest<VideoSolutionCal
     public void setYidunRequestId(String yidunRequestId) {
         this.yidunRequestId = yidunRequestId;
     }
+
+    public String getTaskId() {
+        return taskId;
+    }
+
+    public void setTaskId(String taskId) {
+        this.taskId = taskId;
+    }
+
     @Override
     public Class<VideoSolutionCallbackV2Resp> getResponseClass() {
         return VideoSolutionCallbackV2Resp.class;
