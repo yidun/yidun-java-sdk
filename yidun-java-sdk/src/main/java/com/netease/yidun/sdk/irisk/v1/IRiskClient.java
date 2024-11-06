@@ -8,16 +8,13 @@ import com.netease.yidun.sdk.irisk.v1.antigold.IRiskAntiGoldCheckResponse;
 import com.netease.yidun.sdk.irisk.v1.dispose.IRiskDisposeUploadRequest;
 import com.netease.yidun.sdk.irisk.v1.dispose.IRiskDisposeUploadResponse;
 import com.netease.yidun.sdk.irisk.v1.list.*;
-import com.netease.yidun.sdk.irisk.v1.mediacheck.IRiskMediaCheckResponse;
+import com.netease.yidun.sdk.irisk.v1.mediacheck.*;
 import com.netease.yidun.sdk.irisk.v1.check.IRiskCheckRequest;
 import com.netease.yidun.sdk.irisk.v1.check.IRiskCheckResponse;
 import com.netease.yidun.sdk.irisk.v1.config.IRiskConfigRequest;
 import com.netease.yidun.sdk.irisk.v1.config.IRiskConfigResponse;
 import com.netease.yidun.sdk.irisk.v1.detail.IRiskDetailRequest;
 import com.netease.yidun.sdk.irisk.v1.detail.IRiskDetailResponse;
-import com.netease.yidun.sdk.irisk.v1.mediacheck.IRiskMediaCheckRequest;
-import com.netease.yidun.sdk.irisk.v1.mediacheck.IRiskMediaQueryRequest;
-import com.netease.yidun.sdk.irisk.v1.mediacheck.IRiskMediaQueryResponse;
 import com.netease.yidun.sdk.irisk.v1.report.IRiskReportDataRequest;
 import com.netease.yidun.sdk.irisk.v1.report.IRiskReportDataResponse;
 
@@ -71,6 +68,10 @@ public class IRiskClient {
     }
 
     public IRiskMediaQueryResponse mediaQuery(IRiskMediaQueryRequest request) {
+        return client.execute(request);
+    }
+
+    public IRiskMediaBatchQueryResponse mediaBatchQuery(IRiskMediaBatchQueryRequest request) {
         return client.execute(request);
     }
 
