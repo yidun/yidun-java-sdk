@@ -34,19 +34,19 @@ public class IRiskV6Client {
         this.client = client;
     }
 
-    public IRiskV6Client(String secretId, String secretKey) {
+    public static IRiskV6Client getInstance(String secretId, String secretKey) {
         ClientProfile profile = ClientProfile
                 .defaultProfile(secretId, secretKey)
                 .preheatRequestsForValidation(
                         new IRiskCheckV6Request(null),
                         new IRiskDetailV6Request(null));
 
-        client = new DefaultClient(profile);
+        return IRiskV6ClientRegistry.register(profile, IRiskV6Client.class);
     }
 
-    public IRiskV6Client(ClientProfile profile) {
-        this(new DefaultClient(profile));
-    }
+public IRiskV6Client(ClientProfile profile) {
+    this(new DefaultClient(profile));
+}
 
     public Client getClient() {
         return client;

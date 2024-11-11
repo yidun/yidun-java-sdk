@@ -18,6 +18,7 @@ import com.netease.yidun.sdk.irisk.v1.detail.IRiskDetailResponse;
 import com.netease.yidun.sdk.irisk.v1.report.IRiskReportDataRequest;
 import com.netease.yidun.sdk.irisk.v1.report.IRiskReportDataResponse;
 
+
 /**
  * 适用场景：【智能风控】在线检测、数据查询、配置拉取、图片外挂识别
  */
@@ -29,24 +30,15 @@ public class IRiskClient {
         this.client = client;
     }
 
-    public IRiskClient(String secretId, String secretKey) {
+    public static IRiskClient getInstance(String secretId, String secretKey) {
         ClientProfile profile = ClientProfile
                 .defaultProfile(secretId, secretKey)
                 .preheatRequestsForValidation(
                         new IRiskCheckRequest(null),
-                        new IRiskMediaCheckRequest(null),
-                        new IRiskConfigRequest(null),
-                        new IRiskDetailRequest(null),
-                        new IRiskDisposeUploadRequest(null),
-                        new IRiskAntiGoldCheckRequest(null),
-                        new IRiskReportDataRequest(null),
-                        new IRiskListQueryRequest(null),
-                        new IRiskListAddRequest(null)
-                );
+                        new IRiskDetailRequest(null));
 
-        client = new DefaultClient(profile);
+        return IRiskClientRegistry.register(profile, IRiskClient.class);
     }
-
     public IRiskClient(ClientProfile profile) {
         this(new DefaultClient(profile));
     }

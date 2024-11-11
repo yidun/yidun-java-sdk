@@ -19,7 +19,7 @@ public class IRiskDetailV6Demo extends AbstractDemo {
 
     public static void main(String[] args) {
 
-        IRiskV6Client client = new IRiskV6Client("SecretId", "SecretKey");
+        IRiskV6Client client = IRiskV6Client.getInstance("SecretId", "SecretKey");
         IRiskDetailV6Request request = new IRiskDetailV6Request("businessId");
         request.setTimestamp(System.currentTimeMillis());
         request.setNonce("dsdsfabnfadsfascfadsfamnfadsfasd");

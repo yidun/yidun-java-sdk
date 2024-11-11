@@ -18,7 +18,7 @@ public class IRiskDetailDemo extends AbstractDemo {
     public static void main(String[] args) {
 
         // 实例化发起请求的client对象
-        IRiskClient iRiskClient = new IRiskClient("SecretId", "SecretKey");
+        IRiskClient iRiskClient = IRiskClient.getInstance("SecretId", "SecretKey");
         // 如需自定义请求器参数，可使用参考如下方式创建ClientProfile，然后创建client
 //        ClientProfile profile = createProfile("secretId", "secretKey");
 //        IRiskClient client = new IRiskClient(profile);

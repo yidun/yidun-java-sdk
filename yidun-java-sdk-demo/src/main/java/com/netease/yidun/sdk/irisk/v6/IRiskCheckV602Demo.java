@@ -20,7 +20,7 @@ public class IRiskCheckV602Demo {
     public static void main(String[] args) {
 
         // 实例化发起请求的client对象
-        IRiskV6Client iRiskClient = new IRiskV6Client("SecretId", "SecretKey");
+        IRiskV6Client iRiskClient = IRiskV6Client.getInstance("SecretId", "SecretKey");
 
         // 填充请求参数
         IRiskCheckV602Request request = new IRiskCheckV602Request("businessId");
