@@ -32,7 +32,26 @@ public class ImageV5QualityDetail implements Serializable {
      * 背景信息
      */
     private BackgroundInfo backgroundInfo;
-
+    /**
+     * 毛玻璃边框信息
+     */
+    private GlassmorphismBoarderInfo glassmorphismBoarderInfo;
+    /**
+     * 图片灰度值
+     */
+    private Integer grayValue;
+    public GlassmorphismBoarderInfo getGlassmorphismBoarderInfo() {
+        return glassmorphismBoarderInfo;
+    }
+    public void setGrayValue(GlassmorphismBoarderInfo glassmorphismBoarderInfo) {
+        this.glassmorphismBoarderInfo = glassmorphismBoarderInfo;
+    }
+    public Integer getGrayValue() {
+        return grayValue;
+    }
+    public void setGrayValue(Integer grayValue) {
+        this.grayValue = grayValue;
+    }
     public Float getSimilarityScore() {
         return similarityScore;
     }
@@ -267,6 +286,62 @@ public class ImageV5QualityDetail implements Serializable {
 
         public void setLeft(Boolean left) {
             this.left = left;
+        }
+    }
+    public static class GlassmorphismBoarderInfo implements Serializable {
+
+        private static final long serialVersionUID = -3538216920124713028L;
+        /**
+         * 是否命中边框
+         */
+        private Boolean anyHit;
+
+        private Boolean left;
+
+        private Boolean right;
+
+        private Boolean top;
+
+        private Boolean bottom;
+
+        public Boolean getAnyHit() {
+            return anyHit;
+        }
+
+        public void setAnyHit(Boolean anyHit) {
+            this.anyHit = anyHit;
+        }
+
+        public Boolean getLeft() {
+            return left;
+        }
+
+        public void setLeft(Boolean left) {
+            this.left = left;
+        }
+
+        public Boolean getTop() {
+            return top;
+        }
+
+        public void setTop(Boolean top) {
+            this.top = top;
+        }
+
+        public Boolean getRight() {
+            return right;
+        }
+
+        public void setRight(Boolean right) {
+            this.right = right;
+        }
+
+        public Boolean getBottom() {
+            return bottom;
+        }
+
+        public void setBottom(Boolean bottom) {
+            this.bottom = bottom;
         }
     }
 }
