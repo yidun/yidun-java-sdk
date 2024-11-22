@@ -4,6 +4,9 @@ import com.netease.yidun.sdk.core.client.Client;
 import com.netease.yidun.sdk.core.client.ClientProfile;
 import com.netease.yidun.sdk.core.client.DefaultClient;
 import com.netease.yidun.sdk.core.response.DataResponse;
+import com.netease.yidun.sdk.irisk.ClientRegistry;
+import com.netease.yidun.sdk.irisk.v1.check.IRiskCheckRequest;
+import com.netease.yidun.sdk.irisk.v1.detail.IRiskDetailRequest;
 import com.netease.yidun.sdk.irisk.v6.check.IRiskCheckV6Request;
 import com.netease.yidun.sdk.irisk.v6.check.IRiskCheckV6Response;
 import com.netease.yidun.sdk.irisk.v6.check.v600.hitinfo.HitInfo;
@@ -33,20 +36,20 @@ public class IRiskV6Client {
     public IRiskV6Client(Client client) {
         this.client = client;
     }
-
+    public IRiskV6Client(ClientProfile profile){this(new DefaultClient(profile));}
     public static IRiskV6Client getInstance(String secretId, String secretKey) {
+        //通过ClientProfile注册器返回ClientProfile实例，保证同一个secretId使用同一个实例
         ClientProfile profile = ClientProfile
                 .defaultProfile(secretId, secretKey)
                 .preheatRequestsForValidation(
                         new IRiskCheckV6Request(null),
                         new IRiskDetailV6Request(null));
-
-        return IRiskV6ClientRegistry.register(profile, IRiskV6Client.class);
+        return ClientRegistry.register(profile, IRiskV6Client.class);
     }
 
-public IRiskV6Client(ClientProfile profile) {
-    this(new DefaultClient(profile));
-}
+    public static IRiskV6Client getInstance(ClientProfile profile) {
+        return ClientRegistry.register(profile, IRiskV6Client.class);
+    }
 
     public Client getClient() {
         return client;

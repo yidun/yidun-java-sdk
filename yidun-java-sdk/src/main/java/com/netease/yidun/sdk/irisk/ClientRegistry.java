@@ -1,6 +1,8 @@
-package com.netease.yidun.sdk.irisk.v6;
+package com.netease.yidun.sdk.irisk;
 
+import com.netease.yidun.sdk.core.client.Client;
 import com.netease.yidun.sdk.core.client.ClientProfile;
+import com.netease.yidun.sdk.core.client.DefaultClient;
 import com.netease.yidun.sdk.core.utils.AssertUtils;
 
 import java.util.Map;
@@ -10,7 +12,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * 客户端注册器，用于保证单个secretId对应的客户端实例唯一
  */
-public class IRiskV6ClientRegistry {
+public class ClientRegistry {
     private static final Map<String, Object> clientMap = new ConcurrentHashMap<>();
 
     /**
@@ -29,7 +31,7 @@ public class IRiskV6ClientRegistry {
         return (T) Optional.ofNullable(clientMap.get(key)).orElseGet(() ->
                 clientMap.computeIfAbsent(key, k -> {
                     try {
-                        return clazz.getDeclaredConstructor(ClientProfile.class).newInstance(profile);
+                        return clazz.getDeclaredConstructor(Client.class).newInstance(new DefaultClient(profile));
                     } catch (Exception e) {
                         throw new RuntimeException(e);
                     }

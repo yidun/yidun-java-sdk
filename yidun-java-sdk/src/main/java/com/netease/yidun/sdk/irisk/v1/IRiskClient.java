@@ -3,6 +3,7 @@ package com.netease.yidun.sdk.irisk.v1;
 import com.netease.yidun.sdk.core.client.Client;
 import com.netease.yidun.sdk.core.client.ClientProfile;
 import com.netease.yidun.sdk.core.client.DefaultClient;
+import com.netease.yidun.sdk.irisk.ClientRegistry;
 import com.netease.yidun.sdk.irisk.v1.antigold.IRiskAntiGoldCheckRequest;
 import com.netease.yidun.sdk.irisk.v1.antigold.IRiskAntiGoldCheckResponse;
 import com.netease.yidun.sdk.irisk.v1.dispose.IRiskDisposeUploadRequest;
@@ -17,6 +18,7 @@ import com.netease.yidun.sdk.irisk.v1.detail.IRiskDetailRequest;
 import com.netease.yidun.sdk.irisk.v1.detail.IRiskDetailResponse;
 import com.netease.yidun.sdk.irisk.v1.report.IRiskReportDataRequest;
 import com.netease.yidun.sdk.irisk.v1.report.IRiskReportDataResponse;
+import com.netease.yidun.sdk.irisk.v6.IRiskV6Client;
 
 
 /**
@@ -29,18 +31,19 @@ public class IRiskClient {
     public IRiskClient(Client client) {
         this.client = client;
     }
-
+    public IRiskClient(ClientProfile profile){this(new DefaultClient(profile));}
     public static IRiskClient getInstance(String secretId, String secretKey) {
+        //通过ClientProfile注册器返回ClientProfile实例，保证同一个secretId使用同一个实例
         ClientProfile profile = ClientProfile
                 .defaultProfile(secretId, secretKey)
                 .preheatRequestsForValidation(
                         new IRiskCheckRequest(null),
                         new IRiskDetailRequest(null));
 
-        return IRiskClientRegistry.register(profile, IRiskClient.class);
+        return ClientRegistry.register(profile, IRiskClient.class);
     }
-    public IRiskClient(ClientProfile profile) {
-        this(new DefaultClient(profile));
+    public static IRiskClient getInstance(ClientProfile profile) {
+        return ClientRegistry.register(profile, IRiskClient.class);
     }
 
     public Client getClient() {
@@ -90,6 +93,7 @@ public class IRiskClient {
     public IRiskListQueryResponse listQuery(IRiskListQueryRequest request) {
         return client.execute(request);
     }
+
     public IRiskListAddResponse listAdd(IRiskListAddRequest request) {
         return client.execute(request);
     }
