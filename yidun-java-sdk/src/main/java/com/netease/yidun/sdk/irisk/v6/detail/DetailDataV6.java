@@ -277,6 +277,18 @@ public class DetailDataV6 {
      * 拓展信息
      */
     private String extData;
+    /**
+     * 自定义动作
+     */
+    private String customAction;
+
+    public String getCustomAction() {
+        return customAction;
+    }
+
+    public void setCustomAction(String customAction) {
+        this.customAction = customAction;
+    }
 
     public String getReceiveTime() {
         return receiveTime;

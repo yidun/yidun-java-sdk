@@ -26,6 +26,19 @@ public class IRiskCheckV603Result<H extends HitInfoV602, P extends AbstractPhone
 
     private Integer action;
 
+    /**
+     * 自定义执行动作
+     */
+    private Integer customAction;
+
+    public Integer getCustomAction() {
+        return customAction;
+    }
+
+    public void setCustomAction(Integer customAction) {
+        this.customAction = customAction;
+    }
+
     public Integer getAction() {
         return action;
     }
