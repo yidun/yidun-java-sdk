@@ -105,6 +105,30 @@ public class ImageV5FaceDetail implements Serializable {
          * 0：不完整，1：完整，2: 未知
          */
         private Integer completeness;
+        /**
+         * 人脸是否旋转
+         */
+        private Boolean rotation;
+        /**
+         * 人脸旋转角度
+         */
+        private Double rotationAngle;
+
+        public Boolean getRotation() {
+            return rotation;
+        }
+
+        public void setRotation(Boolean rotation) {
+            this.rotation = rotation;
+        }
+
+        public Double getRotationAngle() {
+            return rotationAngle;
+        }
+
+        public void setRotationAngle(Double rotationAngle) {
+            this.rotationAngle = rotationAngle;
+        }
 
         public Integer getCompleteness() {
             return completeness;
