@@ -6,7 +6,11 @@
 
 package com.netease.yidun.sdk.irisk.v6;
 
+import com.google.gson.Gson;
 import com.netease.yidun.sdk.core.response.DataResponse;
+import com.netease.yidun.sdk.core.utils.GsonUtils;
+import com.netease.yidun.sdk.irisk.v6.check.v600.deviceinfo.AndroidDeviceInfo;
+import com.netease.yidun.sdk.irisk.v6.check.v600.deviceinfo.IosDeviceInfo;
 import com.netease.yidun.sdk.irisk.v6.check.v600.hitinfo.HitInfo;
 import com.netease.yidun.sdk.irisk.v6.check.v600.IRiskCheckV600Request;
 import com.netease.yidun.sdk.irisk.v6.check.v600.IRiskCheckV600Result;
@@ -59,8 +63,13 @@ public class IRiskCheckV600Demo {
             e.printStackTrace();
         }
         if (checkResponse != null && checkResponse.getCode() == 200) {
-            IRiskCheckV600Result<HitInfo> data = checkResponse.getData();
             // data 数据即为所需的check结果
+            IRiskCheckV600Result<HitInfo> data = checkResponse.getData();
+            // deviceInfo: if Android then
+            AndroidDeviceInfo deviceInfoAndroid = new Gson().fromJson(GsonUtils.toJson(data.getDeviceInfo()), AndroidDeviceInfo.class);
+            // deviceInfo: if ios then
+            IosDeviceInfo deviceInfoIos = new Gson().fromJson(GsonUtils.toJson(data.getDeviceInfo()), IosDeviceInfo.class);
+            // other deviceInfo ...
         }
     }
 
