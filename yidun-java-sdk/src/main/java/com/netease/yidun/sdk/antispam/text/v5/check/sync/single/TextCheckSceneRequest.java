@@ -57,7 +57,7 @@ public class TextCheckSceneRequest<T extends BaseResponse> extends BizPostFormRe
     /**
      * 用户唯一标识
      */
-    @Size(max = 128, message = "account最长128个字符")
+    @Size(max = 320, message = "account最长320个字符")
     private String account;
     /**
      * 用户主页地址，用于传输这次数据的用户ID的后台地址，便于快速跳转
