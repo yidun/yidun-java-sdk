@@ -199,12 +199,12 @@ public class LiveAudioSubmitV4Req extends BizPostFormRequest<LiveAudioSubmitV4Re
     /**
      * 指定监听必审列表范围内的数据 speakerId
      */
-    private List<Long> checkSpeakerIds;
+    private List<String> checkSpeakerIds;
 
     /**
      * 指定不监听信任用户列表范围内的数据 speakerId
      */
-    private List<Long> noCheckSpeakerIds;
+    private List<String> noCheckSpeakerIds;
 
     private Long extLon1;
 
@@ -267,13 +267,13 @@ public class LiveAudioSubmitV4Req extends BizPostFormRequest<LiveAudioSubmitV4Re
         params.put("token", getToken());
         params.put("url", getUrl());
         params.put("checkLanguageCode", getCheckLanguageCode());
-        List<Long> checkSpeakerIds = getCheckSpeakerIds();
-        if (checkSpeakerIds != null && checkSpeakerIds.size() > 0) {
+        List<String> checkSpeakerIds = getCheckSpeakerIds();
+        if (checkSpeakerIds != null && !checkSpeakerIds.isEmpty()) {
             params.put("checkSpeakerIds",
                     checkSpeakerIds.stream().map(String::valueOf).collect(Collectors.joining(",")));
         }
-        List<Long> noCheckSpeakerIds = getNoCheckSpeakerIds();
-        if (noCheckSpeakerIds != null && noCheckSpeakerIds.size() > 0) {
+        List<String> noCheckSpeakerIds = getNoCheckSpeakerIds();
+        if (noCheckSpeakerIds != null && !noCheckSpeakerIds.isEmpty()) {
             params.put("noCheckSpeakerIds",
                     noCheckSpeakerIds.stream().map(String::valueOf).collect(Collectors.joining(",")));
         }
