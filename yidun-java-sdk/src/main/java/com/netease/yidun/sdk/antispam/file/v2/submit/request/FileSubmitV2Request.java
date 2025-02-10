@@ -72,6 +72,11 @@ public class FileSubmitV2Request extends PostFormRequest<FileSubmitV2Response> {
     @Size(max = 1024, message = "callbackUrl最长1024个字符")
     private String callbackUrl;
 
+    /**
+     * 额外过的策略组
+     */
+    private String checkStrategyGroupIds;
+
     public FileSubmitV2Request() {
         productCode = "file";
         uriPattern = "/v2/file/submit";
@@ -191,6 +196,14 @@ public class FileSubmitV2Request extends PostFormRequest<FileSubmitV2Response> {
 
     public void setCallbackUrl(String callbackUrl) {
         this.callbackUrl = callbackUrl;
+    }
+
+    public String getCheckStrategyGroupIds() {
+        return checkStrategyGroupIds;
+    }
+
+    public void setCheckStrategyGroupIds(String checkStrategyGroupIds) {
+        this.checkStrategyGroupIds = checkStrategyGroupIds;
     }
 
     @Override

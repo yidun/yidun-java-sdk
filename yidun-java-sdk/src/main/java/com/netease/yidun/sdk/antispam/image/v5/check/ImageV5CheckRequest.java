@@ -56,6 +56,11 @@ public abstract class ImageV5CheckRequest<T extends BaseResponse> extends ImageC
     private String censorExt;
     private String subProduct;
 
+    /**
+     * 额外过的策略组
+     */
+    private String checkStrategyGroupIds;
+
     public Long getPublishTime() {
         return publishTime;
     }
@@ -150,6 +155,14 @@ public abstract class ImageV5CheckRequest<T extends BaseResponse> extends ImageC
 
     public void setCensorExt(String censorExt) {
         this.censorExt = censorExt;
+    }
+    
+    public String getCheckStrategyGroupIds() {
+        return checkStrategyGroupIds;
+    }
+
+    public void setCheckStrategyGroupIds(String checkStrategyGroupIds) {
+        this.checkStrategyGroupIds = checkStrategyGroupIds;
     }
 
     public static class ImageBeanRequest implements Serializable {

@@ -149,6 +149,11 @@ public abstract class ImageCheckSceneRequest<T extends BaseResponse> extends Ima
      */
     private String riskControlBusinessId;
 
+    /**
+     * 广告代理的行业
+     */
+    private String adSector;
+
     public String getNickname() {
         return nickname;
     }
@@ -379,5 +384,13 @@ public abstract class ImageCheckSceneRequest<T extends BaseResponse> extends Ima
 
     public void setRiskControlBusinessId(String riskControlBusinessId) {
         this.riskControlBusinessId = riskControlBusinessId;
+    }
+
+    public String getAdSector() {
+        return adSector;
+    }
+
+    public void setAdSector(String adSector) {
+        this.adSector = adSector;
     }
 }
