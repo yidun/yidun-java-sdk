@@ -154,6 +154,11 @@ public abstract class ImageCheckSceneRequest<T extends BaseResponse> extends Ima
      */
     private String adSector;
 
+    /**
+     * 广告账号名称
+     */
+    private String adAccountName;
+
     public String getNickname() {
         return nickname;
     }
@@ -392,5 +397,13 @@ public abstract class ImageCheckSceneRequest<T extends BaseResponse> extends Ima
 
     public void setAdSector(String adSector) {
         this.adSector = adSector;
+    }
+
+    public String getAdAccountName() {
+        return adAccountName;
+    }
+
+    public void setAdAccountName(String adAccountName) {
+        this.adAccountName = adAccountName;
     }
 }

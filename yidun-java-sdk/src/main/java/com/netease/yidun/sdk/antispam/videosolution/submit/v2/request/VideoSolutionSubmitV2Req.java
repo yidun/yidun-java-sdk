@@ -182,6 +182,16 @@ public class VideoSolutionSubmitV2Req extends PostFormRequest<VideoSolutionSubmi
 
     private String extension;
 
+    /**
+     * 广告代理的行业
+     */
+    private String adSector;
+
+    /**
+     * 广告账号名称
+     */
+    private String adAccountName;
+
 
     public VideoSolutionSubmitV2Req() {
         productCode = "videoSolutionCheck";
