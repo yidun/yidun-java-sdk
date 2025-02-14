@@ -6,6 +6,8 @@ import com.netease.yidun.sdk.antispam.CallbackRegistry;
 import com.netease.yidun.sdk.antispam.ClientRegistry;
 import com.netease.yidun.sdk.antispam.text.query.TextTaskIdsQueryRequest;
 import com.netease.yidun.sdk.antispam.text.query.TextTaskIdsQueryResponse;
+import com.netease.yidun.sdk.antispam.text.v1.similar.SimilarTextSubmitRequest;
+import com.netease.yidun.sdk.antispam.text.v1.similar.SimilarTextSubmitResponse;
 import com.netease.yidun.sdk.antispam.text.v2.feedback.TextFeedbackRequest;
 import com.netease.yidun.sdk.antispam.text.v2.feedback.TextFeedbackResponse;
 import com.netease.yidun.sdk.antispam.text.v5.callback.TextCallback;
@@ -85,5 +87,15 @@ public class TextClient extends BaseClient {
 
     public TextTaskIdsQueryResponse queryTaskIds(TextTaskIdsQueryRequest request) {
         return requester.getTextCommonClient().queryTaskIds(request);
+    }
+
+    /**
+     * 提交相似文本
+     *
+     * @param request 相似文本提交请求
+     * @return 相似文本提交响应
+     */
+    public SimilarTextSubmitResponse submitSimilarText(SimilarTextSubmitRequest request) {
+        return requester.getTextCommonClient().submitSimilarText(request);
     }
 }

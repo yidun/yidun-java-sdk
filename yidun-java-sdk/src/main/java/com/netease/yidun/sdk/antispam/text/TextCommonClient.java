@@ -4,6 +4,8 @@ package com.netease.yidun.sdk.antispam.text;
 import com.netease.yidun.sdk.antispam.AntispamClient;
 import com.netease.yidun.sdk.antispam.text.query.TextTaskIdsQueryRequest;
 import com.netease.yidun.sdk.antispam.text.query.TextTaskIdsQueryResponse;
+import com.netease.yidun.sdk.antispam.text.v1.similar.SimilarTextSubmitRequest;
+import com.netease.yidun.sdk.antispam.text.v1.similar.SimilarTextSubmitResponse;
 import com.netease.yidun.sdk.antispam.text.v2.feedback.TextFeedbackRequest;
 import com.netease.yidun.sdk.antispam.text.v2.feedback.TextFeedbackResponse;
 import com.netease.yidun.sdk.antispam.text.v5.callback.request.TextCallBackRequest;
@@ -25,6 +27,16 @@ public class TextCommonClient extends AntispamClient {
     }
 
     public TextTaskIdsQueryResponse queryTaskIds(TextTaskIdsQueryRequest request) {
+        return client.execute(request);
+    }
+
+    /**
+     * 提交相似文本
+     *
+     * @param request 相似文本提交请求
+     * @return 相似文本提交响应
+     */
+    public SimilarTextSubmitResponse submitSimilarText(SimilarTextSubmitRequest request) {
         return client.execute(request);
     }
 }
