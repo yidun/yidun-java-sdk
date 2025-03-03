@@ -150,6 +150,10 @@ public class DetailDataV6 {
      */
     private String gameJson;
     /**
+     * 渠道
+     */
+    private String channel;
+    /**
      * 设备ID
      */
     private String deviceId;
@@ -578,6 +582,14 @@ public class DetailDataV6 {
         this.gameJson = gameJson;
     }
 
+    public String getChannel() {
+        return channel;
+    }
+
+    public void setChannel(String channel) {
+        this.channel = channel;
+    }
+
     public String getDeviceId() {
         return deviceId;
     }
@@ -873,6 +885,7 @@ public class DetailDataV6 {
                 ", server='" + server + '\'' +
                 ", serverId='" + serverId + '\'' +
                 ", gameJson='" + gameJson + '\'' +
+                ", channel='" + channel + '\'' +
                 ", deviceId='" + deviceId + '\'' +
                 ", deviceType='" + deviceType + '\'' +
                 ", deviceBrand='" + deviceBrand + '\'' +
