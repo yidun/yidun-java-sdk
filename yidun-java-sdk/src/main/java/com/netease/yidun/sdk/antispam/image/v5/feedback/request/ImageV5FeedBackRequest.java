@@ -40,11 +40,26 @@ public class ImageV5FeedBackRequest extends ImageV5Request<ImageV5FeedBackRespon
 
     public static class ImageFeedbackBeanRequest implements Serializable {
         private static final long serialVersionUID = 1656528668193976110L;
-        @NotEmpty(message = "taskId不能为空")
         private String taskId;
         @NotNull(message = "level不能为空")
         private Integer level;
         private Integer label;
+        /**
+         * 二级分类
+         */
+        private String subLabel;
+        /**
+         * 三级分类
+         */
+        private String thirdLabel;
+        /**
+         * 图片url
+         */
+        private String url;
+        /**
+         * 数据id
+         */
+        private String dataId;
 
         public String getTaskId() {
             return taskId;
@@ -68,6 +83,38 @@ public class ImageV5FeedBackRequest extends ImageV5Request<ImageV5FeedBackRespon
 
         public void setLabel(Integer label) {
             this.label = label;
+        }
+
+        public String getSubLabel() {
+            return subLabel;
+        }
+
+        public void setSubLabel(String subLabel) {
+            this.subLabel = subLabel;
+        }
+
+        public String getThirdLabel() {
+            return thirdLabel;
+        }
+
+        public void setThirdLabel(String thirdLabel) {
+            this.thirdLabel = thirdLabel;
+        }
+
+        public String getUrl() {
+            return url;
+        }
+
+        public void setUrl(String url) {
+            this.url = url;
+        }
+
+        public String getDataId() {
+            return dataId;
+        }
+
+        public void setDataId(String dataId) {
+            this.dataId = dataId;
         }
     }
 }
