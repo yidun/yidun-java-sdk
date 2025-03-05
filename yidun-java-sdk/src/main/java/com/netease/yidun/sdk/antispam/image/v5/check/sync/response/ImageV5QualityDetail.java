@@ -43,7 +43,7 @@ public class ImageV5QualityDetail implements Serializable {
     public GlassmorphismBoarderInfo getGlassmorphismBoarderInfo() {
         return glassmorphismBoarderInfo;
     }
-    public void setGrayValue(GlassmorphismBoarderInfo glassmorphismBoarderInfo) {
+    public void setGlassmorphismBoarderInfo(GlassmorphismBoarderInfo glassmorphismBoarderInfo) {
         this.glassmorphismBoarderInfo = glassmorphismBoarderInfo;
     }
     public Integer getGrayValue() {
