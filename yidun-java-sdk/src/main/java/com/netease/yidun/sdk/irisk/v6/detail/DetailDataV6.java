@@ -214,6 +214,10 @@ public class DetailDataV6 {
      */
     private String isp;
     /**
+     * arpInfo
+     */
+    private String arpInfo;
+    /**
      * 场景数据
      */
     private String sceneData;
@@ -710,6 +714,14 @@ public class DetailDataV6 {
         this.isp = isp;
     }
 
+    public String getArpInfo() {
+        return arpInfo;
+    }
+
+    public void setArpInfo(String arpInfo) {
+        this.arpInfo = arpInfo;
+    }
+
     public String getSceneData() {
         return sceneData;
     }
@@ -901,6 +913,7 @@ public class DetailDataV6 {
                 ", sdkIp='" + sdkIp + '\'' +
                 ", ip='" + ip + '\'' +
                 ", isp='" + isp + '\'' +
+                ", arpInfo='" + arpInfo + '\'' +
                 ", sceneData='" + sceneData + '\'' +
                 ", riskLevel='" + riskLevel + '\'' +
                 ", matchedRiskTags='" + matchedRiskTags + '\'' +
