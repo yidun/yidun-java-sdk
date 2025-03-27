@@ -153,7 +153,6 @@ public class MediaSubmitRequestV2 extends PostFormRequest<MediaCheckResponseV2> 
         @Size(min = 1, max = 10, message = "type最长10个字符")
         private String type;
         @NotBlank(message = "data不能为空")
-        @Size(min = 1, max = 5000, message = "data最长5000个字符")
         private String data;
         @Size(max = 128, message = "dataId最长128个字符")
         private String dataId;
