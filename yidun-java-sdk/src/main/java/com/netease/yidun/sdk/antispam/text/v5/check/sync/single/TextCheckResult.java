@@ -112,6 +112,11 @@ public class TextCheckResult implements Serializable {
         private String thirdLabel;
         private Integer suggestion;
         private Integer suggestionLevel;
+
+        /**
+         * 专项信息
+         */
+        private String publicOpinionInfo;
         /**
          * 客户自定义动作
          */
@@ -204,6 +209,14 @@ public class TextCheckResult implements Serializable {
 
         public void setCustomAction(Integer customAction) {
             this.customAction = customAction;
+        }
+
+        public String getPublicOpinionInfo() {
+            return publicOpinionInfo;
+        }
+
+        public void setPublicOpinionInfo(String publicOpinionInfo) {
+            this.publicOpinionInfo = publicOpinionInfo;
         }
 
         public Integer getResultType() {
@@ -329,6 +342,7 @@ public class TextCheckResult implements Serializable {
                     + ", suggestion=" + suggestion
                     + ", suggestionLevel=" + suggestionLevel
                     + ", status=" + status
+                    + ", publicOpinionInfo=" + publicOpinionInfo
                     + ", customAction=" + customAction
                     + ", resultType=" + resultType
                     + ", censorType=" + censorType
