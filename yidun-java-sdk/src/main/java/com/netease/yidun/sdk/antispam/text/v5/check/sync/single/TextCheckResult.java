@@ -112,6 +112,10 @@ public class TextCheckResult implements Serializable {
         private String thirdLabel;
         private Integer suggestion;
         private Integer suggestionLevel;
+        /**
+         * 建议风险等级
+         */
+        private Integer suggestionRiskLevel;
 
         /**
          * 专项信息
@@ -217,6 +221,14 @@ public class TextCheckResult implements Serializable {
 
         public void setPublicOpinionInfo(String publicOpinionInfo) {
             this.publicOpinionInfo = publicOpinionInfo;
+        }
+
+        public Integer getSuggestionRiskLevel() {
+            return suggestionRiskLevel;
+        }
+
+        public void setSuggestionRiskLevel(Integer suggestionRiskLevel) {
+            this.suggestionRiskLevel = suggestionRiskLevel;
         }
 
         public Integer getResultType() {
@@ -341,6 +353,7 @@ public class TextCheckResult implements Serializable {
                     + ", thirdLabel=" + thirdLabel
                     + ", suggestion=" + suggestion
                     + ", suggestionLevel=" + suggestionLevel
+                    + ", suggestionRiskLevel=" + suggestionRiskLevel
                     + ", status=" + status
                     + ", publicOpinionInfo=" + publicOpinionInfo
                     + ", customAction=" + customAction
@@ -492,6 +505,11 @@ public class TextCheckResult implements Serializable {
         private String thirdLabel;
 
         /**
+         * 建议风险等级
+         */
+        private Integer suggestionRiskLevel;
+
+        /**
          * 涉政标签正负向属性检测结果，如有需要请联系您的专属商务，未开通状态下不返回
          * 枚举值：正向-0、负向-1、中性-2
          */
@@ -553,7 +571,15 @@ public class TextCheckResult implements Serializable {
         public void setThirdLabel(String thirdLabel) {
             this.thirdLabel = thirdLabel;
         }
-        
+
+        public Integer getSuggestionRiskLevel() {
+            return suggestionRiskLevel;
+        }
+
+        public void setSuggestionRiskLevel(Integer suggestionRiskLevel) {
+            this.suggestionRiskLevel = suggestionRiskLevel;
+        }
+
         public Integer getPoliticalSentiment() {
             return politicalSentiment;
         }
@@ -577,6 +603,7 @@ public class TextCheckResult implements Serializable {
                     + ", subLabelDepth=" + subLabelDepth
                     + ", secondLabel=" + secondLabel
                     + ", thirdLabel=" + thirdLabel
+                    + ", suggestionRiskLevel=" + suggestionRiskLevel
                     + ", politicalSentiment=" + politicalSentiment
                     + ", isRelatedLabel=" + isRelatedLabel
                     + ", rate=" + rate
