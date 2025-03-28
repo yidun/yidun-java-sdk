@@ -22,6 +22,8 @@ public class IRiskListQueryRequest extends BizPostJsonRequest<IRiskListQueryResp
 
     private Long endModifyTime;
 
+    private Integer status;
+
     public String getListGroupCode() {
         return listGroupCode;
     }
@@ -54,6 +56,14 @@ public class IRiskListQueryRequest extends BizPostJsonRequest<IRiskListQueryResp
         this.endModifyTime = endModifyTime;
     }
 
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
     @Override
     public Class<IRiskListQueryResponse> getResponseClass() {
         return IRiskListQueryResponse.class;
@@ -66,6 +76,7 @@ public class IRiskListQueryRequest extends BizPostJsonRequest<IRiskListQueryResp
                 ", pageNum=" + pageNum +
                 ", beginModifyTime=" + beginModifyTime +
                 ", endModifyTime=" + endModifyTime +
+                ", status=" + status +
                 ')';
     }
 
@@ -80,9 +91,16 @@ public class IRiskListQueryRequest extends BizPostJsonRequest<IRiskListQueryResp
     protected Map<String, String> getCustomSignParams() {
         Map<String, String> customSignParams = super.getCustomSignParams();
         customSignParams.put("listGroupCode", listGroupCode);
-        customSignParams.put("beginModifyTime", String.valueOf(beginModifyTime));
-        customSignParams.put("endModifyTime", String.valueOf(endModifyTime));
+        if (beginModifyTime != null) {
+            customSignParams.put("beginModifyTime", String.valueOf(beginModifyTime));
+        }
+        if (endModifyTime != null) {
+            customSignParams.put("endModifyTime", String.valueOf(endModifyTime));
+        }
         customSignParams.put("pageNum", String.valueOf(pageNum));
+        if (status != null) {
+            customSignParams.put("status", String.valueOf(status));
+        }
         return customSignParams;
     }
 }

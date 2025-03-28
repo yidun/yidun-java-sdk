@@ -33,6 +33,8 @@ public class IRiskListQueryDemo extends AbstractDemo {
         request.setBeginModifyTime(1656296583895L);
         // 设置（止）更新时间
         request.setEndModifyTime(1722752006000L);
+        // 设置状态
+        request.setStatus(0);
 
         IRiskListQueryResponse listQueryResponse = null;
         try {
