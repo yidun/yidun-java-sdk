@@ -25,4 +25,8 @@ public class VideoEvidence {
     private long endTime;
     private String speakerId;
     private List<LiveVideoSolutionCallbackV3Result.RelatedPicInfo> frontPics;
+    /**
+     * 专项信息
+     */
+    private String publicOpinionInfo;
 }

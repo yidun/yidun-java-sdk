@@ -223,6 +223,10 @@ public class LiveVideoSolutionCallbackV3Result implements BaseResponse {
         private List<RelatedPicInfo> frontPics;
         private String pictureId;
         private Integer speakerRiskScore;
+        /**
+         * 专项信息
+         */
+        private String publicOpinionInfo;
     }
 
     @Data
