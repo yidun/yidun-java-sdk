@@ -29,4 +29,8 @@ public class VideoEvidence {
      * 专项信息
      */
     private String publicOpinionInfo;
+    /**
+     * 建议风险等级
+     */
+    private String suggestionRiskLevel;
 }

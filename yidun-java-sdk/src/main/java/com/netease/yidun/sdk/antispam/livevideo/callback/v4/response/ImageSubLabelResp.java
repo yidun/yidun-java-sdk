@@ -44,6 +44,10 @@ public class ImageSubLabelResp implements Serializable {
      * 得分，范围为0到1
      */
     private SubLabelDetails details;
+    /**
+     * 建议风险等级
+     */
+    private String suggestionRiskLevel;
 
     @Data
     public static class SubLabelDetails implements Serializable {
