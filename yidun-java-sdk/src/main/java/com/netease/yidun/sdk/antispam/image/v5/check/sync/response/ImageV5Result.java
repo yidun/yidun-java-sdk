@@ -32,6 +32,10 @@ public class ImageV5Result implements Serializable {
      */
     private ImageV5DiscernResp discern;
     /**
+     * 图片广告识别结果
+     */
+    private ImageV5AdResp ad;
+    /**
      * 用户画像结果
      */
     private ImageV5UserRiskResp userRisk;
@@ -102,6 +106,14 @@ public class ImageV5Result implements Serializable {
 
     public void setDiscern(ImageV5DiscernResp discern) {
         this.discern = discern;
+    }
+
+    public ImageV5AdResp getAd() {
+        return ad;
+    }
+
+    public void setAd(ImageV5AdResp ad) {
+        this.ad = ad;
     }
 
     public ImageV5UserRiskResp getUserRisk() {
