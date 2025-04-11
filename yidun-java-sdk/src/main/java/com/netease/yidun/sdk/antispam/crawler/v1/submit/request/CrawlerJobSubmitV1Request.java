@@ -49,6 +49,11 @@ public class CrawlerJobSubmitV1Request extends CrawlerJobBaseSubmitV1Request<Cra
      */
     private String account;
 
+    /**
+     * 自定义扩展参数，JSON字符串格式。如："{"keyName1":"value1","keyName2":"value2"}"
+     */
+    private String extension;
+
     @Override
     protected Map<String, String> getCustomSignParams() {
         StringHashMap params = new StringHashMap();
@@ -78,6 +83,7 @@ public class CrawlerJobSubmitV1Request extends CrawlerJobBaseSubmitV1Request<Cra
             params.put("checkStrategyGroupIds", checkStrategyGroupIds.stream().map(String::valueOf).collect(Collectors.joining(",")));
         }
         params.put("account", getAccount());
+        params.put("extension", getExtension());
         return params;
     }
 
@@ -147,6 +153,14 @@ public class CrawlerJobSubmitV1Request extends CrawlerJobBaseSubmitV1Request<Cra
     public void setAccount(String account) {
         this.account = account;
     }
+    
+    public String getExtension() {
+        return extension;
+    }
+
+    public void setExtension(String extension) {
+        this.extension = extension;
+    }
 
     @Override
     public String toString() {
@@ -158,6 +172,7 @@ public class CrawlerJobSubmitV1Request extends CrawlerJobBaseSubmitV1Request<Cra
                 ", urlFilters=" + urlFilters +
                 ", checkStrategyGroupIds=" + checkStrategyGroupIds +
                 ", account='" + account + '\'' +
-                '}' + " " + super.toString();
+                ", extension='" + extension + '\'' +
+                '}';
     }
 }

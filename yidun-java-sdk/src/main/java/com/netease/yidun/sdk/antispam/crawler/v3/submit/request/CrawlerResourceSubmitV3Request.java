@@ -68,6 +68,11 @@ public class CrawlerResourceSubmitV3Request extends PostFormRequest<CrawlerResou
      */
     private Set<Long> checkStrategyGroupIds;
 
+    /**
+     * extension
+     */
+    private String extension;
+
     public CrawlerResourceSubmitV3Request() {
         productCode = "crawler";
         uriPattern = "/v3/crawler/submit";
@@ -90,6 +95,7 @@ public class CrawlerResourceSubmitV3Request extends PostFormRequest<CrawlerResou
         if (!CollectionUtils.isEmpty(checkStrategyGroupIds)) {
             params.put("checkStrategyGroupIds", checkStrategyGroupIds.stream().map(String::valueOf).collect(Collectors.joining(",")));
         }
+        params.put("extension", getExtension());
         return params;
     }
 
@@ -179,6 +185,14 @@ public class CrawlerResourceSubmitV3Request extends PostFormRequest<CrawlerResou
         this.checkStrategyGroupIds = checkStrategyGroupIds;
     }
 
+    public String getExtension() {
+        return extension;
+    }
+
+    public void setExtension(String extension) {
+        this.extension = extension;
+    }
+
     @Override
     public String toString() {
         return "CrawlerResourceSubmitV3Request{" +
@@ -191,6 +205,7 @@ public class CrawlerResourceSubmitV3Request extends PostFormRequest<CrawlerResou
                 ", content='" + content + '\'' +
                 ", config='" + config + '\'' +
                 ", checkStrategyGroupIds=" + checkStrategyGroupIds +
+                ", extension='" + extension + '\'' +
                 '}';
     }
 }

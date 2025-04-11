@@ -54,6 +54,11 @@ public class CrawlerJobBatchSubmitV1Request extends CrawlerJobBaseSubmitV1Reques
          */
         private String account;
 
+        /**
+         * 自定义扩展参数，JSON字符串格式。如："{"keyName1":"value1","keyName2":"value2"}"
+         */
+        private String extension;
+
         public String getDataId() {
             return dataId;
         }
@@ -102,6 +107,14 @@ public class CrawlerJobBatchSubmitV1Request extends CrawlerJobBaseSubmitV1Reques
             this.account = account;
         }
 
+        public String getExtension() {
+            return extension;
+        }
+
+        public void setExtension(String extension) {
+            this.extension = extension;
+        }
+
         @Override
         public String toString() {
             return "CrawlerJobWebSite{" +
@@ -111,8 +124,10 @@ public class CrawlerJobBatchSubmitV1Request extends CrawlerJobBaseSubmitV1Reques
                     ", focusList=" + focusList +
                     ", urlFilters=" + urlFilters +
                     ", account='" + account + '\'' +
+                    ", extension='" + extension + '\'' +
                     '}';
         }
+
     }
 
     @Override
