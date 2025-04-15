@@ -32,5 +32,5 @@ public class VideoEvidence {
     /**
      * 建议风险等级
      */
-    private String suggestionRiskLevel;
+    private Integer suggestionRiskLevel;
 }
