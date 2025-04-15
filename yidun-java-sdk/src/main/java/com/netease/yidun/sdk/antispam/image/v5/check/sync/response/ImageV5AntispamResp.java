@@ -104,6 +104,32 @@ public class ImageV5AntispamResp implements Serializable {
      */
     private String url;
 
+    /**
+     * 专项信息
+     */
+    private String publicOpinionInfo;
+    /**
+     * 建议风险等级
+     */
+    private Integer suggestionRiskLevel;
+
+
+    public String getPublicOpinionInfo() {
+        return publicOpinionInfo;
+    }
+
+    public void setPublicOpinionInfo(String publicOpinionInfo) {
+        this.publicOpinionInfo = publicOpinionInfo;
+    }
+
+    public Integer getSuggestionRiskLevel() {
+        return suggestionRiskLevel;
+    }
+
+    public void setSuggestionRiskLevel(Integer suggestionRiskLevel) {
+        this.suggestionRiskLevel = suggestionRiskLevel;
+    }
+
     public String getUrl() {
         return url;
     }
