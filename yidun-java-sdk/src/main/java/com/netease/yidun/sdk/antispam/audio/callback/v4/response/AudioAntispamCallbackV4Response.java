@@ -43,6 +43,18 @@ public class AudioAntispamCallbackV4Response implements BaseResponse {
      * 建议结果 0-通过 1-嫌疑 2-删除
      */
     private Integer suggestion;
+
+    /**
+     * 专项信息标签
+     */
+    private String publicOpinionInfo;
+
+    /**
+     * 建议风险等级
+     */
+    private Integer suggestionRiskLevel;
+
+
     /**
      * 嫌疑级别，只有 suggestion 为嫌疑时才返回 1-低嫌疑，2-高嫌疑
      */
@@ -127,6 +139,11 @@ public class AudioAntispamCallbackV4Response implements BaseResponse {
         private Integer subLabelDepth;
         private String secondLabel;
         private String thirdLabel;
+
+        /**
+         * 建议风险等级
+         */
+        private Integer suggestionRiskLevel;
         /**
          * 置信度，取值范围 0-1
          */

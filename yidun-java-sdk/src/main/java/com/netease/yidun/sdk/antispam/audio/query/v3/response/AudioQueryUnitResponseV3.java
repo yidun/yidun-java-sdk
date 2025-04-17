@@ -26,6 +26,17 @@ public class AudioQueryUnitResponseV3 {
 
     private String taskId;
 
+    /**
+     * 专项信息标签
+     */
+    private String publicOpinionInfo;
+
+    /**
+     * 建议风险等级
+     */
+    private Integer suggestionRiskLevel;
+
+
     private List<LabelInfo> labels;
 
     private int status;
