@@ -11,6 +11,8 @@ public class MediaAudioVideoEvidence {
     private String dataId;
     private String field;
     private Integer suggestion;
+
+    private String publicOpinionInfo;
     private Integer status;
     private Integer resultType;
     /**
@@ -22,6 +24,14 @@ public class MediaAudioVideoEvidence {
 
     private Long durationMs;
     private MediaAudioVideoDetailEvidence evidences;
+
+    public String getPublicOpinionInfo() {
+        return publicOpinionInfo;
+    }
+
+    public void setPublicOpinionInfo(String publicOpinionInfo) {
+        this.publicOpinionInfo = publicOpinionInfo;
+    }
 
     public String getDataId() {
         return dataId;
@@ -301,6 +311,19 @@ public class MediaAudioVideoEvidence {
         private Integer subLabelDepth;
         private String secondLabel;
         private String thirdLabel;
+        /**
+         * 建议风险等级
+         */
+        private Integer suggestionRiskLevel;
+
+        public Integer getSuggestionRiskLevel() {
+            return suggestionRiskLevel;
+        }
+
+        public void setSuggestionRiskLevel(Integer suggestionRiskLevel) {
+            this.suggestionRiskLevel = suggestionRiskLevel;
+        }
+
         private ImageV5SubLabelResp.SubLabelDetails details;
 
         public String getSubLabel() {

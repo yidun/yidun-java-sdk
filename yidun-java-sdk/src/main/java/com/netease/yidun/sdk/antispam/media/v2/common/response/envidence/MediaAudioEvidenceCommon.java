@@ -14,12 +14,27 @@ public class MediaAudioEvidenceCommon {
      * 失败原因
      */
     private Integer failureReason;
+
+    /**
+     * 专项信息
+     */
+    private String publicOpinionInfo;
+
+
     private Integer resultType;
     private Long checkTime;
     private Long duration;
 
     private Long durationMs;
     private List<SegmentsInfo> segments;
+
+    public String getPublicOpinionInfo() {
+        return publicOpinionInfo;
+    }
+
+    public void setPublicOpinionInfo(String publicOpinionInfo) {
+        this.publicOpinionInfo = publicOpinionInfo;
+    }
 
     public Integer getSuggestion() {
         return suggestion;
@@ -169,6 +184,19 @@ public class MediaAudioEvidenceCommon {
         private Integer subLabelDepth;
         private String secondLabel;
         private String thirdLabel;
+
+        /**
+         * 建议风险等级
+         */
+        private Integer suggestionRiskLevel;
+
+        public Integer getSuggestionRiskLevel() {
+            return suggestionRiskLevel;
+        }
+
+        public void setSuggestionRiskLevel(Integer suggestionRiskLevel) {
+            this.suggestionRiskLevel = suggestionRiskLevel;
+        }
 
         public String getSubLabel() {
             return subLabel;

@@ -25,11 +25,24 @@ public class MediaFileEvidence {
 
     private Integer suggestion;
     /**
+     * 专项信息
+     */
+    private String publicOpinionInfo;
+
+    /**
      * 失败原因
      */
     private Integer failureReason;
 
     private FileEvidenceResult evidences;
+
+    public String getPublicOpinionInfo() {
+        return publicOpinionInfo;
+    }
+
+    public void setPublicOpinionInfo(String publicOpinionInfo) {
+        this.publicOpinionInfo = publicOpinionInfo;
+    }
 
     public String getDataId() {
         return dataId;

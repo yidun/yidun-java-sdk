@@ -14,6 +14,11 @@ public class MediaTextEvidence {
      * 检测结果，0：通过，1：嫌疑，2：不通过
      */
     private Integer suggestion;
+    /**
+     * 专项信息
+     */
+    private String publicOpinionInfo;
+
     private Integer resultType;
     private Integer censorType;
     private List<StrategyVersion> strategyVersions;
@@ -24,6 +29,14 @@ public class MediaTextEvidence {
      * 过滤后文本内容
      */
     private String filteredContent;
+
+    public String getPublicOpinionInfo() {
+        return publicOpinionInfo;
+    }
+
+    public void setPublicOpinionInfo(String publicOpinionInfo) {
+        this.publicOpinionInfo = publicOpinionInfo;
+    }
 
     public String getDataId() {
         return dataId;
@@ -142,6 +155,19 @@ public class MediaTextEvidence {
         private Integer subLabelDepth;
         private String secondLabel;
         private String thirdLabel;
+
+        /**
+         * 建议风险等级
+         */
+        private Integer suggestionRiskLevel;
+
+        public Integer getSuggestionRiskLevel() {
+            return suggestionRiskLevel;
+        }
+
+        public void setSuggestionRiskLevel(Integer suggestionRiskLevel) {
+            this.suggestionRiskLevel = suggestionRiskLevel;
+        }
 
         public String getSubLabel() {
             return subLabel;
