@@ -10,10 +10,20 @@ import java.util.List;
 @Data
 public class LiveAudioCallbackUnitRespV4 {
     private Integer suggestion;
+    /**
+     * 专项信息
+     */
+    private String publicOpinionInfo;
+
     private Integer suggestionLevel;
     private Integer label;
     private String secondLabel;
     private String thirdLabel;
+    /**
+     * 建议风险等级
+     */
+    private Integer suggestionRiskLevel;
+
     private Long startTime;
     private Long endTime;
     private String content;
@@ -49,6 +59,11 @@ public class LiveAudioCallbackUnitRespV4 {
     public static class AudioThirdLabel extends AudioSubLabelV4 {
         private String secondLabel;
         private String thirdLabel;
+        /**
+         * 建议风险等级
+         */
+        private Integer suggestionRiskLevel;
+
         private Integer subLabelDepth;
         private Double rate;
     }
