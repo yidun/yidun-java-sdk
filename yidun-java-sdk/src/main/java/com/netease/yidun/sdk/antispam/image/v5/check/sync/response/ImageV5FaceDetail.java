@@ -113,6 +113,18 @@ public class ImageV5FaceDetail implements Serializable {
          * 人脸旋转角度
          */
         private Double rotationAngle;
+        /**
+         * 是否未成年人
+         */
+        private Integer minor;
+
+        public Integer getMinor() {
+            return minor;
+        }
+
+        public void setMinor(Integer minor) {
+            this.minor = minor;
+        }
 
         public Boolean getRotation() {
             return rotation;
