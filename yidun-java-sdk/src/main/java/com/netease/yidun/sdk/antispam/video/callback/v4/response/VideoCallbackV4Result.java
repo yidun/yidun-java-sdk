@@ -20,4 +20,8 @@ public class VideoCallbackV4Result {
      * 视频广告检测结果
      */
     private VideoCallbackAdV4Response ad;
+    /**
+     * 视频aigc检测结果
+     */
+    private VideoCallbackAigcV4Response aigc;
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import com.netease.yidun.sdk.antispam.audio.callback.v4.response.AudioAsrCallbackV4Response;
 import com.netease.yidun.sdk.antispam.audio.callback.v4.response.AudioLanguageCallbackV4Response;
 import com.netease.yidun.sdk.antispam.audio.callback.v4.response.AudioVoiceCallbackV4Response;
+import com.netease.yidun.sdk.antispam.video.callback.v4.response.VideoCallbackAigcV4Response;
 import com.netease.yidun.sdk.antispam.video.callback.v4.response.VideoCallbackOcrV4Response;
 import com.netease.yidun.sdk.antispam.videosolution.callback.v2.response.VideoSolutionAntispamCallbackV2Response;
 import com.netease.yidun.sdk.core.response.CommonResponse;
@@ -51,6 +52,10 @@ public class VideoSolutionQueryV2Resp extends CommonResponse {
          * 视频 ocr 识别结果
          */
         private VideoCallbackOcrV4Response ocr;
+        /**
+         * 视频 aigc 识别结果
+         */
+        private VideoCallbackAigcV4Response aigc;
     }
 
 }

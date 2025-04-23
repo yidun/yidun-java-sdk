@@ -6,6 +6,7 @@ import com.netease.yidun.sdk.antispam.audio.callback.v4.response.AudioLanguageCa
 import com.netease.yidun.sdk.antispam.audio.callback.v4.response.AudioQualityCallbackV4Response;
 import com.netease.yidun.sdk.antispam.audio.callback.v4.response.AudioVoiceCallbackV4Response;
 import com.netease.yidun.sdk.antispam.video.callback.v4.response.VideoCallbackAdV4Response;
+import com.netease.yidun.sdk.antispam.video.callback.v4.response.VideoCallbackAigcV4Response;
 import com.netease.yidun.sdk.antispam.video.callback.v4.response.VideoCallbackDiscernV4Response;
 import com.netease.yidun.sdk.antispam.video.callback.v4.response.VideoCallbackFaceV4Response;
 import com.netease.yidun.sdk.antispam.video.callback.v4.response.VideoCallbackLogoV4Response;
@@ -57,7 +58,10 @@ public class VideoSolutionCallbackV2Result {
      * 视频质量
      */
     private CallbackAdV4Response ad;
-
+    /**
+     * 视频 aigc 识别结果
+     */
+    private VideoCallbackAigcV4Response aigc;
     @Data
     public static class CallbackQualityV4Response {
         private VideoCallbackQualityV4Response video;
