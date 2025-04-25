@@ -43,7 +43,14 @@ public class VideoCallbackUnitV4Response {
         private List<RelatedPicInfoResponse> frontPics;
         private List<RelatedPicInfoResponse> backPics;
         private String pictureId;
-
+        /**
+         * 建议风险等级
+         */
+        private Integer suggestionRiskLevel;
+        /**
+         * 舆情专项信息
+         */
+        private String publicOpinionInfo;
     }
 
     @AllArgsConstructor
