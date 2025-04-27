@@ -36,6 +36,11 @@ public class AudioVoiceCallbackV4Response {
          */
         private String mainAgeGroup;
         /**
+         * 是否涉未成年人
+         */
+        private Integer underageType;
+
+        /**
          * 音频年龄段置信分数
          */
         private Double mainAgeGroupRate;

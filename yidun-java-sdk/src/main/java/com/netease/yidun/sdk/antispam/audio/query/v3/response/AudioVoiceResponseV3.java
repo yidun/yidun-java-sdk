@@ -12,5 +12,6 @@ import lombok.NoArgsConstructor;
 public class AudioVoiceResponseV3 {
     private String taskId;
     private String mainGender;
+    private Integer underageType;
     private Integer status;
 }
