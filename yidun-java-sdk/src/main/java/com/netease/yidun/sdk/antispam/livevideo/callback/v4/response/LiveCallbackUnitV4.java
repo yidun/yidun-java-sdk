@@ -43,6 +43,10 @@ public class LiveCallbackUnitV4 {
          * 检测状态 @See LiveVideoCallbackCodeStatus
          */
         private Integer failureReason;
+        /**
+         * 审核操作来源
+         */
+        private Integer operationSource;
 
         /**
          * 机审结果
