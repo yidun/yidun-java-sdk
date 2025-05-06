@@ -126,6 +126,14 @@ public class FileCallbackV2Response extends CommonResponse {
          */
         private Integer status;
         /**
+         * 二级分类
+         */
+        private String secondLabel;
+        /**
+         * 三级分类
+         */
+        private String thirdLabel;
+        /**
          * 文档md5
          */
         private String md5;
@@ -250,6 +258,22 @@ public class FileCallbackV2Response extends CommonResponse {
             this.md5 = md5;
         }
 
+        public String getSecondLabel() {
+            return secondLabel;
+        }
+
+        public void setSecondLabel(String secondLabel) {
+            this.secondLabel = secondLabel;
+        }
+
+        public String getThirdLabel() {
+            return thirdLabel;
+        }
+
+        public void setThirdLabel(String thirdLabel) {
+            this.thirdLabel = thirdLabel;
+        }
+
         @Override
         public String toString() {
             return "AntispamCheckResult{" +
@@ -267,6 +291,8 @@ public class FileCallbackV2Response extends CommonResponse {
                     ", censorLabels=" + censorLabels +
                     ", censorTime=" + censorTime +
                     ", status=" + status +
+                    ", secondLabel='" + secondLabel + '\'' +
+                    ", thirdLabel='" + thirdLabel + '\'' +
                     ", md5='" + md5 + '\'' +
                     '}';
         }
@@ -286,6 +312,14 @@ public class FileCallbackV2Response extends CommonResponse {
          * 垃圾类型：0-正常，100-色情，200-广告，300-暴恐，400-违禁，500-涉政, 900-其他，1100-涉价值观
          */
         private Integer label;
+        /**
+         * 二级分类
+         */
+        private String secondLabel;
+        /**
+         * 三级分类
+         */
+        private String thirdLabel;
         /**
          * 审核完成时间，结果类型是机器结果，代表机器审核完成时间；审核结果是人审结果，代表人审完成时间
          */
@@ -384,6 +418,22 @@ public class FileCallbackV2Response extends CommonResponse {
             this.md5 = md5;
         }
 
+        public String getSecondLabel() {
+            return secondLabel;
+        }
+
+        public void setSecondLabel(String secondLabel) {
+            this.secondLabel = secondLabel;
+        }
+
+        public String getThirdLabel() {
+            return thirdLabel;
+        }
+
+        public void setThirdLabel(String thirdLabel) {
+            this.thirdLabel = thirdLabel;
+        }
+
         @Override
         public String toString() {
             return "Detail{" +
@@ -396,6 +446,8 @@ public class FileCallbackV2Response extends CommonResponse {
                     ", failureReason=" + failureReason +
                     ", message='" + message + '\'' +
                     ", label=" + label +
+                    ", secondLabel='" + secondLabel + '\'' +
+                    ", thirdLabel='" + thirdLabel + '\'' +
                     ", censorTime=" + censorTime +
                     ", md5='" + md5 + '\'' +
                     '}';

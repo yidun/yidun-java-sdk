@@ -31,6 +31,7 @@ public class CrawlerSubmitResourceDemo extends AbstractDemo {
         request.setCheckFlags(Arrays.asList(1, 2));
         request.setDataId("dataId_" + url);
         request.setCallback("callback_" + url);
+        request.setAccount("account_123");
         // 请求对象中的其他参数如果有需要，请参考官方接口文档中字段说明，按需添加
         CrawlerResourceSubmitV3Response response = null;
         try {

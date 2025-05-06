@@ -19,6 +19,14 @@ public class MediaAntispamResponse {
      * 垃圾类别
      */
     private Integer label;
+    /**
+     * 命中二级标签细分类
+     */
+    private String secondLabel;
+    /**
+     * 命中三级标签细分类
+     */
+    private String thirdLabel;
 
     /**
      * 审核类型，1:机器检测，2:审核
@@ -113,5 +121,38 @@ public class MediaAntispamResponse {
 
     public void setSolutionEnrichEvidence(SolutionEnrichEvidence solutionEnrichEvidence) {
         this.solutionEnrichEvidence = solutionEnrichEvidence;
+    }
+
+    public String getSecondLabel() {
+        return secondLabel;
+    }
+
+    public void setSecondLabel(String secondLabel) {
+        this.secondLabel = secondLabel;
+    }
+
+    public String getThirdLabel() {
+        return thirdLabel;
+    }
+
+    public void setThirdLabel(String thirdLabel) {
+        this.thirdLabel = thirdLabel;
+    }
+
+    @Override
+    public String toString() {
+        return "MediaAntispamResponse{" +
+                "dataId='" + dataId + '\'' +
+                ", taskId='" + taskId + '\'' +
+                ", suggestion=" + suggestion +
+                ", label=" + label +
+                ", secondLabel='" + secondLabel + '\'' +
+                ", thirdLabel='" + thirdLabel + '\'' +
+                ", resultType=" + resultType +
+                ", callback='" + callback + '\'' +
+                ", checkStatus=" + checkStatus +
+                ", evidences=" + evidences +
+                ", solutionEnrichEvidence=" + solutionEnrichEvidence +
+                '}';
     }
 }
