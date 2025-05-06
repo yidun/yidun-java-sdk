@@ -125,6 +125,10 @@ public class FileCallbackV2Response extends CommonResponse {
          * 检测状态
          */
         private Integer status;
+        /**
+         * 文档md5
+         */
+        private String md5;
 
         public String getDataId() {
             return dataId;
@@ -238,6 +242,14 @@ public class FileCallbackV2Response extends CommonResponse {
             this.status = status;
         }
 
+        public String getMd5() {
+            return md5;
+        }
+
+        public void setMd5(String md5) {
+            this.md5 = md5;
+        }
+
         @Override
         public String toString() {
             return "AntispamCheckResult{" +
@@ -255,6 +267,7 @@ public class FileCallbackV2Response extends CommonResponse {
                     ", censorLabels=" + censorLabels +
                     ", censorTime=" + censorTime +
                     ", status=" + status +
+                    ", md5='" + md5 + '\'' +
                     '}';
         }
     }
@@ -277,6 +290,11 @@ public class FileCallbackV2Response extends CommonResponse {
          * 审核完成时间，结果类型是机器结果，代表机器审核完成时间；审核结果是人审结果，代表人审完成时间
          */
         private Long censorTime;
+
+        /**
+         * 压缩包内子文件md5
+         */
+        private String md5;
 
         public String getTaskId() {
             return taskId;
@@ -358,6 +376,14 @@ public class FileCallbackV2Response extends CommonResponse {
             this.censorTime = censorTime;
         }
 
+        public String getMd5() {
+            return md5;
+        }
+
+        public void setMd5(String md5) {
+            this.md5 = md5;
+        }
+
         @Override
         public String toString() {
             return "Detail{" +
@@ -371,6 +397,7 @@ public class FileCallbackV2Response extends CommonResponse {
                     ", message='" + message + '\'' +
                     ", label=" + label +
                     ", censorTime=" + censorTime +
+                    ", md5='" + md5 + '\'' +
                     '}';
         }
     }
