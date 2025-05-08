@@ -870,6 +870,14 @@ public class FileCallbackV2Response extends CommonResponse {
         private String startText;
         private String endText;
         private Integer suggestion;
+        /**
+         * 建议风险等级
+         */
+        private Integer suggestionRiskLevel;
+        /**
+         * 专项信息
+         */
+        private String publicOpinionInfo;
         private List<TextEvidenceLabel> labels;
         private Integer page;
 
@@ -913,6 +921,22 @@ public class FileCallbackV2Response extends CommonResponse {
             this.suggestion = suggestion;
         }
 
+        public Integer getSuggestionRiskLevel() {
+            return suggestionRiskLevel;
+        }
+
+        public void setSuggestionRiskLevel(Integer suggestionRiskLevel) {
+            this.suggestionRiskLevel = suggestionRiskLevel;
+        }
+
+        public String getPublicOpinionInfo() {
+            return publicOpinionInfo;
+        }
+
+        public void setPublicOpinionInfo(String publicOpinionInfo) {
+            this.publicOpinionInfo = publicOpinionInfo;
+        }
+
         public List<TextEvidenceLabel> getLabels() {
             return labels;
         }
@@ -937,6 +961,8 @@ public class FileCallbackV2Response extends CommonResponse {
                     ", startText='" + startText + '\'' +
                     ", endText='" + endText + '\'' +
                     ", suggestion=" + suggestion +
+                    ", suggestionRiskLevel=" + suggestionRiskLevel +
+                    ", publicOpinionInfo='" + publicOpinionInfo + '\'' +
                     ", labels=" + labels +
                     ", page=" + page +
                     '}';
@@ -1075,6 +1101,14 @@ public class FileCallbackV2Response extends CommonResponse {
         private List<ImageEvidenceLabel> labels;
         private Integer page;
         private Integer status;
+        /**
+         * 建议风险等级
+         */
+        private Integer suggestionRiskLevel;
+        /**
+         * 专项信息
+         */
+        private String publicOpinionInfo;
 
         public String getTaskId() {
             return taskId;
@@ -1132,6 +1166,22 @@ public class FileCallbackV2Response extends CommonResponse {
             this.status = status;
         }
 
+        public Integer getSuggestionRiskLevel() {
+            return suggestionRiskLevel;
+        }
+
+        public void setSuggestionRiskLevel(Integer suggestionRiskLevel) {
+            this.suggestionRiskLevel = suggestionRiskLevel;
+        }
+
+        public String getPublicOpinionInfo() {
+            return publicOpinionInfo;
+        }
+
+        public void setPublicOpinionInfo(String publicOpinionInfo) {
+            this.publicOpinionInfo = publicOpinionInfo;
+        }
+
         @Override
         public String toString() {
             return "ImageEvidence{" +
@@ -1141,6 +1191,9 @@ public class FileCallbackV2Response extends CommonResponse {
                     ", level=" + level +
                     ", labels=" + labels +
                     ", page=" + page +
+                    ", status=" + status +
+                    ", suggestionRiskLevel=" + suggestionRiskLevel +
+                    ", publicOpinionInfo='" + publicOpinionInfo + '\'' +
                     '}';
         }
     }
@@ -1656,6 +1709,14 @@ public class FileCallbackV2Response extends CommonResponse {
         private String url;
         private Long startTime;
         private Long endTime;
+        /**
+         * 建议风险等级
+         */
+        private Integer suggestionRiskLevel;
+        /**
+         * 专项信息
+         */
+        private String publicOpinionInfo;
         private List<VideoEvidenceFrontPics> frontPics;
         private List<VideoEvidenceBackPics> backPics;
         private List<VideoEvidenceLabel> labels = new ArrayList<>();
@@ -1692,6 +1753,22 @@ public class FileCallbackV2Response extends CommonResponse {
             this.endTime = endTime;
         }
 
+        public Integer getSuggestionRiskLevel() {
+            return suggestionRiskLevel;
+        }
+
+        public void setSuggestionRiskLevel(Integer suggestionRiskLevel) {
+            this.suggestionRiskLevel = suggestionRiskLevel;
+        }
+
+        public String getPublicOpinionInfo() {
+            return publicOpinionInfo;
+        }
+
+        public void setPublicOpinionInfo(String publicOpinionInfo) {
+            this.publicOpinionInfo = publicOpinionInfo;
+        }
+
         public List<VideoEvidenceFrontPics> getFrontPics() {
             return frontPics;
         }
@@ -1726,6 +1803,8 @@ public class FileCallbackV2Response extends CommonResponse {
                     ", frontPics=" + frontPics +
                     ", backPics=" + backPics +
                     ", labels=" + labels +
+                    ", suggestionRiskLevel=" + suggestionRiskLevel +
+                    ", publicOpinionInfo='" + publicOpinionInfo + '\'' +
                     '}';
         }
     }
