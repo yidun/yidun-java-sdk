@@ -24,6 +24,8 @@ public class LiveAudioVoiceCallbackRespV4 {
      */
     private String mainAgeGroup;
     private Double mainAgeGroupRate;
+
+    private Integer underage;
     /**
      * 音频性别建议值，male/female
      */
