@@ -118,11 +118,11 @@ public class ImageV5FaceDetail implements Serializable {
          */
         private Integer underage;
 
-        public Integer getMinor() {
+        public Integer getUnderage() {
             return underage;
         }
 
-        public void setMinor(Integer underage) {
+        public void setUnderage(Integer underage) {
             this.underage = underage;
         }
 
