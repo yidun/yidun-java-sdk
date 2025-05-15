@@ -116,14 +116,14 @@ public class ImageV5FaceDetail implements Serializable {
         /**
          * 是否未成年人
          */
-        private Integer minor;
+        private Integer underage;
 
         public Integer getMinor() {
-            return minor;
+            return underage;
         }
 
-        public void setMinor(Integer minor) {
-            this.minor = minor;
+        public void setMinor(Integer underage) {
+            this.underage = underage;
         }
 
         public Boolean getRotation() {
