@@ -1,11 +1,11 @@
 
 package com.netease.yidun.sdk.antispam.video.callback.v4.response;
 
-import java.util.List;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
 public class VideoCallbackUnitV4Response {
@@ -19,6 +19,10 @@ public class VideoCallbackUnitV4Response {
     private String secondLabel;
     private String thirdLabel;
     private Integer suggestionLevel;
+    /**
+     * 风险描述，拼接 label｜secondLabel｜thirdLabel 的中文实时释义
+     */
+    private String riskDescription;
     private Integer resultType;
     private Integer censorSource;
     /**
