@@ -110,6 +110,10 @@ public class TextCheckResult implements Serializable {
         private Integer label;
         private String secondLabel;
         private String thirdLabel;
+        /**
+         * 风险描述
+         */
+        private String riskDescription;
         private Integer suggestion;
         private Integer suggestionLevel;
         /**
@@ -181,6 +185,14 @@ public class TextCheckResult implements Serializable {
 
         public void setThirdLabel(String thirdLabel) {
             this.thirdLabel = thirdLabel;
+        }
+        
+        public String getRiskDescription() {
+            return riskDescription;
+        }
+        
+        public void setRiskDescription(String riskDescription) {
+            this.riskDescription = riskDescription;
         }
 
         public Integer getSuggestion() {
@@ -351,6 +363,7 @@ public class TextCheckResult implements Serializable {
                     + ", label=" + label
                     + ", secondLabel=" + secondLabel
                     + ", thirdLabel=" + thirdLabel
+                    + ", riskDescription=" + riskDescription
                     + ", suggestion=" + suggestion
                     + ", suggestionLevel=" + suggestionLevel
                     + ", suggestionRiskLevel=" + suggestionRiskLevel
@@ -503,6 +516,10 @@ public class TextCheckResult implements Serializable {
         private String secondLabel;
 
         private String thirdLabel;
+        /**
+         * 风险描述
+         */
+        private String riskDescription;
 
         /**
          * 建议风险等级
@@ -571,7 +588,15 @@ public class TextCheckResult implements Serializable {
         public void setThirdLabel(String thirdLabel) {
             this.thirdLabel = thirdLabel;
         }
-
+        
+        public String getRiskDescription() {
+            return riskDescription;
+        }
+        
+        public void setRiskDescription(String riskDescription) {
+            this.riskDescription = riskDescription;
+        }
+        
         public Integer getSuggestionRiskLevel() {
             return suggestionRiskLevel;
         }
@@ -603,6 +628,7 @@ public class TextCheckResult implements Serializable {
                     + ", subLabelDepth=" + subLabelDepth
                     + ", secondLabel=" + secondLabel
                     + ", thirdLabel=" + thirdLabel
+                    + ", riskDescription=" + riskDescription
                     + ", suggestionRiskLevel=" + suggestionRiskLevel
                     + ", politicalSentiment=" + politicalSentiment
                     + ", isRelatedLabel=" + isRelatedLabel
