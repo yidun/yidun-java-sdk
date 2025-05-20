@@ -22,7 +22,7 @@ public class GrammarfixSubmitRequest extends BizPostFormRequest<GrammarfixSubmit
      * 文本纠错内容
      */
     @NotBlank(message = "content不能为空")
-    @Size(max = 2000, message = "content最长2000个字符")
+    @Size(max = 100000, message = "content最长100000个字符")
     private String content;
 
     public String getDataId() {
