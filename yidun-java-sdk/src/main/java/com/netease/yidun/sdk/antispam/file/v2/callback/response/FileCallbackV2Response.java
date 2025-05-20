@@ -1036,6 +1036,19 @@ public class FileCallbackV2Response extends CommonResponse {
          * 三级分类标签
          */
         private String thirdLabel;
+
+        public Integer getSuggestionRiskLevel() {
+            return suggestionRiskLevel;
+        }
+
+        public void setSuggestionRiskLevel(Integer suggestionRiskLevel) {
+            this.suggestionRiskLevel = suggestionRiskLevel;
+        }
+
+        /**
+         * 建议风险等级
+         */
+        private Integer suggestionRiskLevel;
         /**
          * 文本垃圾详情
          */
@@ -1261,6 +1274,19 @@ public class FileCallbackV2Response extends CommonResponse {
          * 三级分类标签
          */
         private String thirdLabel;
+
+        public Integer getSuggestionRiskLevel() {
+            return suggestionRiskLevel;
+        }
+
+        public void setSuggestionRiskLevel(Integer suggestionRiskLevel) {
+            this.suggestionRiskLevel = suggestionRiskLevel;
+        }
+
+        /**
+         * 建议风险等级
+         */
+        private Integer suggestionRiskLevel;
         private Double rate;
         private ImageV5SubLabelDetail.SubLabelDetails details;
 

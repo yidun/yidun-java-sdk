@@ -14,6 +14,11 @@ public class MediaImageEvidence {
      */
     private String publicOpinionInfo;
 
+    /**
+     * 建议风险等级
+     */
+    private Integer suggestionRiskLevel;
+
     private Integer resultType;
     private Integer frameSize;
     private Integer censorType;
@@ -25,6 +30,15 @@ public class MediaImageEvidence {
     private String field;
     private String name;
     private List<ImageLabelInfo> labels;
+
+    public Integer getSuggestionRiskLevel() {
+        return suggestionRiskLevel;
+    }
+
+    public void setSuggestionRiskLevel(Integer suggestionRiskLevel) {
+        this.suggestionRiskLevel = suggestionRiskLevel;
+    }
+
 
     public String getPublicOpinionInfo() {
         return publicOpinionInfo;

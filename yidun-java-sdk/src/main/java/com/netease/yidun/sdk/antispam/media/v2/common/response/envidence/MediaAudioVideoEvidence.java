@@ -15,6 +15,11 @@ public class MediaAudioVideoEvidence {
     private String publicOpinionInfo;
     private Integer status;
     private Integer resultType;
+
+    /**
+     * 建议风险等级
+     */
+    private Integer suggestionRiskLevel;
     /**
      * 失败原因
      */
@@ -24,6 +29,14 @@ public class MediaAudioVideoEvidence {
 
     private Long durationMs;
     private MediaAudioVideoDetailEvidence evidences;
+
+    public Integer getSuggestionRiskLevel() {
+        return suggestionRiskLevel;
+    }
+
+    public void setSuggestionRiskLevel(Integer suggestionRiskLevel) {
+        this.suggestionRiskLevel = suggestionRiskLevel;
+    }
 
     public String getPublicOpinionInfo() {
         return publicOpinionInfo;

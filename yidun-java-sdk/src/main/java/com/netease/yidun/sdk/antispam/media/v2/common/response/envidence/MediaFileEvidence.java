@@ -29,12 +29,26 @@ public class MediaFileEvidence {
      */
     private String publicOpinionInfo;
 
+
+    /**
+     * 建议风险等级
+     */
+    private Integer suggestionRiskLevel;
     /**
      * 失败原因
      */
     private Integer failureReason;
 
     private FileEvidenceResult evidences;
+
+    public Integer getSuggestionRiskLevel() {
+        return suggestionRiskLevel;
+    }
+
+    public void setSuggestionRiskLevel(Integer suggestionRiskLevel) {
+        this.suggestionRiskLevel = suggestionRiskLevel;
+    }
+
 
     public String getPublicOpinionInfo() {
         return publicOpinionInfo;
@@ -211,6 +225,27 @@ public class MediaFileEvidence {
         private String startText;
         private String endText;
         private Integer suggestion;
+
+        public Integer getSuggestionRiskLevel() {
+            return suggestionRiskLevel;
+        }
+
+        public void setSuggestionRiskLevel(Integer suggestionRiskLevel) {
+            this.suggestionRiskLevel = suggestionRiskLevel;
+        }
+
+        public String getPublicOpinionInfo() {
+            return publicOpinionInfo;
+        }
+
+        public void setPublicOpinionInfo(String publicOpinionInfo) {
+            this.publicOpinionInfo = publicOpinionInfo;
+        }
+
+        //建议风险等级
+        private Integer suggestionRiskLevel;
+        //专项信息
+        private String publicOpinionInfo;
         private List<TextEvidenceLabel> labels;
         private Integer page;
 
@@ -358,6 +393,27 @@ public class MediaFileEvidence {
         private Integer sequence;
         private String imageUrl;
         private Integer suggestion;
+
+        public String getPublicOpinionInfo() {
+            return publicOpinionInfo;
+        }
+
+        public void setPublicOpinionInfo(String publicOpinionInfo) {
+            this.publicOpinionInfo = publicOpinionInfo;
+        }
+
+        public Integer getSuggestionRiskLevel() {
+            return suggestionRiskLevel;
+        }
+
+        public void setSuggestionRiskLevel(Integer suggestionRiskLevel) {
+            this.suggestionRiskLevel = suggestionRiskLevel;
+        }
+
+        //专项信息
+        private String publicOpinionInfo;
+        //建议风险等级
+        private Integer suggestionRiskLevel;
         private List<FileCallbackV2Response.ImageEvidenceLabel> labels;
         private Integer page;
 

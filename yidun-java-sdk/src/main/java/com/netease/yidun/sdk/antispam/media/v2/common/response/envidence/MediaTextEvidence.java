@@ -19,6 +19,11 @@ public class MediaTextEvidence {
      */
     private String publicOpinionInfo;
 
+    /**
+     * 建议风险等级
+     */
+    private Integer suggestionRiskLevel;
+
     private Integer resultType;
     private Integer censorType;
     private List<StrategyVersion> strategyVersions;
@@ -29,6 +34,15 @@ public class MediaTextEvidence {
      * 过滤后文本内容
      */
     private String filteredContent;
+
+    public Integer getSuggestionRiskLevel() {
+        return suggestionRiskLevel;
+    }
+
+    public void setSuggestionRiskLevel(Integer suggestionRiskLevel) {
+        this.suggestionRiskLevel = suggestionRiskLevel;
+    }
+
 
     public String getPublicOpinionInfo() {
         return publicOpinionInfo;

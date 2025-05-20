@@ -20,6 +20,7 @@ public class MediaAudioEvidenceCommon {
      */
     private String publicOpinionInfo;
 
+    private Integer suggestionRiskLevel;
 
     private Integer resultType;
     private Long checkTime;
@@ -27,6 +28,14 @@ public class MediaAudioEvidenceCommon {
 
     private Long durationMs;
     private List<SegmentsInfo> segments;
+
+    public Integer getSuggestionRiskLevel() {
+        return suggestionRiskLevel;
+    }
+
+    public void setSuggestionRiskLevel(Integer suggestionRiskLevel) {
+        this.suggestionRiskLevel = suggestionRiskLevel;
+    }
 
     public String getPublicOpinionInfo() {
         return publicOpinionInfo;
