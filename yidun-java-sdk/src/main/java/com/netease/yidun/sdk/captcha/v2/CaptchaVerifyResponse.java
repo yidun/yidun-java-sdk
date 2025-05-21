@@ -49,6 +49,11 @@ public class CaptchaVerifyResponse implements BaseResponse {
      */
     private String clientUa;
 
+    /**
+     * token生成时间戳
+     */
+    private Long tokenTimeStamp;
+
     public int getError() {
         return error;
     }
@@ -112,21 +117,29 @@ public class CaptchaVerifyResponse implements BaseResponse {
     public void setSdkReduce(String sdkReduce) {
         this.sdkReduce = sdkReduce;
     }
-    
+
     public String getClientIp() {
         return clientIp;
     }
-    
+
     public void setClientIp(String clientIp) {
         this.clientIp = clientIp;
     }
-    
+
     public String getClientUa() {
         return clientUa;
     }
-    
+
     public void setClientUa(String clientUa) {
         this.clientUa = clientUa;
+    }
+
+    public Long getTokenTimeStamp() {
+        return tokenTimeStamp;
+    }
+
+    public void setTokenTimeStamp(Long tokenTimeStamp) {
+        this.tokenTimeStamp = tokenTimeStamp;
     }
 
     @Override
@@ -142,10 +155,21 @@ public class CaptchaVerifyResponse implements BaseResponse {
                 + ", sdkReduce=" + sdkReduce
                 + ", clientIp=" + clientIp
                 + ", clientUa=" + clientUa
+                + ", tokenTimeStamp=" + tokenTimeStamp
                 + ")";
     }
 
-    public CaptchaVerifyResponse(int error, String msg, boolean result, String phone, String extraData, int captchaType, String token, String sdkReduce, String clientIp, String clientUa) {
+    public CaptchaVerifyResponse(int error,
+                                 String msg,
+                                 boolean result,
+                                 String phone,
+                                 String extraData,
+                                 int captchaType,
+                                 String token,
+                                 String sdkReduce,
+                                 String clientIp,
+                                 String clientUa,
+                                 Long tokenTimeStamp) {
         this.error = error;
         this.msg = msg;
         this.result = result;
@@ -156,5 +180,6 @@ public class CaptchaVerifyResponse implements BaseResponse {
         this.sdkReduce = sdkReduce;
         this.clientIp = clientIp;
         this.clientUa = clientUa;
+        this.tokenTimeStamp = tokenTimeStamp;
     }
 }
