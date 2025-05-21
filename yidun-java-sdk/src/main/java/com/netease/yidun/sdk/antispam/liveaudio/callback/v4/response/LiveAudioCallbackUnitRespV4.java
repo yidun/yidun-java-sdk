@@ -24,6 +24,8 @@ public class LiveAudioCallbackUnitRespV4 {
      */
     private Integer suggestionRiskLevel;
 
+    private String riskDescription;
+
     private Long startTime;
     private Long endTime;
     private String content;
@@ -63,6 +65,8 @@ public class LiveAudioCallbackUnitRespV4 {
          * 建议风险等级
          */
         private Integer suggestionRiskLevel;
+
+        private String riskDescription;
 
         private Integer subLabelDepth;
         private Double rate;

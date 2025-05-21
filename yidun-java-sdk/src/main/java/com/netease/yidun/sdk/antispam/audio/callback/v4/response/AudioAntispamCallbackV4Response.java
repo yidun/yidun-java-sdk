@@ -54,7 +54,7 @@ public class AudioAntispamCallbackV4Response implements BaseResponse {
      */
     private Integer suggestionRiskLevel;
 
-
+    private String riskDescription;
     /**
      * 嫌疑级别，只有 suggestion 为嫌疑时才返回 1-低嫌疑，2-高嫌疑
      */
@@ -144,6 +144,9 @@ public class AudioAntispamCallbackV4Response implements BaseResponse {
          * 建议风险等级
          */
         private Integer suggestionRiskLevel;
+
+
+        private String riskDescription;
         /**
          * 置信度，取值范围 0-1
          */

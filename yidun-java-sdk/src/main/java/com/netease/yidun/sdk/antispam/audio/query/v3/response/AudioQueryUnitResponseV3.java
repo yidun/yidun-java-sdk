@@ -36,6 +36,7 @@ public class AudioQueryUnitResponseV3 {
      */
     private Integer suggestionRiskLevel;
 
+    private String riskDescription;
 
     private List<LabelInfo> labels;
 
