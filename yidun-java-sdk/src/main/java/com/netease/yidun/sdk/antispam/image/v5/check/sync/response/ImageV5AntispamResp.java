@@ -39,6 +39,10 @@ public class ImageV5AntispamResp implements Serializable {
      */
     private String thirdLabel;
     /**
+     * 风险描述
+     */
+    private String riskDescription;
+    /**
      * 图片人审状态{@link CensorTypeEnum}
      */
     private Integer censorType;
@@ -313,6 +317,13 @@ public class ImageV5AntispamResp implements Serializable {
         this.thirdLabel = thirdLabel;
     }
 
+    public String getRiskDescription() {
+        return riskDescription;
+    }
+
+    public void setRiskDescription(String riskDescription) {
+        this.riskDescription = riskDescription;
+    }
 
     private static class CensorLabelInfo implements Serializable {
         private static final long serialVersionUID = -7913548400479437764L;

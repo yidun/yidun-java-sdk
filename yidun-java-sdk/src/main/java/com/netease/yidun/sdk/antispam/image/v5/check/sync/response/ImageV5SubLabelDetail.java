@@ -22,6 +22,10 @@ public class ImageV5SubLabelDetail implements Serializable {
      */
     private String thirdLabel;
     /**
+     * 风险描述
+     */
+    private String riskDescription;
+    /**
      * 命中标识
      */
     private Integer hitStrategy;
@@ -88,6 +92,14 @@ public class ImageV5SubLabelDetail implements Serializable {
 
     public void setDetails(SubLabelDetails details) {
         this.details = details;
+    }
+
+    public String getRiskDescription() {
+        return riskDescription;
+    }
+
+    public void setRiskDescription(String riskDescription) {
+        this.riskDescription = riskDescription;
     }
 
     public static class SubLabelDetails implements Serializable {
