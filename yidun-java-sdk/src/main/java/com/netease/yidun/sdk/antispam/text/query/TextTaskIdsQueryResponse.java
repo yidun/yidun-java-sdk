@@ -41,6 +41,10 @@ public class TextTaskIdsQueryResponse extends CommonResponse {
         private int label;
         private int level;
         private String subLabel;
+        /**
+         * 风险描述
+         */
+        private String riskDescription;
         private HintInfo details;
         public LabelInfo() {
         }
