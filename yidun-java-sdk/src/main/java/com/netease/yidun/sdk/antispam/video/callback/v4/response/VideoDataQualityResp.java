@@ -21,6 +21,10 @@ public class VideoDataQualityResp {
      */
     private Float sharpnessRate;
     /**
+     * 截图灰度值
+     */
+    private Integer grayValue;
+    /**
      * 图片基本信息
      */
     private MetaInfo metaInfo;
