@@ -33,6 +33,10 @@ public class ImageSubLabelResp implements Serializable {
      */
     private String thirdLabel;
     /**
+     * 风险描述，拼接 label｜secondLabel｜thirdLabel 的中文实时释义
+     */
+    private String riskDescription;
+    /**
      * 命中标识
      */
     private Integer hitStrategy;
