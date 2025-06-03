@@ -159,4 +159,9 @@ public class AndroidDeviceInfo{
      * 运营商设备标识
      */
     private String uaid;
+
+    /**
+     * 模拟器宿主设备指纹
+     */
+    private String emulatorDid;
 }
