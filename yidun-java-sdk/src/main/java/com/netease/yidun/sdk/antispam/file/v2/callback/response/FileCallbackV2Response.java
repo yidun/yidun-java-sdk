@@ -134,6 +134,10 @@ public class FileCallbackV2Response extends CommonResponse {
          */
         private String thirdLabel;
         /**
+         * 风险描述
+         */
+        private String riskDescription;
+        /**
          * 文档md5
          */
         private String md5;
@@ -274,6 +278,14 @@ public class FileCallbackV2Response extends CommonResponse {
             this.thirdLabel = thirdLabel;
         }
 
+        public String getRiskDescription() {
+            return riskDescription;
+        }
+
+        public void setRiskDescription(String riskDescription) {
+            this.riskDescription = riskDescription;
+        }
+
         @Override
         public String toString() {
             return "AntispamCheckResult{" +
@@ -294,6 +306,7 @@ public class FileCallbackV2Response extends CommonResponse {
                     ", secondLabel='" + secondLabel + '\'' +
                     ", thirdLabel='" + thirdLabel + '\'' +
                     ", md5='" + md5 + '\'' +
+                    ", riskDescription='" + riskDescription + '\'' +
                     '}';
         }
     }
@@ -320,6 +333,10 @@ public class FileCallbackV2Response extends CommonResponse {
          * 三级分类
          */
         private String thirdLabel;
+        /**
+         * 风险描述
+         */
+        private String riskDescription;
         /**
          * 审核完成时间，结果类型是机器结果，代表机器审核完成时间；审核结果是人审结果，代表人审完成时间
          */
@@ -434,6 +451,14 @@ public class FileCallbackV2Response extends CommonResponse {
             this.thirdLabel = thirdLabel;
         }
 
+        public String getRiskDescription() {
+            return riskDescription;
+        }
+
+        public void setRiskDescription(String riskDescription) {
+            this.riskDescription = riskDescription;
+        }
+
         @Override
         public String toString() {
             return "Detail{" +
@@ -450,6 +475,7 @@ public class FileCallbackV2Response extends CommonResponse {
                     ", thirdLabel='" + thirdLabel + '\'' +
                     ", censorTime=" + censorTime +
                     ", md5='" + md5 + '\'' +
+                    ", riskDescription='" + riskDescription + '\'' +
                     '}';
         }
     }
@@ -1036,6 +1062,10 @@ public class FileCallbackV2Response extends CommonResponse {
          * 三级分类标签
          */
         private String thirdLabel;
+        /**
+         * 风险描述
+         */
+        private String riskDescription;
 
         public Integer getSuggestionRiskLevel() {
             return suggestionRiskLevel;
@@ -1094,6 +1124,14 @@ public class FileCallbackV2Response extends CommonResponse {
             this.details = details;
         }
 
+        public String getRiskDescription() {
+            return riskDescription;
+        }
+
+        public void setRiskDescription(String riskDescription) {
+            this.riskDescription = riskDescription;
+        }
+
         @Override
         public String toString() {
             return "TextSubLabel{" +
@@ -1101,6 +1139,7 @@ public class FileCallbackV2Response extends CommonResponse {
                     ", subLabelDepth=" + subLabelDepth +
                     ", secondLabel='" + secondLabel + '\'' +
                     ", thirdLabel='" + thirdLabel + '\'' +
+                    ", riskDescription='" + riskDescription + '\'' +
                     ", details=" + details +
                     '}';
         }
@@ -1274,6 +1313,10 @@ public class FileCallbackV2Response extends CommonResponse {
          * 三级分类标签
          */
         private String thirdLabel;
+        /**
+         * 风险描述
+         */
+        private String riskDescription;
 
         public Integer getSuggestionRiskLevel() {
             return suggestionRiskLevel;
@@ -1338,6 +1381,14 @@ public class FileCallbackV2Response extends CommonResponse {
             this.details = details;
         }
 
+        public String getRiskDescription() {
+            return riskDescription;
+        }
+
+        public void setRiskDescription(String riskDescription) {
+            this.riskDescription = riskDescription;
+        }
+
         @Override
         public String toString() {
             return "ImageSubLabel{" +
@@ -1345,6 +1396,7 @@ public class FileCallbackV2Response extends CommonResponse {
                     ", subLabelDepth=" + subLabelDepth +
                     ", secondLabel='" + secondLabel + '\'' +
                     ", thirdLabel='" + thirdLabel + '\'' +
+                    ", riskDescription='" + riskDescription + '\'' +
                     ", rate=" + rate +
                     ", details=" + details +
                     '}';
@@ -1662,6 +1714,11 @@ public class FileCallbackV2Response extends CommonResponse {
 
         private String thirdLabel;
 
+        /**
+         * 风险描述
+         */
+        private String riskDescription;
+
         private Double rate;
         private AudioAntispamCallbackV4Response.HintInfo details;
 
@@ -1714,6 +1771,14 @@ public class FileCallbackV2Response extends CommonResponse {
             this.thirdLabel = thirdLabel;
         }
 
+        public String getRiskDescription() {
+            return riskDescription;
+        }
+
+        public void setRiskDescription(String riskDescription) {
+            this.riskDescription = riskDescription;
+        }
+
         @Override
         public String toString() {
             return "AudioEvidenceSubLabel{" +
@@ -1721,6 +1786,7 @@ public class FileCallbackV2Response extends CommonResponse {
                     ", subLabelDepth=" + subLabelDepth +
                     ", secondLabel='" + secondLabel + '\'' +
                     ", thirdLabel='" + thirdLabel + '\'' +
+                    ", riskDescription='" + riskDescription + '\'' +
                     ", rate=" + rate +
                     ", details=" + details +
                     '}';
@@ -1940,6 +2006,10 @@ public class FileCallbackV2Response extends CommonResponse {
         private Integer subLabelDepth;
         private String secondLabel;
         private String thirdLabel;
+        /**
+         * 风险描述
+         */
+        private String riskDescription;
         private Float rate;
         private ImageV5SubLabelResp.SubLabelDetails details;
 
@@ -1991,6 +2061,14 @@ public class FileCallbackV2Response extends CommonResponse {
             this.thirdLabel = thirdLabel;
         }
 
+        public String getRiskDescription() {
+            return riskDescription;
+        }
+
+        public void setRiskDescription(String riskDescription) {
+            this.riskDescription = riskDescription;
+        }
+
         @Override
         public String toString() {
             return "VideoEvidenceSubLabel{" +
@@ -1998,6 +2076,7 @@ public class FileCallbackV2Response extends CommonResponse {
                     ", subLabelDepth=" + subLabelDepth +
                     ", secondLabel='" + secondLabel + '\'' +
                     ", thirdLabel='" + thirdLabel + '\'' +
+                    ", riskDescription='" + riskDescription + '\'' +
                     ", rate=" + rate +
                     ", details=" + details +
                     '}';
