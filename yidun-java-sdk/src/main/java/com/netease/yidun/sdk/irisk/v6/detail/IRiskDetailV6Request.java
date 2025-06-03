@@ -80,6 +80,14 @@ public class IRiskDetailV6Request extends BizPostJsonRequest<IRiskDetailV6Respon
      * sdkIp集合(转成JSON后的字符串)
      */
     private String sdkIps;
+    /**
+     * 命中的风险标签
+     */
+    private String matchedRiskTags;
+    /**
+     * 命中的风险标签类型
+     */
+    private String matchedTypes;
 
     public Long getBeginTimestamp() {
         return beginTimestamp;
@@ -193,6 +201,22 @@ public class IRiskDetailV6Request extends BizPostJsonRequest<IRiskDetailV6Respon
         this.sdkIps = sdkIps;
     }
 
+    public String getMatchedRiskTags() {
+        return matchedRiskTags;
+    }
+
+    public void setMatchedRiskTags(String matchedRiskTags) {
+        this.matchedRiskTags = matchedRiskTags;
+    }
+
+    public String getMatchedTypes() {
+        return matchedTypes;
+    }
+
+    public void setMatchedTypes(String matchedTypes) {
+        this.matchedTypes = matchedTypes;
+    }
+
     @Override
     public Class<IRiskDetailV6Response> getResponseClass() {
         return IRiskDetailV6Response.class;
@@ -224,6 +248,8 @@ public class IRiskDetailV6Request extends BizPostJsonRequest<IRiskDetailV6Respon
         customSignParams.put("ips", ips);
         customSignParams.put("sdkIp", sdkIp);
         customSignParams.put("sdkIps", sdkIps);
+        customSignParams.put("matchedRiskTags", matchedRiskTags);
+        customSignParams.put("matchedTypes", matchedTypes);
         return customSignParams;
     }
 }
