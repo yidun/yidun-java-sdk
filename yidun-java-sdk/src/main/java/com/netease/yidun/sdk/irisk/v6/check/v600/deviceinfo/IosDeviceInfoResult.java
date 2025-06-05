@@ -6,7 +6,7 @@ import java.util.List;
 
 
 @Data
-public class IosDeviceInfo {
+public class IosDeviceInfoResult {
     /**
      * 开机时间
      */

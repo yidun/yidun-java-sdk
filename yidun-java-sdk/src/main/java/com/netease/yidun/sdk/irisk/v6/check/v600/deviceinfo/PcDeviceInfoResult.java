@@ -3,7 +3,7 @@ package com.netease.yidun.sdk.irisk.v6.check.v600.deviceinfo;
 import lombok.Data;
 
 @Data
-public class PcDeviceInfo {
+public class PcDeviceInfoResult {
     /**
      * 设备物理地址
      */

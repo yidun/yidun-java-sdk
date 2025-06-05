@@ -4,7 +4,7 @@ import lombok.Data;
 
 
 @Data
-public class HarmonyDeviceInfoVo {
+public class HarmonyDeviceInfoResult {
     /**
      * 设备广告ID
      */

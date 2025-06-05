@@ -4,7 +4,7 @@ import lombok.Data;
 
 
 @Data
-public class AppletDeviceInfoVo {
+public class AppletDeviceInfoResult {
     /**
      * 当前小程序所在设备的联网类型
      */

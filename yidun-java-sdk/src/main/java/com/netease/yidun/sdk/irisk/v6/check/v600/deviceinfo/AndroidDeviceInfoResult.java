@@ -4,7 +4,7 @@ import lombok.Data;
 
 
 @Data
-public class AndroidDeviceInfo{
+public class AndroidDeviceInfoResult {
     /**
      * 屏幕信息
      */

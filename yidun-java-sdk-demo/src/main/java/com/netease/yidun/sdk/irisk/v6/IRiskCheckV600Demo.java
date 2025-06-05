@@ -9,8 +9,8 @@ package com.netease.yidun.sdk.irisk.v6;
 import com.google.gson.Gson;
 import com.netease.yidun.sdk.core.response.DataResponse;
 import com.netease.yidun.sdk.core.utils.GsonUtils;
-import com.netease.yidun.sdk.irisk.v6.check.v600.deviceinfo.AndroidDeviceInfo;
-import com.netease.yidun.sdk.irisk.v6.check.v600.deviceinfo.IosDeviceInfo;
+import com.netease.yidun.sdk.irisk.v6.check.v600.deviceinfo.AndroidDeviceInfoResult;
+import com.netease.yidun.sdk.irisk.v6.check.v600.deviceinfo.IosDeviceInfoResult;
 import com.netease.yidun.sdk.irisk.v6.check.v600.hitinfo.HitInfo;
 import com.netease.yidun.sdk.irisk.v6.check.v600.IRiskCheckV600Request;
 import com.netease.yidun.sdk.irisk.v6.check.v600.IRiskCheckV600Result;
@@ -66,9 +66,9 @@ public class IRiskCheckV600Demo {
             // data 数据即为所需的check结果
             IRiskCheckV600Result<HitInfo> data = checkResponse.getData();
             // deviceInfo: if Android then
-            AndroidDeviceInfo deviceInfoAndroid = new Gson().fromJson(GsonUtils.toJson(data.getDeviceInfo()), AndroidDeviceInfo.class);
+            AndroidDeviceInfoResult deviceInfoAndroid = new Gson().fromJson(GsonUtils.toJson(data.getDeviceInfo()), AndroidDeviceInfoResult.class);
             // deviceInfo: if ios then
-            IosDeviceInfo deviceInfoIos = new Gson().fromJson(GsonUtils.toJson(data.getDeviceInfo()), IosDeviceInfo.class);
+            IosDeviceInfoResult deviceInfoIos = new Gson().fromJson(GsonUtils.toJson(data.getDeviceInfo()), IosDeviceInfoResult.class);
             // other deviceInfo ...
         }
     }

@@ -9,7 +9,7 @@ package com.netease.yidun.sdk.irisk.v6;
 import com.google.gson.Gson;
 import com.netease.yidun.sdk.core.response.DataResponse;
 import com.netease.yidun.sdk.core.utils.GsonUtils;
-import com.netease.yidun.sdk.irisk.v6.check.v600.deviceinfo.AndroidDeviceInfo;
+import com.netease.yidun.sdk.irisk.v6.check.v600.deviceinfo.AndroidDeviceInfoResult;
 import com.netease.yidun.sdk.irisk.v6.check.v602.HitInfoV602;
 import com.netease.yidun.sdk.irisk.v6.check.v603.IRiskCheckV603Request;
 import com.netease.yidun.sdk.irisk.v6.check.v603.IRiskCheckV603Result;
@@ -73,7 +73,7 @@ public class IRiskCheckV603Demo {
             IpInfo<IpBasicInfo, IpRiskInfo> ipInfo = data.getIpInfo();
             // data 数据即为所需的check结果
             // deviceInfo: if Android then
-            AndroidDeviceInfo deviceInfoAndroid = new Gson().fromJson(GsonUtils.toJson(data.getDeviceInfo()), AndroidDeviceInfo.class);
+            AndroidDeviceInfoResult deviceInfoAndroid = new Gson().fromJson(GsonUtils.toJson(data.getDeviceInfo()), AndroidDeviceInfoResult.class);
             String emulatorDid = deviceInfoAndroid.getEmulatorDid();
         }
     }
