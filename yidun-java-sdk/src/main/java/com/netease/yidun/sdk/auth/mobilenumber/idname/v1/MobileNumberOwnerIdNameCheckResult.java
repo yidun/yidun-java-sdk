@@ -9,6 +9,7 @@ public class MobileNumberOwnerIdNameCheckResult {
     private String taskId;
     private Integer reasonType;
     private Integer isPayed;
+    private String mobileType;
 
     public Integer getStatus() {
         return status;
@@ -42,6 +43,14 @@ public class MobileNumberOwnerIdNameCheckResult {
         this.isPayed = isPayed;
     }
 
+    public String getMobileType() {
+        return mobileType;
+    }
+
+    public void setMobileType(String mobileType) {
+        this.mobileType = mobileType;
+    }
+
     @Override
     public String toString() {
         return "MobileNumberOwnerIdNameCheckResult(" +
@@ -49,6 +58,7 @@ public class MobileNumberOwnerIdNameCheckResult {
                 ", taskId=" + taskId +
                 ", reasonType=" + reasonType +
                 ", isPayed=" + isPayed +
+                ", mobileType=" + mobileType +
                 ")";
     }
 }
