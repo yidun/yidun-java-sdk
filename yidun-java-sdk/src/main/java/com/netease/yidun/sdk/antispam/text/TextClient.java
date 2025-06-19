@@ -21,6 +21,14 @@ import com.netease.yidun.sdk.antispam.text.v5.check.sync.batch.TextBatchCheckReq
 import com.netease.yidun.sdk.antispam.text.v5.check.sync.batch.TextBatchCheckResponse;
 import com.netease.yidun.sdk.antispam.text.v5.check.sync.single.TextCheckRequest;
 import com.netease.yidun.sdk.antispam.text.v5.check.sync.single.TextCheckResponse;
+import com.netease.yidun.sdk.antispam.text.v1.textfeature.TextFeatureAddRequest;
+import com.netease.yidun.sdk.antispam.text.v1.textfeature.TextFeatureAddResponse;
+import com.netease.yidun.sdk.antispam.text.v1.textfeature.TextFeatureDeleteRequest;
+import com.netease.yidun.sdk.antispam.text.v1.textfeature.TextFeatureDeleteResponse;
+import com.netease.yidun .sdk.antispam.text.v1.textfeature.TextFeatureQueryRequest;
+import com.netease.yidun.sdk.antispam.text.v1.textfeature.TextFeatureQueryResponse;
+import com.netease.yidun.sdk.antispam.text.v1.textfeature.TextFeatureEditStatusRequest;
+import com.netease.yidun.sdk.antispam.text.v1.textfeature.TextFeatureEditStatusResponse;
 
 /**
  * 文本client
@@ -97,5 +105,33 @@ public class TextClient extends BaseClient {
      */
     public SimilarTextSubmitResponse submitSimilarText(SimilarTextSubmitRequest request) {
         return requester.getTextCommonClient().submitSimilarText(request);
+    }
+
+    /**
+     * 添加文本特征
+     */
+    public TextFeatureAddResponse addTextFeature(TextFeatureAddRequest request) {
+        return requester.getTextCommonClient().addTextFeature(request);
+    }
+
+    /**
+     * 删除文本特征
+     */
+    public TextFeatureDeleteResponse deleteTextFeature(TextFeatureDeleteRequest request) {
+        return requester.getTextCommonClient().deleteTextFeature(request);
+    }
+
+    /**
+     * 查询文本特征
+     */
+    public TextFeatureQueryResponse queryTextFeature(TextFeatureQueryRequest request) {
+        return requester.getTextCommonClient().queryTextFeature(request);
+    }
+
+    /**
+     * 修改文本特征状态
+     */
+    public TextFeatureEditStatusResponse editTextFeatureStatus(TextFeatureEditStatusRequest request) {
+        return requester.getTextCommonClient().editTextFeatureStatus(request);
     }
 }
