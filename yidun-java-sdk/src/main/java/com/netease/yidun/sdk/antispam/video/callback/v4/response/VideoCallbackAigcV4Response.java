@@ -14,5 +14,7 @@ public class VideoCallbackAigcV4Response {
     private String taskId;
     private String dataId;
     private List<VideoDataAigcV4Response> pictures;
+    private Boolean isAigc;
+    private List<VideoImageAigcV4Response> images;
 }
 
