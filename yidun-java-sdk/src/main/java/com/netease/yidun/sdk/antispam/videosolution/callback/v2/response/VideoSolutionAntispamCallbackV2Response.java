@@ -93,6 +93,8 @@ public class VideoSolutionAntispamCallbackV2Response {
     private VideoSolutionCallbackReviewEvidenceV2Response reviewEvidences;
     private List<CensorLabelInfoV2Response> censorLabels;
 
+    private CensorExtensionV2Response censorExtension;
+
     @Data
     @AllArgsConstructor
     @NoArgsConstructor
@@ -204,5 +206,13 @@ public class VideoSolutionAntispamCallbackV2Response {
     public static class CensorLabelInfoV2Response {
         private String code;
         private String desc;
+    }
+
+    @Data
+    @Builder
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class CensorExtensionV2Response {
+        private String qualityInspectionTaskId;
     }
 }
