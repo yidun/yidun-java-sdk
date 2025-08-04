@@ -88,6 +88,34 @@ public class IRiskDetailV6Request extends BizPostJsonRequest<IRiskDetailV6Respon
      * 命中的风险标签类型
      */
     private String matchedTypes;
+    /**
+     * 游戏版本
+     */
+    private String gameVersion;
+    /**
+     * 资源版本
+     */
+    private String assetVersion;
+    /**
+     * 服务器ID
+     */
+    private String serverId;
+    /**
+     * 昵称
+     */
+    private String nickname;
+    /**
+     * 设备ID
+     */
+    private String deviceId;
+    /**
+     * 签名V1
+     */
+    private String signV1;
+    /**
+     * 签名V2
+     */
+    private String signV2;
 
     public Long getBeginTimestamp() {
         return beginTimestamp;
@@ -217,6 +245,62 @@ public class IRiskDetailV6Request extends BizPostJsonRequest<IRiskDetailV6Respon
         this.matchedTypes = matchedTypes;
     }
 
+    public String getGameVersion() {
+        return gameVersion;
+    }
+
+    public void setGameVersion(String gameVersion) {
+        this.gameVersion = gameVersion;
+    }
+
+    public String getAssetVersion() {
+        return assetVersion;
+    }
+
+    public void setAssetVersion(String assetVersion) {
+        this.assetVersion = assetVersion;
+    }
+
+    public String getServerId() {
+        return serverId;
+    }
+
+    public void setServerId(String serverId) {
+        this.serverId = serverId;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public String getDeviceId() {
+        return deviceId;
+    }
+
+    public void setDeviceId(String deviceId) {
+        this.deviceId = deviceId;
+    }
+
+    public String getSignV1() {
+        return signV1;
+    }
+
+    public void setSignV1(String signV1) {
+        this.signV1 = signV1;
+    }
+
+    public String getSignV2() {
+        return signV2;
+    }
+
+    public void setSignV2(String signV2) {
+        this.signV2 = signV2;
+    }
+
     @Override
     public Class<IRiskDetailV6Response> getResponseClass() {
         return IRiskDetailV6Response.class;
@@ -250,6 +334,13 @@ public class IRiskDetailV6Request extends BizPostJsonRequest<IRiskDetailV6Respon
         customSignParams.put("sdkIps", sdkIps);
         customSignParams.put("matchedRiskTags", matchedRiskTags);
         customSignParams.put("matchedTypes", matchedTypes);
+        customSignParams.put("gameVersion", gameVersion);
+        customSignParams.put("assetVersion", assetVersion);
+        customSignParams.put("serverId", serverId);
+        customSignParams.put("nickname", nickname);
+        customSignParams.put("deviceId", deviceId);
+        customSignParams.put("signV1", signV1);
+        customSignParams.put("signV2", signV2);
         return customSignParams;
     }
 }
