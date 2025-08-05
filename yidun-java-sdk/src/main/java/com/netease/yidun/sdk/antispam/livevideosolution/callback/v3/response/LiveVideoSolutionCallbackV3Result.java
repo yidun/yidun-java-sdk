@@ -83,6 +83,7 @@ public class LiveVideoSolutionCallbackV3Result implements BaseResponse {
         private Long duration;
         private Long billDuration;
         private Long picCount;
+        private CensorExtensionResult censorExtension;
     }
 
     @Data
@@ -334,5 +335,13 @@ public class LiveVideoSolutionCallbackV3Result implements BaseResponse {
     public static class FrontAudioSegment {
         private String url;
         private String content;
+    }
+
+    @Data
+    @Builder
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class CensorExtensionResult {
+        private String qualityInspectionTaskId;
     }
 }
