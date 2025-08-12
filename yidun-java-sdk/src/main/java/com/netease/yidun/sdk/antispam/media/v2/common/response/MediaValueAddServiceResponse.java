@@ -1,8 +1,9 @@
 package com.netease.yidun.sdk.antispam.media.v2.common.response;
 
-import com.netease.yidun.sdk.antispam.grammarfix.v1.submit.GrammarfixSubmitResponse;
-
 import java.util.List;
+
+import com.netease.yidun.sdk.antispam.grammarfix.v1.submit.GrammarfixSubmitResponse;
+import com.netease.yidun.sdk.antispam.media.v2.common.response.envidence.MediaAigc;
 
 /**
  * 融媒体增值服务信息
@@ -19,6 +20,8 @@ public class MediaValueAddServiceResponse {
     private Language language;
 
     private GrammarFix grammarFix;
+
+    private MediaAigc aigc;
 
     public Ocr getOcr() {
         return ocr;

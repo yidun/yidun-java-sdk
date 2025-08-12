@@ -46,6 +46,11 @@ public class LiveAudioFeedback {
      */
     private Integer scoreMonitorType;
 
+    /**
+     * 直播间收入
+     */
+    private Double liveIncome;
+
     @Data
     public static class LiveAudioTag {
         /**
