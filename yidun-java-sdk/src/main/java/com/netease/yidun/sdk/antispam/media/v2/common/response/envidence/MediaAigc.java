@@ -19,7 +19,7 @@ import com.netease.yidun.sdk.core.response.BaseResponse;
  * @version 2025-08-12
  */
 public class MediaAigc implements Serializable{
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = -2710613242117266355L;
     private List<MediaAigcImageUnit> images;
     private List<MediaAigcVideoUnit> audiovideos;
 
