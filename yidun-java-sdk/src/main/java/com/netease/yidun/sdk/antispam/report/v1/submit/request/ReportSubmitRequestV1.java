@@ -60,6 +60,25 @@ public class ReportSubmitRequestV1 extends PostFormRequest<ReportCheckResponseV1
     @Valid
     private List<DataItem> evidence;
 
+
+    /**
+     * 易盾信息证据，格式为json格式，支持直播音频，直播视频
+     */
+    @Valid
+    private DunEvidence dunEvidence;
+
+    /**
+     * 聊天纪录，请按照自定义不解析字段传入，格式为json数组 的字符串格式传入，支持包括文本，图片，点播语音，点播音视频，最多200条纪录
+     */
+    @Valid
+    private List<ChatRecord> chatRecords;
+
+    /**
+     * 举报记录，请按照自定义不解析字段传入，格式为json数组 的字符串格式传入，支持包括文本，图片，点播语音，点播音视频，最多200条纪录
+     */
+    @Valid
+    private List<ChatRecord> tipRecords;
+
     /**
      * 用户自定义解析字段
      */
@@ -143,11 +162,21 @@ public class ReportSubmitRequestV1 extends PostFormRequest<ReportCheckResponseV1
         params.put("reportType", getReportType());
         params.put("roomId", getRoomId());
         params.put("checkLanguageCode", getCheckLanguageCode());
+        if (dunEvidence != null) {
+            params.put("dunEvidence", GSON.toJson(dunEvidence));
+        }
+
         if (content != null && !content.isEmpty()) {
             params.put("content", GSON.toJson(getContent()));
         }
         if (evidence != null && !evidence.isEmpty()) {
             params.put("evidence", GSON.toJson(getEvidence()));
+        }
+        if (chatRecords != null && !chatRecords.isEmpty()) {
+            params.put("chatRecords", GSON.toJson(chatRecords));
+        }
+        if (tipRecords != null && !tipRecords.isEmpty()) {
+            params.put("tipRecords", GSON.toJson(tipRecords));
         }
         if (customParseFieldMap != null && !customParseFieldMap.isEmpty()) {
             for (Map.Entry<String, List<DataItem>> filed : customParseFieldMap.entrySet()) {
@@ -226,6 +255,238 @@ public class ReportSubmitRequestV1 extends PostFormRequest<ReportCheckResponseV1
             return "DataItem{" +
                     "type='" + type + '\'' +
                     ", data='" + data + '\'' +
+                    ", dataId='" + dataId + '\'' +
+                    '}';
+        }
+    }
+
+    /**
+     * 聊天记录对象
+     */
+    public static class ChatRecord {
+
+        /**
+         * 内容数据类型，分别为 text：文本，image：图片，audio：点播语音，audiovideo：音视频
+         * 必填: 是
+         * 最大长度: 10
+         */
+        @NotBlank(message = "type不能为空")
+        @Size(min = 1, max = 10, message = "type最长10个字符")
+        private String type;
+
+        /**
+         * 数据内容，类型为text时为文本内容，其它类型时为单条url
+         * 必填: 是
+         * 最大长度: 500
+         */
+        @NotBlank(message = "data不能为空")
+        private String data;
+
+        /**
+         * 时间，审核页面会原样展示
+         * 必填: 否
+         * 最大长度: 64
+         */
+        private String time;
+
+        /**
+         * 发送人账号，一般为举报人账号或者被举报人账号
+         * 必填: 否
+         * 最大长度: 64
+         */
+        private String userId;
+
+        /**
+         * 本次说话人昵称
+         * 必填: 否
+         * 最大长度: 64
+         */
+        private String nickname;
+
+        // -------------------- Getter Methods --------------------
+
+        public String getType() {
+            return type;
+        }
+
+        public String getData() {
+            return data;
+        }
+
+        public String getTime() {
+            return time;
+        }
+
+        public String getUserId() {
+            return userId;
+        }
+
+        public String getNickname() {
+            return nickname;
+        }
+
+        // -------------------- Setter Methods --------------------
+
+        public void setType(String type) {
+            this.type = type;
+        }
+
+        public void setData(String data) {
+            this.data = data;
+        }
+
+        public void setTime(String time) {
+            this.time = time;
+        }
+
+        public void setUserId(String userId) {
+            this.userId = userId;
+        }
+
+        public void setNickname(String nickname) {
+            this.nickname = nickname;
+        }
+
+        // -------------------- 链式调用方法 (Fluent API) --------------------
+
+        public ChatRecord type(String type) {
+            this.type = type;
+            return this;
+        }
+
+        public ChatRecord data(String data) {
+            this.data = data;
+            return this;
+        }
+
+        public ChatRecord time(String time) {
+            this.time = time;
+            return this;
+        }
+
+        public ChatRecord userId(String userId) {
+            this.userId = userId;
+            return this;
+        }
+
+        public ChatRecord nickname(String nickname) {
+            this.nickname = nickname;
+            return this;
+        }
+
+        // -------------------- toString --------------------
+
+        @Override
+        public String toString() {
+            return "ChatRecord{" +
+                    "type='" + type + '\'' +
+                    ", data='" + data + '\'' +
+                    ", time='" + time + '\'' +
+                    ", userId='" + userId + '\'' +
+                    ", nickname='" + nickname + '\'' +
+                    '}';
+        }
+    }
+
+
+    /**
+     * 易盾信息证据对象
+     */
+    public static class DunEvidence {
+
+        /**
+         * 类型，分别为 liveaudiovideo-直播音视频，liveaudio-直播音频
+         * 必填: 是
+         * 最大长度: 10
+         */
+        @NotBlank(message = "type不能为空")
+        @Size(min = 1, max = 10, message = "type最长10个字符")
+        private String type;
+
+        /**
+         * 直播音视频/直播音频提交数据时易盾返回的taskId
+         * 必填: 是
+         * 最大长度: 32
+         */
+        @NotBlank(message = "taskId不能为空")
+        private String taskId;
+
+        /**
+         * 回溯时间范围，从举报时间(字段publishTime)往前回溯的时长，单位s，默认90
+         * 必填: 否
+         * 最大长度: 64
+         */
+        private Long timeRange;
+
+        /**
+         * 数据唯一标识
+         * 必填: 否
+         * 最大长度: 128
+         */
+        @Size(max = 128, message = "dataId最长128个字符")
+        private String dataId;
+
+        // -------------------- Getter Methods --------------------
+
+        public String getType() {
+            return type;
+        }
+
+        public String getTaskId() {
+            return taskId;
+        }
+
+        public Long getTimeRange() {
+            return timeRange;
+        }
+
+        public String getDataId() {
+            return dataId;
+        }
+
+        // -------------------- Setter Methods --------------------
+
+        public void setType(String type) {
+            this.type = type;
+        }
+
+        public void setTaskId(String taskId) {
+            this.taskId = taskId;
+        }
+
+        public void setTimeRange(Long timeRange) {
+            this.timeRange = timeRange;
+        }
+
+        public void setDataId(String dataId) {
+            this.dataId = dataId;
+        }
+
+        public DunEvidence type(String type) {
+            this.type = type;
+            return this;
+        }
+
+        public DunEvidence taskId(String taskId) {
+            this.taskId = taskId;
+            return this;
+        }
+        public DunEvidence timeRange(Long timeRange) {
+            this.timeRange = timeRange;
+            return this;
+        }
+        public DunEvidence dataId(String dataId) {
+            this.dataId = dataId;
+            return this;
+        }
+
+
+        @Override
+        public String toString() {
+            return "DunEvidence{" +
+                    "type='" + type + '\'' +
+                    ", taskId='" + taskId + '\'' +
+                    ", timeRange=" + timeRange +
                     ", dataId='" + dataId + '\'' +
                     '}';
         }
@@ -313,6 +574,21 @@ public class ReportSubmitRequestV1 extends PostFormRequest<ReportCheckResponseV1
 
     public ReportSubmitRequestV1 evidence(List<DataItem> evidence) {
         this.evidence = evidence;
+        return this;
+    }
+
+    public ReportSubmitRequestV1 dunEvidence(DunEvidence dunEvidence) {
+        this.dunEvidence = dunEvidence;
+        return this;
+    }
+
+    public ReportSubmitRequestV1 chatRecords(List<ChatRecord> chatRecords) {
+        this.chatRecords = chatRecords;
+        return this;
+    }
+
+    public ReportSubmitRequestV1 tipRecords(List<ChatRecord> tipRecords) {
+        this.tipRecords = tipRecords;
         return this;
     }
 
@@ -470,6 +746,9 @@ public class ReportSubmitRequestV1 extends PostFormRequest<ReportCheckResponseV1
                 ", dataId='" + dataId + '\'' +
                 ", content=" + content +
                 ", evidence=" + evidence +
+                ", dunEvidence=" + dunEvidence +
+                ", chatRecords=" + chatRecords +
+                ", tipRecords=" + tipRecords +
                 ", customParseFieldMap=" + customParseFieldMap +
                 ", customUnParseFieldMap=" + customUnParseFieldMap +
                 ", callback='" + callback + '\'' +
