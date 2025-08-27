@@ -24,6 +24,11 @@ public class LiveWallSolutionFeedback {
     private Integer giftCount;
 
     /**
+     * 直播间收入
+     */
+    private Double liveIncome;
+
+    /**
      * 弹幕数,-1或者null代表不更新
      */
     private Integer barrageCount;
