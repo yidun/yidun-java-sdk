@@ -81,13 +81,13 @@ public class IRiskDetailV6Request extends BizPostJsonRequest<IRiskDetailV6Respon
      */
     private String sdkIps;
     /**
-     * 命中的风险标签
-     */
-    private String matchedRiskTags;
-    /**
      * 命中的风险标签类型
      */
     private String matchedTypes;
+    /**
+     * 命中的风险标签类型的查询逻辑，1-或查询，2-且查询
+     */
+    private Integer matchedTypesQueryLogic;
     /**
      * 游戏版本
      */
@@ -229,20 +229,20 @@ public class IRiskDetailV6Request extends BizPostJsonRequest<IRiskDetailV6Respon
         this.sdkIps = sdkIps;
     }
 
-    public String getMatchedRiskTags() {
-        return matchedRiskTags;
-    }
-
-    public void setMatchedRiskTags(String matchedRiskTags) {
-        this.matchedRiskTags = matchedRiskTags;
-    }
-
     public String getMatchedTypes() {
         return matchedTypes;
     }
 
     public void setMatchedTypes(String matchedTypes) {
         this.matchedTypes = matchedTypes;
+    }
+
+    public Integer getMatchedTypesQueryLogic() {
+        return matchedTypesQueryLogic;
+    }
+
+    public void setMatchedTypesQueryLogic(Integer matchedTypesQueryLogic) {
+        this.matchedTypesQueryLogic = matchedTypesQueryLogic;
     }
 
     public String getGameVersion() {
@@ -332,8 +332,10 @@ public class IRiskDetailV6Request extends BizPostJsonRequest<IRiskDetailV6Respon
         customSignParams.put("ips", ips);
         customSignParams.put("sdkIp", sdkIp);
         customSignParams.put("sdkIps", sdkIps);
-        customSignParams.put("matchedRiskTags", matchedRiskTags);
         customSignParams.put("matchedTypes", matchedTypes);
+        if (matchedTypesQueryLogic != null) {
+            customSignParams.put("matchedTypesQueryLogic", String.valueOf(matchedTypesQueryLogic));
+        }
         customSignParams.put("gameVersion", gameVersion);
         customSignParams.put("assetVersion", assetVersion);
         customSignParams.put("serverId", serverId);
