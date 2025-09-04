@@ -307,6 +307,10 @@ public class LiveVideoSolutionCallbackV3Result implements BaseResponse {
          * 截图开始时间
          */
         private Long beginTime;
+        /**
+         * 截图id
+         */
+        private String pictureId;
     }
 
     @Data
@@ -328,6 +332,10 @@ public class LiveVideoSolutionCallbackV3Result implements BaseResponse {
          * 人审断句音频地址
          */
         private String url;
+        /**
+         * 音频片段id
+         */
+        private String segmentId;
     }
 
     @Data
