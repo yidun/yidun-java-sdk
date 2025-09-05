@@ -261,6 +261,8 @@ public class VideoSolutionSubmitV2Req extends PostFormRequest<VideoSolutionSubmi
         params.put("relationship", getRelationship());
         params.put("relatedKeys", getRelatedKeys());
         params.put("extension", getExtension());
+        params.put("adSector", getAdSector());
+        params.put("adAccountName", getAdAccountName());
         return params;
     }
 
