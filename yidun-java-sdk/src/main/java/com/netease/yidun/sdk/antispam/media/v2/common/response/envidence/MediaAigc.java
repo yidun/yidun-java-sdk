@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.netease.yidun.sdk.antispam.image.v5.check.sync.response.ImageAigcV5Detail;
+import com.netease.yidun.sdk.antispam.image.v5.check.sync.response.ImageAigcV5SignageResp;
 import com.netease.yidun.sdk.antispam.media.v2.common.response.MediaValueAddServiceResponse;
 import com.netease.yidun.sdk.core.response.BaseResponse;
 
@@ -60,6 +61,17 @@ public class MediaAigc implements Serializable{
         private String taskId;
         private String dataId;
         private String field;
+        /**
+         * 是否aigc命中
+         */
+        private Boolean isAigc;
+        private Float aigcRate;
+        private Integer aigcLevel;
+        /**
+         * aigc命中信息
+         */
+        private MediaSignageInfo signage;
+
         private List<MediaAigcVideoDetail> pictures;
 
         public String getTaskId() {
@@ -92,6 +104,38 @@ public class MediaAigc implements Serializable{
 
         public void setPictures(List<MediaAigcVideoDetail> pictures) {
             this.pictures = pictures;
+        }
+
+        public Boolean getAigc() {
+            return isAigc;
+        }
+
+        public void setAigc(Boolean aigc) {
+            isAigc = aigc;
+        }
+
+        public Float getAigcRate() {
+            return aigcRate;
+        }
+
+        public void setAigcRate(Float aigcRate) {
+            this.aigcRate = aigcRate;
+        }
+
+        public Integer getAigcLevel() {
+            return aigcLevel;
+        }
+
+        public void setAigcLevel(Integer aigcLevel) {
+            this.aigcLevel = aigcLevel;
+        }
+
+        public MediaSignageInfo getSignage() {
+            return signage;
+        }
+
+        public void setSignage(MediaSignageInfo signage) {
+            this.signage = signage;
         }
     }
 
@@ -143,6 +187,15 @@ public class MediaAigc implements Serializable{
          * aigc分数
          */
         private Float aigcRate;
+        /**
+         * aigc等级
+         */
+        private Integer aigcLevel;
+
+        /**
+         * aigc命中信息
+         */
+        private MediaSignageInfo signageInfoDo;
 
         public Boolean getAigc() {
             return isAigc;
@@ -158,6 +211,22 @@ public class MediaAigc implements Serializable{
 
         public void setAigcRate(Float aigcRate) {
             this.aigcRate = aigcRate;
+        }
+
+        public Integer getAigcLevel() {
+            return aigcLevel;
+        }
+
+        public void setAigcLevel(Integer aigcLevel) {
+            this.aigcLevel = aigcLevel;
+        }
+
+        public MediaSignageInfo getSignageInfoDo() {
+            return signageInfoDo;
+        }
+
+        public void setSignageInfoDo(MediaSignageInfo signageInfoDo) {
+            this.signageInfoDo = signageInfoDo;
         }
     }
 }
