@@ -16,5 +16,18 @@ public class VideoCallbackAigcV4Response {
     private List<VideoDataAigcV4Response> pictures;
     private Boolean isAigc;
     private List<VideoImageAigcV4Response> images;
+    /**
+     * 2:确定 1:嫌疑 0:正常
+     *
+     */
+    private Integer aigcLevel;
+    /**
+     * aigc分数
+     */
+    private Float aigcRate;
+    /**
+     * 人工智能生成标识信息
+     */
+    private AigcV5SignageResp signage;
 }
 
