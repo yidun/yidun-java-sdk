@@ -11,12 +11,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.netease.yidun.sdk.antispam.image.v5.check.sync.response.ImageAigcV5Detail;
-import com.netease.yidun.sdk.antispam.image.v5.check.sync.response.ImageAigcV5SignageResp;
 import com.netease.yidun.sdk.antispam.media.v2.common.response.MediaValueAddServiceResponse;
 import com.netease.yidun.sdk.core.response.BaseResponse;
 
 /**
- * @author hzchenyingyou
  * @version 2025-08-12
  */
 public class MediaAigc implements Serializable{

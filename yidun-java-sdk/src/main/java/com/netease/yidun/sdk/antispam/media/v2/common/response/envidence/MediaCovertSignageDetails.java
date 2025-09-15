@@ -8,13 +8,7 @@ package com.netease.yidun.sdk.antispam.media.v2.common.response.envidence;
 
 import java.io.Serializable;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 /**
- * @author hzchenyingyou
  * @version 2025-09-08
  */
 public class MediaCovertSignageDetails implements Serializable {

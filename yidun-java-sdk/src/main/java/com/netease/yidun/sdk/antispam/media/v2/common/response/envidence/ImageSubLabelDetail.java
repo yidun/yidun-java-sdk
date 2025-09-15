@@ -1,11 +1,13 @@
 package com.netease.yidun.sdk.antispam.media.v2.common.response.envidence;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * 图片标签详细信息
  */
-public class ImageSubLabelDetail {
+public class ImageSubLabelDetail implements Serializable {
+    private static final long serialVersionUID = -1888338016731782509L;
 
     /**
      * 反垃圾自定义敏感词结果
@@ -23,6 +25,11 @@ public class ImageSubLabelDetail {
      * saas自定义规则
      */
     private List<ImageSubLabelDetailInfo> rules;
+
+    /**
+     * 反作弊结果
+     */
+    private AnticheatInfo anticheat;
 
     public List<ImageSubLabelDetailInfo> getKeywords() {
         return keywords;
@@ -54,6 +61,14 @@ public class ImageSubLabelDetail {
 
     public void setRules(List<ImageSubLabelDetailInfo> rules) {
         this.rules = rules;
+    }
+
+    public AnticheatInfo getAnticheat() {
+        return anticheat;
+    }
+
+    public void setAnticheat(AnticheatInfo anticheat) {
+        this.anticheat = anticheat;
     }
 
     public static class ImageSubLabelDetailInfo {
@@ -153,6 +168,19 @@ public class ImageSubLabelDetail {
 
         public void setY2(Float y2) {
             this.y2 = y2;
+        }
+    }
+
+    public static class AnticheatInfo implements Serializable {
+        private static final long serialVersionUID = -7293932029976375265L;
+        private Integer hitType;
+
+        public Integer getHitType() {
+            return hitType;
+        }
+
+        public void setHitType(Integer hitType) {
+            this.hitType = hitType;
         }
     }
 }

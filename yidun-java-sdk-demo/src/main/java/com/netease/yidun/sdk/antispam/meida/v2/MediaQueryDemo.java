@@ -23,6 +23,10 @@ public class MediaQueryDemo extends AbstractDemo {
 
         // 实例化请求对象
         MediaQueryRequestV2 request = new MediaQueryRequestV2();
+        /**
+         * 数据抄送接口协议的版本号, 默认值v2.1，注意与抄送时的版本号保持一致
+         */
+        request.setVersion("v2.1");
 
         // 请求对象中的其他参数如果有需要，请参考官方接口文档中字段说明，按需添加
         MediaCallbackResponseV2 response = null;

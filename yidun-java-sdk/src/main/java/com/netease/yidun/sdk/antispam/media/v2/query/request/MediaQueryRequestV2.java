@@ -47,6 +47,10 @@ public class MediaQueryRequestV2 extends PostFormRequest<MediaCallbackResponseV2
         this.taskIds = taskIds;
     }
 
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
     @Override
     public String toString() {
         return "MediaQueryRequestV2{" +

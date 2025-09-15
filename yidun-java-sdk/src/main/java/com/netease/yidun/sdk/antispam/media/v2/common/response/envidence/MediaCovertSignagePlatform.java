@@ -9,7 +9,6 @@ package com.netease.yidun.sdk.antispam.media.v2.common.response.envidence;
 import java.io.Serializable;
 
 /**
- * @author hzchenyingyou
  * @version 2025-09-08
  */
 public class MediaCovertSignagePlatform implements Serializable {
