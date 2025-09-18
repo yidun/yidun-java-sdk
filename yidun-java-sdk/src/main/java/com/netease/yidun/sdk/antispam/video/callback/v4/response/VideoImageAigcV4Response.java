@@ -69,9 +69,17 @@ public class VideoImageAigcV4Response implements Serializable {
          */
         private Boolean isAigc;
         /**
+         * 2:确定 1:嫌疑 0:正常
+         */
+        private Integer aigcLevel;
+        /**
          * aigc分数
          */
         private Float aigcRate;
+        /**
+         * 人工智能生成标识信息
+         */
+        private AigcV5SignageResp signage;
 
         public Boolean getAigc() {
             return isAigc;
@@ -87,6 +95,22 @@ public class VideoImageAigcV4Response implements Serializable {
 
         public void setAigcRate(Float aigcRate) {
             this.aigcRate = aigcRate;
+        }
+
+        public Integer getAigcLevel() {
+            return aigcLevel;
+        }
+
+        public void setAigcLevel(Integer aigcLevel) {
+            this.aigcLevel = aigcLevel;
+        }
+
+        public AigcV5SignageResp getSignage() {
+            return signage;
+        }
+
+        public void setSignage(AigcV5SignageResp signage) {
+            this.signage = signage;
         }
 
 
