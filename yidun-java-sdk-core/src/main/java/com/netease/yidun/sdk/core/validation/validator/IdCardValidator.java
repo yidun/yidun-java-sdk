@@ -28,10 +28,10 @@ public class IdCardValidator implements LimitationValidator<CheckIdCard, String>
      *     91 : 国外
      * </pre>
      */
-    private static String cityCode[] = {
+    private static String[] cityCode = new String[]{
             "11", "12", "13", "14", "15", "21", "22", "23", "31", "32", "33", "34", "35", "36", "37", "41", "42", "43",
             "44", "45",
-            "46", "50", "51", "52", "53", "54", "61", "62", "63", "64", "65", "71", "81", "82", "91"};
+            "46", "50", "51", "52", "53", "54", "61", "62", "63", "64", "65", "71", "81", "82", "83", "91"};
 
     /**
      * 每位加权因子
@@ -87,55 +87,43 @@ public class IdCardValidator implements LimitationValidator<CheckIdCard, String>
     public static boolean validate18Idcard(String idcard) {
         if (idcard == null) {
             return false;
-        }
-
-        // 非18位为假
-        if (idcard.length() != 18) {
+        } else if (idcard.length() != 18) {
             return false;
-        }
-        // 获取前17位
-        String idcard17 = idcard.substring(0, 17);
-
-        // 前17位全部为数字
-        if (!isDigital(idcard17)) {
-            return false;
-        }
-
-        String provinceid = idcard.substring(0, 2);
-        // 校验省份
-        if (!checkProvinceid(provinceid)) {
-            return false;
-        }
-
-        // 校验出生日期
-        String birthday = idcard.substring(6, 14);
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-        try {
-            Date birthDate = sdf.parse(birthday);
-            String tmpDate = sdf.format(birthDate);
-            if (!tmpDate.equals(birthday)) {// 出生年月日不正确
+        } else {
+            String idcard17 = idcard.substring(0, 17);
+            if (!isDigital(idcard17)) {
                 return false;
-            }
-        } catch (ParseException e1) {
-            return false;
-        }
+            } else {
+                String provinceid = idcard.substring(0, 2);
+                if (!checkProvinceid(provinceid)) {
+                    return false;
+                } else {
+                    String birthday = idcard.substring(6, 14);
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 
-        // 获取第18位
-        String idcard18Code = idcard.substring(17, 18);
-        char c[] = idcard17.toCharArray();
-        int bit[] = converCharToInt(c);
-        int sum17 = 0;
-        sum17 = getPowerSum(bit);
-        // 将和值与11取模得到余数进行校验码判断
-        String checkCode = getCheckCodeBySum(sum17);
-        if (null == checkCode) {
-            return false;
+                    try {
+                        Date birthDate = sdf.parse(birthday);
+                        String tmpDate = sdf.format(birthDate);
+                        if (!tmpDate.equals(birthday)) {
+                            return false;
+                        }
+                    } catch (ParseException var10) {
+                        return false;
+                    }
+
+                    String idcard18Code = idcard.substring(17, 18);
+                    char[] c = idcard17.toCharArray();
+                    int[] bit = converCharToInt(c);
+                    int sum17 = getPowerSum(bit);
+                    String checkCode = getCheckCodeBySum(sum17);
+                    if (null == checkCode) {
+                        return false;
+                    } else {
+                        return idcard18Code.equalsIgnoreCase(checkCode);
+                    }
+                }
+            }
         }
-        // 将身份证的第18位与算出来的校码进行匹配，不相等就为假
-        if (!idcard18Code.equalsIgnoreCase(checkCode)) {
-            return false;
-        }
-        return true;
     }
 
     /**
