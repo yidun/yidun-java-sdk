@@ -24,4 +24,8 @@ public class VideoCallbackV4Result {
      * 视频aigc检测结果
      */
     private VideoCallbackAigcV4Response aigc;
+    /**
+     * 视频大模型检测结果
+     */
+    private VideoCallbackLlmCheckV4Info llmCheckInfo;
 }
