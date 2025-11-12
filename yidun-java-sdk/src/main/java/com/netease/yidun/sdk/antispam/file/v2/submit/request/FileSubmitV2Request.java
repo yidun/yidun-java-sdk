@@ -76,6 +76,11 @@ public class FileSubmitV2Request extends PostFormRequest<FileSubmitV2Response> {
      * 额外过的策略组
      */
     private String checkStrategyGroupIds;
+    /**
+     * extension
+     */
+    @Size(max = 30000, message = "extension最长30000个字符")
+    private String extension;
 
     public FileSubmitV2Request() {
         productCode = "file";
@@ -97,7 +102,7 @@ public class FileSubmitV2Request extends PostFormRequest<FileSubmitV2Response> {
         params.put("ip", getIp());
         params.put("callback", getCallback());
         params.put("callbackUrl", getCallbackUrl());
-
+        params.put("extension", getExtension());
         return params;
     }
 
@@ -205,6 +210,13 @@ public class FileSubmitV2Request extends PostFormRequest<FileSubmitV2Response> {
     public void setCheckStrategyGroupIds(String checkStrategyGroupIds) {
         this.checkStrategyGroupIds = checkStrategyGroupIds;
     }
+    public String getExtension() {
+        return extension;
+    }
+
+    public void setExtension(String extension) {
+        this.extension = extension;
+    }
 
     @Override
     public String toString() {
@@ -220,6 +232,7 @@ public class FileSubmitV2Request extends PostFormRequest<FileSubmitV2Response> {
                 ", ip='" + ip + '\'' +
                 ", callback='" + callback + '\'' +
                 ", callbackUrl='" + callbackUrl + '\'' +
+                ", extension='" + extension + '\'' +
                 '}';
     }
 }
