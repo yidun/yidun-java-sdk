@@ -29,6 +29,15 @@ public class MediaAntispamResponse {
     private String thirdLabel;
 
     /**
+     * 嫌疑级别，针对部分定制策略支持命中嫌疑时返回，1：低嫌疑，2：高嫌疑
+     */
+    private Integer suggestionLevel;
+
+    /**
+     * 风险描述，拼接 label｜secondlabel｜thirdlabel 的中文实时示意，注意分隔使用「｜」
+     */
+    private String riskDescription;
+    /**
      * 审核类型，1:机器检测，2:审核
      */
     private Integer resultType;
@@ -139,6 +148,22 @@ public class MediaAntispamResponse {
         this.thirdLabel = thirdLabel;
     }
 
+    public Integer getSuggestionLevel() {
+        return suggestionLevel;
+    }
+
+    public void setSuggestionLevel(Integer suggestionLevel) {
+        this.suggestionLevel = suggestionLevel;
+    }
+
+    public String getRiskDescription() {
+        return riskDescription;
+    }
+
+    public void setRiskDescription(String riskDescription) {
+        this.riskDescription = riskDescription;
+    }
+
     @Override
     public String toString() {
         return "MediaAntispamResponse{" +
@@ -148,6 +173,8 @@ public class MediaAntispamResponse {
                 ", label=" + label +
                 ", secondLabel='" + secondLabel + '\'' +
                 ", thirdLabel='" + thirdLabel + '\'' +
+                ", suggestionLevel=" + suggestionLevel +
+                ", riskDescription='" + riskDescription + '\'' +
                 ", resultType=" + resultType +
                 ", callback='" + callback + '\'' +
                 ", checkStatus=" + checkStatus +
