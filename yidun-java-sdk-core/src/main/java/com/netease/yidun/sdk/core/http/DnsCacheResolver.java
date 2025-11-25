@@ -44,9 +44,6 @@ public class DnsCacheResolver implements DnsResolver {
 
     @Override
     public InetAddress[] resolve(String host) throws UnknownHostException {
-        if (host == null) {
-            throw new UnknownHostException("host must not be null");
-        }
         String ip = dnsCache.get(host);
         if (ip != null) {
             try {
@@ -61,10 +58,6 @@ public class DnsCacheResolver implements DnsResolver {
 
     @Override
     public String resolveCanonicalHostname(String host) throws UnknownHostException {
-        if (host == null) {
-            return null;
-        }
-
         // 如果命中DNS缓存，返回原始域名（而不是IP地址）
         // 这样更符合"规范主机名"的语义，且与高层协议（HTTP、TLS等）兼容
         String ip = dnsCache.get(host);
