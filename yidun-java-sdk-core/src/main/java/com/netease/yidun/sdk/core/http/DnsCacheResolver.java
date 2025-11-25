@@ -6,6 +6,7 @@ import org.apache.hc.client5.http.SystemDefaultDnsResolver;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -38,8 +39,9 @@ public class DnsCacheResolver implements DnsResolver {
      * @param dnsCache 域名到IP的映射Map，传入null或空map表示不使用DNS缓存
      */
     public DnsCacheResolver(Map<String, String> dnsCache) {
-        this.dnsCache = (dnsCache != null && !dnsCache.isEmpty()) ? Collections.unmodifiableMap(
-                dnsCache) : Collections.emptyMap();
+        this.dnsCache = (dnsCache != null && !dnsCache.isEmpty())
+                ? Collections.unmodifiableMap(new HashMap<>(dnsCache))
+                : Collections.emptyMap();
     }
 
     @Override
