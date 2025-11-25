@@ -6,6 +6,8 @@
 
 package com.netease.yidun.sdk.core.http;
 
+import java.util.Map;
+
 /**
  * HTTP客户端相关配置
  */
@@ -36,6 +38,7 @@ public class HttpClientConfig {
     private String proxyScheme;
     private String proxyHost;
     private int proxyPort = DEFAULT_PROXY_PORT;
+    private Map<String, String> dnsCache;
 
     public ProtocolEnum getProtocol() {
         return protocol;
@@ -323,23 +326,41 @@ public class HttpClientConfig {
         return this;
     }
 
+    public Map<String, String> getDnsCache() {
+        return dnsCache;
+    }
+
+    public HttpClientConfig dnsCache(Map<String, String> dnsCache) {
+        this.dnsCache = dnsCache;
+        return this;
+    }
+
+    public void setDnsCache(Map<String, String> dnsCache) {
+        this.dnsCache = dnsCache;
+    }
+
+    public Map<String, String> dnsCache() {
+        return dnsCache;
+    }
+
     @Override
     public String toString() {
         return "HttpClientConfig(" +
-                "protocol=" + protocol +
-                ", socketTimeoutMillis=" + socketTimeoutMillis +
-                ", maxIdleTimeMillis=" + maxIdleTimeMillis +
-                ", connectionRequestTimeoutMillis=" + connectionRequestTimeoutMillis +
-                ", connectionKeepAliveMillis=" + connectionKeepAliveMillis +
-                ", connectionTimeoutMillis=" + connectionTimeoutMillis +
-                ", responseTimeoutMillis=" + responseTimeoutMillis +
-                ", maxConnectionCount=" + maxConnectionCount +
-                ", maxConnectionCountPerRoute=" + maxConnectionCountPerRoute +
-                ", maxNoResponseRetryCount=" + maxNoResponseRetryCount +
-                ", proxyScheme=" + proxyScheme +
-                ", proxyHost=" + proxyHost +
-                ", proxyPort=" + proxyPort +
-                ")";
+               "protocol=" + protocol +
+               ", socketTimeoutMillis=" + socketTimeoutMillis +
+               ", maxIdleTimeMillis=" + maxIdleTimeMillis +
+               ", connectionRequestTimeoutMillis=" + connectionRequestTimeoutMillis +
+               ", connectionKeepAliveMillis=" + connectionKeepAliveMillis +
+               ", connectionTimeoutMillis=" + connectionTimeoutMillis +
+               ", responseTimeoutMillis=" + responseTimeoutMillis +
+               ", maxConnectionCount=" + maxConnectionCount +
+               ", maxConnectionCountPerRoute=" + maxConnectionCountPerRoute +
+               ", maxNoResponseRetryCount=" + maxNoResponseRetryCount +
+               ", proxyScheme=" + proxyScheme +
+               ", proxyHost=" + proxyHost +
+               ", proxyPort=" + proxyPort +
+               ", dnsCache=" + dnsCache +
+               ")";
     }
 
     public static HttpClientConfig defaultConfig() {

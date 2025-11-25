@@ -1,5 +1,3 @@
-
-
 package com.netease.yidun.sdk.core.http;
 
 import com.netease.yidun.sdk.core.client.NoResponseRetryStrategy;
@@ -21,33 +19,41 @@ public class HttpClientFactory {
 
     public static CloseableHttpClient create(HttpClientConfig config) {
         RequestConfig requestConfig = RequestConfig.custom()
-                .setDefaultKeepAlive(config.connectionKeepAliveMillis(), TimeUnit.MILLISECONDS)
-                .setConnectionRequestTimeout(config.connectionRequestTimeoutMillis(), TimeUnit.MILLISECONDS)
-                .setConnectTimeout(config.connectionTimeoutMillis(), TimeUnit.MILLISECONDS)
-                .setResponseTimeout(config.responseTimeoutMillis(), TimeUnit.MILLISECONDS)
-                .setProxy(StringUtils.isNotBlank(config.getProxyHost()) ? new HttpHost(config.proxyScheme(), config.proxyHost(), config.proxyPort()) : null)
-                .build();
+                                                   .setDefaultKeepAlive(config.connectionKeepAliveMillis(),
+                                                                        TimeUnit.MILLISECONDS)
+                                                   .setConnectionRequestTimeout(config.connectionRequestTimeoutMillis(),
+                                                                                TimeUnit.MILLISECONDS)
+                                                   .setConnectTimeout(config.connectionTimeoutMillis(), TimeUnit.MILLISECONDS)
+                                                   .setResponseTimeout(config.responseTimeoutMillis(), TimeUnit.MILLISECONDS)
+                                                   .setProxy(StringUtils.isNotBlank(config.getProxyHost()) ? new HttpHost(config.proxyScheme(), config.proxyHost(), config.proxyPort()) : null)
+                                                   .build();
 
         SocketConfig socketConfig = SocketConfig.custom()
-                .setSoTimeout(config.socketTimeoutMillis(), TimeUnit.MILLISECONDS)
-                .build();
+                                                .setSoTimeout(config.socketTimeoutMillis(), TimeUnit.MILLISECONDS)
+                                                .build();
+
+        DnsCacheResolver dnsResolver = new DnsCacheResolver(config.dnsCache());
 
         PoolingHttpClientConnectionManager connManager = PoolingHttpClientConnectionManagerBuilder.create()
-                .setMaxConnTotal(config.maxConnectionCount())
-                .setMaxConnPerRoute(config.maxConnectionCountPerRoute())
-                .setDefaultSocketConfig(socketConfig)
-                .build();
+                                                                                                  .setMaxConnTotal(
+                                                                                                          config.maxConnectionCount())
+                                                                                                  .setMaxConnPerRoute(
+                                                                                                          config.maxConnectionCountPerRoute())
+                                                                                                  .setDefaultSocketConfig(
+                                                                                                          socketConfig)
+                                                                                                  .setDnsResolver(dnsResolver)
+                                                                                                  .build();
 
         return HttpClients.custom()
-                .evictIdleConnections(TimeValue.of(config.maxIdleTimeMillis(), TimeUnit.MILLISECONDS))
-                .evictExpiredConnections()
-                .setConnectionManager(connManager)
-                .setDefaultRequestConfig(requestConfig)
-                .useSystemProperties()
-                // 设置版本号在ua上，方便统计
-                .setUserAgent(getCustomizeSdkUserAgent())
-                .setRetryStrategy(new NoResponseRetryStrategy(config.maxNoResponseRetryCount(), 10))
-                .build();
+                          .evictIdleConnections(TimeValue.of(config.maxIdleTimeMillis(), TimeUnit.MILLISECONDS))
+                          .evictExpiredConnections()
+                          .setConnectionManager(connManager)
+                          .setDefaultRequestConfig(requestConfig)
+                          .useSystemProperties()
+                          // 设置版本号在ua上，方便统计
+                          .setUserAgent(getCustomizeSdkUserAgent())
+                          .setRetryStrategy(new NoResponseRetryStrategy(config.maxNoResponseRetryCount(), 10))
+                          .build();
     }
 
     /**
@@ -64,11 +70,12 @@ public class HttpClientFactory {
 
     /**
      * 获取默认的user-agent（和HttpClientBuilder包中设置的保持一致）
+     *
      * @return 默认的user-agent
      */
     private static String getDefaultUserAgent() {
         return VersionInfo.getSoftwareInfo("Apache-HttpClient",
-                "org.apache.hc.client5", HttpClientBuilder.class);
+                                           "org.apache.hc.client5", HttpClientBuilder.class);
     }
 
 }
