@@ -7,13 +7,12 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Collections;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 支持DNS缓存的DNS解析器
- * 允许将特定域名映射到指定的IP地址，从而绕过DNS解析，加速请求
  * <p>
- * 支持动态添加、删除和更新DNS缓存映射
+ * 允许将特定域名映射到指定的IP地址，从而绕过DNS解析，加速请求。
+ * DNS缓存配置在初始化后不可变，适用于域名IP固定或变更频率低的场景。
  * </p>
  */
 public class DnsCacheResolver implements DnsResolver {
@@ -23,31 +22,31 @@ public class DnsCacheResolver implements DnsResolver {
     /**
      * 创建DNS缓存解析器
      * <p>
-     * 创建支持动态更新的DNS缓存解析器，无初始配置
+     * 不使用DNS缓存，所有域名都将使用系统DNS解析
      * </p>
      */
     public DnsCacheResolver() {
-        this.dnsCache = new ConcurrentHashMap<>();
+        this.dnsCache = Collections.emptyMap();
     }
 
     /**
-     * 创建DNS缓存解析器并初始化
+     * 创建DNS缓存解析器并初始化DNS缓存映射
      * <p>
-     * 创建支持动态更新的DNS缓存解析器，并传入初始DNS映射配置
-     * 后续可以通过 put/putAll/remove 等方法动态更新DNS映射
+     * DNS缓存配置在初始化后不可变。如果需要更新DNS映射，需要重新创建HttpClient。
      * </p>
      *
-     * @param initialCache 初始DNS缓存映射，传入null或空map表示无初始配置
+     * @param dnsCache 域名到IP的映射Map，传入null或空map表示不使用DNS缓存
      */
-    public DnsCacheResolver(Map<String, String> initialCache) {
-        this.dnsCache = new ConcurrentHashMap<>();
-        if (initialCache != null && !initialCache.isEmpty()) {
-            this.dnsCache.putAll(initialCache);
-        }
+    public DnsCacheResolver(Map<String, String> dnsCache) {
+        this.dnsCache = (dnsCache != null && !dnsCache.isEmpty()) ? Collections.unmodifiableMap(
+                dnsCache) : Collections.emptyMap();
     }
 
     @Override
     public InetAddress[] resolve(String host) throws UnknownHostException {
+        if (host == null) {
+            throw new UnknownHostException("host must not be null");
+        }
         String ip = dnsCache.get(host);
         if (ip != null) {
             try {
@@ -62,56 +61,31 @@ public class DnsCacheResolver implements DnsResolver {
 
     @Override
     public String resolveCanonicalHostname(String host) throws UnknownHostException {
-        InetAddress[] addresses = resolve(host);
-        return addresses[0].getCanonicalHostName();
-    }
-
-    /**
-     * 添加或更新DNS缓存映射
-     *
-     * @param host 域名（如：as.dun.163.com）
-     * @param ip   IP地址（如：110.110.110.110）
-     * @return 之前的IP地址，如果没有则为null
-     */
-    public String put(String host, String ip) {
-        return dnsCache.put(host, ip);
-    }
-
-    /**
-     * 批量添加DNS缓存映射
-     *
-     * @param mappings 域名到IP的映射
-     */
-    public void putAll(Map<String, String> mappings) {
-        if (mappings != null && !mappings.isEmpty()) {
-            dnsCache.putAll(mappings);
+        if (host == null) {
+            return null;
         }
-    }
 
-    /**
-     * 删除DNS缓存映射
-     *
-     * @param host 域名
-     * @return 被删除的IP地址，如果没有则为null
-     */
-    public String remove(String host) {
-        return dnsCache.remove(host);
-    }
+        // 如果命中DNS缓存，返回原始域名（而不是IP地址）
+        // 这样更符合"规范主机名"的语义，且与高层协议（HTTP、TLS等）兼容
+        String ip = dnsCache.get(host);
+        if (ip != null) {
+            return host;  // ✅ 返回原始域名，如 "as.dun.163.com"
+        }
 
-    /**
-     * 清空所有DNS缓存映射
-     */
-    public void clear() {
-        dnsCache.clear();
+        // 未命中缓存，使用系统DNS解析
+        return SystemDefaultDnsResolver.INSTANCE.resolveCanonicalHostname(host);
     }
 
     /**
      * 获取所有DNS缓存映射（只读）
+     * <p>
+     * 返回的Map是不可变的，不支持修改操作
+     * </p>
      *
      * @return 不可修改的DNS缓存映射视图
      */
     public Map<String, String> getAll() {
-        return Collections.unmodifiableMap(dnsCache);
+        return dnsCache;
     }
 
     /**
