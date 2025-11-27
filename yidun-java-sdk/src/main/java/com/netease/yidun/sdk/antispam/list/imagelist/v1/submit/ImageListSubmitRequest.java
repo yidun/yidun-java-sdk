@@ -29,6 +29,10 @@ public class ImageListSubmitRequest extends PostFormRequest<ImageListSubmitRespo
     @NotNull(message = "imageLabel不能为空")
     private Integer imageLabel;
     /**
+     * 名单二级分类
+     */
+    private String imageSubLabel;
+    /**
      * 名单类型，0: 相似名单，1: md5精确名单
      */
     @NotNull(message = "type不能为空")
@@ -53,6 +57,10 @@ public class ImageListSubmitRequest extends PostFormRequest<ImageListSubmitRespo
      * 业务id
      */
     protected String businessId;
+    /**
+     * 嫌疑级别
+     */
+    private Integer suspectLevel;
 
     public ImageListSubmitRequest() {
         productCode = "list";
@@ -66,12 +74,14 @@ public class ImageListSubmitRequest extends PostFormRequest<ImageListSubmitRespo
         params.put("images", images);
         params.put("listType", listType != null ? String.valueOf(listType) : null);
         params.put("imageLabel", imageLabel != null ? String.valueOf(imageLabel) : null);
+        params.put("imageSubLabel", imageSubLabel);
         params.put("type", type != null ? String.valueOf(type) : null);
         params.put("imageType", imageType != null ? String.valueOf(imageType) : null);
         params.put("description", description);
         params.put("tagGroup", tagGroup);
         params.put("tagName", tagName);
         params.put("businessId", businessId);
+        params.put("suspectLevel", suspectLevel != null ? String.valueOf(suspectLevel) : null);
         return params;
     }
 
