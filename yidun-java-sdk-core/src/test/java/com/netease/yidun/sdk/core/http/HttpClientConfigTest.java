@@ -1,8 +1,8 @@
 package com.netease.yidun.sdk.core.http;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class HttpClientConfigTest {
 
@@ -24,19 +24,21 @@ public class HttpClientConfigTest {
     @Test
     public void testToString() {
         String expectedStr = "HttpClientConfig(" +
-                "protocol=https" +
-                ", socketTimeoutMillis=5000" +
-                ", maxIdleTimeMillis=43000" +
-                ", connectionRequestTimeoutMillis=1000" +
-                ", connectionKeepAliveMillis=43000" +
-                ", connectionTimeoutMillis=15000" +
-                ", responseTimeoutMillis=20000" +
-                ", maxConnectionCount=200" +
-                ", maxConnectionCountPerRoute=20" +
-                ", maxNoResponseRetryCount=1" +
-                ", proxyScheme=null" +
-                ", proxyHost=null" +
-                ", proxyPort=-1)";
+                             "protocol=https" +
+                             ", socketTimeoutMillis=5000" +
+                             ", maxIdleTimeMillis=43000" +
+                             ", connectionRequestTimeoutMillis=1000" +
+                             ", connectionKeepAliveMillis=43000" +
+                             ", connectionTimeoutMillis=15000" +
+                             ", responseTimeoutMillis=20000" +
+                             ", maxConnectionCount=200" +
+                             ", maxConnectionCountPerRoute=20" +
+                             ", maxNoResponseRetryCount=1" +
+                             ", proxyScheme=null" +
+                             ", proxyHost=null" +
+                             ", proxyPort=-1" +
+                             ", dnsCache=null" +
+                             ")";
 
         HttpClientConfig config = HttpClientConfig.defaultConfig();
 
