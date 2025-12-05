@@ -26,7 +26,6 @@ public class ImageListSubmitRequest extends PostFormRequest<ImageListSubmitRespo
     /**
      * 名单分类（加黑名单时传），100：色情，110：性感，200：广告，210：二维码，300：暴恐，400：违禁，500：涉政
      */
-    @NotNull(message = "imageLabel不能为空")
     private Integer imageLabel;
     /**
      * 名单二级分类
