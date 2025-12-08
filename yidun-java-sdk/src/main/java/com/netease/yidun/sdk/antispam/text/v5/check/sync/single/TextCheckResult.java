@@ -146,6 +146,7 @@ public class TextCheckResult implements Serializable {
         private String filteredContent;
         private List<String> mergeHints;
         private Integer status;
+        private List<CustomLabel> customLabels;
 
         public String getTaskId() {
             return taskId;
@@ -355,35 +356,45 @@ public class TextCheckResult implements Serializable {
             this.mergeHints = mergeHints;
         }
 
+        public List<CustomLabel> getCustomLabels() {
+            return customLabels;
+        }
+
+        public void setCustomLabels(List<CustomLabel> customLabels) {
+            this.customLabels = customLabels;
+        }
+
         @Override
         public String toString() {
-            return "Antispam("
-                    + "taskId=" + taskId
-                    + ", dataId=" + dataId
-                    + ", label=" + label
-                    + ", secondLabel=" + secondLabel
-                    + ", thirdLabel=" + thirdLabel
-                    + ", riskDescription=" + riskDescription
-                    + ", suggestion=" + suggestion
-                    + ", suggestionLevel=" + suggestionLevel
-                    + ", suggestionRiskLevel=" + suggestionRiskLevel
-                    + ", status=" + status
-                    + ", publicOpinionInfo=" + publicOpinionInfo
-                    + ", customAction=" + customAction
-                    + ", resultType=" + resultType
-                    + ", censorType=" + censorType
-                    + ", callback=" + callback
-                    + ", censorLabels=" + censorLabels
-                    + ", strategyVersions=" + strategyVersions
-                    + ", censorSource=" + censorSource
-                    + ", censorRound=" + censorRound
-                    + ", censorTime=" + censorTime
-                    + ", isRelatedHit=" + isRelatedHit
-                    + ", labels=" + labels
-                    + ", remark=" + remark
-                    + ", filteredContent=" + filteredContent
-                    + ", mergeHints=" + mergeHints
-                    + ")";
+            return "Antispam{" +
+                    "taskId='" + taskId + '\'' +
+                    ", dataId='" + dataId + '\'' +
+                    ", label=" + label +
+                    ", secondLabel='" + secondLabel + '\'' +
+                    ", thirdLabel='" + thirdLabel + '\'' +
+                    ", riskDescription='" + riskDescription + '\'' +
+                    ", suggestion=" + suggestion +
+                    ", suggestionLevel=" + suggestionLevel +
+                    ", suggestionRiskLevel=" + suggestionRiskLevel +
+                    ", publicOpinionInfo='" + publicOpinionInfo + '\'' +
+                    ", customAction=" + customAction +
+                    ", resultType=" + resultType +
+                    ", censorType=" + censorType +
+                    ", callback='" + callback + '\'' +
+                    ", censorLabels=" + censorLabels +
+                    ", strategyVersions=" + strategyVersions +
+                    ", censorSource=" + censorSource +
+                    ", censorRound=" + censorRound +
+                    ", censorTime=" + censorTime +
+                    ", isRelatedHit=" + isRelatedHit +
+                    ", relatedHitType=" + relatedHitType +
+                    ", labels=" + labels +
+                    ", remark='" + remark + '\'' +
+                    ", filteredContent='" + filteredContent + '\'' +
+                    ", mergeHints=" + mergeHints +
+                    ", status=" + status +
+                    ", customLabels=" + customLabels +
+                    '}';
         }
     }
 
@@ -454,6 +465,57 @@ public class TextCheckResult implements Serializable {
                     + "label=" + label
                     + ", version=" + version
                     + ")";
+        }
+    }
+
+    /**
+     * 客户自定义标签
+     */
+    public static class CustomLabel {
+        /**
+         * 名称,一级标签/二级标签/三级标签
+         */
+        private String name;
+        /**
+         * 编码 客户自定义标签编码
+         */
+        private String code;
+        /**
+         * 深度 1-一级标签 2-二级标签 3-三级标签
+         */
+        private Integer depth;
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getCode() {
+            return code;
+        }
+
+        public void setCode(String code) {
+            this.code = code;
+        }
+
+        public Integer getDepth() {
+            return depth;
+        }
+
+        public void setDepth(Integer depth) {
+            this.depth = depth;
+        }
+
+        @Override
+        public String toString() {
+            return "CustomLabel{" +
+                    "name='" + name + '\'' +
+                    ", code='" + code + '\'' +
+                    ", depth=" + depth +
+                    '}';
         }
     }
 
