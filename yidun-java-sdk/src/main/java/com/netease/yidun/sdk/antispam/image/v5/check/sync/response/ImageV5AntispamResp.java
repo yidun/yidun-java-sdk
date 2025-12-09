@@ -1,6 +1,7 @@
 package com.netease.yidun.sdk.antispam.image.v5.check.sync.response;
 
 import com.netease.yidun.sdk.antispam.image.v5.enums.CensorTypeEnum;
+import com.netease.yidun.sdk.antispam.text.v5.check.sync.single.TextCheckResult;
 import lombok.ToString;
 
 import java.io.Serializable;
@@ -116,6 +117,10 @@ public class ImageV5AntispamResp implements Serializable {
      * 建议风险等级
      */
     private Integer suggestionRiskLevel;
+    /**
+     * 自定义标签
+     */
+    private List<ImageV5AntispamResp.CustomLabel> customLabels;
 
 
     public String getPublicOpinionInfo() {
@@ -323,6 +328,62 @@ public class ImageV5AntispamResp implements Serializable {
 
     public void setRiskDescription(String riskDescription) {
         this.riskDescription = riskDescription;
+    }
+    public List<CustomLabel> getCustomLabels() {
+        return customLabels;
+    }
+    public void setCustomLabels(List<CustomLabel> customLabels) {
+        this.customLabels = customLabels;
+    }
+    /**
+     * 客户自定义标签
+     */
+    public static class CustomLabel {
+        /**
+         * 名称,一级标签/二级标签/三级标签
+         */
+        private String name;
+        /**
+         * 编码 客户自定义标签编码
+         */
+        private String code;
+        /**
+         * 深度 1-一级标签 2-二级标签 3-三级标签
+         */
+        private Integer depth;
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getCode() {
+            return code;
+        }
+
+        public void setCode(String code) {
+            this.code = code;
+        }
+
+        public Integer getDepth() {
+            return depth;
+        }
+
+        public void setDepth(Integer depth) {
+            this.depth = depth;
+        }
+
+        @Override
+        public String toString() {
+            return "CustomLabel{" +
+                    "name='" + name + '\'' +
+                    ", code='" + code + '\'' +
+                    ", depth=" + depth +
+                    '}';
+        }
     }
 
     private static class CensorLabelInfo implements Serializable {
