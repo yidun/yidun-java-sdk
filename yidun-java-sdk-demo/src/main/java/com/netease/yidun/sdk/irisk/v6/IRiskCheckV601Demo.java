@@ -6,6 +6,7 @@
 
 package com.netease.yidun.sdk.irisk.v6;
 
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 import com.netease.yidun.sdk.core.response.DataResponse;
 import com.netease.yidun.sdk.irisk.v6.check.v600.hitinfo.HitInfo;
 import com.netease.yidun.sdk.irisk.v6.check.v600.IRiskCheckV600Result;
@@ -24,6 +25,8 @@ public class IRiskCheckV601Demo {
 
         // 填充请求参数
         IRiskCheckV601Request request = new IRiskCheckV601Request("businessId");
+        // 协议类型，HTTP/HTTPS
+        request.setProtocol(ProtocolEnum.HTTP);
         request.setTimestamp(System.currentTimeMillis());
         request.setNonce("fadsfasdfadsfasdfadsfasdfadsfasd");
 

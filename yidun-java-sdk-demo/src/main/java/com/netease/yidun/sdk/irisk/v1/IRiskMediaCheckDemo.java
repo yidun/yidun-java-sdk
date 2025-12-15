@@ -1,6 +1,7 @@
 package com.netease.yidun.sdk.irisk.v1;
 
 import com.netease.yidun.sdk.AbstractDemo;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 import com.netease.yidun.sdk.irisk.v1.mediacheck.IRiskMediaCheckRequest;
 import com.netease.yidun.sdk.irisk.v1.mediacheck.IRiskMediaCheckResponse;
 import com.netease.yidun.sdk.irisk.v1.mediacheck.IRiskMediaCheckResult;
@@ -19,6 +20,8 @@ public class IRiskMediaCheckDemo extends AbstractDemo {
 //        IRiskClient client = new IRiskClient(profile);
         // 填充请求参数
         IRiskMediaCheckRequest request = new IRiskMediaCheckRequest("businessId");
+        // 协议类型，HTTP/HTTPS
+        request.setProtocol(ProtocolEnum.HTTP);
         // 用户/玩家的角色 ID
         request.setRoleId("xxxx");
         // 用户/玩家的角色名称

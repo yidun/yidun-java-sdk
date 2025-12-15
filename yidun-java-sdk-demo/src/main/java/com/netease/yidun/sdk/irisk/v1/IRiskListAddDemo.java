@@ -1,6 +1,7 @@
 package com.netease.yidun.sdk.irisk.v1;
 
 import com.netease.yidun.sdk.AbstractDemo;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 import com.netease.yidun.sdk.irisk.v1.list.IRiskListAddRequest;
 import com.netease.yidun.sdk.irisk.v1.list.IRiskListAddResponse;
 import org.slf4j.Logger;
@@ -21,6 +22,8 @@ public class IRiskListAddDemo extends AbstractDemo {
 //         IRiskClient client = new IRiskClient(profile);
         // 填充请求参数
         IRiskListAddRequest request = new IRiskListAddRequest("businessId");
+        // 协议类型，HTTP/HTTPS
+        request.setProtocol(ProtocolEnum.HTTP);
         // 设置名单库编号
         request.setListGroupCode("ayp76c2dmh2k0ktd8jyia2cg22009v02");
         // 设置名单项内容

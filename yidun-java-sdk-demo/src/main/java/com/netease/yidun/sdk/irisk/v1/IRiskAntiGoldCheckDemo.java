@@ -1,6 +1,7 @@
 package com.netease.yidun.sdk.irisk.v1;
 
 import com.netease.yidun.sdk.AbstractDemo;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 import com.netease.yidun.sdk.irisk.v1.antigold.IRiskAntiGoldCheckRequest;
 import com.netease.yidun.sdk.irisk.v1.antigold.IRiskAntiGoldCheckResponse;
 
@@ -18,6 +19,8 @@ public class IRiskAntiGoldCheckDemo extends AbstractDemo {
         // IRiskClient client = new IRiskClient(profile);
         // 填充请求参数
         IRiskAntiGoldCheckRequest request = new IRiskAntiGoldCheckRequest("businessId");
+        // 协议类型，HTTP/HTTPS
+        request.setProtocol(ProtocolEnum.HTTP);
         // 实际记录日志的时间，采用RFC 3339时间格式，例如，"2023-09-08T16:00:43+08:00"（UTC+8）。
         request.setLogTime("2023-09-08T16:00:43+08:00");
         // 用户角色ID，适用于支持同一个账号下创建不同角色的业务（如游戏不同区服的角色）。

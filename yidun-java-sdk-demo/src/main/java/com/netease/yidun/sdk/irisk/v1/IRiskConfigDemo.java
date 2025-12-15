@@ -1,6 +1,7 @@
 package com.netease.yidun.sdk.irisk.v1;
 
 import com.netease.yidun.sdk.AbstractDemo;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 import com.netease.yidun.sdk.irisk.v1.config.IRiskConfigRequest;
 import com.netease.yidun.sdk.irisk.v1.config.IRiskConfigResponse;
 import com.netease.yidun.sdk.irisk.v1.config.IRiskConfigResult;
@@ -19,6 +20,8 @@ public class IRiskConfigDemo extends AbstractDemo {
 //        IRiskClient client = new IRiskClient(profile);
         // 填充请求参数
         IRiskConfigRequest request = new IRiskConfigRequest("businessId");
+        // 协议类型，HTTP/HTTPS
+        request.setProtocol(ProtocolEnum.HTTP);
         request.setIp("192.168.0.1");
         // 从风控客户端SDK获取的拉取配置的参数,原封不动传递给该参数
         request.setSdkData("xxxxxxxxxxxx");

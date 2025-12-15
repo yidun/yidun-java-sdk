@@ -2,6 +2,7 @@ package com.netease.yidun.sdk.irisk.v6;
 
 import com.google.gson.Gson;
 import com.netease.yidun.sdk.AbstractDemo;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 import com.netease.yidun.sdk.core.utils.CollectionUtils;
 import com.netease.yidun.sdk.irisk.v6.detail.DetailDataV6;
 import com.netease.yidun.sdk.irisk.v6.detail.IRiskDetailV6Request;
@@ -21,6 +22,8 @@ public class IRiskDetailV6Demo extends AbstractDemo {
 
         IRiskV6Client client = IRiskV6Client.getInstance("SecretId", "SecretKey");
         IRiskDetailV6Request request = new IRiskDetailV6Request("businessId");
+        // 协议类型，HTTP/HTTPS
+        request.setProtocol(ProtocolEnum.HTTP);
         request.setTimestamp(System.currentTimeMillis());
         request.setNonce("dsdsfabnfadsfascfadsfamnfadsfasd");
         request.setBeginTimestamp(1706977448665L);

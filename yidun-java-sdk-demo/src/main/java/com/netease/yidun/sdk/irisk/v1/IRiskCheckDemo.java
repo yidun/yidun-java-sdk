@@ -1,6 +1,7 @@
 package com.netease.yidun.sdk.irisk.v1;
 
 import com.netease.yidun.sdk.AbstractDemo;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 import com.netease.yidun.sdk.irisk.v1.check.IRiskCheckRequest;
 import com.netease.yidun.sdk.irisk.v1.check.IRiskCheckResponse;
 import com.netease.yidun.sdk.irisk.v1.check.IRiskCheckResult;
@@ -19,7 +20,8 @@ public class IRiskCheckDemo extends AbstractDemo {
 //        IRiskClient client = new IRiskClient(profile);
         // 填充请求参数
         IRiskCheckRequest request = new IRiskCheckRequest("businessId");
-
+        // 协议类型，HTTP/HTTPS
+        request.setProtocol(ProtocolEnum.HTTP);
         // 风控SDK上报的数据后回参获取到的 token (必填参数)
         request.setToken("9Qq5O9Q1tpNFAhAAEULVbNYvMC/8Mz8X");
         // ip地址 (必填参数)

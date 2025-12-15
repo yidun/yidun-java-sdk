@@ -7,6 +7,7 @@
 package com.netease.yidun.sdk.irisk.v6;
 
 import com.google.gson.Gson;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 import com.netease.yidun.sdk.core.response.DataResponse;
 import com.netease.yidun.sdk.core.utils.GsonUtils;
 import com.netease.yidun.sdk.irisk.v6.check.v600.deviceinfo.AndroidDeviceInfoResult;
@@ -35,6 +36,8 @@ public class IRiskCheckV603Demo {
 
         // 填充请求参数
         IRiskCheckV603Request request = new IRiskCheckV603Request("businessId");
+        // 协议类型，HTTP/HTTPS
+        request.setProtocol(ProtocolEnum.HTTP);
         request.setTimestamp(System.currentTimeMillis());
         request.setNonce("fadsfasdfadsfasdfadsfasdfadsfasd");
 

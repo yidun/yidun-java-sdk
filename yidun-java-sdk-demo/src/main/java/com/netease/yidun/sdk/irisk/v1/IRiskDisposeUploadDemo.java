@@ -1,6 +1,7 @@
 package com.netease.yidun.sdk.irisk.v1;
 
 import com.netease.yidun.sdk.AbstractDemo;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 import com.netease.yidun.sdk.irisk.v1.dispose.IRiskDisposeUploadRequest;
 import com.netease.yidun.sdk.irisk.v1.dispose.IRiskDisposeUploadResponse;
 
@@ -18,6 +19,8 @@ public class IRiskDisposeUploadDemo extends AbstractDemo {
         // IRiskClient client = new IRiskClient(profile);
         // 填充请求参数
         IRiskDisposeUploadRequest request = new IRiskDisposeUploadRequest("businessId");
+        // 协议类型，HTTP/HTTPS
+        request.setProtocol(ProtocolEnum.HTTP);
         // 需要进行处置的对象的类型
         request.setHandleObjectType(1);
         // 账号

@@ -1,6 +1,7 @@
 package com.netease.yidun.sdk.irisk.v1;
 
 import com.netease.yidun.sdk.AbstractDemo;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 import com.netease.yidun.sdk.irisk.v1.mediacheck.*;
 
 import java.util.List;
@@ -19,6 +20,8 @@ public class IRiskMediaBatchQueryDemo extends AbstractDemo {
 //        IRiskClient client = new IRiskClient(profile);
         // 填充请求参数
         IRiskMediaBatchQueryRequest request = new IRiskMediaBatchQueryRequest("businessId");
+        // 协议类型，HTTP/HTTPS
+        request.setProtocol(ProtocolEnum.HTTP);
         // 检测任务 ID
         request.setTaskIds("[\"tpavc9q43b0ihy5ekc5g2axgdd00aaxs\",\"1ggpjkqx07qoopc35w8b2ybgdd00aaxs\"]");
 

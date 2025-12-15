@@ -2,6 +2,7 @@ package com.netease.yidun.sdk.irisk.v1;
 
 import com.google.gson.Gson;
 import com.netease.yidun.sdk.AbstractDemo;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 import com.netease.yidun.sdk.irisk.v1.detail.DetailData;
 import com.netease.yidun.sdk.irisk.v1.detail.IRiskDetailRequest;
 import com.netease.yidun.sdk.irisk.v1.detail.IRiskDetailResponse;
@@ -24,6 +25,8 @@ public class IRiskDetailDemo extends AbstractDemo {
 //        IRiskClient client = new IRiskClient(profile);
         // 填充请求参数
         IRiskDetailRequest request = new IRiskDetailRequest("businessId");
+        // 协议类型，HTTP/HTTPS
+        request.setProtocol(ProtocolEnum.HTTP);
         // 传入查询时间范围，为毫秒时间戳，范围不能大于30天。（开始结束时间为必填字段）
         request.setBeginTimestamp(1676970236000L);
         request.setEndTimestamp(1677143036000L);

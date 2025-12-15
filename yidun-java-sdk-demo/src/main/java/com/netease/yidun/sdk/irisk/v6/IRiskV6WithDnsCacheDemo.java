@@ -3,6 +3,7 @@ package com.netease.yidun.sdk.irisk.v6;
 import com.netease.yidun.sdk.core.client.ClientProfile;
 import com.netease.yidun.sdk.core.client.DefaultClient;
 import com.netease.yidun.sdk.core.http.HttpClientConfig;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 import com.netease.yidun.sdk.core.response.DataResponse;
 import com.netease.yidun.sdk.irisk.v6.check.v600.IRiskCheckV600Request;
 import com.netease.yidun.sdk.irisk.v6.check.v600.IRiskCheckV600Result;
@@ -49,6 +50,8 @@ public class IRiskV6WithDnsCacheDemo {
 
         // 步骤4：构建风控检测请求（以V600版本为例）
         IRiskCheckV600Request request = new IRiskCheckV600Request(YOUR_BUSINESS_ID);
+        // 协议类型，HTTP/HTTPS
+        request.setProtocol(ProtocolEnum.HTTP);
         request.setDomain("ir-open-usva.dun.163.com");
 
         // 设置必填参数

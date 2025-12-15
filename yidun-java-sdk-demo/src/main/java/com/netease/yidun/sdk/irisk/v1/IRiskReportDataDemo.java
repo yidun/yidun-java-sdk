@@ -1,6 +1,7 @@
 package com.netease.yidun.sdk.irisk.v1;
 
 import com.netease.yidun.sdk.AbstractDemo;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 import com.netease.yidun.sdk.irisk.v1.report.IRiskReportDataRequest;
 import com.netease.yidun.sdk.irisk.v1.report.IRiskReportDataResponse;
 
@@ -18,6 +19,8 @@ public class IRiskReportDataDemo extends AbstractDemo {
         // IRiskClient client = new IRiskClient(profile);
         // 填充请求参数
         IRiskReportDataRequest request = new IRiskReportDataRequest("businessId");
+        // 协议类型，HTTP/HTTPS
+        request.setProtocol(ProtocolEnum.HTTP);
         // 举报渠道
         request.setReportChannel("reportChannel");
         // 举报时间
