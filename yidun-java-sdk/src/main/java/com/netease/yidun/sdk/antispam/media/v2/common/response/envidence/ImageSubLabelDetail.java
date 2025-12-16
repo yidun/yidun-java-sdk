@@ -97,6 +97,9 @@ public class ImageSubLabelDetail implements Serializable {
          * saas自定义规则
          */
         private String name;
+        private Long releaseTime;
+        private String strategyGroupName;
+        private Long strategyGroupId;
 
         public String getWord() {
             return word;
@@ -168,6 +171,38 @@ public class ImageSubLabelDetail implements Serializable {
 
         public void setY2(Float y2) {
             this.y2 = y2;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public Long getReleaseTime() {
+            return releaseTime;
+        }
+
+        public void setReleaseTime(Long releaseTime) {
+            this.releaseTime = releaseTime;
+        }
+
+        public String getStrategyGroupName() {
+            return strategyGroupName;
+        }
+
+        public void setStrategyGroupName(String strategyGroupName) {
+            this.strategyGroupName = strategyGroupName;
+        }
+
+        public Long getStrategyGroupId() {
+            return strategyGroupId;
+        }
+
+        public void setStrategyGroupId(Long strategyGroupId) {
+            this.strategyGroupId = strategyGroupId;
         }
     }
 

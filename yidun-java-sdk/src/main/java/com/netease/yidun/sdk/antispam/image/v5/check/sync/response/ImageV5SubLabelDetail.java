@@ -207,6 +207,8 @@ public class ImageV5SubLabelDetail implements Serializable {
         private Float x2;
         private Float y2;
         private Long releaseTime;
+        private String strategyGroupName;
+        private Long strategyGroupId;
 
         public String getWord() {
             return word;
@@ -294,6 +296,22 @@ public class ImageV5SubLabelDetail implements Serializable {
 
         public void setType(Integer type) {
             this.type = type;
+        }
+
+        public String getStrategyGroupName() {
+            return strategyGroupName;
+        }
+
+        public void setStrategyGroupName(String strategyGroupName) {
+            this.strategyGroupName = strategyGroupName;
+        }
+
+        public Long getStrategyGroupId() {
+            return strategyGroupId;
+        }
+
+        public void setStrategyGroupId(Long strategyGroupId) {
+            this.strategyGroupId = strategyGroupId;
         }
     }
 

@@ -328,6 +328,7 @@ public class MediaAudioVideoEvidence {
          * 建议风险等级
          */
         private Integer suggestionRiskLevel;
+        private ImageV5SubLabelResp.SubLabelDetails details;
 
         public Integer getSuggestionRiskLevel() {
             return suggestionRiskLevel;
@@ -336,8 +337,6 @@ public class MediaAudioVideoEvidence {
         public void setSuggestionRiskLevel(Integer suggestionRiskLevel) {
             this.suggestionRiskLevel = suggestionRiskLevel;
         }
-
-        private ImageV5SubLabelResp.SubLabelDetails details;
 
         public String getSubLabel() {
             return subLabel;
