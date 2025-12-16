@@ -1,6 +1,7 @@
 package com.netease.yidun.sdk.mobileverify.mobilenumberverify.v1;
 
 import com.netease.yidun.sdk.AbstractDemo;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 /**
  * 本机校验接口demo
@@ -21,7 +22,8 @@ public class MobileNumberVerifyDemo extends AbstractDemo {
                 .accessToken("da172264b3964d3c8a8a123a77305e59")
                 // 本机手机号
                 .phone("18888888888");
-
+        //切换demo内的请求协议为HTTP
+        request.setProtocol(ProtocolEnum.HTTP);
         MobileNumberVerifyResponse response = null;
         try {
             response = client.verifyMobileNumber(request);

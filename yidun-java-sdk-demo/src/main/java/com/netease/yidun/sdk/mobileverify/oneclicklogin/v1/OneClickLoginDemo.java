@@ -1,6 +1,7 @@
 package com.netease.yidun.sdk.mobileverify.oneclicklogin.v1;
 
 import com.netease.yidun.sdk.AbstractDemo;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 /**
  * 一键登录接口demo
@@ -19,6 +20,7 @@ public class OneClickLoginDemo extends AbstractDemo {
                 .token("8bba09963a1a4070aab5a785c81ec962")
                 // 【不可重复使用】运营商授权码(有效期2分钟)
                 .accessToken("c05807ba0e1741bcbd781f598d751608");
+        request.setProtocol(ProtocolEnum.HTTP);
 
         MobileNumberGetResponse response = null;
         try {
