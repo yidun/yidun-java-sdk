@@ -797,6 +797,10 @@ public class TextCheckResult implements Serializable {
 
         private String word;
 
+        private String strategyGroupName;
+
+        private Long strategyGroupId;
+
         public String getWord() {
             return word;
         }
@@ -805,12 +809,32 @@ public class TextCheckResult implements Serializable {
             this.word = word;
         }
 
+
+        public String getStrategyGroupName() {
+            return strategyGroupName;
+        }
+
+        public void setStrategyGroupName(String strategyGroupName) {
+            this.strategyGroupName = strategyGroupName;
+        }
+
+        public Long getStrategyGroupId() {
+            return strategyGroupId;
+        }
+
+        public void setStrategyGroupId(Long strategyGroupId) {
+            this.strategyGroupId = strategyGroupId;
+        }
+
         @Override
         public String toString() {
             return "AntispamSubLabelDetailKeyword("
                     + "word=" + word
+                    + ", strategyGroupName=" + strategyGroupName
+                    + ", strategyGroupId=" + strategyGroupId
                     + ")";
         }
+
     }
 
     public static class AntispamSubLabelDetailLibInfo {
