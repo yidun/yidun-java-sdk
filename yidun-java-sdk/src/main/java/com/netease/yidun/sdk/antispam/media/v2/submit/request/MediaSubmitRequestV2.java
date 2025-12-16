@@ -32,6 +32,12 @@ public class MediaSubmitRequestV2 extends PostFormRequest<MediaCheckResponseV2> 
     private String account;
 
     /**
+     * 用户主页地址 
+     */
+    @Size(max = 2048, message = "用户主页地址最长2048个字符")
+    private String profileUrl;
+
+    /**
      * 用户设备id
      */
     @Size(max = 128, message = "deviceId最长128个字符")
@@ -111,6 +117,7 @@ public class MediaSubmitRequestV2 extends PostFormRequest<MediaCheckResponseV2> 
         StringHashMap params = new StringHashMap();
         params.put("ip", getIp());
         params.put("account", getAccount());
+        params.put("profileUrl", getProfileUrl());
         params.put("deviceId", getDeviceId());
         params.put("deviceType", getDeviceType());
         params.put("dataId", getDataId());
@@ -146,6 +153,28 @@ public class MediaSubmitRequestV2 extends PostFormRequest<MediaCheckResponseV2> 
     @Override
     public Class<MediaCheckResponseV2> getResponseClass() {
         return MediaCheckResponseV2.class;
+    }
+
+    @Override
+    public String toString() {
+        return "MediaSubmitRequestV2{" +
+                "ip='" + ip + '\'' +
+                ", account='" + account + '\'' +
+                ", profileUrl='" + profileUrl + '\'' +
+                ", deviceId='" + deviceId + '\'' +
+                ", deviceType='" + deviceType + '\'' +
+                ", dataId='" + dataId + '\'' +
+                ", title='" + title + '\'' +
+                ", content=" + content +
+                ", customParseFieldMap=" + customParseFieldMap +
+                ", customUnParseFieldMap=" + customUnParseFieldMap +
+                ", callback='" + callback + '\'' +
+                ", callbackUrl='" + callbackUrl + '\'' +
+                ", publishTime=" + publishTime +
+                ", checkLanguageCode='" + checkLanguageCode + '\'' +
+                ", token='" + token + '\'' +
+                ", censorExt='" + censorExt + '\'' +
+                '}';
     }
 
     public static class DataItem {
@@ -237,6 +266,11 @@ public class MediaSubmitRequestV2 extends PostFormRequest<MediaCheckResponseV2> 
         return this;
     }
 
+    public MediaSubmitRequestV2 profileUrl(String profileUrl) {
+        this.profileUrl = profileUrl;
+        return this;
+    }
+
     public MediaSubmitRequestV2 deviceId(String deviceId) {
         this.deviceId = deviceId;
         return this;
@@ -311,6 +345,14 @@ public class MediaSubmitRequestV2 extends PostFormRequest<MediaCheckResponseV2> 
 
     public void setAccount(String account) {
         this.account = account;
+    }
+
+    public String getProfileUrl() {
+        return profileUrl;
+    }
+
+    public void setProfileUrl(String profileUrl) {
+        this.profileUrl = profileUrl;
     }
 
     public String getDeviceId() {
@@ -417,24 +459,4 @@ public class MediaSubmitRequestV2 extends PostFormRequest<MediaCheckResponseV2> 
         this.censorExt = censorExt;
     }
 
-    @Override
-    public String toString() {
-        return "MediaSubmitRequestV2{" +
-                "ip='" + ip + '\'' +
-                ", account='" + account + '\'' +
-                ", deviceId='" + deviceId + '\'' +
-                ", deviceType='" + deviceType + '\'' +
-                ", dataId='" + dataId + '\'' +
-                ", title='" + title + '\'' +
-                ", content=" + content +
-                ", customParseFieldMap=" + customParseFieldMap +
-                ", customUnParseFieldMap=" + customUnParseFieldMap +
-                ", callback='" + callback + '\'' +
-                ", callbackUrl='" + callbackUrl + '\'' +
-                ", publishTime=" + publishTime +
-                ", checkLanguageCode=" + checkLanguageCode +
-                ", token='" + token + '\'' +
-                ", censorExt='" + censorExt + '\'' +
-                '}';
-    }
 }
