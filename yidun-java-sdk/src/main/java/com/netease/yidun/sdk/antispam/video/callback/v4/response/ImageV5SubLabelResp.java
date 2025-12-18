@@ -102,6 +102,7 @@ public class ImageV5SubLabelResp {
          * 策略组名称
          */
         private String strategyGroupName;
+        private String strategyGroupId;
         /**
          * 自定义敏感词
          */

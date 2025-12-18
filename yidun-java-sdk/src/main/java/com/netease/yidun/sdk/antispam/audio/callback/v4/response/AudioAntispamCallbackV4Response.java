@@ -206,6 +206,8 @@ public class AudioAntispamCallbackV4Response implements BaseResponse {
          * 自定义添加敏感词
          */
         private String word;
+        private String strategyGroupId;
+        private String strategyGroupName;
     }
 
     @Data

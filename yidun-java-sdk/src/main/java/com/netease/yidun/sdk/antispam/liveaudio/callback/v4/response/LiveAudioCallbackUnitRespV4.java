@@ -134,6 +134,8 @@ public class LiveAudioCallbackUnitRespV4 {
     @Data
     public static class Keywords {
         private String word;
+        private String strategyGroupId;
+        private String strategyGroupName;
     }
 
 }

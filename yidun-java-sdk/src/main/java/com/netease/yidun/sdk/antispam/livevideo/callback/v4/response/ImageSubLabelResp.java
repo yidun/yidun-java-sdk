@@ -100,6 +100,8 @@ public class ImageSubLabelResp implements Serializable {
          * 自定义敏感词
          */
         private String word;
+        private String strategyGroupName;
+        private String strategyGroupId;
         /**
          * 自定义图片名单url
          */
