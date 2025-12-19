@@ -2,6 +2,7 @@ package com.netease.yidun.sdk.auth.mobilenumber.idname.v1;
 
 import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.auth.mobilenumber.MobileNumberOwnerCheckClient;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 import org.apache.commons.codec.binary.Base64;
 
 import java.io.ByteArrayOutputStream;
@@ -23,6 +24,8 @@ public class MobileNumberOwnerIdNameCheckDemo extends AbstractDemo {
         request.setCardNo("111234120001011236");
         request.setPhone("123456");
         request.setNonce("3e4235a28d4c4129953ff7751abb664e");
+        //协议类型http
+        request.setProtocol(ProtocolEnum.HTTP);
 
         MobileNumberOwnerIdNameCheckResponse response = null;
         try {

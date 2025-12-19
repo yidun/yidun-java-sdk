@@ -2,6 +2,7 @@ package com.netease.yidun.sdk.auth.ocr.bankcard.v1;
 
 import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.auth.ocr.OcrClient;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 import org.apache.commons.codec.binary.Base64;
 
 import java.io.ByteArrayOutputStream;
@@ -32,6 +33,8 @@ public class BankCardOcrDemo extends AbstractDemo {
         request.setImage(image);
         request.setDetectDirection("http://test1.com");
         request.setNonce("3e4235a28d4c4129953ff7751abb664e");
+        //协议类型http
+        request.setProtocol(ProtocolEnum.HTTP);
 
         BankCardOcrResponse ocrResponse = null;
         try {

@@ -2,6 +2,7 @@ package com.netease.yidun.sdk.auth.bankcard.v1;
 
 import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.core.client.ClientProfile;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 import org.apache.commons.codec.binary.Base64;
 
 import java.io.ByteArrayOutputStream;
@@ -20,6 +21,8 @@ public class BankCardCheckDemo extends AbstractDemo {
 //        BankCardClient client = new BankCardClient(profile);
 
         BankCardCheckRequest request = new BankCardCheckRequest("businessId");
+        //协议类型http
+        request.setProtocol(ProtocolEnum.HTTP);
         request.setBankCardNo("123456");
         request.setName("张三");
         request.setIdCardNo("111234120001011236");

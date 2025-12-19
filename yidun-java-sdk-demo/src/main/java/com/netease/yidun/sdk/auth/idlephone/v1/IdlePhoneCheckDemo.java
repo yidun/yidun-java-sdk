@@ -1,6 +1,7 @@
 package com.netease.yidun.sdk.auth.idlephone.v1;
 
 import com.netease.yidun.sdk.AbstractDemo;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 /**
  * 号码状态检测接口demo
@@ -17,6 +18,8 @@ public class IdlePhoneCheckDemo extends AbstractDemo {
         // 检测手机号
         checkRequest.setPhoneList("phoneList");
         checkRequest.setEncryptType("type");
+        //协议类型http
+        checkRequest.setProtocol(ProtocolEnum.HTTP);
         IdlePhoneCheckResponse checkResponse = null;
         try {
             checkResponse = idlePhoneClient.check(checkRequest);

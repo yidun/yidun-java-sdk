@@ -7,6 +7,7 @@
 package com.netease.yidun.sdk.auth.entryexitpermit.v1;
 
 import com.netease.yidun.sdk.AbstractDemo;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 /**
  * 出入境信息核验demo
@@ -22,6 +23,8 @@ public class EntryExitPermitCheckDemo extends AbstractDemo {
 //        EntryExitPermitClient client = new EntryExitPermitClient(profile);
         // 填充请求参数
         EntryExitPermitCheckRequest request = new EntryExitPermitCheckRequest("businessId");
+        //协议类型http
+        request.setProtocol(ProtocolEnum.HTTP);
         // 用户真实姓名，以身份证上姓名为准 (必填参数)
         request.setName("张三");
         // 用户身份证号码，号码必须为18位或15位，末尾为x的需要大写为X(必填参数)

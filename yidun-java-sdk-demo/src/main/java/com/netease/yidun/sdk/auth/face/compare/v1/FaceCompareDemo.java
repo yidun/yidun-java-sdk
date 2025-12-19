@@ -3,6 +3,7 @@ package com.netease.yidun.sdk.auth.face.compare.v1;
 import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.auth.constant.PicType;
 import com.netease.yidun.sdk.auth.face.FaceClient;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 /**
  * 人脸比对接口demo
@@ -22,6 +23,8 @@ public class FaceCompareDemo extends AbstractDemo {
                 .avatar2("http://test2.com")
                 // 图片类型
                 .picType(PicType.URL);
+        //协议类型http
+        request.setProtocol(ProtocolEnum.HTTP);
         FaceCompareResponse response = null;
 
         try {

@@ -3,6 +3,7 @@ package com.netease.yidun.sdk.auth.ocr.idcard.v1;
 import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.auth.constant.PicType;
 import com.netease.yidun.sdk.auth.ocr.OcrClient;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 /**
  * 身份证OCR
@@ -19,6 +20,8 @@ public class IdCardOcrDemo extends AbstractDemo {
         request.setBackPicture("http://test2.com");
         request.setDataId("123456");
         request.setNonce("3e4235a28d4c4129953ff7751abb664e");
+        //协议类型http
+        request.setProtocol(ProtocolEnum.HTTP);
 
         IdCardOcrResponse ocrResponse = null;
         try {

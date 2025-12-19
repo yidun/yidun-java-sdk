@@ -3,6 +3,7 @@ package com.netease.yidun.sdk.auth.liveperson.interactive.composite.v1;
 import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.auth.constant.PicType;
 import com.netease.yidun.sdk.auth.liveperson.LivePersonClient;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 /**
  * 交互式人脸核身接口demo
@@ -26,6 +27,8 @@ public class InteractiveLivePersonIdCardCheckDemo extends AbstractDemo {
                 // 返回的正面照图片类型(非必填)
                 .picType(PicType.URL)
                 .token("a621n2hju51n43");
+        //协议类型http
+        request.setProtocol(ProtocolEnum.HTTP);
 
         InteractiveLivePersonIdCardCheckResponse response = null;
         try {

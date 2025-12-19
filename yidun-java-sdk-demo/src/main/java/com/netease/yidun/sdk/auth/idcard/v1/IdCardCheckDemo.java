@@ -7,6 +7,7 @@
 package com.netease.yidun.sdk.auth.idcard.v1;
 
 import com.netease.yidun.sdk.AbstractDemo;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 /**
  * 实证认证demo
@@ -28,6 +29,8 @@ public class IdCardCheckDemo extends AbstractDemo {
         request.setCardNo("3429277988923111111");
         // 数据标识，可传入用户标识等数据，便于数据查询(非必填)
         request.setDataId("dataId");
+        //协议类型http
+        request.setProtocol(ProtocolEnum.HTTP);
 
         IdCardCheckResponse idCardCheckResponse = null;
         try {

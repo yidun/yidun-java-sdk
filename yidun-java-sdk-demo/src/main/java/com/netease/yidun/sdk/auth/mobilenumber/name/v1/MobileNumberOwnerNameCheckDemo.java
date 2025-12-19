@@ -2,6 +2,7 @@ package com.netease.yidun.sdk.auth.mobilenumber.name.v1;
 
 import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.auth.mobilenumber.MobileNumberOwnerCheckClient;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 /**
  * 手机号二要素
@@ -17,6 +18,8 @@ public class MobileNumberOwnerNameCheckDemo extends AbstractDemo {
         request.setName("张三");
         request.setPhone("123456");
         request.setNonce("3e4235a28d4c4129953ff7751abb664e");
+        //协议类型http
+        request.setProtocol(ProtocolEnum.HTTP);
 
         MobileNumberOwnerNameCheckResponse response = null;
         try {

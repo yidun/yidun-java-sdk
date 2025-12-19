@@ -3,6 +3,7 @@ package com.netease.yidun.sdk.auth.face.recognize.register.v1;
 import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.auth.constant.PicType;
 import com.netease.yidun.sdk.auth.face.FaceClient;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 /**
  * 人脸注册接口demo
@@ -23,6 +24,8 @@ public class FaceRegisterDemo extends AbstractDemo {
                 // 用户真实姓名，以身份证上姓名为准
                 .name("张三")
                 .picType(PicType.URL);
+        //协议类型http
+        request.setProtocol(ProtocolEnum.HTTP);
 
         FaceRegisterResponse response = null;
         try {

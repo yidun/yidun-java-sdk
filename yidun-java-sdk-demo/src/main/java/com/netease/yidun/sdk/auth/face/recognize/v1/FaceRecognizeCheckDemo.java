@@ -3,6 +3,7 @@ package com.netease.yidun.sdk.auth.face.recognize.v1;
 import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.auth.constant.PicType;
 import com.netease.yidun.sdk.auth.face.FaceClient;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 /**
  * 人脸检索接口demo
@@ -19,6 +20,8 @@ public class FaceRecognizeCheckDemo extends AbstractDemo {
                 // 待检索的人脸照片地址
                 .avatar("http://test.com")
                 .picType(PicType.URL);
+        //协议类型http
+        request.setProtocol(ProtocolEnum.HTTP);
 
         FaceRecognizeResponse response = null;
         try {

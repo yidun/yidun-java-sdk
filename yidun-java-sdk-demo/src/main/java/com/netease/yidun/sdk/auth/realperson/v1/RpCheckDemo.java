@@ -8,6 +8,7 @@ package com.netease.yidun.sdk.auth.realperson.v1;
 
 import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.auth.constant.PicType;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 /**
  * 实人认证demo
@@ -33,6 +34,8 @@ public class RpCheckDemo extends AbstractDemo {
         request.setAvatar("http://test1.com");
         // 数据标识，可传入用户标识等数据，便于数据查询(非必填)
         request.setDataId("dataId");
+        //协议类型http
+        request.setProtocol(ProtocolEnum.HTTP);
 
         RpCheckResponse rpCheckResponse = null;
         try {

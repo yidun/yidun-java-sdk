@@ -2,6 +2,7 @@ package com.netease.yidun.sdk.auth.ocr.businesslicense.v1;
 
 import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.auth.ocr.OcrClient;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 /**
  * 营业执照OCR接口demo
@@ -23,6 +24,8 @@ public class BusinessLicenseOcrDemo extends AbstractDemo {
                 .accuracy("normal")
                 // (非必填) 是否检测图像朝向：可选值true - 检测朝向；false - 不检测朝向。朝向是指输入图像是正常方向、逆时针旋转90/180/270度
                 .detectDirection("false");
+        //协议类型http
+        request.setProtocol(ProtocolEnum.HTTP);
         BusinessLicenseOcrResponse response = null;
         try {
             response = ocrClient.checkBusinessLicense(request);
