@@ -35,6 +35,11 @@ public class TextCheckResult implements Serializable {
     
     private AigcPrompt aigcPrompt;
 
+    /**
+     * 文本大模型检测结果
+     */
+    private LlmCheckInfo llmCheckInfo;
+
     public Antispam getAntispam() {
         return antispam;
     }
@@ -90,6 +95,14 @@ public class TextCheckResult implements Serializable {
         this.aigcPrompt = aigcPrompt;
     }
 
+    public LlmCheckInfo getLlmCheckInfo() {
+        return llmCheckInfo;
+    }
+
+    public void setLlmCheckInfo(LlmCheckInfo llmCheckInfo) {
+        this.llmCheckInfo = llmCheckInfo;
+    }
+
     @Override
     public String toString() {
         return "TextCheckResult("
@@ -100,6 +113,7 @@ public class TextCheckResult implements Serializable {
                 + ", language=" + language
                 + ", riskControl=" + riskControl
                 + ", aigcPrompt=" + aigcPrompt
+                + ", llmCheckInfo=" + llmCheckInfo
                 + ")";
     }
 
@@ -1518,6 +1532,108 @@ public class TextCheckResult implements Serializable {
                     ", source='" + source + '\'' +
                     ", libId='" + libId + '\'' +
                     ", answerId='" + answerId + '\'' +
+                    '}';
+        }
+    }
+
+    public static class LlmCheckInfo {
+
+        /**
+         * 任务id
+         */
+        private String taskId;
+
+        /**
+         * 数据id
+         */
+        private String dataId;
+
+        /**
+         * 详情
+         */
+        private List<LlmCheckInfoDetail> details;
+
+        public String getTaskId() {
+            return taskId;
+        }
+
+        public void setTaskId(String taskId) {
+            this.taskId = taskId;
+        }
+
+        public String getDataId() {
+            return dataId;
+        }
+
+        public void setDataId(String dataId) {
+            this.dataId = dataId;
+        }
+
+        public List<LlmCheckInfoDetail> getDetails() {
+            return details;
+        }
+
+        public void setDetails(List<LlmCheckInfoDetail> details) {
+            this.details = details;
+        }
+
+        @Override
+        public String toString() {
+            return "LlmCheckInfo{" +
+                    "taskId='" + taskId + '\'' +
+                    ", dataId='" + dataId + '\'' +
+                    ", details=" + details +
+                    '}';
+        }
+    }
+
+    public static class LlmCheckInfoDetail {
+
+        /**
+         * 模型标识
+         */
+        private String modelIdentifier;
+
+        /**
+         * 大模型识别标签
+         */
+        private String label;
+
+        /**
+         * llm 对于标签的解释
+         */
+        private String explain;
+
+        public String getModelIdentifier() {
+            return modelIdentifier;
+        }
+
+        public void setModelIdentifier(String modelIdentifier) {
+            this.modelIdentifier = modelIdentifier;
+        }
+
+        public String getLabel() {
+            return label;
+        }
+
+        public void setLabel(String label) {
+            this.label = label;
+        }
+
+        public String getExplain() {
+            return explain;
+        }
+
+        public void setExplain(String explain) {
+            this.explain = explain;
+        }
+
+        @Override
+        public String toString() {
+            return "LlmCheckInfoDetail{" +
+                    "modelIdentifier='" + modelIdentifier + '\'' +
+                    ", label='" + label + '\'' +
+                    ", explain='" + explain + '\'' +
                     '}';
         }
     }
