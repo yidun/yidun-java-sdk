@@ -64,11 +64,7 @@ public class VideoCallbackLlmCheckV4Info implements BaseResponse {
         /**
          * 识别键
          */
-        private String discernKey;
-        /**
-         * 识别名称
-         */
-        private String discernName;
+        private String modelIdentifier;
     }
 }
 
