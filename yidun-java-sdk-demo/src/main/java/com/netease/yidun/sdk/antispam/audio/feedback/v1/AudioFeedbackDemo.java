@@ -13,6 +13,7 @@ import com.netease.yidun.sdk.antispam.audio.feedback.v1.response.AudioFeedbackRe
 import com.netease.yidun.sdk.antispam.audio.feedback.v1.response.AudioFeedbackUnitResp;
 import com.netease.yidun.sdk.antispam.enums.LabelEnum;
 import com.netease.yidun.sdk.antispam.enums.LevelEnum;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 public class AudioFeedbackDemo extends AbstractDemo {
     public static void main(String[] args) {
@@ -25,6 +26,7 @@ public class AudioFeedbackDemo extends AbstractDemo {
 
         // 实例化反馈请求对象
         AudioFeedbackRequest feedbackRequest = new AudioFeedbackRequest();
+        feedbackRequest.setProtocol(ProtocolEnum.HTTP);
         // 设置易盾内容安全分配的businessId
         feedbackRequest.setBusinessId("BusinessId");
         List<AudioFeedback> feedbacks = new ArrayList<>();

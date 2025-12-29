@@ -13,6 +13,7 @@ import com.netease.yidun.sdk.antispam.crawler.v1.query.request.JobCallbackQueryR
 import com.netease.yidun.sdk.antispam.crawler.v1.query.response.JobCallbackQueryResponse;
 import com.netease.yidun.sdk.antispam.media.v2.callback.response.MediaCallbackResponseV2;
 import com.netease.yidun.sdk.core.utils.CollectionUtils;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 /**
  * @author xietieli
@@ -29,6 +30,7 @@ public class CrawlerQueryJobResultDemo extends AbstractDemo {
 
         // 实例化请求对象
         JobCallbackQueryRequest request = new JobCallbackQueryRequest();
+        request.setProtocol(ProtocolEnum.HTTP);
 
         //设置任务Id
         request.setJobId(1504477469116473L);

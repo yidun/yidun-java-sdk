@@ -4,6 +4,7 @@ import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.grammarfix.v1.submit.GrammarfixSubmitRequest;
 import com.netease.yidun.sdk.antispam.grammarfix.v1.submit.GrammarfixSubmitResponse;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 /**
  * 文本纠错检测demo
@@ -20,6 +21,7 @@ public class GrammarfixSubmitDemo extends AbstractDemo {
 
         // 实例化请求对象
         GrammarfixSubmitRequest submitRequest = new GrammarfixSubmitRequest();
+        submitRequest.setProtocol(ProtocolEnum.HTTP);
         // 设置易盾内容安全分配的businessId
         submitRequest.setBusinessId("BusinessId");
 

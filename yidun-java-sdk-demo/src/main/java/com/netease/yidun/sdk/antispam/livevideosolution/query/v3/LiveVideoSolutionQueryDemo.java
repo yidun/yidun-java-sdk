@@ -12,6 +12,7 @@ import com.netease.yidun.sdk.antispam.livevideosolution.query.v1.response.LiveWa
 import com.netease.yidun.sdk.antispam.livevideosolution.query.v1.response.LiveWallSolutionQueryImageV1Resp;
 import com.netease.yidun.sdk.antispam.livevideosolution.query.v1.response.LiveWallSolutionQueryMonitorV1Resp;
 import com.netease.yidun.sdk.antispam.livevideosolution.query.v1.response.LiveWallSolutionQueryV1Resp;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 public class LiveVideoSolutionQueryDemo extends AbstractDemo {
     public static void main(String[] args) {
@@ -21,6 +22,7 @@ public class LiveVideoSolutionQueryDemo extends AbstractDemo {
         // 实例化发起请求的client对象
         LiveVideoSolutionClient client = LiveVideoSolutionClient.getInstance(antispamRequester);
         LiveWallSolutionQueryV1Req queryV1Req = new LiveWallSolutionQueryV1Req();
+        queryV1Req.setProtocol(ProtocolEnum.HTTP);
         LiveWallSolutionQueryV1Resp queryV1Resp = null;
         try {
             queryV1Resp = client.query(queryV1Req);
@@ -36,6 +38,7 @@ public class LiveVideoSolutionQueryDemo extends AbstractDemo {
 
         // 构建查询音频请求
         LiveWallSolutionQueryAudioV1Req queryAudioV1Req = new LiveWallSolutionQueryAudioV1Req();
+        queryAudioV1Req.setProtocol(ProtocolEnum.HTTP);
         LiveWallSolutionQueryAudioV1Resp queryAudioV1Resp = null;
         try {
             queryAudioV1Resp = client.query(queryAudioV1Req);
@@ -50,6 +53,7 @@ public class LiveVideoSolutionQueryDemo extends AbstractDemo {
         }
         // 构建查询截图请求
         LiveWallSolutionQueryImageV1Req queryImageV1Req = new LiveWallSolutionQueryImageV1Req();
+        queryImageV1Req.setProtocol(ProtocolEnum.HTTP);
         LiveWallSolutionQueryImageV1Resp queryImageV1Resp = null;
         try {
             queryImageV1Resp = client.query(queryImageV1Req);
@@ -62,6 +66,7 @@ public class LiveVideoSolutionQueryDemo extends AbstractDemo {
         }
         // 构建查询监控请求
         LiveWallSolutionQueryMonitorV1Req queryMonitorV1Req = new LiveWallSolutionQueryMonitorV1Req();
+        queryMonitorV1Req.setProtocol(ProtocolEnum.HTTP);
         LiveWallSolutionQueryMonitorV1Resp monitorV1Resp = null;
         try {
             monitorV1Resp = client.query(queryMonitorV1Req);

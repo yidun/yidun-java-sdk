@@ -4,6 +4,7 @@ import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.report.v1.callback.response.ReportCallbackResponseV1;
 import com.netease.yidun.sdk.antispam.report.v1.query.request.ReportQueryRequestV1;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 /**
  * 投诉举报解决解决方案Demo
@@ -22,6 +23,7 @@ public class ReportQueryDemo extends AbstractDemo {
 
         // 实例化请求对象
         ReportQueryRequestV1 request = new ReportQueryRequestV1();
+        request.setProtocol(ProtocolEnum.HTTP);
 
         // 请求对象中的其他参数如果有需要，请参考官方接口文档中字段说明，按需添加
         ReportCallbackResponseV1 response = null;

@@ -5,6 +5,7 @@ import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.list.ListClient;
 import com.netease.yidun.sdk.antispam.list.user.v2.query.ListQueryRequest;
 import com.netease.yidun.sdk.antispam.list.user.v2.query.ListQueryResponse;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 /**
  * 忽略词查询demo
@@ -19,6 +20,7 @@ public class ListQueryDemo extends AbstractDemo {
         ListClient listClient = ListClient.getInstance(antispamRequester);
         // 实例化请求对象
         ListQueryRequest queryRequest = new ListQueryRequest();
+        queryRequest.setProtocol(ProtocolEnum.HTTP);
         // 设置易盾内容安全分配的businessId
         queryRequest.setBusinessId("BusinessId");
 

@@ -6,6 +6,7 @@ import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.livevideo.LiveVideoClient;
 import com.netease.yidun.sdk.antispam.livevideo.submit.v4.request.LiveVideoCheckReq;
 import com.netease.yidun.sdk.antispam.livevideo.submit.v4.response.LiveVideoCheckResp;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 public class LiveVideoSubmitDemo extends AbstractDemo {
     public static void main(String[] args) {
@@ -29,6 +30,7 @@ public class LiveVideoSubmitDemo extends AbstractDemo {
         // // 为了保证服务进程关闭时，回调数据能够被有效处理，不会因为进程关闭而丢失，建议在进程关闭的hook（例如：spring中的@PreDestroy）中调用 callback.close()
         // LiveVideoClient client = LiveVideoClient.getInstance(antispamRequester, callback);
         LiveVideoCheckReq request = new LiveVideoCheckReq();
+        request.setProtocol(ProtocolEnum.HTTP);
         request.setBusinessId("BusinessId");
         // 设置直播流地址
         request.setUrl("直播流地址");

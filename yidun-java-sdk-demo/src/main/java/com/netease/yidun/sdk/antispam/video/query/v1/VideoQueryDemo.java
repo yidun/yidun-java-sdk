@@ -11,6 +11,7 @@ import com.netease.yidun.sdk.antispam.video.query.v1.request.VideoTaskIdQueryReq
 import com.netease.yidun.sdk.antispam.video.query.v1.response.VideoImageQueryResp;
 import com.netease.yidun.sdk.antispam.video.query.v1.response.VideoTaskIdQueryResp;
 import com.netease.yidun.sdk.common.Page;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 public class VideoQueryDemo extends AbstractDemo {
     public static void main(String[] args) {
@@ -19,6 +20,7 @@ public class VideoQueryDemo extends AbstractDemo {
         // 实例化发起请求的client对象
         VideoClient client = VideoClient.getInstance(antispamRequester);
         VideoImageQueryReq imageQueryReq = new VideoImageQueryReq();
+        imageQueryReq.setProtocol(ProtocolEnum.HTTP);
         VideoImageQueryResp imageQueryResp = null;
         try {
             imageQueryResp = client.query(imageQueryReq);
@@ -39,6 +41,7 @@ public class VideoQueryDemo extends AbstractDemo {
         }
 
         VideoTaskIdQueryReq taskIdQueryReq = new VideoTaskIdQueryReq();
+        taskIdQueryReq.setProtocol(ProtocolEnum.HTTP);
         VideoTaskIdQueryResp taskIdQueryResp = null;
         try {
             taskIdQueryResp = client.query(taskIdQueryReq);

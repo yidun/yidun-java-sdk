@@ -5,6 +5,7 @@ import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.list.ListClient;
 import com.netease.yidun.sdk.antispam.list.imagelist.v1.delete.ImageListDeleteRequest;
 import com.netease.yidun.sdk.antispam.list.imagelist.v1.delete.ImageListDeleteResponse;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 /**
  * 忽略词删除demo
@@ -19,6 +20,7 @@ public class ImageListDeleteDemo extends AbstractDemo {
         ListClient listClient = ListClient.getInstance(antispamRequester);
         // 实例化请求对象
         ImageListDeleteRequest deleteRequest = new ImageListDeleteRequest();
+        deleteRequest.setProtocol(ProtocolEnum.HTTP);
         // 设置易盾内容安全分配的businessId
         deleteRequest.setBusinessId("BusinessId");
 

@@ -14,6 +14,7 @@ import com.netease.yidun.sdk.antispam.audio.query.v3.response.AudioLanguageRespo
 import com.netease.yidun.sdk.antispam.audio.query.v3.response.AudioQueryUnitResponseV3;
 import com.netease.yidun.sdk.antispam.audio.query.v3.response.AudioQueryV3Response;
 import com.netease.yidun.sdk.antispam.audio.query.v3.response.AudioVoiceResponseV3;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 public class AudioQueryDemo extends AbstractDemo {
 
@@ -27,6 +28,7 @@ public class AudioQueryDemo extends AbstractDemo {
 
         // 实例化反馈请求对象
         AudioQueryV3Request queryRequest = new AudioQueryV3Request();
+        queryRequest.setProtocol(ProtocolEnum.HTTP);
         // 设置易盾内容安全分配的businessId
         queryRequest.setBusinessId("BusinessId");
         Set<String> taskIds = new HashSet<>();

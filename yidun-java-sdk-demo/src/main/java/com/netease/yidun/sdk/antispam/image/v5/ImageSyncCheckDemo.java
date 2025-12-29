@@ -6,6 +6,7 @@ import com.netease.yidun.sdk.antispam.image.v5.check.ImageV5CheckRequest;
 import com.netease.yidun.sdk.antispam.image.v5.check.sync.request.ImageV5SyncCheckRequest;
 import com.netease.yidun.sdk.antispam.image.v5.check.sync.response.ImageV5CheckResponse;
 import com.netease.yidun.sdk.antispam.image.v5.check.sync.response.ImageV5Result;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +42,8 @@ public class ImageSyncCheckDemo extends AbstractDemo {
 
         // 实例化请求对象
         ImageV5SyncCheckRequest checkRequest = new ImageV5SyncCheckRequest();
+        checkRequest.setProtocol(ProtocolEnum.HTTP);
+
         // 设置易盾内容安全分配的businessId
         checkRequest.setBusinessId("BusinessId");
 

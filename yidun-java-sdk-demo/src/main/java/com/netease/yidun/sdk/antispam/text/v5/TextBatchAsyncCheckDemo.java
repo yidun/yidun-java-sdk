@@ -7,6 +7,7 @@ import com.netease.yidun.sdk.antispam.text.v5.check.async.batch.TextAsyncBatchCh
 import com.netease.yidun.sdk.antispam.text.v5.check.async.batch.TextAsyncBatchCheckResponse;
 import com.netease.yidun.sdk.antispam.text.v5.check.async.single.TextAsyncCheckResult;
 import com.netease.yidun.sdk.antispam.text.v5.check.sync.single.TextCheckSceneRequest;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +42,7 @@ public class TextBatchAsyncCheckDemo extends AbstractDemo {
 
         // 实例化请求对象
         TextAsyncBatchCheckRequest checkRequest = new TextAsyncBatchCheckRequest();
+        checkRequest.setProtocol(ProtocolEnum.HTTP);
         // 设置易盾内容安全分配的businessId
         checkRequest.setBusinessId("BusinessId");
 

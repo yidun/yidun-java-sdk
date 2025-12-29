@@ -4,6 +4,7 @@ import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.stream.v1.callback.AigcStreamCallbackRequestV1;
 import com.netease.yidun.sdk.antispam.stream.v1.callback.AigcStreamCallbackResponseV1;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 
 /**
@@ -23,6 +24,7 @@ public class AigcStreamCallbackDemo extends AbstractDemo {
 
         // 实例化请求对象
         AigcStreamCallbackRequestV1 request = new AigcStreamCallbackRequestV1();
+        request.setProtocol(ProtocolEnum.HTTP);
 
         // 请求对象中的其他参数如果有需要，请参考官方接口文档中字段说明，按需添加
         AigcStreamCallbackResponseV1 response = null;

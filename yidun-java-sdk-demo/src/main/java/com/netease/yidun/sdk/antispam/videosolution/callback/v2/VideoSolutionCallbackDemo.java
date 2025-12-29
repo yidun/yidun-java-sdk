@@ -11,6 +11,7 @@ import com.netease.yidun.sdk.antispam.videosolution.callback.v2.request.VideoSol
 import com.netease.yidun.sdk.antispam.videosolution.callback.v2.response.VideoSolutionAntispamCallbackV2Response;
 import com.netease.yidun.sdk.antispam.videosolution.callback.v2.response.VideoSolutionCallbackV2Resp;
 import com.netease.yidun.sdk.antispam.videosolution.callback.v2.response.VideoSolutionCallbackV2Result;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 public class VideoSolutionCallbackDemo extends AbstractDemo {
     public static void main(String[] args) {
@@ -21,6 +22,7 @@ public class VideoSolutionCallbackDemo extends AbstractDemo {
         VideoSolutionClient client = VideoSolutionClient.getInstance(antispamRequester);
         // 设置回调请求对象
         VideoSolutionCallbackV2Req request = new VideoSolutionCallbackV2Req();
+        request.setProtocol(ProtocolEnum.HTTP);
         // 适用于指定taskId回调，此功能默认关闭，需联系策略经理在产品维度开启后方可生效，每次请求可传入一个taskId
         // request.setTaskId("taskId");
         // 发起回调请求

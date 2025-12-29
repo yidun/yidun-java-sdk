@@ -6,6 +6,7 @@ import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.text.TextClient;
 import com.netease.yidun.sdk.antispam.text.v1.similar.SimilarTextSubmitRequest;
 import com.netease.yidun.sdk.antispam.text.v1.similar.SimilarTextSubmitResponse;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,6 +28,7 @@ public class SimilarTextSubmitDemo extends AbstractDemo {
         TextClient textClient = TextClient.getInstance(antispamRequester);
         // 实例化请求对象
         SimilarTextSubmitRequest submitRequest = new SimilarTextSubmitRequest();
+        submitRequest.setProtocol(ProtocolEnum.HTTP);
         // 设置易盾内容安全分配的businessId
         submitRequest.setBusinessId("BusinessId");
         submitRequest.setSimilarText(createSimilarTexts());

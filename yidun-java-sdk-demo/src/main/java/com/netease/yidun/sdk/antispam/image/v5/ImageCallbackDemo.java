@@ -5,6 +5,7 @@ import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.image.v5.callback.request.ImageV5CallbackRequest;
 import com.netease.yidun.sdk.antispam.image.v5.check.sync.response.ImageV5CheckResponse;
 import com.netease.yidun.sdk.antispam.image.v5.check.sync.response.ImageV5Result;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 /**
  * 获取图片检测结果demo
@@ -20,6 +21,7 @@ public class ImageCallbackDemo extends AbstractDemo {
         ImageClient imageClient = ImageClient.getInstance(antispamRequester);
         // 实例化请求对象
         ImageV5CallbackRequest callbackRequest = new ImageV5CallbackRequest();
+        callbackRequest.setProtocol(ProtocolEnum.HTTP);
         // 设置易盾内容安全分配的businessId
         callbackRequest.setBusinessId("BusinessId");
 

@@ -6,6 +6,7 @@ import com.netease.yidun.sdk.antispam.media.v2.MediaClient;
 import com.netease.yidun.sdk.antispam.media.v2.common.constant.DataType;
 import com.netease.yidun.sdk.antispam.media.v2.submit.request.MediaSubmitRequestV2;
 import com.netease.yidun.sdk.antispam.media.v2.submit.response.MediaCheckResponseV2;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -44,6 +45,7 @@ public class MediaCheckSubmitDemo extends AbstractDemo {
 
                 .dataId("000000")
                 .account("account1");
+        request.setProtocol(ProtocolEnum.HTTP);
         //根据需要设置请求的检测节点，默认杭州，现阶段只支融媒体提交检测接口
         request.setRegionCode("cn-hangzhou");
 

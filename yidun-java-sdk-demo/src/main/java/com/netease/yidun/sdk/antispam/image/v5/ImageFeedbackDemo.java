@@ -4,6 +4,7 @@ import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.image.v5.feedback.request.ImageV5FeedBackRequest;
 import com.netease.yidun.sdk.antispam.image.v5.feedback.response.ImageV5FeedBackResponse;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +23,7 @@ public class ImageFeedbackDemo extends AbstractDemo {
         ImageClient imageClient = ImageClient.getInstance(antispamRequester);
         // 实例化请求对象
         ImageV5FeedBackRequest feedBackRequest = new ImageV5FeedBackRequest();
+        feedBackRequest.setProtocol(ProtocolEnum.HTTP);
         // 设置易盾内容安全分配的businessId
         feedBackRequest.setBusinessId("BusinessId");
 

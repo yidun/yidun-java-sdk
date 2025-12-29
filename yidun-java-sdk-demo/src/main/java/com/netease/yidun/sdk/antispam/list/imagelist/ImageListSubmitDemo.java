@@ -7,6 +7,7 @@ import com.netease.yidun.sdk.antispam.list.ListClient;
 import com.netease.yidun.sdk.antispam.list.imagelist.v1.submit.ImageListSubmitRequest;
 import com.netease.yidun.sdk.antispam.list.imagelist.v1.submit.ImageListSubmitResp;
 import com.netease.yidun.sdk.antispam.list.imagelist.v1.submit.ImageListSubmitResponse;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -26,6 +27,7 @@ public class ImageListSubmitDemo extends AbstractDemo {
         ListClient listClient = ListClient.getInstance(antispamRequester);
         // 实例化请求对象
         ImageListSubmitRequest submitRequest = new ImageListSubmitRequest();
+        submitRequest.setProtocol(ProtocolEnum.HTTP);
         // 设置易盾内容安全分配的businessId
         submitRequest.setBusinessId("BusinessId");
 

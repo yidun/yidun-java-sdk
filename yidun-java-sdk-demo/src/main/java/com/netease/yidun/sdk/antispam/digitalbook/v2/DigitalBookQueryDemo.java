@@ -4,6 +4,7 @@ import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.digitalbook.v2.callback.response.DigitalBookCallbackResponseV2;
 import com.netease.yidun.sdk.antispam.digitalbook.v2.query.request.DigitalBookQueryRequestV2;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +26,7 @@ public class DigitalBookQueryDemo extends AbstractDemo {
 
         // 实例化请求对象
         DigitalBookQueryRequestV2 request = new DigitalBookQueryRequestV2();
+        request.setProtocol(ProtocolEnum.HTTP);
         List<String> taskIdList = new ArrayList<>();
         taskIdList.add("your taskId");
         request.setTaskIds(taskIdList);

@@ -10,6 +10,7 @@ import com.google.gson.Gson;
 import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.text.TextClient;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 import java.util.Arrays;
 
@@ -28,6 +29,7 @@ public class TextTaskIdsQueryDemo extends AbstractDemo {
         TextClient textClient = TextClient.getInstance(antispamRequester);
         // 实例化请求对象
         TextTaskIdsQueryRequest taskIdsQueryRequest = new TextTaskIdsQueryRequest();
+        taskIdsQueryRequest.setProtocol(ProtocolEnum.HTTP);
         // 设置易盾内容安全分配的businessId
         taskIdsQueryRequest.setBusinessId("BusinessId");
         taskIdsQueryRequest.setTaskIds(Arrays.asList("taskId1", "taskId2"));

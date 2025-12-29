@@ -4,6 +4,7 @@ import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.keyword.v1.delete.KeywordDeleteRequest;
 import com.netease.yidun.sdk.antispam.keyword.v1.delete.KeywordDeleteResponse;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 /**
  * 关键词删除demo
@@ -18,6 +19,7 @@ public class KeywordDeleteDemo extends AbstractDemo {
         KeywordClient keywordClient = KeywordClient.getInstance(antispamRequester);
         // 实例化请求对象
         KeywordDeleteRequest deleteRequest = new KeywordDeleteRequest();
+        deleteRequest.setProtocol(ProtocolEnum.HTTP);
         // 设置易盾内容安全分配的businessId
         deleteRequest.setBusinessId("BusinessId");
 

@@ -7,6 +7,7 @@ import com.netease.yidun.sdk.antispam.audio.AudioClient;
 import com.netease.yidun.sdk.antispam.audio.check.sync.v2.request.AudioSyncCheckRequest;
 import com.netease.yidun.sdk.antispam.audio.check.sync.v2.response.AudioSyncCheckResponse;
 import com.netease.yidun.sdk.antispam.enums.AudioCheckDataTypeEnum;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 public class AudioSyncCheckDemo extends AbstractDemo {
     public static void main(String[] args) {
@@ -22,6 +23,7 @@ public class AudioSyncCheckDemo extends AbstractDemo {
         AudioClient audioClient = AudioClient.getInstance(antispamRequester);
         // 实例化请求对象
         AudioSyncCheckRequest checkRequest = new AudioSyncCheckRequest();
+        checkRequest.setProtocol(ProtocolEnum.HTTP);
         // 根据需要设置请求的检测节点，默认杭州
         checkRequest.setRegionCode("cn-hangzhou");
         // 设置易盾内容安全分配的businessId

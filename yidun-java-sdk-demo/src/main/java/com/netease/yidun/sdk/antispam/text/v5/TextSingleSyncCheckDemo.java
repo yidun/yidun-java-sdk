@@ -6,6 +6,7 @@ import com.netease.yidun.sdk.antispam.text.TextClient;
 import com.netease.yidun.sdk.antispam.text.v5.check.sync.single.TextCheckRequest;
 import com.netease.yidun.sdk.antispam.text.v5.check.sync.single.TextCheckResponse;
 import com.netease.yidun.sdk.antispam.text.v5.check.sync.single.TextCheckResult;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 /**
  * 文本单次同步检测demo
@@ -22,6 +23,7 @@ public class TextSingleSyncCheckDemo extends AbstractDemo {
 
         // 实例化请求对象
         TextCheckRequest checkRequest = new TextCheckRequest();
+        checkRequest.setProtocol(ProtocolEnum.HTTP);
         // 设置易盾内容安全分配的businessId
         checkRequest.setBusinessId("BusinessId");
 

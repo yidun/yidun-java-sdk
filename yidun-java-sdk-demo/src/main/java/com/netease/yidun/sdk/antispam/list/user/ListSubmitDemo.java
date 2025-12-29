@@ -7,6 +7,7 @@ import com.netease.yidun.sdk.antispam.list.ListClient;
 import com.netease.yidun.sdk.antispam.list.user.v2.submit.ListSubmitRequest;
 import com.netease.yidun.sdk.antispam.list.user.v2.submit.ListSubmitResp;
 import com.netease.yidun.sdk.antispam.list.user.v2.submit.ListSubmitResponse;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 import java.util.HashSet;
 import java.util.List;
@@ -27,6 +28,7 @@ public class ListSubmitDemo extends AbstractDemo {
         ListClient listClient = ListClient.getInstance(antispamRequester);
         // 实例化请求对象
         ListSubmitRequest submitRequest = new ListSubmitRequest();
+        submitRequest.setProtocol(ProtocolEnum.HTTP);
         // 设置易盾内容安全分配的businessId
         submitRequest.setBusinessId("BusinessId");
 

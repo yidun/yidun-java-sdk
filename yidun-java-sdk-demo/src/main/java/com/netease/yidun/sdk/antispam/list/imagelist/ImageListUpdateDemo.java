@@ -5,6 +5,7 @@ import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.list.ListClient;
 import com.netease.yidun.sdk.antispam.list.imagelist.v1.update.ImageListUpdateRequest;
 import com.netease.yidun.sdk.antispam.list.imagelist.v1.update.ImageListUpdateResponse;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 /**
  * 忽略词修改demo
@@ -19,6 +20,7 @@ public class ImageListUpdateDemo extends AbstractDemo {
         ListClient listClient = ListClient.getInstance(antispamRequester);
         // 实例化请求对象
         ImageListUpdateRequest updateRequest = new ImageListUpdateRequest();
+        updateRequest.setProtocol(ProtocolEnum.HTTP);
         // 设置易盾内容安全分配的businessId
         updateRequest.setBusinessId("BusinessId");
 

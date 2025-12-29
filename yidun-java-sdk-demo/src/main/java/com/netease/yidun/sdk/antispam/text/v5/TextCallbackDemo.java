@@ -6,6 +6,7 @@ import com.netease.yidun.sdk.antispam.text.TextClient;
 import com.netease.yidun.sdk.antispam.text.v5.callback.request.TextCallBackRequest;
 import com.netease.yidun.sdk.antispam.text.v5.callback.response.TextCallBackResponse;
 import com.netease.yidun.sdk.antispam.text.v5.check.sync.single.TextCheckResult;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 /**
  * 获取文本检测结果demo
@@ -21,6 +22,7 @@ public class TextCallbackDemo extends AbstractDemo {
         TextClient textClient = TextClient.getInstance(antispamRequester);
         // 实例化请求对象
         TextCallBackRequest callbackRequest = new TextCallBackRequest();
+        callbackRequest.setProtocol(ProtocolEnum.HTTP);
         // 设置易盾内容安全分配的businessId
         callbackRequest.setBusinessId("BusinessId");
 

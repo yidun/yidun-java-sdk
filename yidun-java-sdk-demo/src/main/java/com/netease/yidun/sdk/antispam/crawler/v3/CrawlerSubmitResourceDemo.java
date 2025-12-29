@@ -7,6 +7,7 @@ import com.netease.yidun.sdk.antispam.crawler.v3.submit.request.CrawlerResourceS
 import com.netease.yidun.sdk.antispam.crawler.v3.submit.response.CrawlerResourceSubmitV3Response;
 
 import java.util.Arrays;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 /**
  * 网站检测提交Demo
@@ -26,6 +27,7 @@ public class CrawlerSubmitResourceDemo extends AbstractDemo {
 
         // 实例化请求对象
         CrawlerResourceSubmitV3Request request = new CrawlerResourceSubmitV3Request();
+        request.setProtocol(ProtocolEnum.HTTP);
         String url = "https://news.163.com";
         request.setUrl(url);
         request.setCheckFlags(Arrays.asList(1, 2));

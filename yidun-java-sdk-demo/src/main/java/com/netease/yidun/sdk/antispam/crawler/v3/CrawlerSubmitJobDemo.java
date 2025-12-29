@@ -8,6 +8,7 @@ import com.netease.yidun.sdk.antispam.crawler.v1.submit.response.CrawlerJobSubmi
 
 import java.util.Arrays;
 import java.util.HashSet;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 /**
  * 网站检测提交Demo 主站检测任务提交接口 具体出入参的说明，请参考官方接口文档中字段说明
@@ -26,6 +27,7 @@ public class CrawlerSubmitJobDemo extends AbstractDemo {
         // 实例化请求对象
         // 入参说明请看官网:https://support.dun.163.com/documents/606191408732381184?docId=611046863444135936
         CrawlerJobSubmitV1Request request = new CrawlerJobSubmitV1Request();
+        request.setProtocol(ProtocolEnum.HTTP);
         request.setFrequency(86400000L);
         request.setLevel(-1);
         request.setMaxResourceAmount(10);

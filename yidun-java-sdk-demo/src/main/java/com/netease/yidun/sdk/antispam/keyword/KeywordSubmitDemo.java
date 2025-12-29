@@ -7,6 +7,7 @@ import com.netease.yidun.sdk.antispam.enums.KeywordCustomLevel;
 import com.netease.yidun.sdk.antispam.enums.KeywordType;
 import com.netease.yidun.sdk.antispam.keyword.v1.submit.KeywordSubmitRequest;
 import com.netease.yidun.sdk.antispam.keyword.v1.submit.KeywordSubmitResponse;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -24,6 +25,7 @@ public class KeywordSubmitDemo extends AbstractDemo {
         KeywordClient keywordClient = KeywordClient.getInstance(antispamRequester);
         // 实例化请求对象
         KeywordSubmitRequest submitRequest = new KeywordSubmitRequest();
+        submitRequest.setProtocol(ProtocolEnum.HTTP);
         // 设置易盾内容安全分配的businessId
         submitRequest.setBusinessId("BusinessId");
 

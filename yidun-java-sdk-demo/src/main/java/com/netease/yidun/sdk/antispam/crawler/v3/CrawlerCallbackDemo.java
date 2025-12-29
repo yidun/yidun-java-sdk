@@ -5,6 +5,7 @@ import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.crawler.CrawlerClient;
 import com.netease.yidun.sdk.antispam.crawler.v3.callback.request.CrawlerResourceCallbackV3Request;
 import com.netease.yidun.sdk.antispam.crawler.v3.callback.response.CrawlerResourceCallbackV3Response;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 /**
  * 网站检测回调Demo
@@ -23,6 +24,7 @@ public class CrawlerCallbackDemo extends AbstractDemo {
 
         // 实例化请求对象
         CrawlerResourceCallbackV3Request request = new CrawlerResourceCallbackV3Request();
+        request.setProtocol(ProtocolEnum.HTTP);
 
         // 请求对象中的其他参数如果有需要，请参考官方接口文档中字段说明，按需添加
         CrawlerResourceCallbackV3Response response = null;

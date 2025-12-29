@@ -4,6 +4,7 @@ import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.file.v2.submit.request.FileSubmitV2Request;
 import com.netease.yidun.sdk.antispam.file.v2.submit.response.FileSubmitV2Response;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 /**
  * 文档解决方案Demo
@@ -22,6 +23,7 @@ public class FileSolutionCheckDemo extends AbstractDemo {
 
         // 实例化请求对象
         FileSubmitV2Request request = new FileSubmitV2Request();
+        request.setProtocol(ProtocolEnum.HTTP);
         request.setUrl("http://nisptools.nos.netease.com/3cd824f0e64744a1b0f18f9698495c97.doc");
         request.setAccount("file_mock");
         request.setFileName("fileName_mock");

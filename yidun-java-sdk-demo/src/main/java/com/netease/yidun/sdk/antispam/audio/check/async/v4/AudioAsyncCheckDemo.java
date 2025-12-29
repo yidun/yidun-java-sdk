@@ -6,6 +6,7 @@ import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.audio.AudioClient;
 import com.netease.yidun.sdk.antispam.audio.check.async.v4.request.AudioAsyncCheckRequest;
 import com.netease.yidun.sdk.antispam.audio.check.async.v4.response.AudioAsyncCheckResponse;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 public class AudioAsyncCheckDemo extends AbstractDemo {
 
@@ -37,6 +38,7 @@ public class AudioAsyncCheckDemo extends AbstractDemo {
 
         // 实例化请求对象
         AudioAsyncCheckRequest checkRequest = new AudioAsyncCheckRequest();
+        checkRequest.setProtocol(ProtocolEnum.HTTP);
         // 根据需要设置请求的检测节点，默认杭州
         checkRequest.setRegionCode("cn-hangzhou");
         // 设置易盾内容安全分配的businessId

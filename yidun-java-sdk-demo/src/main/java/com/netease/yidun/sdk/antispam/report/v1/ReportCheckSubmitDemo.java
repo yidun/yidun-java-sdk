@@ -5,6 +5,7 @@ import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.media.v2.common.constant.DataType;
 import com.netease.yidun.sdk.antispam.report.v1.submit.request.ReportSubmitRequestV1;
 import com.netease.yidun.sdk.antispam.report.v1.submit.response.ReportCheckResponseV1;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,6 +42,7 @@ public class ReportCheckSubmitDemo extends AbstractDemo {
                 .roomId("i am roomId")
                 .reportType("i am reportType")
                 .account("i am account");
+        request.setProtocol(ProtocolEnum.HTTP);
 
         // 请求对象中的其他参数如果有需要，请参考官方接口文档中字段说明，按需添加
         ReportCheckResponseV1 response = null;

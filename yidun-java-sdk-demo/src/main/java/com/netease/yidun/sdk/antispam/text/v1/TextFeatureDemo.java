@@ -7,6 +7,7 @@ import com.netease.yidun.sdk.antispam.text.TextClient;
 import com.netease.yidun.sdk.antispam.text.v1.textfeature.*;
 
 import java.util.*;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 /**
  * 文本特征接口demo
@@ -53,6 +54,7 @@ public class TextFeatureDemo extends AbstractDemo {
     private static List<String> getExistingTextFeatureUuids() {
         TextClient textClient = createTextClient();
         TextFeatureQueryRequest queryRequest = new TextFeatureQueryRequest();
+        queryRequest.setProtocol(ProtocolEnum.HTTP);
         queryRequest.setBusinessId(BUSINESS_ID);
         queryRequest.setPageNum(1);
         queryRequest.setPageSize(10);
@@ -79,6 +81,7 @@ public class TextFeatureDemo extends AbstractDemo {
         TextClient textClient = createTextClient();
 
         TextFeatureAddRequest addRequest = new TextFeatureAddRequest();
+        addRequest.setProtocol(ProtocolEnum.HTTP);
         addRequest.setBusinessId(BUSINESS_ID);
         addRequest.setFeatureType(2);
         addRequest.setLevel(2);
@@ -109,6 +112,7 @@ public class TextFeatureDemo extends AbstractDemo {
         TextClient textClient = createTextClient();
 
         TextFeatureQueryRequest queryRequest = new TextFeatureQueryRequest();
+        queryRequest.setProtocol(ProtocolEnum.HTTP);
         queryRequest.setBusinessId(BUSINESS_ID);
         queryRequest.setPageNum(1);
         queryRequest.setPageSize(10);
@@ -139,6 +143,7 @@ public class TextFeatureDemo extends AbstractDemo {
 
         if (!uuidList.isEmpty()) {
             TextFeatureEditStatusRequest editStatusRequest = new TextFeatureEditStatusRequest();
+            editStatusRequest.setProtocol(ProtocolEnum.HTTP);
             editStatusRequest.setBusinessId(BUSINESS_ID);
             editStatusRequest.setUuids(gson.toJson(uuidList));
             editStatusRequest.setStatus(2); // 失效
@@ -168,6 +173,7 @@ public class TextFeatureDemo extends AbstractDemo {
 
         if (!uuidList.isEmpty()) {
             TextFeatureDeleteRequest deleteRequest = new TextFeatureDeleteRequest();
+            deleteRequest.setProtocol(ProtocolEnum.HTTP);
             deleteRequest.setBusinessId(BUSINESS_ID);
             deleteRequest.setUuids(gson.toJson(uuidList));
 

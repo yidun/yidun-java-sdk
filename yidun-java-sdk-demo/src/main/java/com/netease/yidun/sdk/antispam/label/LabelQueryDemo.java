@@ -15,6 +15,7 @@ import com.netease.yidun.sdk.antispam.label.query.response.LabelQueryResponse;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 
 /**
@@ -29,6 +30,7 @@ public class LabelQueryDemo extends AbstractDemo {
         LabelClient labelClient = LabelClient.getInstance(antispamRequester);
 
         LabelQueryRequest labelQueryRequest = new LabelQueryRequest();
+        labelQueryRequest.setProtocol(ProtocolEnum.HTTP);
         labelQueryRequest.setBusinessId("businessId");
         labelQueryRequest.setClientId("clientId");
         labelQueryRequest.setMaxDepth(3);

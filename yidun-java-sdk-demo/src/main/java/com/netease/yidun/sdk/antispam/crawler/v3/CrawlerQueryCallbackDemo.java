@@ -16,6 +16,7 @@ import com.netease.yidun.sdk.antispam.crawler.v3.query.request.CrawlerQueryReque
 
 import java.util.ArrayList;
 import java.util.List;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 
 /**
@@ -34,6 +35,7 @@ public class CrawlerQueryCallbackDemo extends AbstractDemo{
 
         // 实例化请求对象
         CrawlerQueryRequest request = new CrawlerQueryRequest();
+        request.setProtocol(ProtocolEnum.HTTP);
 
         //设置taskIdList
         List<String> taskIdArray=new ArrayList<>();

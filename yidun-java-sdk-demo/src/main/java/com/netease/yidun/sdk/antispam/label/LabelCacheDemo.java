@@ -14,6 +14,7 @@ import com.netease.yidun.sdk.core.client.ClientProfile;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 
 /**
@@ -25,6 +26,7 @@ public class LabelCacheDemo {
     public static void main(String[] args) {
         ClientProfile clientProfile = ClientProfile.defaultProfile("SecretId", "SecretKey");
         LabelQueryRequest labelQueryRequest = new LabelQueryRequest();
+        labelQueryRequest.setProtocol(ProtocolEnum.HTTP);
         labelQueryRequest.setFetchClientLabel(true);
         labelQueryRequest.setMaxDepth(3);
         List<String> businessTypes = Arrays.stream(LabelBusinessTypeEnum.values())

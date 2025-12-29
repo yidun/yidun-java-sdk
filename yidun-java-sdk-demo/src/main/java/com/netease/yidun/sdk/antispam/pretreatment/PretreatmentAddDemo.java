@@ -4,6 +4,7 @@ import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.pretreatment.v2.add.PretreatmentAddRequest;
 import com.netease.yidun.sdk.antispam.pretreatment.v2.add.PretreatmentAddResponse;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 /**
  * 忽略词添加demo
@@ -18,6 +19,7 @@ public class PretreatmentAddDemo extends AbstractDemo {
         PretreatmentClient pretreatmentClient = PretreatmentClient.getInstance(antispamRequester);
         // 实例化请求对象
         PretreatmentAddRequest addRequest = new PretreatmentAddRequest();
+        addRequest.setProtocol(ProtocolEnum.HTTP);
         // 设置易盾内容安全分配的businessId
         addRequest.setBusinessId("BusinessId");
 

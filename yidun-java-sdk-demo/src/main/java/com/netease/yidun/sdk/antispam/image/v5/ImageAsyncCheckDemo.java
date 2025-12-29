@@ -5,6 +5,7 @@ import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.image.v5.check.ImageV5CheckRequest;
 import com.netease.yidun.sdk.antispam.image.v5.check.async.request.ImageV5AsyncCheckRequest;
 import com.netease.yidun.sdk.antispam.image.v5.check.async.response.ImageV5AsyncCheckResp;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +41,7 @@ public class ImageAsyncCheckDemo extends AbstractDemo {
 
         // 实例化请求对象
         ImageV5AsyncCheckRequest checkRequest = new ImageV5AsyncCheckRequest();
+        checkRequest.setProtocol(ProtocolEnum.HTTP);
         // 设置易盾内容安全分配的businessId
         checkRequest.setBusinessId("BusinessId");
         // 根据需要设置请求的检测节点，默认杭州，现阶段只支持检测接口

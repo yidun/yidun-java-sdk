@@ -6,6 +6,7 @@ import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.text.TextClient;
 import com.netease.yidun.sdk.antispam.text.v2.feedback.TextFeedbackRequest;
 import com.netease.yidun.sdk.antispam.text.v2.feedback.TextFeedbackResponse;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,6 +27,7 @@ public class TextFeedbackDemo extends AbstractDemo {
         TextClient textClient = TextClient.getInstance(antispamRequester);
         // 实例化请求对象
         TextFeedbackRequest feedBackRequest = new TextFeedbackRequest();
+        feedBackRequest.setProtocol(ProtocolEnum.HTTP);
         // 设置易盾内容安全分配的businessId
         feedBackRequest.setBusinessId("BusinessId");
         feedBackRequest.setFeedbacks(createFeedbacks());

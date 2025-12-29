@@ -8,6 +8,7 @@ import com.netease.yidun.sdk.antispam.video.callback.v4.request.VideoCallbackV4R
 import com.netease.yidun.sdk.antispam.video.callback.v4.response.VideoCallbackUnitV4Response;
 import com.netease.yidun.sdk.antispam.video.callback.v4.response.VideoCallbackV4Resp;
 import com.netease.yidun.sdk.antispam.video.callback.v4.response.VideoCallbackV4Result;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 public class VideoCallbackDemo extends AbstractDemo {
 
@@ -18,6 +19,7 @@ public class VideoCallbackDemo extends AbstractDemo {
         VideoClient client = VideoClient.getInstance(antispamRequester);
         // 构建回调请求
         VideoCallbackV4Req request = new VideoCallbackV4Req();
+        request.setProtocol(ProtocolEnum.HTTP);
         request.setBusinessId("BusinessId");
         VideoCallbackV4Resp response = null;
         try {

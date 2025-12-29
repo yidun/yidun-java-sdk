@@ -4,6 +4,7 @@ import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.digitalbook.v2.submit.request.DigitalBookSubmitRequestV2;
 import com.netease.yidun.sdk.antispam.digitalbook.v2.submit.response.DigitalBookCheckResponseV2;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 /**
  * 数字阅读解决方案Demo
@@ -22,6 +23,7 @@ public class DigitalBookCheckDemo extends AbstractDemo {
 
         // 实例化请求对象
         DigitalBookSubmitRequestV2 request = new DigitalBookSubmitRequestV2();
+        request.setProtocol(ProtocolEnum.HTTP);
         request.type("1");
         request.bookId("001");
         // 请求对象中的其他参数如果有需要，请参考官方接口文档中字段说明，按需添加

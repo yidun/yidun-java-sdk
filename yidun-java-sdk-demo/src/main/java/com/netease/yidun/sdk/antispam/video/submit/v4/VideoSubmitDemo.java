@@ -6,6 +6,7 @@ import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.video.VideoClient;
 import com.netease.yidun.sdk.antispam.video.submit.v4.request.VideoCheckReq;
 import com.netease.yidun.sdk.antispam.video.submit.v4.response.VideoCheckResp;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 public class VideoSubmitDemo extends AbstractDemo {
     public static void main(String[] args) {
@@ -30,6 +31,7 @@ public class VideoSubmitDemo extends AbstractDemo {
         // VideoClient client = VideoClient.getInstance(antispamRequester, callback);
 
         VideoCheckReq request = new VideoCheckReq();
+        request.setProtocol(ProtocolEnum.HTTP);
         // 根据需要设置请求的检测节点，默认杭州
         request.setRegionCode("cn-hangzhou");
         request.setBusinessId("BusinessId");

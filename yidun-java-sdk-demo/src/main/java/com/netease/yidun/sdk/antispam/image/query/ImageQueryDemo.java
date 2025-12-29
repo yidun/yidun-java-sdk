@@ -14,6 +14,7 @@ import com.netease.yidun.sdk.antispam.image.v5.ImageClient;
 
 import java.util.Arrays;
 import java.util.Collections;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 
 /**
@@ -30,6 +31,7 @@ public class ImageQueryDemo extends AbstractDemo {
             ImageClient imageClient = ImageClient.getInstance(antispamRequester);
             // 实例化请求对象
             ImageQueryRequest queryRequest = new ImageQueryRequest();
+            queryRequest.setProtocol(ProtocolEnum.HTTP);
             // 设置易盾内容安全分配的businessId
             queryRequest.setBusinessId("BusinessId");
 

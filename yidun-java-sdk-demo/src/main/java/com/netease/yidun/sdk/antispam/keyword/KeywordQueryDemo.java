@@ -4,6 +4,7 @@ import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.keyword.v1.query.KeywordQueryRequest;
 import com.netease.yidun.sdk.antispam.keyword.v1.query.KeywordQueryResponse;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 /**
  * 关键词查询demo
@@ -18,6 +19,7 @@ public class KeywordQueryDemo extends AbstractDemo {
         KeywordClient keywordClient = KeywordClient.getInstance(antispamRequester);
         // 实例化请求对象
         KeywordQueryRequest queryRequest = new KeywordQueryRequest();
+        queryRequest.setProtocol(ProtocolEnum.HTTP);
         // 设置易盾内容安全分配的businessId
         queryRequest.setBusinessId("BusinessId");
 

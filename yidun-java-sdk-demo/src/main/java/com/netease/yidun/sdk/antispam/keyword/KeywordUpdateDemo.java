@@ -5,6 +5,7 @@ import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.enums.KeywordCategory;
 import com.netease.yidun.sdk.antispam.keyword.v2.update.KeywordUpdateRequest;
 import com.netease.yidun.sdk.antispam.keyword.v2.update.KeywordUpdateResponse;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 /**
  * 关键词修改demo
@@ -19,6 +20,7 @@ public class KeywordUpdateDemo extends AbstractDemo {
         KeywordClient keywordClient = KeywordClient.getInstance(antispamRequester);
         // 实例化请求对象
         KeywordUpdateRequest updateRequest = new KeywordUpdateRequest();
+        updateRequest.setProtocol(ProtocolEnum.HTTP);
         // 设置易盾内容安全分配的businessId
         updateRequest.setBusinessId("BusinessId");
 

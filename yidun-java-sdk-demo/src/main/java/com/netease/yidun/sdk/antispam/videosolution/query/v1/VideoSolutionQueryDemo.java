@@ -8,6 +8,7 @@ import com.netease.yidun.sdk.antispam.videosolution.query.v1.request.VideoSoluti
 import com.netease.yidun.sdk.antispam.videosolution.query.v1.request.VideoSolutionQueryV1Req;
 import com.netease.yidun.sdk.antispam.videosolution.query.v1.response.VideoSolutionQueryImageV1Resp;
 import com.netease.yidun.sdk.antispam.videosolution.query.v1.response.VideoSolutionQueryV1Resp;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 public class VideoSolutionQueryDemo extends AbstractDemo {
 
@@ -19,6 +20,7 @@ public class VideoSolutionQueryDemo extends AbstractDemo {
         VideoSolutionClient client = VideoSolutionClient.getInstance(antispamRequester);
         // 构建点播音视频查询请求
         VideoSolutionQueryV1Req solutionQueryV1Req = new VideoSolutionQueryV1Req();
+        solutionQueryV1Req.setProtocol(ProtocolEnum.HTTP);
         VideoSolutionQueryV1Resp solutionQueryV1Resp = null;
         try {
             solutionQueryV1Resp = client.query(solutionQueryV1Req);
@@ -33,6 +35,7 @@ public class VideoSolutionQueryDemo extends AbstractDemo {
         }
         // 构建点播音视频图片查询请求
         VideoSolutionQueryImageV1Req queryImageV1Req = new VideoSolutionQueryImageV1Req();
+        queryImageV1Req.setProtocol(ProtocolEnum.HTTP);
         VideoSolutionQueryImageV1Resp queryImageV1Resp = null;
         try {
             queryImageV1Resp = client.query(queryImageV1Req);

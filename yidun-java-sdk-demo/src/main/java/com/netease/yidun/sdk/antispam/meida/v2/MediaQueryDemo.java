@@ -5,6 +5,7 @@ import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.media.v2.MediaClient;
 import com.netease.yidun.sdk.antispam.media.v2.callback.response.MediaCallbackResponseV2;
 import com.netease.yidun.sdk.antispam.media.v2.query.request.MediaQueryRequestV2;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 /**
  * 融媒体解决方案Demo
@@ -23,6 +24,7 @@ public class MediaQueryDemo extends AbstractDemo {
 
         // 实例化请求对象
         MediaQueryRequestV2 request = new MediaQueryRequestV2();
+        request.setProtocol(ProtocolEnum.HTTP);
         /**
          * 数据抄送接口协议的版本号, 默认值v2.1，注意与抄送时的版本号保持一致
          */

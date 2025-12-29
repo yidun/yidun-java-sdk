@@ -7,6 +7,7 @@ import com.netease.yidun.sdk.antispam.audio.AudioClient;
 import com.netease.yidun.sdk.antispam.audio.callback.v4.request.AudioCallbackV4Request;
 import com.netease.yidun.sdk.antispam.audio.callback.v4.response.AudioCallbackV4Response;
 import com.netease.yidun.sdk.antispam.audio.callback.v4.response.AudioCallbackV4Result;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 public class AudioCallbackDemo extends AbstractDemo {
     public static void main(String[] args) {
@@ -17,6 +18,7 @@ public class AudioCallbackDemo extends AbstractDemo {
         AudioClient audioClient = AudioClient.getInstance(antispamRequester);
         // 实例化请求对象
         AudioCallbackV4Request callbackRequest = new AudioCallbackV4Request();
+        callbackRequest.setProtocol(ProtocolEnum.HTTP);
         // 设置易盾内容安全分配的businessId
         callbackRequest.setBusinessId("BusinessId");
 

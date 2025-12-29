@@ -4,6 +4,7 @@ import com.netease.yidun.sdk.AbstractDemo;
 import com.netease.yidun.sdk.antispam.AntispamRequester;
 import com.netease.yidun.sdk.antispam.file.v2.callback.request.FileCallbackV2Request;
 import com.netease.yidun.sdk.antispam.file.v2.callback.response.FileCallbackV2Response;
+import com.netease.yidun.sdk.core.http.ProtocolEnum;
 
 /**
  * 文档解决方案Demo
@@ -22,6 +23,7 @@ public class FileSolutionCallbackDemo extends AbstractDemo {
 
         // 实例化请求对象
         FileCallbackV2Request request = new FileCallbackV2Request();
+        request.setProtocol(ProtocolEnum.HTTP);
 
         // 请求对象中的其他参数如果有需要，请参考官方接口文档中字段说明，按需添加
         FileCallbackV2Response response = null;
