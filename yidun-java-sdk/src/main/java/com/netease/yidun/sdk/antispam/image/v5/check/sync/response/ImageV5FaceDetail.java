@@ -69,6 +69,10 @@ public class ImageV5FaceDetail implements Serializable {
          */
         private String gender;
         /**
+         * 性别分数
+         */
+        private Float genderRate;
+        /**
          * 年龄
          */
         private Integer age;
@@ -148,6 +152,14 @@ public class ImageV5FaceDetail implements Serializable {
 
         public void setCompleteness(Integer completeness) {
             this.completeness = completeness;
+        }
+
+        public Float getGenderRate() {
+            return genderRate;
+        }
+
+        public void setGenderRate(Float genderRate) {
+            this.genderRate = genderRate;
         }
         
         public static class FacePoseInfo implements Serializable {
