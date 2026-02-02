@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.netease.yidun.sdk.antispam.grammarfix.v1.submit.GrammarfixSubmitResponse;
 import com.netease.yidun.sdk.antispam.media.v2.common.response.envidence.MediaAigc;
+import com.netease.yidun.sdk.core.response.BaseResponse;
 
 /**
  * 融媒体增值服务信息
@@ -22,6 +23,12 @@ public class MediaValueAddServiceResponse {
     private GrammarFix grammarFix;
 
     private MediaAigc aigc;
+
+    /**
+     * 图片大模型检测结果
+     */
+    private LlmCheckInfo llmCheckInfo;
+
 
     public Ocr getOcr() {
         return ocr;
@@ -95,6 +102,14 @@ public class MediaValueAddServiceResponse {
         this.grammarFix = grammarFix;
     }
 
+    public LlmCheckInfo getLlmCheckInfo() {
+        return llmCheckInfo;
+    }
+
+    public void setLlmCheckInfo(LlmCheckInfo llmCheckInfo) {
+        this.llmCheckInfo = llmCheckInfo;
+    }
+
     @Override
     public String toString() {
         return "MediaValueAddServiceResponse{" +
@@ -107,6 +122,7 @@ public class MediaValueAddServiceResponse {
                 ", emotionAnalysis=" + emotionAnalysis +
                 ", language=" + language +
                 ", grammarFix=" + grammarFix +
+                ", llmCheckInfo=" + llmCheckInfo +
                 '}';
     }
 
@@ -192,6 +208,87 @@ public class MediaValueAddServiceResponse {
                     ", fieldId='" + fieldId + '\'' +
                     ", details=" + details +
                     '}';
+        }
+    }
+
+    public static class LlmCheckInfo implements BaseResponse {
+        private List<ImageLlmCheckDetail> images;
+
+        public List<ImageLlmCheckDetail> getImages() {
+            return images;
+        }
+
+        public void setImages(List<ImageLlmCheckDetail> images) {
+            this.images = images;
+        }
+
+        @Override
+        public String toString() {
+            return "LlmCheckInfo{" +
+                    "images=" + images +
+                    '}';
+        }
+    }
+
+
+    public static class LlmCheckInfoBaseUnit extends ValueServiceBaseResponse {
+        /**
+         * 模型标签
+         */
+        private String label;
+        /**
+         * 模型解释
+         */
+        private String explain;
+        /**
+         * 模型分数
+         */
+        private Double rate;
+        /**
+         * 大模型标识
+         */
+        private String modelIdentifier;
+
+        @Override
+        public String toString() {
+            return "LlmCheckInfoBaseUnit{" +
+                    "label='" + label + '\'' +
+                    ", explain='" + explain + '\'' +
+                    ", rate=" + rate +
+                    ", modelIdentifier='" + modelIdentifier + '\'' +
+                    '}';
+        }
+
+        public String getLabel() {
+            return label;
+        }
+
+        public void setLabel(String label) {
+            this.label = label;
+        }
+
+        public String getExplain() {
+            return explain;
+        }
+
+        public void setExplain(String explain) {
+            this.explain = explain;
+        }
+
+        public Double getRate() {
+            return rate;
+        }
+
+        public void setRate(Double rate) {
+            this.rate = rate;
+        }
+
+        public String getModelIdentifier() {
+            return modelIdentifier;
+        }
+
+        public void setModelIdentifier(String modelIdentifier) {
+            this.modelIdentifier = modelIdentifier;
         }
     }
 
@@ -908,6 +1005,18 @@ public class MediaValueAddServiceResponse {
         }
 
         public void setDetails(List<ImageQualityImageDetail> details) {
+            this.details = details;
+        }
+    }
+
+    public static class ImageLlmCheckDetail extends ValueServiceBaseResponse {
+        private List<LlmCheckInfoBaseUnit> details;
+
+        public List<LlmCheckInfoBaseUnit> getDetails() {
+            return details;
+        }
+
+        public void setDetails(List<LlmCheckInfoBaseUnit> details) {
             this.details = details;
         }
     }
