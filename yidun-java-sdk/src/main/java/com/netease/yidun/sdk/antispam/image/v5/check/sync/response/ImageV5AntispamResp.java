@@ -1,5 +1,6 @@
 package com.netease.yidun.sdk.antispam.image.v5.check.sync.response;
 
+import com.google.gson.JsonObject;
 import com.netease.yidun.sdk.antispam.image.v5.enums.CensorTypeEnum;
 import lombok.ToString;
 
@@ -147,11 +148,6 @@ public class ImageV5AntispamResp implements Serializable {
     private String remark;
 
     /**
-     * 人审拓展字段，回调返回
-     */
-    private CensorExtension censorExtension;
-
-    /**
      * 特征添加来源，用于区分用户添加和审核添加
      */
     private Integer hitSource;
@@ -169,6 +165,11 @@ public class ImageV5AntispamResp implements Serializable {
      * 命中结果详情
      */
     private String hitResult;
+
+    /**
+     * 审核扩展字段
+     */
+    private JsonObject censorExtension;
 
 
     public String getPublicOpinionInfo() {
@@ -384,6 +385,14 @@ public class ImageV5AntispamResp implements Serializable {
         this.customLabels = customLabels;
     }
 
+    public JsonObject getCensorExtension() {
+        return censorExtension;
+    }
+
+    public void setCensorExtension(JsonObject censorExtension) {
+        this.censorExtension = censorExtension;
+    }
+
     public Integer getSuggestionLevel() {
         return suggestionLevel;
     }
@@ -430,14 +439,6 @@ public class ImageV5AntispamResp implements Serializable {
 
     public void setRemark(String remark) {
         this.remark = remark;
-    }
-
-    public CensorExtension getCensorExtension() {
-        return censorExtension;
-    }
-
-    public void setCensorExtension(CensorExtension censorExtension) {
-        this.censorExtension = censorExtension;
     }
 
     public Integer getHitSource() {
