@@ -74,6 +74,8 @@ public class IRiskCheckV603Demo {
             List<HitInfoV602> hitInfos = data.getHitInfos();
             PhoneInfo<PhoneBasicInfo, PhoneRiskInfo> phoneInfo = data.getPhoneInfo();
             IpInfo<IpBasicInfo, IpRiskInfo> ipInfo = data.getIpInfo();
+            IpBasicInfo ipBasicInfo = ipInfo.getBasicInfo();
+            String countryCode = ipBasicInfo != null ? ipBasicInfo.getCountryCode() : null;
             // data 数据即为所需的check结果
             // deviceInfo: if Android then
             AndroidDeviceInfoResult deviceInfoAndroid = new Gson().fromJson(GsonUtils.toJson(data.getDeviceInfo()), AndroidDeviceInfoResult.class);

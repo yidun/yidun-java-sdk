@@ -30,6 +30,12 @@ public class IpBasicInfo extends AbstractIpBasicInfo implements Serializable {
     private String country;
 
     /**
+     * 国家编码
+     */
+    private String countryCode;
+
+
+    /**
      * 省份
      */
     private String province;
@@ -73,6 +79,14 @@ public class IpBasicInfo extends AbstractIpBasicInfo implements Serializable {
         this.country = country;
     }
 
+    public String getCountryCode() {
+        return countryCode;
+    }
+
+    public void setCountryCode(String countryCode) {
+        this.countryCode = countryCode;
+    }
+
     public String getProvince() {
         return province;
     }
@@ -111,6 +125,7 @@ public class IpBasicInfo extends AbstractIpBasicInfo implements Serializable {
                 "isp='" + isp + '\'' +
                 ", continent='" + continent + '\'' +
                 ", country='" + country + '\'' +
+                ", countryCode='" + countryCode + '\'' +
                 ", province='" + province + '\'' +
                 ", city='" + city + '\'' +
                 ", longitude='" + longitude + '\'' +
