@@ -162,6 +162,11 @@ public class TextCheckResult implements Serializable {
         private Integer status;
         private List<CustomLabel> customLabels;
 
+        /**
+         * 人审拓展字段，机审无
+         */
+        private CensorExtension censorExtension;
+
         public String getTaskId() {
             return taskId;
         }
@@ -378,6 +383,14 @@ public class TextCheckResult implements Serializable {
             this.customLabels = customLabels;
         }
 
+        public void setCensorExtensions(CensorExtension censorExtension) {
+            this.censorExtension = censorExtension;
+        }
+
+        public CensorExtension getCensorExtension() {
+            return censorExtension;
+        }
+
         @Override
         public String toString() {
             return "Antispam{" +
@@ -408,6 +421,7 @@ public class TextCheckResult implements Serializable {
                     ", mergeHints=" + mergeHints +
                     ", status=" + status +
                     ", customLabels=" + customLabels +
+                    ", censorExtension=" + censorExtension +
                     '}';
         }
     }
@@ -530,6 +544,43 @@ public class TextCheckResult implements Serializable {
                     ", code='" + code + '\'' +
                     ", depth=" + depth +
                     '}';
+        }
+    }
+
+    public static class CensorExtension {
+
+        /**
+         * 质量检测任务ID
+         */
+        private String qualityInspectionTaskId;
+
+        /**
+         * 质检任务创建时间（Unix时间戳，毫秒）
+         */
+        private Long inspTaskCreateTime;
+
+        public void setQualityInspectionTaskId(String qualityInspectionTaskId) {
+            this.qualityInspectionTaskId = qualityInspectionTaskId;
+        }
+
+        public String getQualityInspectionTaskId() {
+            return qualityInspectionTaskId;
+        }
+
+        public void setInspTaskCreateTime(Long inspTaskCreateTime) {
+            this.inspTaskCreateTime = inspTaskCreateTime;
+        }
+
+        public Long getInspTaskCreateTime() {
+            return inspTaskCreateTime;
+        }
+
+        @Override
+        public String toString() {
+            return "CensorExtension("
+                    + "qualityInspectionTaskId='" + qualityInspectionTaskId
+                    + ", inspTaskCreateTime=" + inspTaskCreateTime
+                    + ")";
         }
     }
 
