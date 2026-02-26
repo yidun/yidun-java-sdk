@@ -213,6 +213,8 @@ public class MediaValueAddServiceResponse {
 
     public static class LlmCheckInfo implements BaseResponse {
         private List<ImageLlmCheckDetail> images;
+        private List<TextLlmCheckDetail> texts;
+        private List<VideoLlmCheckDetail> videos;
 
         public List<ImageLlmCheckDetail> getImages() {
             return images;
@@ -222,10 +224,28 @@ public class MediaValueAddServiceResponse {
             this.images = images;
         }
 
+        public List<TextLlmCheckDetail> getTexts() {
+            return texts;
+        }
+
+        public void setTexts(List<TextLlmCheckDetail> texts) {
+            this.texts = texts;
+        }
+
+        public List<VideoLlmCheckDetail> getVideos() {
+            return videos;
+        }
+
+        public void setVideos(List<VideoLlmCheckDetail> videos) {
+            this.videos = videos;
+        }
+
         @Override
         public String toString() {
             return "LlmCheckInfo{" +
                     "images=" + images +
+                    ", texts=" + texts +
+                    ", videos=" + videos +
                     '}';
         }
     }
@@ -1018,6 +1038,30 @@ public class MediaValueAddServiceResponse {
 
         public void setDetails(List<LlmCheckInfoBaseUnit> details) {
             this.details = details;
+        }
+    }
+
+    public static class TextLlmCheckDetail extends ValueServiceBaseResponse {
+        private List<LlmCheckInfoBaseUnit> details;
+
+        public List<LlmCheckInfoBaseUnit> getDetails() {
+            return details;
+        }
+
+        public void setDetails(List<LlmCheckInfoBaseUnit> details) {
+            this.details = details;
+        }
+    }
+
+    public static class VideoLlmCheckDetail extends ValueServiceBaseResponse {
+        private List<com.netease.yidun.sdk.antispam.video.callback.v4.response.VideoCallbackLlmCheckV4Info.LlmCheckPicture> pictures;
+
+        public List<com.netease.yidun.sdk.antispam.video.callback.v4.response.VideoCallbackLlmCheckV4Info.LlmCheckPicture> getPictures() {
+            return pictures;
+        }
+
+        public void setPictures(List<com.netease.yidun.sdk.antispam.video.callback.v4.response.VideoCallbackLlmCheckV4Info.LlmCheckPicture> pictures) {
+            this.pictures = pictures;
         }
     }
 

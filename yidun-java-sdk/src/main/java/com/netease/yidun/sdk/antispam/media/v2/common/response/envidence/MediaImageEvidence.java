@@ -31,6 +31,11 @@ public class MediaImageEvidence {
     private String name;
     private List<ImageLabelInfo> labels;
 
+    /**
+     * 图片 MD5 值（32位小写格式）
+     */
+    private String imgMd5;
+
     public Integer getSuggestionRiskLevel() {
         return suggestionRiskLevel;
     }
@@ -126,6 +131,14 @@ public class MediaImageEvidence {
 
     public void setLabels(List<ImageLabelInfo> labels) {
         this.labels = labels;
+    }
+
+    public String getImgMd5() {
+        return imgMd5;
+    }
+
+    public void setImgMd5(String imgMd5) {
+        this.imgMd5 = imgMd5;
     }
 
     public static class ImageLabelInfo {
