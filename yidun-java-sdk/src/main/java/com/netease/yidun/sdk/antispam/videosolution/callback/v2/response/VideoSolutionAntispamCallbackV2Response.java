@@ -92,6 +92,11 @@ public class VideoSolutionAntispamCallbackV2Response {
      */
     private VideoSolutionCallbackReviewEvidenceV2Response reviewEvidences;
     private List<CensorLabelInfoV2Response> censorLabels;
+    /**
+     * 质检扩展信息
+     */
+    private CensorExtensionResult censorExtension;
+
 
     @Data
     @AllArgsConstructor
@@ -99,6 +104,7 @@ public class VideoSolutionAntispamCallbackV2Response {
     public static class VideoSolutionCallbackExtraV2Response {
         private VideoSolutionFailUnitResponse failUnit;
     }
+
     @Data
     @AllArgsConstructor
     @NoArgsConstructor
@@ -107,12 +113,14 @@ public class VideoSolutionAntispamCallbackV2Response {
         private VideoSolutionTargetFailUnitResponse audio;
         private VideoSolutionTargetFailUnitResponse video;
     }
+
     @Data
     @AllArgsConstructor
     @NoArgsConstructor
     public static class VideoSolutionTargetFailUnitResponse {
         private Integer failureReason;
     }
+
     @Data
     @AllArgsConstructor
     @NoArgsConstructor
@@ -120,6 +128,7 @@ public class VideoSolutionAntispamCallbackV2Response {
         private Integer failureReason;
         private String name;
     }
+
     @Data
     @Builder
     @AllArgsConstructor
@@ -206,4 +215,15 @@ public class VideoSolutionAntispamCallbackV2Response {
         private String desc;
     }
 
+    @Data
+    @Builder
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class CensorExtensionResult {
+        private String qualityInspectionTaskId;
+        /**
+         * 质检任务创建时间，毫秒时间戳
+         */
+        private Long inspTaskCreateTime;
+    }
 }

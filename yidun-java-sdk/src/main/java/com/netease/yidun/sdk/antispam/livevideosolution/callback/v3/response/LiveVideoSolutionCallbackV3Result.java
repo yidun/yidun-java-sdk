@@ -351,5 +351,9 @@ public class LiveVideoSolutionCallbackV3Result implements BaseResponse {
     @NoArgsConstructor
     public static class CensorExtensionResult {
         private String qualityInspectionTaskId;
+        /**
+         * 质检任务创建时间，毫秒时间戳
+         */
+        private Long inspTaskCreateTime;
     }
 }
