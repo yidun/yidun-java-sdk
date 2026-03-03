@@ -1,5 +1,7 @@
 package com.netease.yidun.sdk.antispam.media.v2.common.response;
 
+import com.netease.yidun.sdk.antispam.image.v5.check.sync.response.CensorExtension;
+
 import java.util.List;
 import java.util.Set;
 
@@ -28,6 +30,18 @@ public class MediaCensorResponse {
      */
     private Set<CensorLabel> censorLabels;
     private MediaCensorReviewEvidence reviewEvidences;
+    /**
+     * 审核扩展字段
+     */
+    private CensorExtension censorExtension;
+
+    public CensorExtension getCensorExtension() {
+        return censorExtension;
+    }
+
+    public void setCensorExtension(CensorExtension censorExtension) {
+        this.censorExtension = censorExtension;
+    }
 
     public String getDataId() {
         return dataId;

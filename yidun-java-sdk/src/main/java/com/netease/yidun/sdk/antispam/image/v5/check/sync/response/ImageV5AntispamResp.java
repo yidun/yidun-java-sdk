@@ -1,6 +1,5 @@
 package com.netease.yidun.sdk.antispam.image.v5.check.sync.response;
 
-import com.google.gson.JsonObject;
 import com.netease.yidun.sdk.antispam.image.v5.enums.CensorTypeEnum;
 import lombok.ToString;
 
@@ -169,7 +168,7 @@ public class ImageV5AntispamResp implements Serializable {
     /**
      * 审核扩展字段
      */
-    private JsonObject censorExtension;
+    private CensorExtension censorExtension;
 
 
     public String getPublicOpinionInfo() {
@@ -385,11 +384,11 @@ public class ImageV5AntispamResp implements Serializable {
         this.customLabels = customLabels;
     }
 
-    public JsonObject getCensorExtension() {
+    public CensorExtension getCensorExtension() {
         return censorExtension;
     }
 
-    public void setCensorExtension(JsonObject censorExtension) {
+    public void setCensorExtension(CensorExtension censorExtension) {
         this.censorExtension = censorExtension;
     }
 
@@ -572,21 +571,7 @@ public class ImageV5AntispamResp implements Serializable {
             this.y = y;
         }
     }
-    @ToString
-    public static class CensorExtension implements Serializable{
-        /**
-         * 质检任务ID，用于质检任务的关联，父子任务逗号分隔
-         */
-        private String qualityInspectionTaskId;
 
-        public String getQualityInspectionTaskId() {
-            return qualityInspectionTaskId;
-        }
-
-        public void setQualityInspectionTaskId(String qualityInspectionTaskId) {
-            this.qualityInspectionTaskId = qualityInspectionTaskId;
-        }
-    }
     @ToString
     public static class CensorLabelInfo implements Serializable {
         private static final long serialVersionUID = -7913548400479437764L;

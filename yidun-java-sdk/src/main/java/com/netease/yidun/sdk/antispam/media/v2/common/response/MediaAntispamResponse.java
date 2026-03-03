@@ -1,6 +1,6 @@
 package com.netease.yidun.sdk.antispam.media.v2.common.response;
 
-import com.google.gson.JsonObject;
+import com.netease.yidun.sdk.antispam.image.v5.check.sync.response.CensorExtension;
 import com.netease.yidun.sdk.antispam.media.v2.common.response.envidence.MediaAntispamEvidence;
 import com.netease.yidun.sdk.antispam.media.v2.common.response.envidence.SolutionEnrichEvidence;
 
@@ -61,7 +61,7 @@ public class MediaAntispamResponse {
     /**
      * 审核扩展字段
      */
-    private JsonObject censorExtension;
+    private CensorExtension censorExtension;
 
     public String getDataId() {
         return dataId;
@@ -169,11 +169,11 @@ public class MediaAntispamResponse {
         this.riskDescription = riskDescription;
     }
 
-    public JsonObject getCensorExtension() {
+    public CensorExtension getCensorExtension() {
         return censorExtension;
     }
 
-    public void setCensorExtension(JsonObject censorExtension) {
+    public void setCensorExtension(CensorExtension censorExtension) {
         this.censorExtension = censorExtension;
     }
 
