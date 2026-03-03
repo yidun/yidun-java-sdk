@@ -2,10 +2,15 @@ package com.netease.yidun.sdk.antispam.image.v5.check.sync.response;
 
 import com.netease.yidun.sdk.antispam.image.v5.enums.CensorTypeEnum;
 import com.netease.yidun.sdk.antispam.text.v5.check.sync.single.TextCheckResult;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 @ToString
 public class ImageV5AntispamResp implements Serializable {
@@ -121,6 +126,54 @@ public class ImageV5AntispamResp implements Serializable {
      * 自定义标签
      */
     private List<ImageV5AntispamResp.CustomLabel> customLabels;
+
+    /**
+     * 建议级别
+     */
+    private Integer suggestionLevel;
+
+    /**
+     * 审核人
+     */
+    private String censor;
+
+    /**
+     * 整体审核备注
+     */
+    private String overAllMarkDesc;
+    /**
+     * 细节标注，回调返回
+     */
+    private List<DetailMark> detailMarks;
+
+    /**
+     * 审核备注
+     */
+    private String remark;
+
+    /**
+     * 人审拓展字段，回调返回
+     */
+    private CensorExtension censorExtension;
+
+    /**
+     * 特征添加来源，用于区分用户添加和审核添加
+     */
+    private Integer hitSource;
+    /**
+     * 命中策略类型
+     *
+     */
+    private Integer hitType;
+    /**
+     * 策略类型
+     */
+    private Integer strategyType;
+
+    /**
+     * 命中结果详情
+     */
+    private String hitResult;
 
 
     public String getPublicOpinionInfo() {
@@ -335,6 +388,87 @@ public class ImageV5AntispamResp implements Serializable {
     public void setCustomLabels(List<CustomLabel> customLabels) {
         this.customLabels = customLabels;
     }
+
+    public Integer getSuggestionLevel() {
+        return suggestionLevel;
+    }
+
+    public void setSuggestionLevel(Integer suggestionLevel) {
+        this.suggestionLevel = suggestionLevel;
+    }
+
+    public List<DetailMark> getDetailMarks() {
+        return detailMarks;
+    }
+
+    public void setDetailMarks(List<DetailMark> detailMarks) {
+        this.detailMarks = detailMarks;
+    }
+
+    public Integer getHitType() {
+        return hitType;
+    }
+
+    public void setHitType(Integer hitType) {
+        this.hitType = hitType;
+    }
+
+    public String getCensor() {
+        return censor;
+    }
+
+    public void setCensor(String censor) {
+        this.censor = censor;
+    }
+
+    public String getOverAllMarkDesc() {
+        return overAllMarkDesc;
+    }
+
+    public void setOverAllMarkDesc(String overAllMarkDesc) {
+        this.overAllMarkDesc = overAllMarkDesc;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
+    public CensorExtension getCensorExtension() {
+        return censorExtension;
+    }
+
+    public void setCensorExtension(CensorExtension censorExtension) {
+        this.censorExtension = censorExtension;
+    }
+
+    public Integer getHitSource() {
+        return hitSource;
+    }
+
+    public void setHitSource(Integer hitSource) {
+        this.hitSource = hitSource;
+    }
+
+    public Integer getStrategyType() {
+        return strategyType;
+    }
+
+    public void setStrategyType(Integer strategyType) {
+        this.strategyType = strategyType;
+    }
+
+    public String getHitResult() {
+        return hitResult;
+    }
+
+    public void setHitResult(String hitResult) {
+        this.hitResult = hitResult;
+    }
+
     /**
      * 客户自定义标签
      */
@@ -385,6 +519,41 @@ public class ImageV5AntispamResp implements Serializable {
                     '}';
         }
     }
+    @Data
+    @Builder
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class DetailMark implements Serializable {
+        private List<MarkPoint> position;
+        /**
+         * 标注标签列表
+         */
+        private Set<CensorLabelInfo> censorLabels;
+        /**
+         * 标注备注
+         */
+        private String desc;
+    }
+
+    @Data
+    @Builder
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class MarkPoint implements Serializable {
+        private Float x;
+        private Float y;
+    }
+
+    @Data
+    @Builder
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class CensorExtension implements Serializable {
+        /**
+         * 质检任务ID，用于质检任务的关联，父子任务逗号分隔
+         */
+        private String qualityInspectionTaskId;
+    }
 
     private static class CensorLabelInfo implements Serializable {
         private static final long serialVersionUID = -7913548400479437764L;
@@ -392,6 +561,14 @@ public class ImageV5AntispamResp implements Serializable {
         private String name;
         private String desc;
         private String customCode;
+        /**
+         * 父标签 ID
+         */
+        private String parentLabelId;
+        /**
+         * 标签深度
+         */
+        private Integer depth;
 
         public String getCode() {
             return code;
@@ -423,6 +600,22 @@ public class ImageV5AntispamResp implements Serializable {
 
         public void setCustomCode(String customCode) {
             this.customCode = customCode;
+        }
+
+        public String getParentLabelId() {
+            return parentLabelId;
+        }
+
+        public void setParentLabelId(String parentLabelId) {
+            this.parentLabelId = parentLabelId;
+        }
+
+        public Integer getDepth() {
+            return depth;
+        }
+
+        public void setDepth(Integer depth) {
+            this.depth = depth;
         }
 
 

@@ -32,6 +32,10 @@ public class ImageV5OcrResp implements Serializable {
      * ocr检测结果
      */
     private List<ImageV5OcrDetail> details;
+    /**
+     * OCR 分帧数
+     */
+    private Integer frameSize;
 
     public String getTaskId() {
         return taskId;
@@ -79,5 +83,13 @@ public class ImageV5OcrResp implements Serializable {
 
     public void setDetails(List<ImageV5OcrDetail> details) {
         this.details = details;
+    }
+
+    public Integer getFrameSize() {
+        return frameSize;
+    }
+
+    public void setFrameSize(Integer frameSize) {
+        this.frameSize = frameSize;
     }
 }
