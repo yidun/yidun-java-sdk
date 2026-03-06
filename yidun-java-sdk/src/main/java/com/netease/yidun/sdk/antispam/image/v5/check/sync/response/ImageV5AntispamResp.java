@@ -519,11 +519,8 @@ public class ImageV5AntispamResp implements Serializable {
                     '}';
         }
     }
-    @Data
-    @Builder
-    @AllArgsConstructor
-    @NoArgsConstructor
-    public static class DetailMark implements Serializable {
+
+    public static class DetailMark  {
         private List<MarkPoint> position;
         /**
          * 标注标签列表
@@ -533,30 +530,69 @@ public class ImageV5AntispamResp implements Serializable {
          * 标注备注
          */
         private String desc;
+
+        public Set<CensorLabelInfo> getCensorLabels() {
+            return censorLabels;
+        }
+
+        public void setCensorLabels(Set<CensorLabelInfo> censorLabels) {
+            this.censorLabels = censorLabels;
+        }
+
+        public List<MarkPoint> getPosition() {
+            return position;
+        }
+
+        public void setPosition(List<MarkPoint> position) {
+            this.position = position;
+        }
+
+        public String getDesc() {
+            return desc;
+        }
+
+        public void setDesc(String desc) {
+            this.desc = desc;
+        }
     }
 
-    @Data
-    @Builder
-    @AllArgsConstructor
-    @NoArgsConstructor
-    public static class MarkPoint implements Serializable {
+    public static class MarkPoint {
         private Float x;
         private Float y;
+
+        public Float getX() {
+            return x;
+        }
+
+        public void setX(Float x) {
+            this.x = x;
+        }
+
+        public Float getY() {
+            return y;
+        }
+
+        public void setY(Float y) {
+            this.y = y;
+        }
     }
 
-    @Data
-    @Builder
-    @AllArgsConstructor
-    @NoArgsConstructor
-    public static class CensorExtension implements Serializable {
+    public static class CensorExtension {
         /**
          * 质检任务ID，用于质检任务的关联，父子任务逗号分隔
          */
         private String qualityInspectionTaskId;
+
+        public String getQualityInspectionTaskId() {
+            return qualityInspectionTaskId;
+        }
+
+        public void setQualityInspectionTaskId(String qualityInspectionTaskId) {
+            this.qualityInspectionTaskId = qualityInspectionTaskId;
+        }
     }
 
-    private static class CensorLabelInfo implements Serializable {
-        private static final long serialVersionUID = -7913548400479437764L;
+    public static class CensorLabelInfo {
         private String code;
         private String name;
         private String desc;
