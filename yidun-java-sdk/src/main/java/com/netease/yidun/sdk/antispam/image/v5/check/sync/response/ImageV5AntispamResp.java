@@ -1,11 +1,6 @@
 package com.netease.yidun.sdk.antispam.image.v5.check.sync.response;
 
 import com.netease.yidun.sdk.antispam.image.v5.enums.CensorTypeEnum;
-import com.netease.yidun.sdk.antispam.text.v5.check.sync.single.TextCheckResult;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.io.Serializable;
@@ -519,8 +514,8 @@ public class ImageV5AntispamResp implements Serializable {
                     '}';
         }
     }
-
-    public static class DetailMark  {
+    @ToString
+    public static class DetailMark implements Serializable {
         private List<MarkPoint> position;
         /**
          * 标注标签列表
@@ -555,8 +550,8 @@ public class ImageV5AntispamResp implements Serializable {
             this.desc = desc;
         }
     }
-
-    public static class MarkPoint {
+    @ToString
+    public static class MarkPoint implements Serializable {
         private Float x;
         private Float y;
 
@@ -576,8 +571,8 @@ public class ImageV5AntispamResp implements Serializable {
             this.y = y;
         }
     }
-
-    public static class CensorExtension {
+    @ToString
+    public static class CensorExtension implements Serializable{
         /**
          * 质检任务ID，用于质检任务的关联，父子任务逗号分隔
          */
@@ -591,8 +586,9 @@ public class ImageV5AntispamResp implements Serializable {
             this.qualityInspectionTaskId = qualityInspectionTaskId;
         }
     }
-
-    public static class CensorLabelInfo {
+    @ToString
+    public static class CensorLabelInfo implements Serializable {
+        private static final long serialVersionUID = -7913548400479437764L;
         private String code;
         private String name;
         private String desc;
