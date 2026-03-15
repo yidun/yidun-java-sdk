@@ -18,6 +18,11 @@ public class CensorExtension implements Serializable {
      */
     private String qualityInspectionTaskId;
 
+    /**
+     * 质检任务类型
+     */
+    private Integer qualityInspectionType;
+
     public Long getInspTaskCreateTime() {
         return inspTaskCreateTime;
     }
@@ -30,6 +35,14 @@ public class CensorExtension implements Serializable {
         return qualityInspectionTaskId;
     }
 
+    public void setQualityInspectionType(Integer qualityInspectionType) {
+        this.qualityInspectionType = qualityInspectionType;
+    }
+
+    public Integer getQualityInspectionType() {
+        return qualityInspectionType;
+    }
+
     public void setQualityInspectionTaskId(String qualityInspectionTaskId) {
         this.qualityInspectionTaskId = qualityInspectionTaskId;
     }
@@ -39,6 +52,7 @@ public class CensorExtension implements Serializable {
         return "CensorExtension{" +
                 "inspTaskCreateTime=" + inspTaskCreateTime +
                 ", qualityInspectionTaskId='" + qualityInspectionTaskId + '\'' +
+                ", qualityInspectionType=" + qualityInspectionType +
                 '}';
     }
 }
