@@ -10,7 +10,6 @@ import com.netease.yidun.sdk.antispam.image.v5.check.sync.response.ImageV5SubLab
 import com.netease.yidun.sdk.antispam.image.v5.check.sync.response.LlmCheckInfo;
 import com.netease.yidun.sdk.antispam.text.v5.check.sync.single.TextCheckResult;
 import com.netease.yidun.sdk.antispam.video.callback.v4.response.ImageV5SubLabelResp;
-import com.netease.yidun.sdk.antispam.video.callback.v4.response.VideoCallbackLlmCheckV4Info;
 import com.netease.yidun.sdk.core.response.CommonResponse;
 
 public class FileCallbackV2Response extends CommonResponse {
@@ -143,6 +142,14 @@ public class FileCallbackV2Response extends CommonResponse {
          * 文档md5
          */
         private String md5;
+        /**
+         * 审核轮数
+         */
+        private Integer censorRound;
+        /**
+         * 审核人
+         */
+        private String censor;
 
         public String getDataId() {
             return dataId;
@@ -288,6 +295,22 @@ public class FileCallbackV2Response extends CommonResponse {
             this.riskDescription = riskDescription;
         }
 
+        public Integer getCensorRound() {
+            return censorRound;
+        }
+
+        public void setCensorRound(Integer censorRound) {
+            this.censorRound = censorRound;
+        }
+
+        public String getCensor() {
+            return censor;
+        }
+
+        public void setCensor(String censor) {
+            this.censor = censor;
+        }
+
         @Override
         public String toString() {
             return "AntispamCheckResult{" +
@@ -309,6 +332,8 @@ public class FileCallbackV2Response extends CommonResponse {
                     ", thirdLabel='" + thirdLabel + '\'' +
                     ", md5='" + md5 + '\'' +
                     ", riskDescription='" + riskDescription + '\'' +
+                    ", censorRound=" + censorRound +
+                    ", censor='" + censor + '\'' +
                     '}';
         }
     }
@@ -339,6 +364,10 @@ public class FileCallbackV2Response extends CommonResponse {
          * 风险描述
          */
         private String riskDescription;
+        /**
+         * 审核状态
+         */
+        private Integer status;
         /**
          * 审核完成时间，结果类型是机器结果，代表机器审核完成时间；审核结果是人审结果，代表人审完成时间
          */
@@ -461,6 +490,14 @@ public class FileCallbackV2Response extends CommonResponse {
             this.riskDescription = riskDescription;
         }
 
+        public Integer getStatus() {
+            return status;
+        }
+
+        public void setStatus(Integer status) {
+            this.status = status;
+        }
+
         @Override
         public String toString() {
             return "Detail{" +
@@ -475,9 +512,10 @@ public class FileCallbackV2Response extends CommonResponse {
                     ", label=" + label +
                     ", secondLabel='" + secondLabel + '\'' +
                     ", thirdLabel='" + thirdLabel + '\'' +
+                    ", riskDescription='" + riskDescription + '\'' +
+                    ", status=" + status +
                     ", censorTime=" + censorTime +
                     ", md5='" + md5 + '\'' +
-                    ", riskDescription='" + riskDescription + '\'' +
                     '}';
         }
     }
