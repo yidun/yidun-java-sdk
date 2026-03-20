@@ -222,6 +222,10 @@ public class VideoSolutionAntispamCallbackV2Response {
     public static class CensorExtensionResult {
         private String qualityInspectionTaskId;
         /**
+         * 质检任务类型
+         */
+        private Integer qualityInspectionType;
+        /**
          * 质检任务创建时间，毫秒时间戳
          */
         private Long inspTaskCreateTime;
