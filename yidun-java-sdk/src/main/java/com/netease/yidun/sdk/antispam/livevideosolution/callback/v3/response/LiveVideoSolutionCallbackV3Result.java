@@ -355,5 +355,9 @@ public class LiveVideoSolutionCallbackV3Result implements BaseResponse {
          * 质检任务创建时间，毫秒时间戳
          */
         private Long inspTaskCreateTime;
+        /**
+         * 质检类型：1-人工已审，2-人工未审（机审）
+         */
+        private Integer qualityInspectionType;
     }
 }
