@@ -559,6 +559,19 @@ public class TextCheckResult implements Serializable {
          */
         private Long inspTaskCreateTime;
 
+        /**
+         * 质检任务类型
+         */
+        private Integer qualityInspectionType;
+
+        public Integer getQualityInspectionType() {
+            return qualityInspectionType;
+        }
+
+        public void setQualityInspectionType(Integer qualityInspectionType) {
+            this.qualityInspectionType = qualityInspectionType;
+        }
+
         public void setQualityInspectionTaskId(String qualityInspectionTaskId) {
             this.qualityInspectionTaskId = qualityInspectionTaskId;
         }
@@ -577,10 +590,11 @@ public class TextCheckResult implements Serializable {
 
         @Override
         public String toString() {
-            return "CensorExtension("
-                    + "qualityInspectionTaskId='" + qualityInspectionTaskId
-                    + ", inspTaskCreateTime=" + inspTaskCreateTime
-                    + ")";
+            return "CensorExtension{" +
+                    "qualityInspectionTaskId='" + qualityInspectionTaskId + '\'' +
+                    ", inspTaskCreateTime=" + inspTaskCreateTime +
+                    ", qualityInspectionType=" + qualityInspectionType +
+                    '}';
         }
     }
 
