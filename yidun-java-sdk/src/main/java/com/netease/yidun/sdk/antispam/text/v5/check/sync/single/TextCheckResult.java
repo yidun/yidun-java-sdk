@@ -40,6 +40,34 @@ public class TextCheckResult implements Serializable {
      */
     private LlmCheckInfo llmCheckInfo;
 
+    /**
+     * 文本相似度检测结果
+     * <p>
+     * 当启用文本相似度检测功能时，如果检测到当前文本与历史提交的文本相似，
+     * 该字段将包含匹配详情，包括匹配到的历史文本ID和相似度评分。
+     * </p>
+     * <p>
+     * 使用场景：防止垃圾信息重复提交、检测营销内容复制传播
+     * </p>
+     *
+     * @since 1.4.3
+     */
+    private SimilarText similarText;
+
+    /**
+     * 未成年人检测结果
+     * <p>
+     * 当启用未成年人检测功能时，如果检测到文本中包含未成年人相关特征，
+     * 该字段将包含检测详情。
+     * </p>
+     * <p>
+     * 使用场景：未成年人保护、内容合规审核
+     * </p>
+     *
+     * @since 1.4.3
+     */
+    private Underage underage;
+
     public Antispam getAntispam() {
         return antispam;
     }
@@ -103,6 +131,22 @@ public class TextCheckResult implements Serializable {
         this.llmCheckInfo = llmCheckInfo;
     }
 
+    public SimilarText getSimilarText() {
+        return similarText;
+    }
+
+    public void setSimilarText(SimilarText similarText) {
+        this.similarText = similarText;
+    }
+
+    public Underage getUnderage() {
+        return underage;
+    }
+
+    public void setUnderage(Underage underage) {
+        this.underage = underage;
+    }
+
     @Override
     public String toString() {
         return "TextCheckResult("
@@ -114,6 +158,8 @@ public class TextCheckResult implements Serializable {
                 + ", riskControl=" + riskControl
                 + ", aigcPrompt=" + aigcPrompt
                 + ", llmCheckInfo=" + llmCheckInfo
+                + ", similarText=" + similarText
+                + ", underage=" + underage
                 + ")";
     }
 
@@ -151,6 +197,107 @@ public class TextCheckResult implements Serializable {
         private Integer censorSource;
         private Integer censorRound;
         private Long censorTime;
+
+        /**
+         * 审核人员标识
+         * <p>
+         * 人工审核时的审核人员唯一标识。该字段仅在内容经过人工审核时返回，
+         * 机器审核时为空。用于追溯内容审核历史和审核质量管理。
+         * </p>
+         * <p>
+         * 使用场景：审核溯源、质量抽检、审核员绩效统计
+         * </p>
+         *
+         * @since 1.4.3
+         */
+        private String censor;
+
+        /**
+         * 关联内容
+         * <p>
+         * 当前内容关联的其他相关内容的标识或描述。
+         * 用于关联用户多次提交的内容、上下文内容等场景。
+         * </p>
+         * <p>
+         * 使用场景：多轮对话关联、批量内容溯源、上下文审核
+         * </p>
+         *
+         * @since 1.4.3
+         */
+        private String relateContent;
+
+        /**
+         * 命中来源
+         * <p>
+         * 标识内容命中规则的来源类型，用于区分不同的检测引擎和规则库。
+         * </p>
+         * <p>
+         * 取值范围：
+         * <ul>
+         *   <li>1 - 关键词库命中</li>
+         *   <li>2 - 规则引擎命中</li>
+         *   <li>3 - 机器学习模型命中</li>
+         *   <li>4 - 人工审核标记</li>
+         * </ul>
+         * </p>
+         * <p>
+         * 使用场景：规则溯源、模型效果评估、策略优化
+         * </p>
+         *
+         * @since 1.4.3
+         */
+        private Integer hitSource;
+
+        /**
+         * 命中类型（后端内部字段）
+         * <p>
+         * 后端内部使用的命中类型分类标识，用于区分不同的命中模式。
+         * </p>
+         * <p>
+         * 取值范围：
+         * <ul>
+         *   <li>1 - 机器审核命中</li>
+         *   <li>2 - 人工审核命中</li>
+         *   <li>3 - 规则直接命中</li>
+         *   <li>4 - 模型推断命中</li>
+         * </ul>
+         * </p>
+         * <p>
+         * 使用场景：内部统计分析、审核流程追踪
+         * </p>
+         *
+         * @since 1.4.3
+         */
+        private Integer hitType;
+
+        /**
+         * 策略类型（后端内部字段）
+         * <p>
+         * 后端内部使用的策略分类标识，用于区分不同的审核策略和规则集。
+         * 该字段主要用于内部系统的策略管理和统计分析。
+         * </p>
+         * <p>
+         * 使用场景：策略效果评估、A/B测试、内部审核流程优化
+         * </p>
+         *
+         * @since 1.4.3
+         */
+        private Integer strategyType;
+
+        /**
+         * 命中结果详情（后端内部字段）
+         * <p>
+         * 后端内部使用的命中结果详细信息，包含规则命中的具体细节、
+         * 评分依据等内部调试和分析信息。格式为JSON字符串。
+         * </p>
+         * <p>
+         * 使用场景：内部调试、规则优化、问题排查
+         * </p>
+         *
+         * @since 1.4.3
+         */
+        private String hitResult;
+
         private Boolean isRelatedHit;
 
         private Integer relatedHitType;
@@ -327,6 +474,54 @@ public class TextCheckResult implements Serializable {
             this.censorTime = censorTime;
         }
 
+        public String getCensor() {
+            return censor;
+        }
+
+        public void setCensor(String censor) {
+            this.censor = censor;
+        }
+
+        public String getRelateContent() {
+            return relateContent;
+        }
+
+        public void setRelateContent(String relateContent) {
+            this.relateContent = relateContent;
+        }
+
+        public Integer getHitSource() {
+            return hitSource;
+        }
+
+        public void setHitSource(Integer hitSource) {
+            this.hitSource = hitSource;
+        }
+
+        public Integer getHitType() {
+            return hitType;
+        }
+
+        public void setHitType(Integer hitType) {
+            this.hitType = hitType;
+        }
+
+        public Integer getStrategyType() {
+            return strategyType;
+        }
+
+        public void setStrategyType(Integer strategyType) {
+            this.strategyType = strategyType;
+        }
+
+        public String getHitResult() {
+            return hitResult;
+        }
+
+        public void setHitResult(String hitResult) {
+            this.hitResult = hitResult;
+        }
+
         public Boolean getIsRelatedHit() {
             return isRelatedHit;
         }
@@ -413,6 +608,12 @@ public class TextCheckResult implements Serializable {
                     ", censorSource=" + censorSource +
                     ", censorRound=" + censorRound +
                     ", censorTime=" + censorTime +
+                    ", censor='" + censor + '\'' +
+                    ", relateContent='" + relateContent + '\'' +
+                    ", hitSource=" + hitSource +
+                    ", hitType=" + hitType +
+                    ", strategyType=" + strategyType +
+                    ", hitResult='" + hitResult + '\'' +
                     ", isRelatedHit=" + isRelatedHit +
                     ", relatedHitType=" + relatedHitType +
                     ", labels=" + labels +
@@ -431,6 +632,24 @@ public class TextCheckResult implements Serializable {
         private String code;
         private String desc;
         private String name;
+
+        /**
+         * 标签层级深度
+         * @since 1.4.3
+         */
+        private Integer depth;
+
+        /**
+         * 自定义标签代码
+         * @since 1.4.3
+         */
+        private String customCode;
+
+        /**
+         * 父级标签ID
+         * @since 1.4.3
+         */
+        private String parentLabelId;
 
         public String getCode() {
             return code;
@@ -456,12 +675,39 @@ public class TextCheckResult implements Serializable {
             this.name = name;
         }
 
+        public Integer getDepth() {
+            return depth;
+        }
+
+        public void setDepth(Integer depth) {
+            this.depth = depth;
+        }
+
+        public String getCustomCode() {
+            return customCode;
+        }
+
+        public void setCustomCode(String customCode) {
+            this.customCode = customCode;
+        }
+
+        public String getParentLabelId() {
+            return parentLabelId;
+        }
+
+        public void setParentLabelId(String parentLabelId) {
+            this.parentLabelId = parentLabelId;
+        }
+
         @Override
         public String toString() {
             return "CensorLabel("
                     + "code=" + code
                     + ", desc=" + desc
                     + ", name=" + name
+                    + ", depth=" + depth
+                    + ", customCode=" + customCode
+                    + ", parentLabelId=" + parentLabelId
                     + ")";
         }
     }
@@ -603,6 +849,13 @@ public class TextCheckResult implements Serializable {
         private Integer label;
         private Integer level;
         private Double rate;
+
+        /**
+         * 命中类型
+         * @since 1.4.3
+         */
+        private Integer hitType;
+
         private List<AntispamSubLabel> subLabels;
 
         public Integer getLabel() {
@@ -629,6 +882,14 @@ public class TextCheckResult implements Serializable {
             this.rate = rate;
         }
 
+        public Integer getHitType() {
+            return hitType;
+        }
+
+        public void setHitType(Integer hitType) {
+            this.hitType = hitType;
+        }
+
         public List<AntispamSubLabel> getSubLabels() {
             return subLabels;
         }
@@ -643,6 +904,7 @@ public class TextCheckResult implements Serializable {
                     + "label=" + label
                     + ", level=" + level
                     + ", rate=" + rate
+                    + ", hitType=" + hitType
                     + ", subLabels=" + subLabels
                     + ")";
         }
@@ -908,6 +1170,18 @@ public class TextCheckResult implements Serializable {
         private String entity;
         private Long releaseTime;
 
+        /**
+         * 策略组名称
+         * @since 1.4.3
+         */
+        private String strategyGroupName;
+
+        /**
+         * 策略组ID
+         * @since 1.4.3
+         */
+        private Long strategyGroupId;
+
         public Integer getType() {
             return type;
         }
@@ -932,12 +1206,30 @@ public class TextCheckResult implements Serializable {
             this.releaseTime = releaseTime;
         }
 
+        public String getStrategyGroupName() {
+            return strategyGroupName;
+        }
+
+        public void setStrategyGroupName(String strategyGroupName) {
+            this.strategyGroupName = strategyGroupName;
+        }
+
+        public Long getStrategyGroupId() {
+            return strategyGroupId;
+        }
+
+        public void setStrategyGroupId(Long strategyGroupId) {
+            this.strategyGroupId = strategyGroupId;
+        }
+
         @Override
         public String toString() {
             return "AntispamSubLabelDetailLibInfo{" +
                     "type=" + type +
                     ", entity='" + entity + '\'' +
                     ", releaseTime='" + releaseTime + '\'' +
+                    ", strategyGroupName='" + strategyGroupName + '\'' +
+                    ", strategyGroupId=" + strategyGroupId +
                     '}';
         }
     }
@@ -1232,6 +1524,24 @@ public class TextCheckResult implements Serializable {
         private String dataId;
         private List<UserRiskDetail> details;
 
+        /**
+         * 账号画像详情
+         * @since 1.4.3
+         */
+        private UserRiskPortraitDetail accountDetail;
+
+        /**
+         * 手机号画像详情
+         * @since 1.4.3
+         */
+        private UserRiskPortraitDetail phoneDetail;
+
+        /**
+         * IP画像详情
+         * @since 1.4.3
+         */
+        private UserRiskPortraitDetail ipDetail;
+
         public String getTaskId() {
             return taskId;
         }
@@ -1256,12 +1566,39 @@ public class TextCheckResult implements Serializable {
             this.details = details;
         }
 
+        public UserRiskPortraitDetail getAccountDetail() {
+            return accountDetail;
+        }
+
+        public void setAccountDetail(UserRiskPortraitDetail accountDetail) {
+            this.accountDetail = accountDetail;
+        }
+
+        public UserRiskPortraitDetail getPhoneDetail() {
+            return phoneDetail;
+        }
+
+        public void setPhoneDetail(UserRiskPortraitDetail phoneDetail) {
+            this.phoneDetail = phoneDetail;
+        }
+
+        public UserRiskPortraitDetail getIpDetail() {
+            return ipDetail;
+        }
+
+        public void setIpDetail(UserRiskPortraitDetail ipDetail) {
+            this.ipDetail = ipDetail;
+        }
+
         @Override
         public String toString() {
             return "UserRisk("
                     + "taskId=" + taskId
                     + ", dataId=" + dataId
                     + ", details=" + details
+                    + ", accountDetail=" + accountDetail
+                    + ", phoneDetail=" + phoneDetail
+                    + ", ipDetail=" + ipDetail
                     + ")";
         }
     }
@@ -1345,6 +1682,199 @@ public class TextCheckResult implements Serializable {
             return "UserRiskAcDetail("
                     + "riskType=" + riskType
                     + ", riskLevel=" + riskLevel
+                    + ", riskScore=" + riskScore
+                    + ")";
+        }
+    }
+
+    /**
+     * 用户风险画像详情
+     * @since 1.4.3
+     */
+    public static class UserRiskPortraitDetail {
+
+        /**
+         * 风险详情列表
+         */
+        private List<RiskDetail> riskDetails;
+
+        /**
+         * 是否成功
+         */
+        private Boolean success;
+
+        public List<RiskDetail> getRiskDetails() {
+            return riskDetails;
+        }
+
+        public void setRiskDetails(List<RiskDetail> riskDetails) {
+            this.riskDetails = riskDetails;
+        }
+
+        public Boolean getSuccess() {
+            return success;
+        }
+
+        public void setSuccess(Boolean success) {
+            this.success = success;
+        }
+
+        @Override
+        public String toString() {
+            return "UserRiskPortraitDetail("
+                    + "riskDetails=" + riskDetails
+                    + ", success=" + success
+                    + ")";
+        }
+    }
+
+    /**
+     * 风险详情
+     * @since 1.4.3
+     */
+    public static class RiskDetail {
+
+        /**
+         * 风险信息列表
+         */
+        private List<RiskInfo> riskInfoList;
+
+        /**
+         * 属性详情（JSON对象）
+         */
+        private Object propDetails;
+
+        /**
+         * 账号
+         */
+        private String account;
+
+        /**
+         * 手机号
+         */
+        private String phone;
+
+        /**
+         * IP地址
+         */
+        private String ip;
+
+        public List<RiskInfo> getRiskInfoList() {
+            return riskInfoList;
+        }
+
+        public void setRiskInfoList(List<RiskInfo> riskInfoList) {
+            this.riskInfoList = riskInfoList;
+        }
+
+        public Object getPropDetails() {
+            return propDetails;
+        }
+
+        public void setPropDetails(Object propDetails) {
+            this.propDetails = propDetails;
+        }
+
+        public String getAccount() {
+            return account;
+        }
+
+        public void setAccount(String account) {
+            this.account = account;
+        }
+
+        public String getPhone() {
+            return phone;
+        }
+
+        public void setPhone(String phone) {
+            this.phone = phone;
+        }
+
+        public String getIp() {
+            return ip;
+        }
+
+        public void setIp(String ip) {
+            this.ip = ip;
+        }
+
+        @Override
+        public String toString() {
+            return "RiskDetail("
+                    + "riskInfoList=" + riskInfoList
+                    + ", propDetails=" + propDetails
+                    + ", account=" + account
+                    + ", phone=" + phone
+                    + ", ip=" + ip
+                    + ")";
+        }
+    }
+
+    /**
+     * 风险信息
+     * @since 1.4.3
+     */
+    public static class RiskInfo {
+
+        /**
+         * 风险等级
+         */
+        private Integer riskLevel;
+
+        /**
+         * 风险模型
+         */
+        private String riskModel;
+
+        /**
+         * 风险类型
+         */
+        private Integer riskType;
+
+        /**
+         * 风险分数
+         */
+        private Double riskScore;
+
+        public Integer getRiskLevel() {
+            return riskLevel;
+        }
+
+        public void setRiskLevel(Integer riskLevel) {
+            this.riskLevel = riskLevel;
+        }
+
+        public String getRiskModel() {
+            return riskModel;
+        }
+
+        public void setRiskModel(String riskModel) {
+            this.riskModel = riskModel;
+        }
+
+        public Integer getRiskType() {
+            return riskType;
+        }
+
+        public void setRiskType(Integer riskType) {
+            this.riskType = riskType;
+        }
+
+        public Double getRiskScore() {
+            return riskScore;
+        }
+
+        public void setRiskScore(Double riskScore) {
+            this.riskScore = riskScore;
+        }
+
+        @Override
+        public String toString() {
+            return "RiskInfo("
+                    + "riskLevel=" + riskLevel
+                    + ", riskModel=" + riskModel
+                    + ", riskType=" + riskType
                     + ", riskScore=" + riskScore
                     + ")";
         }
@@ -1507,7 +2037,13 @@ public class TextCheckResult implements Serializable {
          * 数据id
          */
         private String dataId;
-        
+
+        /**
+         * AIGC 代理回答类型
+         * @since 1.4.3
+         */
+        private Integer proxyAnswerType;
+
         /**
          * 详情
          */
@@ -1529,6 +2065,14 @@ public class TextCheckResult implements Serializable {
             this.dataId = dataId;
         }
 
+        public Integer getProxyAnswerType() {
+            return proxyAnswerType;
+        }
+
+        public void setProxyAnswerType(Integer proxyAnswerType) {
+            this.proxyAnswerType = proxyAnswerType;
+        }
+
         public List<AigcPromptDetail> getDetails() {
             return details;
         }
@@ -1542,6 +2086,7 @@ public class TextCheckResult implements Serializable {
             return "AigcPrompt{" +
                     "taskId='" + taskId + '\'' +
                     ", dataId='" + dataId + '\'' +
+                    ", proxyAnswerType=" + proxyAnswerType +
                     ", details=" + details +
                     '}';
         }
@@ -1724,6 +2269,184 @@ public class TextCheckResult implements Serializable {
                     ", label='" + label + '\'' +
                     ", explain='" + explain + '\'' +
                     '}';
+        }
+    }
+
+    /**
+     * 文本相似度检测结果
+     * @since 1.4.3
+     */
+    public static class SimilarText implements Serializable {
+
+        /**
+         * 任务ID
+         */
+        private String taskId;
+
+        /**
+         * 数据ID
+         */
+        private String dataId;
+
+        /**
+         * 相似文本详情列表
+         */
+        private List<SimilarTextDetail> details;
+
+        public String getTaskId() {
+            return taskId;
+        }
+
+        public void setTaskId(String taskId) {
+            this.taskId = taskId;
+        }
+
+        public String getDataId() {
+            return dataId;
+        }
+
+        public void setDataId(String dataId) {
+            this.dataId = dataId;
+        }
+
+        public List<SimilarTextDetail> getDetails() {
+            return details;
+        }
+
+        public void setDetails(List<SimilarTextDetail> details) {
+            this.details = details;
+        }
+
+        @Override
+        public String toString() {
+            return "SimilarText{" +
+                    "taskId='" + taskId + '\'' +
+                    ", dataId='" + dataId + '\'' +
+                    ", details=" + details +
+                    '}';
+        }
+
+        /**
+         * 相似文本详情
+         * @since 1.4.3
+         */
+        public static class SimilarTextDetail implements Serializable {
+
+            /**
+             * 匹配到的相似文本 dataId
+             */
+            private String matchDataId;
+
+            /**
+             * 相似度评分 (0.0-1.0)
+             */
+            private Double rate;
+
+            public String getMatchDataId() {
+                return matchDataId;
+            }
+
+            public void setMatchDataId(String matchDataId) {
+                this.matchDataId = matchDataId;
+            }
+
+            public Double getRate() {
+                return rate;
+            }
+
+            public void setRate(Double rate) {
+                this.rate = rate;
+            }
+
+            @Override
+            public String toString() {
+                return "SimilarTextDetail{" +
+                        "matchDataId='" + matchDataId + '\'' +
+                        ", rate=" + rate +
+                        '}';
+            }
+        }
+    }
+
+    /**
+     * 未成年人检测结果
+     * @since 1.4.3
+     */
+    public static class Underage implements Serializable {
+
+        /**
+         * 任务ID
+         */
+        private String taskId;
+
+        /**
+         * 数据ID
+         */
+        private String dataId;
+
+        /**
+         * 未成年人检测详情列表
+         */
+        private List<UnderageDetail> details;
+
+        public String getTaskId() {
+            return taskId;
+        }
+
+        public void setTaskId(String taskId) {
+            this.taskId = taskId;
+        }
+
+        public String getDataId() {
+            return dataId;
+        }
+
+        public void setDataId(String dataId) {
+            this.dataId = dataId;
+        }
+
+        public List<UnderageDetail> getDetails() {
+            return details;
+        }
+
+        public void setDetails(List<UnderageDetail> details) {
+            this.details = details;
+        }
+
+        @Override
+        public String toString() {
+            return "Underage{" +
+                    "taskId='" + taskId + '\'' +
+                    ", dataId='" + dataId + '\'' +
+                    ", details=" + details +
+                    '}';
+        }
+
+        /**
+         * 未成年人检测详情
+         * @since 1.4.3
+         */
+        public static class UnderageDetail implements Serializable {
+
+            /**
+             * 未成年人类型标识
+             */
+            private Integer type;
+
+            public Integer getType() {
+                return type;
+            }
+
+            public void setType(Integer type) {
+                this.type = type;
+            }
+
+            @Override
+            public String toString() {
+                return "UnderageDetail{" +
+                        "type=" + type +
+                        '}';
+            }
         }
     }
 }
