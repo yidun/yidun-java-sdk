@@ -51,6 +51,12 @@ public class LiveAudioFeedback {
      */
     private Double liveIncome;
 
+    /**
+     * IP所在国家编码（ISO 3166-1 alpha-2格式，如：CN, US, JP）
+     * 传入该字段时，将覆盖原有的IpCountry和IpAreaCode，并清空IpCity和IpProvince
+     */
+    private String areaCode;
+
     @Data
     public static class LiveAudioTag {
         /**
