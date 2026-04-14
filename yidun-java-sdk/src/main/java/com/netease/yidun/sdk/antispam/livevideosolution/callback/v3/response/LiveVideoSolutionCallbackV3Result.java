@@ -46,6 +46,10 @@ public class LiveVideoSolutionCallbackV3Result implements BaseResponse {
      * asr
      */
     private LiveAudioCallbackV4Result.LiveAudioAsrContentCallbackRespV3 asr;
+    /**
+     * LLM检测结果
+     */
+    private LiveVideoSolutionLlmCheckCallbackRespV4 llmCheckInfo;
     @Data
     public static class LiveCallbackQualityUnitV4 {
         private LiveDataCallbackQualityUnitV4 video;

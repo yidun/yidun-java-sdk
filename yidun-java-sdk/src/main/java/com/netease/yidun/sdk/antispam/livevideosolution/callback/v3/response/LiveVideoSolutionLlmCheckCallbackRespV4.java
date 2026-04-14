@@ -1,4 +1,4 @@
-package com.netease.yidun.sdk.antispam.video.callback.v4.response;
+package com.netease.yidun.sdk.antispam.livevideosolution.callback.v3.response;
 
 import com.netease.yidun.sdk.core.response.BaseResponse;
 import lombok.AllArgsConstructor;
@@ -8,35 +8,31 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 /**
- * 视频大模型检测结果
+ * 直播音视频解决方案LLM检测回调响应V4
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class VideoCallbackLlmCheckV4Info implements BaseResponse {
+public class LiveVideoSolutionLlmCheckCallbackRespV4 implements BaseResponse {
     /**
-     * 任务ID
+     * 音频片段列表
      */
-    private String taskId;
-    /**
-     * 数据ID
-     */
-    private String dataId;
-    /**
-     * 图片列表
-     */
-    private List<LlmCheckPicture> pictures;
+    private List<LlmCheckAudioSegment> audio;
 
     @Data
     @AllArgsConstructor
     @NoArgsConstructor
-    public static class LlmCheckPicture implements BaseResponse {
+    public static class LlmCheckAudioSegment implements BaseResponse {
         /**
-         * 图片ID
+         * 片段ID
          */
-        private String pictureId;
+        private String segmentId;
         /**
-         * 截图时间
+         * 说话人ID
+         */
+        private String speakerId;
+        /**
+         * 片段开始时间
          */
         private Long startTime;
         /**
@@ -75,4 +71,3 @@ public class VideoCallbackLlmCheckV4Info implements BaseResponse {
         private String modelIdentifier;
     }
 }
-
