@@ -41,6 +41,15 @@ public class ImageV5SubLabelResp {
      * 二级分类命中详情
      */
     private SubLabelDetails details;
+    /**
+     * LLM解释说明
+     */
+    private String explain;
+
+    /**
+     * 是否为LLM检测命中
+     */
+    private Boolean isLlmCheck;
 
     @Data
     @Builder

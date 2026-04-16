@@ -52,6 +52,15 @@ public class ImageSubLabelResp implements Serializable {
      * 建议风险等级
      */
     private String suggestionRiskLevel;
+    /**
+     * LLM解释说明
+     */
+    private String explain;
+
+    /**
+     * 是否为LLM检测命中
+     */
+    private Boolean isLlmCheck;
 
     @Data
     public static class SubLabelDetails implements Serializable {

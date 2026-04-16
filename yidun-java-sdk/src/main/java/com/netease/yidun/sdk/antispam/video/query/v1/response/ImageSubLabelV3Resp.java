@@ -25,6 +25,15 @@ public class ImageSubLabelV3Resp implements Serializable {
      * 得分，范围为0到1
      */
     private SubLabelDetails details;
+    /**
+     * LLM解释说明
+     */
+    private String explain;
+
+    /**
+     * 是否为LLM检测命中
+     */
+    private Boolean isLlmCheck;
 
     @Data
     @NoArgsConstructor

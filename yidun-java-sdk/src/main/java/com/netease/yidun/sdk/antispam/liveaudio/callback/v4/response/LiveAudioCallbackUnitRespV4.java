@@ -70,6 +70,15 @@ public class LiveAudioCallbackUnitRespV4 {
 
         private Integer subLabelDepth;
         private Double rate;
+        /**
+         * LLM解释说明
+         */
+        private String explain;
+
+        /**
+         * 是否为LLM检测命中
+         */
+        private Boolean isLlmCheck;
     }
 
     @Data
