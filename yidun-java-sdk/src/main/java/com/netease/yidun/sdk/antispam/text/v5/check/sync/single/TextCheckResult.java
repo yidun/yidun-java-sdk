@@ -944,6 +944,14 @@ public class TextCheckResult implements Serializable {
         
         private Double rate;
 
+        /**
+         * 末级标签命中级别
+         * 0-正常，1-嫌疑，2-确定
+         *
+         * @since 1.4.5-158941-SNAPSHOT
+         */
+        private Integer level;
+
         public String getSubLabel() {
             return subLabel;
         }
@@ -1024,6 +1032,14 @@ public class TextCheckResult implements Serializable {
             this.rate = rate;
         }
 
+        public Integer getLevel() {
+            return level;
+        }
+
+        public void setLevel(Integer level) {
+            this.level = level;
+        }
+
         @Override
         public String toString() {
             return "AntispamSubLabel("
@@ -1036,6 +1052,7 @@ public class TextCheckResult implements Serializable {
                     + ", politicalSentiment=" + politicalSentiment
                     + ", isRelatedLabel=" + isRelatedLabel
                     + ", rate=" + rate
+                    + ", level=" + level
                     + ", details=" + details
                     + ")";
         }
