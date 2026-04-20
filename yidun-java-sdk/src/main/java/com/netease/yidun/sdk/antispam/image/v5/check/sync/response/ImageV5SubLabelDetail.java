@@ -10,6 +10,10 @@ public class ImageV5SubLabelDetail implements Serializable {
      */
     private String subLabel;
     /**
+     * 末级标签命中级别：0-正常，1-嫌疑，2-不通过
+     */
+    private Integer level;
+    /**
      * 命中的最终细分类的层级
      */
     private Integer subLabelDepth;
@@ -44,6 +48,14 @@ public class ImageV5SubLabelDetail implements Serializable {
 
     public void setSubLabel(String subLabel) {
         this.subLabel = subLabel;
+    }
+
+    public Integer getLevel() {
+        return level;
+    }
+
+    public void setLevel(Integer level) {
+        this.level = level;
     }
 
     public Integer getSubLabelDepth() {
