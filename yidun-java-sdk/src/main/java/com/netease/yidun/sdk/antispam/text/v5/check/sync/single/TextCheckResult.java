@@ -941,7 +941,6 @@ public class TextCheckResult implements Serializable {
         private Boolean isRelatedLabel;
 
         private AntispamSubLabelDetail details;
-        
         private Double rate;
 
         /**
@@ -951,6 +950,16 @@ public class TextCheckResult implements Serializable {
          * @since 1.4.5-158941-SNAPSHOT
          */
         private Integer level;
+
+        /**
+         * LLM 对标签的解释说明
+         */
+        private String explain;
+
+        /**
+         * true=大小模型融合检测; false=小模型标签证据补充; null=非LLM相关
+         */
+        private Boolean isLlmCheck;
 
         public String getSubLabel() {
             return subLabel;
@@ -1040,6 +1049,22 @@ public class TextCheckResult implements Serializable {
             this.level = level;
         }
 
+        public String getExplain() {
+            return explain;
+        }
+
+        public void setExplain(String explain) {
+            this.explain = explain;
+        }
+
+        public Boolean getIsLlmCheck() {
+            return isLlmCheck;
+        }
+
+        public void setIsLlmCheck(Boolean llmCheck) {
+            isLlmCheck = llmCheck;
+        }
+
         @Override
         public String toString() {
             return "AntispamSubLabel("
@@ -1053,6 +1078,8 @@ public class TextCheckResult implements Serializable {
                     + ", isRelatedLabel=" + isRelatedLabel
                     + ", rate=" + rate
                     + ", level=" + level
+                    + ", explain=" + explain
+                    + ", isLlmCheck=" + isLlmCheck
                     + ", details=" + details
                     + ")";
         }
@@ -2255,6 +2282,16 @@ public class TextCheckResult implements Serializable {
          */
         private String explain;
 
+        /**
+         * 大模型命中关键词
+         */
+        private String keyword;
+
+        /**
+         * 大模型自定义扩展字段（JSON 字符串）
+         */
+        private String extension;
+
         public String getModelIdentifier() {
             return modelIdentifier;
         }
@@ -2279,12 +2316,30 @@ public class TextCheckResult implements Serializable {
             this.explain = explain;
         }
 
+        public String getKeyword() {
+            return keyword;
+        }
+
+        public void setKeyword(String keyword) {
+            this.keyword = keyword;
+        }
+
+        public String getExtension() {
+            return extension;
+        }
+
+        public void setExtension(String extension) {
+            this.extension = extension;
+        }
+
         @Override
         public String toString() {
             return "LlmCheckInfoDetail{" +
                     "modelIdentifier='" + modelIdentifier + '\'' +
                     ", label='" + label + '\'' +
                     ", explain='" + explain + '\'' +
+                    ", keyword='" + keyword + '\'' +
+                    ", extension='" + extension + '\'' +
                     '}';
         }
     }
