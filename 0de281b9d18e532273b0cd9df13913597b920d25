@@ -1,0 +1,79 @@
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/text/v5/check/sync/single/TextCheckResult.java
+  449098d3023ef646 947-956
+  f3e21b67877f95ff 946
+  b126d12fe31e364a 2269-2278
+  5851428b4e1d94ce 2303-2318,2325-2326
+  0b9a7892eecf613f 1037-1052,1065-1066
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.0",
+  "base_commit_sha": "0de281b9d18e532273b0cd9df13913597b920d25",
+  "prompts": {
+    "0b9a7892eecf613f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "opencode-transcript-ses_256716ab5ffeQrQ8eth5bbDnaY-69a39fb1-7914-4bb9-bf3a-792556c97d0b",
+        "model": "unknown"
+      },
+      "human_author": "yiyongfu",
+      "messages": [],
+      "total_additions": 18,
+      "total_deletions": 0,
+      "accepted_lines": 18,
+      "overriden_lines": 0
+    },
+    "449098d3023ef646": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "opencode-transcript-ses_256716ab5ffeQrQ8eth5bbDnaY-9ee1b564-628d-498e-88ec-7c431cf1bc87",
+        "model": "unknown"
+      },
+      "human_author": "yiyongfu",
+      "messages": [],
+      "total_additions": 10,
+      "total_deletions": 0,
+      "accepted_lines": 10,
+      "overriden_lines": 0
+    },
+    "5851428b4e1d94ce": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "opencode-transcript-ses_256716ab5ffeQrQ8eth5bbDnaY-6b70e699-46c3-48da-849d-ab3727044cfc",
+        "model": "unknown"
+      },
+      "human_author": "yiyongfu",
+      "messages": [],
+      "total_additions": 18,
+      "total_deletions": 0,
+      "accepted_lines": 18,
+      "overriden_lines": 0
+    },
+    "b126d12fe31e364a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "opencode-transcript-ses_256716ab5ffeQrQ8eth5bbDnaY-791a32a1-0bae-45c4-8022-1bde10d22356",
+        "model": "unknown"
+      },
+      "human_author": "yiyongfu",
+      "messages": [],
+      "total_additions": 10,
+      "total_deletions": 0,
+      "accepted_lines": 10,
+      "overriden_lines": 0
+    },
+    "f3e21b67877f95ff": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "opencode-transcript-ses_256716ab5ffeQrQ8eth5bbDnaY-9dbd1015-7108-4f08-9290-f23fb4ed844d",
+        "model": "unknown"
+      },
+      "human_author": "yiyongfu",
+      "messages": [],
+      "total_additions": 2,
+      "total_deletions": 1,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    }
+  }
+}
