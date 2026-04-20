@@ -30,6 +30,18 @@ public class LlmCheckInfo implements Serializable {
      * 大模型标识
      */
     private String modelIdentifier;
+    /**
+     * 大模型识别子标签
+     */
+    private String subLabel;
+    /**
+     * 大模型命中关键词
+     */
+    private String keyword;
+    /**
+     * 大模型自定义扩展字段，JSON字符串格式
+     */
+    private String extension;
 
 
     public String getLabel() {
@@ -59,6 +71,30 @@ public class LlmCheckInfo implements Serializable {
         this.modelIdentifier = modelIdentifier;
     }
 
+    public String getSubLabel() {
+        return subLabel;
+    }
+
+    public void setSubLabel(String subLabel) {
+        this.subLabel = subLabel;
+    }
+
+    public String getKeyword() {
+        return keyword;
+    }
+
+    public void setKeyword(String keyword) {
+        this.keyword = keyword;
+    }
+
+    public String getExtension() {
+        return extension;
+    }
+
+    public void setExtension(String extension) {
+        this.extension = extension;
+    }
+
     @Override
     public String toString() {
         return "LlmCheckInfo{" +
@@ -66,6 +102,9 @@ public class LlmCheckInfo implements Serializable {
                 ", explain='" + explain + '\'' +
                 ", rate=" + rate +
                 ", modelIdentifier='" + modelIdentifier + '\'' +
+                ", subLabel='" + subLabel + '\'' +
+                ", keyword='" + keyword + '\'' +
+                ", extension='" + extension + '\'' +
                 '}';
     }
 }
