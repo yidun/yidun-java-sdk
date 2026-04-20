@@ -215,6 +215,10 @@ public class MediaValueAddServiceResponse {
         private List<ImageLlmCheckDetail> images;
         private List<TextLlmCheckDetail> texts;
         private List<VideoLlmCheckDetail> videos;
+        /**
+         * 产品维度大模型检测结果列表
+         */
+        private List<MediaLlmCheckDetail> llms;
 
         public List<ImageLlmCheckDetail> getImages() {
             return images;
@@ -240,12 +244,21 @@ public class MediaValueAddServiceResponse {
             this.videos = videos;
         }
 
+        public List<MediaLlmCheckDetail> getLlms() {
+            return llms;
+        }
+
+        public void setLlms(List<MediaLlmCheckDetail> llms) {
+            this.llms = llms;
+        }
+
         @Override
         public String toString() {
             return "LlmCheckInfo{" +
                     "images=" + images +
                     ", texts=" + texts +
                     ", videos=" + videos +
+                    ", llms=" + llms +
                     '}';
         }
     }
@@ -268,6 +281,22 @@ public class MediaValueAddServiceResponse {
          * 大模型标识
          */
         private String modelIdentifier;
+        /**
+         * 子标签编码（映射到机审标签体系）
+         */
+        private String subLabel;
+        /**
+         * 命中关键词，英文逗号分隔
+         */
+        private String keyword;
+        /**
+         * 大模型自定义扩展字段，JSON字符串格式
+         */
+        private String extension;
+        /**
+         * 模型名称
+         */
+        private String modelName;
 
         @Override
         public String toString() {
@@ -276,6 +305,10 @@ public class MediaValueAddServiceResponse {
                     ", explain='" + explain + '\'' +
                     ", rate=" + rate +
                     ", modelIdentifier='" + modelIdentifier + '\'' +
+                    ", subLabel='" + subLabel + '\'' +
+                    ", keyword='" + keyword + '\'' +
+                    ", extension='" + extension + '\'' +
+                    ", modelName='" + modelName + '\'' +
                     '}';
         }
 
@@ -309,6 +342,38 @@ public class MediaValueAddServiceResponse {
 
         public void setModelIdentifier(String modelIdentifier) {
             this.modelIdentifier = modelIdentifier;
+        }
+
+        public String getSubLabel() {
+            return subLabel;
+        }
+
+        public void setSubLabel(String subLabel) {
+            this.subLabel = subLabel;
+        }
+
+        public String getKeyword() {
+            return keyword;
+        }
+
+        public void setKeyword(String keyword) {
+            this.keyword = keyword;
+        }
+
+        public String getExtension() {
+            return extension;
+        }
+
+        public void setExtension(String extension) {
+            this.extension = extension;
+        }
+
+        public String getModelName() {
+            return modelName;
+        }
+
+        public void setModelName(String modelName) {
+            this.modelName = modelName;
         }
     }
 
@@ -1062,6 +1127,21 @@ public class MediaValueAddServiceResponse {
 
         public void setPictures(List<com.netease.yidun.sdk.antispam.video.callback.v4.response.VideoCallbackLlmCheckV4Info.LlmCheckPicture> pictures) {
             this.pictures = pictures;
+        }
+    }
+
+    /**
+     * 产品维度大模型检测结果单元
+     */
+    public static class MediaLlmCheckDetail extends ValueServiceBaseResponse {
+        private List<LlmCheckInfoBaseUnit> details;
+
+        public List<LlmCheckInfoBaseUnit> getDetails() {
+            return details;
+        }
+
+        public void setDetails(List<LlmCheckInfoBaseUnit> details) {
+            this.details = details;
         }
     }
 

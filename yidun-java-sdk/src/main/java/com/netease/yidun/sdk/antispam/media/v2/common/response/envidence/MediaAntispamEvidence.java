@@ -11,6 +11,10 @@ public class MediaAntispamEvidence {
     private List<MediaAudioEvidence> audios;
     private List<MediaAudioVideoEvidence> audiovideos;
     private List<MediaFileEvidence> files;
+    /**
+     * 产品维度大模型检测结果列表
+     */
+    private List<MediaLlmEvidence> llms;
 
     public List<MediaTextEvidence> getTexts() {
         return texts;
@@ -50,5 +54,13 @@ public class MediaAntispamEvidence {
 
     public void setFiles(List<MediaFileEvidence> files) {
         this.files = files;
+    }
+
+    public List<MediaLlmEvidence> getLlms() {
+        return llms;
+    }
+
+    public void setLlms(List<MediaLlmEvidence> llms) {
+        this.llms = llms;
     }
 }

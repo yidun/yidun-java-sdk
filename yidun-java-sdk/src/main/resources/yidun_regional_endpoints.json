@@ -252,6 +252,10 @@
     "us-silicon-valley": [
       "as-image-sv.dun.163.com",
       "as-image-sv.dun.163yun.com"
+    ],
+    "de-frankfurt": [
+      "as-image-frankfurt.dun.163.com",
+      "as-image-frankfurt.dun.163yun.com"
     ]
   },
   "imageCommon": {
@@ -274,6 +278,10 @@
     "us-silicon-valley": [
       "as-image-sv.dun.163.com",
       "as-image-sv.dun.163yun.com"
+    ],
+    "de-frankfurt": [
+      "as-image-frankfurt.dun.163.com",
+      "as-image-frankfurt.dun.163yun.com"
     ]
   },
   "text-check": {
