@@ -1,0 +1,25 @@
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/liveaudio/feedback/v1/request/LiveAudioFeedback.java
+  7bc80859f32e1ab2 54-59
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/livevideosolution/feedback/v1/request/LiveWallSolutionFeedback.java
+  7bc80859f32e1ab2 63-68
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.22",
+  "base_commit_sha": "d92d2b2f11ef61a5665096d6eddf04f787050fb1",
+  "prompts": {
+    "7bc80859f32e1ab2": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b5b8b5c4-cedb-4a75-b26a-94e68b689a40",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "human_author": "piaohongren <piaohongren@corp.netease.com>",
+      "messages": [],
+      "total_additions": 12,
+      "total_deletions": 0,
+      "accepted_lines": 12,
+      "overriden_lines": 0
+    }
+  }
+}

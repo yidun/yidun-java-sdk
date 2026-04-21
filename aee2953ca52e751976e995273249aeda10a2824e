@@ -1,0 +1,23 @@
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/livevideosolution/callback/v3/response/LiveVideoSolutionCallbackV3Result.java
+  a3fc64bc175c79b0 358-361
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.19",
+  "base_commit_sha": "aee2953ca52e751976e995273249aeda10a2824e",
+  "prompts": {
+    "a3fc64bc175c79b0": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "49ecfc67-14f0-4721-9ce9-a4b3eff5562f",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "human_author": "piaohongren <piaohongren@corp.netease.com>",
+      "messages": [],
+      "total_additions": 4,
+      "total_deletions": 0,
+      "accepted_lines": 4,
+      "overriden_lines": 0
+    }
+  }
+}

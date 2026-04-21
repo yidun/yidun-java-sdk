@@ -1,0 +1,23 @@
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/image/v5/check/sync/response/ImageV5SubLabelDetail.java
+  51c48c51dfdb90b0 13-15,53-60
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.0",
+  "base_commit_sha": "d02813bd0f8d81b66b4069b47baaed95ee814a5e",
+  "prompts": {
+    "51c48c51dfdb90b0": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "19ddeb03-77fc-4c84-9c36-1f44b08cc97c",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "谢铁藜",
+      "messages": [],
+      "total_additions": 12,
+      "total_deletions": 0,
+      "accepted_lines": 12,
+      "overriden_lines": 0
+    }
+  }
+}
