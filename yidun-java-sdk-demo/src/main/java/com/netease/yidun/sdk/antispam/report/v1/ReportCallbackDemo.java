@@ -17,7 +17,7 @@ public class ReportCallbackDemo extends AbstractDemo {
 
     public static void main(String[] args) {
         // 实例化一个requester，入参需要传入易盾内容安全分配的secretId，secretKey
-        AntispamRequester antispamRequester = createAntispamRequester("SecretId", "SecretKey");
+        AntispamRequester antispamRequester = createAntispamRequester("eb3ec1263ed17d644b5c89735a4d061b", "bf647cb7da82cc8f4d898a495f97a544");
 
         // 实例化发起请求的client对象
         ReportClient reportClient = ReportClient.getInstance(antispamRequester);
@@ -25,6 +25,7 @@ public class ReportCallbackDemo extends AbstractDemo {
         // 实例化请求对象
         ReportCallbackRequestV1 request = new ReportCallbackRequestV1();
         request.setProtocol(ProtocolEnum.HTTP);
+        request.setDomain("as.test.dun.163.com");
 
         // 请求对象中的其他参数如果有需要，请参考官方接口文档中字段说明，按需添加
         ReportCallbackResponseV1 response = null;

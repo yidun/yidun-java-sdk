@@ -38,6 +38,14 @@ public class ImageV5SubLabelDetail implements Serializable {
      */
     private float rate;
     /**
+     * explain
+     */
+    private String explain;
+    /**
+     * isLlmCheck
+     */
+    private Boolean isLlmCheck;
+    /**
      * 二级分类命中详情
      */
     private SubLabelDetails details;
@@ -112,6 +120,22 @@ public class ImageV5SubLabelDetail implements Serializable {
 
     public void setRiskDescription(String riskDescription) {
         this.riskDescription = riskDescription;
+    }
+
+    public void setExplain(String explain) {
+        this.explain = explain;
+    }
+
+    public String getExplain() {
+        return explain;
+    }
+
+    public Boolean getIsLlmCheck() {
+        return isLlmCheck;
+    }
+
+    public void setIsLlmCheck(Boolean isLlmCheck) {
+        this.isLlmCheck = isLlmCheck;
     }
 
     public static class SubLabelDetails implements Serializable {

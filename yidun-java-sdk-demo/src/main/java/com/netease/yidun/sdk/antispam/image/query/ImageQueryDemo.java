@@ -36,7 +36,7 @@ public class ImageQueryDemo extends AbstractDemo {
             queryRequest.setBusinessId("BusinessId");
 
             // 实例化参数对象
-            queryRequest.setTaskIds(Collections.singletonList("图片检测接口返回的数据唯一标识"));
+            queryRequest.setTaskIds(Collections.singletonList("1clk6bt57ighbenzj0a512ej0030akca"));
             ImageQueryResponse queryResponse = null;
             try {
                 // 发起query请求
