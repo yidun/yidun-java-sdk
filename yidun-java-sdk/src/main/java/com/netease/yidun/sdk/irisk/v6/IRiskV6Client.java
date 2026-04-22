@@ -23,6 +23,8 @@ import com.netease.yidun.sdk.irisk.v6.check.v603.ip.IpRiskInfo;
 import com.netease.yidun.sdk.irisk.v6.check.v603.phone.PhoneBasicInfo;
 import com.netease.yidun.sdk.irisk.v6.check.v603.phone.PhoneInfo;
 import com.netease.yidun.sdk.irisk.v6.check.v603.phone.PhoneRiskInfo;
+import com.netease.yidun.sdk.irisk.v6.check.v604.IRiskCheckV604Request;
+import com.netease.yidun.sdk.irisk.v6.check.v604.IRiskCheckV604Result;
 import com.netease.yidun.sdk.irisk.v6.detail.IRiskDetailV6Request;
 import com.netease.yidun.sdk.irisk.v6.detail.IRiskDetailV6Response;
 
@@ -77,6 +79,10 @@ public class IRiskV6Client {
 
     public DataResponse<IRiskCheckV603Result<HitInfoV602, PhoneInfo<PhoneBasicInfo, PhoneRiskInfo>, IpInfo<IpBasicInfo, IpRiskInfo>>> check(
             IRiskCheckV603Request request) {
+        return client.execute(request);
+    }
+
+    public DataResponse<IRiskCheckV604Result> check(IRiskCheckV604Request request) {
         return client.execute(request);
     }
 

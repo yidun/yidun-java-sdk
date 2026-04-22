@@ -17,11 +17,6 @@ public class PhoneRiskInfo  extends AbstractIpRiskInfo implements java.io.Serial
 
     private Double riskScore;
 
-    /**
-     * 画像中最近命中风险信息名称
-     */
-    private String recentTopRisk;
-
     public String getRiskType() {
         return riskType;
     }
@@ -46,21 +41,12 @@ public class PhoneRiskInfo  extends AbstractIpRiskInfo implements java.io.Serial
         this.riskScore = riskScore;
     }
 
-    public String getRecentTopRisk() {
-        return recentTopRisk;
-    }
-
-    public void setRecentTopRisk(String recentTopRisk) {
-        this.recentTopRisk = recentTopRisk;
-    }
-
     @Override
     public String toString() {
         return "PhoneRiskInfo{" +
                 "riskType='" + riskType + '\'' +
                 ", riskLevel=" + riskLevel +
                 ", riskScore=" + riskScore +
-                ", recentTopRisk='" + recentTopRisk + '\'' +
                 '}';
     }
 }
