@@ -8,11 +8,13 @@ import com.netease.yidun.sdk.irisk.v6.check.v600.deviceinfo.AndroidDeviceInfoRes
 import com.netease.yidun.sdk.irisk.v6.check.v602.HitInfoV602;
 import com.netease.yidun.sdk.irisk.v6.check.v603.ip.IpBasicInfo;
 import com.netease.yidun.sdk.irisk.v6.check.v603.ip.IpInfo;
-import com.netease.yidun.sdk.irisk.v6.check.v603.ip.IpRiskInfo;
 import com.netease.yidun.sdk.irisk.v6.check.v603.phone.PhoneBasicInfo;
 import com.netease.yidun.sdk.irisk.v6.check.v603.phone.PhoneInfo;
 import com.netease.yidun.sdk.irisk.v6.check.v604.IRiskCheckV604Request;
 import com.netease.yidun.sdk.irisk.v6.check.v604.IRiskCheckV604Result;
+import com.netease.yidun.sdk.irisk.v6.check.v604.account.AccountRiskInfo;
+import com.netease.yidun.sdk.irisk.v6.check.v604.device.DeviceRiskInfo;
+import com.netease.yidun.sdk.irisk.v6.check.v604.ip.IpRiskInfoV604;
 import com.netease.yidun.sdk.irisk.v6.check.v604.phone.PhoneRiskInfoV604;
 
 import java.util.List;
@@ -62,13 +64,27 @@ public class IRiskCheckV604Demo {
             IRiskCheckV604Result data = checkResponse.getData();
 
             List<HitInfoV602> hitInfos = data.getHitInfos();
+
+            // 手机号风险信息
             PhoneInfo<PhoneBasicInfo, PhoneRiskInfoV604> phoneInfo = data.getPhoneInfo();
-            IpInfo<IpBasicInfo, IpRiskInfo> ipInfo = data.getIpInfo();
-            IpBasicInfo ipBasicInfo = ipInfo.getBasicInfo();
-            String countryCode = ipBasicInfo != null ? ipBasicInfo.getCountryCode() : null;
-            // 新增字段：手机号画像中最近命中风险信息名称
             PhoneRiskInfoV604 phoneRiskInfo = phoneInfo != null ? phoneInfo.getPhoneRiskInfo() : null;
-            String recentTopRisk = phoneRiskInfo != null ? phoneRiskInfo.getRecentTopRisk() : null;
+            String phoneRecentTopRisk = phoneRiskInfo != null ? phoneRiskInfo.getRecentTopRisk() : null;
+
+            // IP风险信息
+            IpInfo<IpBasicInfo, IpRiskInfoV604> ipInfo = data.getIpInfo();
+            IpBasicInfo ipBasicInfo = ipInfo != null ? ipInfo.getBasicInfo() : null;
+            String countryCode = ipBasicInfo != null ? ipBasicInfo.getCountryCode() : null;
+            IpRiskInfoV604 ipRiskInfo = ipInfo != null ? ipInfo.getIpRiskInfo() : null;
+            String ipRecentTopRisk = ipRiskInfo != null ? ipRiskInfo.getRecentTopRisk() : null;
+
+            // 设备风险信息（v604新增）
+            DeviceRiskInfo deviceRiskInfo = data.getDeviceRiskInfo();
+            String deviceRecentTopRisk = deviceRiskInfo != null ? deviceRiskInfo.getRecentTopRisk() : null;
+
+            // 账号风险信息（v604新增）
+            AccountRiskInfo accountRiskInfo = data.getAccountRiskInfo();
+            String accountRecentTopRisk = accountRiskInfo != null ? accountRiskInfo.getRecentTopRisk() : null;
+
             // data 数据即为所需的check结果
             // deviceInfo: if Android then
             AndroidDeviceInfoResult deviceInfoAndroid = new Gson().fromJson(GsonUtils.toJson(data.getDeviceInfo()), AndroidDeviceInfoResult.class);
