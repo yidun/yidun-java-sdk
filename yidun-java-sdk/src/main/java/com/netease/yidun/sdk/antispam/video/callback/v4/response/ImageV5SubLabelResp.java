@@ -76,6 +76,10 @@ public class ImageV5SubLabelResp {
          * 命中的用户自定义规则的信息
          */
         private List<RuleInfo> rules;
+        /**
+         * 大模型命中的关键词
+         */
+        private LlmKeyWord llm;
     }
 
     @Data
@@ -84,6 +88,20 @@ public class ImageV5SubLabelResp {
     public static class RuleInfo {
         private String name;
     }
+
+    /**
+     * 大模型命中的关键词
+     */
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class LlmKeyWord {
+        /**
+         * 大模型命中的Keyword
+         */
+        private String keyword;
+    }
+
     @Data
     @Builder
     @NoArgsConstructor

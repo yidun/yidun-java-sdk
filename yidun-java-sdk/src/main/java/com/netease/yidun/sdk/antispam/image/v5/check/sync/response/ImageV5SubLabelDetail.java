@@ -49,6 +49,14 @@ public class ImageV5SubLabelDetail implements Serializable {
      * 二级分类命中详情
      */
     private SubLabelDetails details;
+    /**
+     * LLM解释说明
+     */
+    private String explain;
+    /**
+     * 是否为LLM检测命中
+     */
+    private Boolean isLlmCheck;
 
     public String getSubLabel() {
         return subLabel;
@@ -114,6 +122,22 @@ public class ImageV5SubLabelDetail implements Serializable {
         this.details = details;
     }
 
+    public String getExplain() {
+        return explain;
+    }
+
+    public void setExplain(String explain) {
+        this.explain = explain;
+    }
+
+    public Boolean getIsLlmCheck() {
+        return isLlmCheck;
+    }
+
+    public void setIsLlmCheck(Boolean isLlmCheck) {
+        this.isLlmCheck = isLlmCheck;
+    }
+
     public String getRiskDescription() {
         return riskDescription;
     }
@@ -160,6 +184,10 @@ public class ImageV5SubLabelDetail implements Serializable {
          * 反作弊结果
          */
         private AnticheatInfo anticheat;
+        /**
+         * 大模型命中的关键词
+         */
+        private LlmKeyWord llm;
 
         public List<AntispamInfo> getKeywords() {
             return keywords;
@@ -199,6 +227,14 @@ public class ImageV5SubLabelDetail implements Serializable {
 
         public void setRules(List<RuleInfo> rules) {
             this.rules = rules;
+        }
+
+        public LlmKeyWord getLlm() {
+            return llm;
+        }
+
+        public void setLlm(LlmKeyWord llm) {
+            this.llm = llm;
         }
     }
 
@@ -364,6 +400,32 @@ public class ImageV5SubLabelDetail implements Serializable {
 
         public void setName(String name) {
             this.name = name;
+        }
+    }
+
+    /**
+     * 大模型命中的关键词
+     */
+    public static class LlmKeyWord implements Serializable {
+        private static final long serialVersionUID = -1374691255664747091L;
+        /**
+         * 大模型命中的Keyword
+         */
+        private String keyword;
+
+        public LlmKeyWord() {
+        }
+
+        public LlmKeyWord(String keyword) {
+            this.keyword = keyword;
+        }
+
+        public String getKeyword() {
+            return keyword;
+        }
+
+        public void setKeyword(String keyword) {
+            this.keyword = keyword;
         }
     }
 }

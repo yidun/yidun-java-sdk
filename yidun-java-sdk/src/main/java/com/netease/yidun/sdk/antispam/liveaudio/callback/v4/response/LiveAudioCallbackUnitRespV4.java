@@ -98,6 +98,15 @@ public class LiveAudioCallbackUnitRespV4 {
         private List<LibResultV4> libInfos;
         private IntentUnit intent;
         private List<Rule> rules;
+        /**
+         * LLM命中关键词信息
+         */
+        private Llm llm;
+    }
+
+    @Data
+    public static class Llm {
+        private String keyword;
     }
 
     @Data
