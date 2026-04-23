@@ -49,14 +49,6 @@ public class ImageV5SubLabelDetail implements Serializable {
      * 二级分类命中详情
      */
     private SubLabelDetails details;
-    /**
-     * LLM解释说明
-     */
-    private String explain;
-    /**
-     * 是否为LLM检测命中
-     */
-    private Boolean isLlmCheck;
 
     public String getSubLabel() {
         return subLabel;
@@ -122,22 +114,6 @@ public class ImageV5SubLabelDetail implements Serializable {
         this.details = details;
     }
 
-    public String getExplain() {
-        return explain;
-    }
-
-    public void setExplain(String explain) {
-        this.explain = explain;
-    }
-
-    public Boolean getIsLlmCheck() {
-        return isLlmCheck;
-    }
-
-    public void setIsLlmCheck(Boolean isLlmCheck) {
-        this.isLlmCheck = isLlmCheck;
-    }
-
     public String getRiskDescription() {
         return riskDescription;
     }
@@ -184,10 +160,19 @@ public class ImageV5SubLabelDetail implements Serializable {
          * 反作弊结果
          */
         private AnticheatInfo anticheat;
+
         /**
-         * 大模型命中的关键词
+         * 大模型 keyword
          */
         private LlmKeyWord llm;
+
+        public LlmKeyWord getLlm() {
+            return llm;
+        }
+
+        public void setLlm(LlmKeyWord llm) {
+            this.llm = llm;
+        }
 
         public List<AntispamInfo> getKeywords() {
             return keywords;
@@ -227,14 +212,6 @@ public class ImageV5SubLabelDetail implements Serializable {
 
         public void setRules(List<RuleInfo> rules) {
             this.rules = rules;
-        }
-
-        public LlmKeyWord getLlm() {
-            return llm;
-        }
-
-        public void setLlm(LlmKeyWord llm) {
-            this.llm = llm;
         }
     }
 
