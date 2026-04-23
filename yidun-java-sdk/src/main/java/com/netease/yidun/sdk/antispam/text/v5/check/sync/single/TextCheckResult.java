@@ -1092,6 +1092,7 @@ public class TextCheckResult implements Serializable {
         private List<AntispamSubLabelDetailLibInfo> libInfos;
         private AntispamSubLabelDetailAnticheat anticheat;
         private List<AntispamSubLabelDetailHitInfo> hitInfos;
+        private AntispamSubLabelDetailLlm llm;
 
         public List<AntispamSubLabelDetailKeyword> getKeywords() {
             return keywords;
@@ -1133,6 +1134,14 @@ public class TextCheckResult implements Serializable {
             this.hitInfos = hitInfos;
         }
 
+        public AntispamSubLabelDetailLlm getLlm() {
+            return llm;
+        }
+
+        public void setLlm(AntispamSubLabelDetailLlm llm) {
+            this.llm = llm;
+        }
+
         @Override
         public String toString() {
             return "AntispamSubLabelDetail("
@@ -1141,6 +1150,7 @@ public class TextCheckResult implements Serializable {
                     + ", libInfos=" + libInfos
                     + ", anticheat=" + anticheat
                     + ", hitInfos=" + hitInfos
+                    + ", llm=" + llm
                     + ")";
         }
     }
@@ -1294,6 +1304,32 @@ public class TextCheckResult implements Serializable {
         public String toString() {
             return "AntispamSubLabelDetailAnticheat{" +
                     "type=" + type +
+                    '}';
+        }
+    }
+
+    /**
+     * 大模型命中详情
+     */
+    public static class AntispamSubLabelDetailLlm {
+
+        /**
+         * 大模型命中关键词
+         */
+        private String keyword;
+
+        public String getKeyword() {
+            return keyword;
+        }
+
+        public void setKeyword(String keyword) {
+            this.keyword = keyword;
+        }
+
+        @Override
+        public String toString() {
+            return "AntispamSubLabelDetailLlm{" +
+                    "keyword='" + keyword + '\'' +
                     '}';
         }
     }
