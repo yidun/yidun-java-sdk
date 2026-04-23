@@ -1,0 +1,23 @@
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/image/v5/check/sync/response/ImageV5SubLabelDetail.java
+  fix_69ea40d5 151,153,157-164
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.0",
+  "base_commit_sha": "28e3139863375f05c165f5f83476d37635c70ec0",
+  "prompts": {
+    "fix_69ea40d5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "fix-session-28e31398",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "白小帅 <baixiaoshuai@corp.netease.com>",
+      "messages": [],
+      "total_additions": 10,
+      "total_deletions": 33,
+      "accepted_lines": 10,
+      "overriden_lines": 0
+    }
+  }
+}
