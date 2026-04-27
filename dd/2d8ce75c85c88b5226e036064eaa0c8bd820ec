@@ -1,0 +1,23 @@
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/liveaudio/callback/v4/response/LiveAudioLlmCheckCallbackRespV4.java
+  2f19ad9653633411 42-44
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "dd2d8ce75c85c88b5226e036064eaa0c8bd820ec",
+  "prompts": {
+    "2f19ad9653633411": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "bc8da96b-0d9e-4615-9a3d-599a94c92ea8",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "piaohongren",
+      "messages": [],
+      "total_additions": 4,
+      "total_deletions": 0,
+      "accepted_lines": 4,
+      "overriden_lines": 0
+    }
+  }
+}
