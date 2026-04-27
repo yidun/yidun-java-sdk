@@ -35,6 +35,14 @@ public class LiveAudioLlmCheckCallbackRespV4 implements BaseResponse {
      */
     private Long startTime;
     /**
+     * 片段结束时间（毫秒时间戳）
+     */
+    private Long endTime;
+    /**
+     * 回调
+     */
+    private String callback;
+    /**
      * LLM检测详情列表
      */
     private List<LlmCheckDetail> details;
