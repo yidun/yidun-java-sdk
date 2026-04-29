@@ -1,0 +1,23 @@
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/livevideosolution/submit/v3/request/LiveWallSolutionSubmitV3Req.java
+  51cc4e33ed357056 131-135,194
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.13-yd",
+  "base_commit_sha": "d48b37492baf86dc0804219ca29ea8b6bb915312",
+  "prompts": {
+    "51cc4e33ed357056": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "38b4d4b3-d16c-46ba-b9ae-9cab98253c9b",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "piaohongren <piaohongren@corp.netease.com>",
+      "messages": [],
+      "total_additions": 6,
+      "total_deletions": 0,
+      "accepted_lines": 6,
+      "overriden_lines": 0
+    }
+  }
+}
