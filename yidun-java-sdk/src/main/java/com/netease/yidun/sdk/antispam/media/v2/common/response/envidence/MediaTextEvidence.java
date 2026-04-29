@@ -174,6 +174,14 @@ public class MediaTextEvidence {
          * 建议风险等级
          */
         private Integer suggestionRiskLevel;
+        /**
+         * LLM 对标签的解释说明
+         */
+        private String explain;
+        /**
+         * true=大小模型融合检测; false=小模型标签证据补充; null=非LLM相关
+         */
+        private Boolean isLlmCheck;
 
         public Integer getSuggestionRiskLevel() {
             return suggestionRiskLevel;
@@ -181,6 +189,22 @@ public class MediaTextEvidence {
 
         public void setSuggestionRiskLevel(Integer suggestionRiskLevel) {
             this.suggestionRiskLevel = suggestionRiskLevel;
+        }
+
+        public String getExplain() {
+            return explain;
+        }
+
+        public void setExplain(String explain) {
+            this.explain = explain;
+        }
+
+        public Boolean getIsLlmCheck() {
+            return isLlmCheck;
+        }
+
+        public void setIsLlmCheck(Boolean isLlmCheck) {
+            this.isLlmCheck = isLlmCheck;
         }
 
         public String getSubLabel() {
@@ -231,6 +255,8 @@ public class MediaTextEvidence {
                     ", subLabelDepth=" + subLabelDepth +
                     ", secondLabel='" + secondLabel + '\'' +
                     ", thirdLabel='" + thirdLabel + '\'' +
+                    ", explain='" + explain + '\'' +
+                    ", isLlmCheck=" + isLlmCheck +
                     '}';
         }
     }

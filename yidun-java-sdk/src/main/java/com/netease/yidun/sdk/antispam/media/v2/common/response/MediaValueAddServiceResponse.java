@@ -110,6 +110,14 @@ public class MediaValueAddServiceResponse {
         this.llmCheckInfo = llmCheckInfo;
     }
 
+    public MediaAigc getAigc() {
+        return aigc;
+    }
+
+    public void setAigc(MediaAigc aigc) {
+        this.aigc = aigc;
+    }
+
     @Override
     public String toString() {
         return "MediaValueAddServiceResponse{" +
@@ -122,6 +130,7 @@ public class MediaValueAddServiceResponse {
                 ", emotionAnalysis=" + emotionAnalysis +
                 ", language=" + language +
                 ", grammarFix=" + grammarFix +
+                ", aigc=" + aigc +
                 ", llmCheckInfo=" + llmCheckInfo +
                 '}';
     }
@@ -282,10 +291,6 @@ public class MediaValueAddServiceResponse {
          */
         private String modelIdentifier;
         /**
-         * 子标签编码（映射到机审标签体系）
-         */
-        private String subLabel;
-        /**
          * 命中关键词，英文逗号分隔
          */
         private String keyword;
@@ -293,10 +298,6 @@ public class MediaValueAddServiceResponse {
          * 大模型自定义扩展字段，JSON字符串格式
          */
         private String extension;
-        /**
-         * 模型名称
-         */
-        private String modelName;
 
         @Override
         public String toString() {
@@ -305,10 +306,8 @@ public class MediaValueAddServiceResponse {
                     ", explain='" + explain + '\'' +
                     ", rate=" + rate +
                     ", modelIdentifier='" + modelIdentifier + '\'' +
-                    ", subLabel='" + subLabel + '\'' +
                     ", keyword='" + keyword + '\'' +
                     ", extension='" + extension + '\'' +
-                    ", modelName='" + modelName + '\'' +
                     '}';
         }
 
@@ -344,14 +343,6 @@ public class MediaValueAddServiceResponse {
             this.modelIdentifier = modelIdentifier;
         }
 
-        public String getSubLabel() {
-            return subLabel;
-        }
-
-        public void setSubLabel(String subLabel) {
-            this.subLabel = subLabel;
-        }
-
         public String getKeyword() {
             return keyword;
         }
@@ -366,14 +357,6 @@ public class MediaValueAddServiceResponse {
 
         public void setExtension(String extension) {
             this.extension = extension;
-        }
-
-        public String getModelName() {
-            return modelName;
-        }
-
-        public void setModelName(String modelName) {
-            this.modelName = modelName;
         }
     }
 

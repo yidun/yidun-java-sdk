@@ -1,5 +1,7 @@
 package com.netease.yidun.sdk.antispam.media.v2.common.response.envidence;
 
+import com.netease.yidun.sdk.antispam.image.v5.check.sync.response.ImageV5SubLabelDetail;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -25,11 +27,22 @@ public class ImageSubLabelDetail implements Serializable {
      * saas自定义规则
      */
     private List<ImageSubLabelDetailInfo> rules;
-
     /**
      * 反作弊结果
      */
     private AnticheatInfo anticheat;
+    /**
+     * 大模型 keyword
+     */
+    private ImageV5SubLabelDetail.LlmKeyWord llm;
+
+    public ImageV5SubLabelDetail.LlmKeyWord getLlm() {
+        return llm;
+    }
+
+    public void setLlm(ImageV5SubLabelDetail.LlmKeyWord llm) {
+        this.llm = llm;
+    }
 
     public List<ImageSubLabelDetailInfo> getKeywords() {
         return keywords;

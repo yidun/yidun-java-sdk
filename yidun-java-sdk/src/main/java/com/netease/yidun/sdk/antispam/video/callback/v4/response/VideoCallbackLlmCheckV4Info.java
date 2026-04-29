@@ -73,6 +73,10 @@ public class VideoCallbackLlmCheckV4Info implements BaseResponse {
          * 模型标识
          */
         private String modelIdentifier;
+        /**
+         * 模型分数
+         */
+        private Double rate;
     }
 }
 
