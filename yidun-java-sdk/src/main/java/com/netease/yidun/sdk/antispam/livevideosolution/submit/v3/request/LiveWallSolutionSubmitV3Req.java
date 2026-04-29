@@ -128,6 +128,11 @@ public class LiveWallSolutionSubmitV3Req extends PostFormRequest<LiveWallSolutio
     private String censorStreamUrl;
     private String accountInfo;
 
+    /**
+     * 声网uid类型, 0-int类型 1-string类型
+     */
+    private Integer agoraUidType;
+
     public LiveWallSolutionSubmitV3Req() {
         productCode = "liveVideoSolutionCheck";
         uriPattern = "/v3/livewallsolution/check";
@@ -186,6 +191,7 @@ public class LiveWallSolutionSubmitV3Req extends PostFormRequest<LiveWallSolutio
         params.put("screenShotStrategy", screenShotStrategy);
         params.put("subProduct", subProduct);
         params.put("extension", extension);
+        params.put("agoraUidType", agoraUidType);
         return params;
     }
 
