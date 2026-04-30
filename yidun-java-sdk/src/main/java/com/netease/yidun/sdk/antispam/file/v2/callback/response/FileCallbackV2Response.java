@@ -1852,6 +1852,14 @@ public class FileCallbackV2Response extends CommonResponse {
 
         private Double rate;
         private AudioAntispamCallbackV4Response.HintInfo details;
+        /**
+         * 详细命中原因，针对命中分类的详细说明解释
+         */
+        private String explain;
+        /**
+         * 是否为大模型检测
+         */
+        private Boolean isLlmCheck;
 
         public String getSubLabel() {
             return subLabel;
@@ -1910,6 +1918,22 @@ public class FileCallbackV2Response extends CommonResponse {
             this.riskDescription = riskDescription;
         }
 
+        public String getExplain() {
+            return explain;
+        }
+
+        public void setExplain(String explain) {
+            this.explain = explain;
+        }
+
+        public Boolean getIsLlmCheck() {
+            return isLlmCheck;
+        }
+
+        public void setIsLlmCheck(Boolean isLlmCheck) {
+            this.isLlmCheck = isLlmCheck;
+        }
+
         @Override
         public String toString() {
             return "AudioEvidenceSubLabel{" +
@@ -1920,6 +1944,8 @@ public class FileCallbackV2Response extends CommonResponse {
                     ", riskDescription='" + riskDescription + '\'' +
                     ", rate=" + rate +
                     ", details=" + details +
+                    ", explain='" + explain + '\'' +
+                    ", isLlmCheck=" + isLlmCheck +
                     '}';
         }
     }
@@ -2143,6 +2169,14 @@ public class FileCallbackV2Response extends CommonResponse {
         private String riskDescription;
         private Float rate;
         private ImageV5SubLabelResp.SubLabelDetails details;
+        /**
+         * 详细命中原因，针对命中分类的详细说明解释
+         */
+        private String explain;
+        /**
+         * 是否为大模型检测
+         */
+        private Boolean isLlmCheck;
 
         public String getSubLabel() {
             return subLabel;
@@ -2200,6 +2234,22 @@ public class FileCallbackV2Response extends CommonResponse {
             this.riskDescription = riskDescription;
         }
 
+        public String getExplain() {
+            return explain;
+        }
+
+        public void setExplain(String explain) {
+            this.explain = explain;
+        }
+
+        public Boolean getIsLlmCheck() {
+            return isLlmCheck;
+        }
+
+        public void setIsLlmCheck(Boolean isLlmCheck) {
+            this.isLlmCheck = isLlmCheck;
+        }
+
         @Override
         public String toString() {
             return "VideoEvidenceSubLabel{" +
@@ -2210,6 +2260,8 @@ public class FileCallbackV2Response extends CommonResponse {
                     ", riskDescription='" + riskDescription + '\'' +
                     ", rate=" + rate +
                     ", details=" + details +
+                    ", explain='" + explain + '\'' +
+                    ", isLlmCheck=" + isLlmCheck +
                     '}';
         }
     }
