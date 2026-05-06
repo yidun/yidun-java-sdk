@@ -1,0 +1,121 @@
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/text/v5/check/sync/single/TextCheckResult.java
+  f3e21b67877f95ff 953
+  449098d3023ef646 954-963
+  0b9a7892eecf613f 1052-1067,1081-1082
+  e7f9cc5d31d25f1d 1042-1049,1137-1144,1153
+  5851428b4e1d94ce 2355-2370,2377-2378
+  8f5c8cbee4943646 946-952,1311-1313,1315-1333
+  b126d12fe31e364a 2321-2330
+  adb3a901f4f35d7e 1095
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.13-yd",
+  "base_commit_sha": "87af60606eaed4f935ddfa483c969e5d24ab3191",
+  "prompts": {
+    "0b9a7892eecf613f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "opencode-transcript-ses_256716ab5ffeQrQ8eth5bbDnaY-69a39fb1-7914-4bb9-bf3a-792556c97d0b",
+        "model": "unknown"
+      },
+      "human_author": "yiyongfu",
+      "messages": [],
+      "total_additions": 18,
+      "total_deletions": 0,
+      "accepted_lines": 18,
+      "overriden_lines": 0
+    },
+    "449098d3023ef646": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "opencode-transcript-ses_256716ab5ffeQrQ8eth5bbDnaY-9ee1b564-628d-498e-88ec-7c431cf1bc87",
+        "model": "unknown"
+      },
+      "human_author": "yiyongfu",
+      "messages": [],
+      "total_additions": 10,
+      "total_deletions": 0,
+      "accepted_lines": 10,
+      "overriden_lines": 0
+    },
+    "5851428b4e1d94ce": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "opencode-transcript-ses_256716ab5ffeQrQ8eth5bbDnaY-6b70e699-46c3-48da-849d-ab3727044cfc",
+        "model": "unknown"
+      },
+      "human_author": "yiyongfu",
+      "messages": [],
+      "total_additions": 18,
+      "total_deletions": 0,
+      "accepted_lines": 18,
+      "overriden_lines": 0
+    },
+    "8f5c8cbee4943646": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "opencode-transcript-ses_247dc2f3cffe25k7GmaxX6Anbo-5850a2f8-3827-4cde-802d-9f442924ca70",
+        "model": "unknown"
+      },
+      "human_author": "yiyongfu",
+      "messages": [],
+      "total_additions": 28,
+      "total_deletions": 0,
+      "accepted_lines": 29,
+      "overriden_lines": 0
+    },
+    "adb3a901f4f35d7e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "opencode-transcript-ses_247dc2f3cffe25k7GmaxX6Anbo-df4499de-ae27-4eee-880a-336d01db8c10",
+        "model": "unknown"
+      },
+      "human_author": "yiyongfu",
+      "messages": [],
+      "total_additions": 7,
+      "total_deletions": 0,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    },
+    "b126d12fe31e364a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "opencode-transcript-ses_256716ab5ffeQrQ8eth5bbDnaY-791a32a1-0bae-45c4-8022-1bde10d22356",
+        "model": "unknown"
+      },
+      "human_author": "yiyongfu",
+      "messages": [],
+      "total_additions": 10,
+      "total_deletions": 0,
+      "accepted_lines": 10,
+      "overriden_lines": 0
+    },
+    "e7f9cc5d31d25f1d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "opencode-transcript-ses_247dc2f3cffe25k7GmaxX6Anbo-9f27c680-5a23-4caf-a7b9-2bd24e801c1a",
+        "model": "unknown"
+      },
+      "human_author": "yiyongfu",
+      "messages": [],
+      "total_additions": 9,
+      "total_deletions": 0,
+      "accepted_lines": 17,
+      "overriden_lines": 0
+    },
+    "f3e21b67877f95ff": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "opencode-transcript-ses_256716ab5ffeQrQ8eth5bbDnaY-9dbd1015-7108-4f08-9290-f23fb4ed844d",
+        "model": "unknown"
+      },
+      "human_author": "yiyongfu",
+      "messages": [],
+      "total_additions": 2,
+      "total_deletions": 1,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    }
+  }
+}
