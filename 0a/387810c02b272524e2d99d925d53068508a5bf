@@ -1,0 +1,27 @@
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/media/v2/common/response/MediaValueAddServiceResponse.java
+  f3cea033ff0d38cf 218-221,247-254,261,284-299,308-311,346-377,1133-1147
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/media/v2/common/response/envidence/MediaLlmEvidence.java
+  f3cea033ff0d38cf 1-46
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/media/v2/common/response/envidence/MediaAntispamEvidence.java
+  f3cea033ff0d38cf 14-17,58-65
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.0",
+  "base_commit_sha": "0a387810c02b272524e2d99d925d53068508a5bf",
+  "prompts": {
+    "f3cea033ff0d38cf": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1c54ebb0-b668-4f52-ae19-bb7cbb65caeb",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "zhaojipu",
+      "messages": [],
+      "total_additions": 141,
+      "total_deletions": 3,
+      "accepted_lines": 138,
+      "overriden_lines": 0
+    }
+  }
+}
