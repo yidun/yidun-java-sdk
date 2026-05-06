@@ -1,0 +1,33 @@
+yidun-java-sdk/pom.xml
+  8837c42a0a1eb0cd 9
+pom.xml
+  8837c42a0a1eb0cd 10
+yidun-java-sdk-core/pom.xml
+  8837c42a0a1eb0cd 9
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/file/v2/callback/response/FileCallbackV2Response.java
+  8837c42a0a1eb0cd 1139-1146,1196-1211,1221-1222,1427-1434,1492-1507,1518-1519
+yidun-java-sdk-demo/pom.xml
+  8837c42a0a1eb0cd 8
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/image/v5/check/sync/response/LlmCheckInfo.java
+  8837c42a0a1eb0cd 33-44,74-97,105-107
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.0",
+  "base_commit_sha": "262a4072aca857efd56c56085c874c3e257f4a66",
+  "prompts": {
+    "8837c42a0a1eb0cd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5046d11f-5975-44d1-b69d-0730e7426cf5",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "谢铁藜",
+      "messages": [],
+      "total_additions": 95,
+      "total_deletions": 4,
+      "accepted_lines": 95,
+      "overriden_lines": 0
+    }
+  }
+}

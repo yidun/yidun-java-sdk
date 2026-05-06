@@ -1,0 +1,23 @@
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/file/v2/callback/response/FileCallbackV2Response.java
+  8fe337b445803f9b 1855-1862,1921-1936,1947-1948,2172-2179,2237-2252,2263-2264
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.13-yd",
+  "base_commit_sha": "72eda0bfc4ab71ddb2b140adb68ceb7ad9da9087",
+  "prompts": {
+    "8fe337b445803f9b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d3ceed40-2d72-43d4-9cb5-dbc7e5c8f3f8",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "谢铁藜 <xietieli@corp.netease.com>",
+      "messages": [],
+      "total_additions": 52,
+      "total_deletions": 0,
+      "accepted_lines": 52,
+      "overriden_lines": 0
+    }
+  }
+}
