@@ -1,0 +1,31 @@
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/liveaudio/callback/v4/response/LiveAudioLlmCheckCallbackRespV4.java
+  2ad651432dedad48 1-71
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/video/callback/v4/response/VideoCallbackLlmCheckV4Info.java
+  2ad651432dedad48 53,55,57,59-67,69,71,73
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/liveaudio/callback/v4/response/LiveAudioCallbackV4Result.java
+  2ad651432dedad48 31-34
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/livevideosolution/callback/v3/response/LiveVideoSolutionCallbackV3Result.java
+  2ad651432dedad48 49-52
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/livevideosolution/callback/v3/response/LiveVideoSolutionLlmCheckCallbackRespV4.java
+  2ad651432dedad48 1-73
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8",
+  "base_commit_sha": "79e5279459a6f93926704e5a636d2bc3e3be55fe",
+  "prompts": {
+    "2ad651432dedad48": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "96d93f27-eb9c-4c4c-a5ae-ad3112a5873b",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "human_author": "piaohongren",
+      "messages": [],
+      "total_additions": 310,
+      "total_deletions": 46,
+      "accepted_lines": 169,
+      "overriden_lines": 0
+    }
+  }
+}

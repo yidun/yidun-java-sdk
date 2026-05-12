@@ -1,0 +1,25 @@
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.13-yd",
+  "base_commit_sha": "e77240ce1a921f668f427f1abf373797ce18e1c8",
+  "prompts": {
+    "8fe337b445803f9b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d3ceed40-2d72-43d4-9cb5-dbc7e5c8f3f8",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "谢铁藜 <xietieli@corp.netease.com>",
+      "messages": [],
+      "total_additions": 129,
+      "total_deletions": 26,
+      "accepted_lines": 129,
+      "overriden_lines": 0,
+      "custom_attributes": {
+        "gitai_bash_ai_deletions": "0",
+        "gitai_bash_ai_additions": "129"
+      }
+    }
+  }
+}

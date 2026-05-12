@@ -1,0 +1,27 @@
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/media/v2/common/response/envidence/MediaAudioVideoEvidence.java
+  d88340192dfd43da 332-339,349-362
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/media/v2/common/response/envidence/MediaImageEvidence.java
+  d88340192dfd43da 195-202,212-225,285-286
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/media/v2/common/response/envidence/MediaTextEvidence.java
+  d88340192dfd43da 177-184,194-207,258-259
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.13-yd",
+  "base_commit_sha": "34bb6c002d8a4d123d331a9719d4f045e5bbccba",
+  "prompts": {
+    "d88340192dfd43da": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "73dae89e-104d-4d25-a692-3cd06fab2041",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "zhaojipu <zhaojipu@corp.netease.com>",
+      "messages": [],
+      "total_additions": 76,
+      "total_deletions": 0,
+      "accepted_lines": 70,
+      "overriden_lines": 0
+    }
+  }
+}
