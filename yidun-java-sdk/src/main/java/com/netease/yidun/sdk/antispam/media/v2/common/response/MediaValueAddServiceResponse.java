@@ -228,6 +228,10 @@ public class MediaValueAddServiceResponse {
          * 产品维度大模型检测结果列表
          */
         private List<MediaLlmCheckDetail> llms;
+        /**
+         * 文件维度大模型检测结果列表
+         */
+        private List<FileLlmCheckDetail> files;
 
         public List<ImageLlmCheckDetail> getImages() {
             return images;
@@ -261,6 +265,14 @@ public class MediaValueAddServiceResponse {
             this.llms = llms;
         }
 
+        public List<FileLlmCheckDetail> getFiles() {
+            return files;
+        }
+
+        public void setFiles(List<FileLlmCheckDetail> files) {
+            this.files = files;
+        }
+
         @Override
         public String toString() {
             return "LlmCheckInfo{" +
@@ -268,6 +280,7 @@ public class MediaValueAddServiceResponse {
                     ", texts=" + texts +
                     ", videos=" + videos +
                     ", llms=" + llms +
+                    ", files=" + files +
                     '}';
         }
     }
@@ -1125,6 +1138,48 @@ public class MediaValueAddServiceResponse {
 
         public void setDetails(List<LlmCheckInfoBaseUnit> details) {
             this.details = details;
+        }
+    }
+
+    /**
+     * 文件维度大模型检测结果单元
+     */
+    public static class FileLlmCheckDetail extends ValueServiceBaseResponse {
+        private List<TextLlmCheckDetail> texts;
+        private List<ImageLlmCheckDetail> images;
+        private List<VideoLlmCheckDetail> videos;
+
+        public List<TextLlmCheckDetail> getTexts() {
+            return texts;
+        }
+
+        public void setTexts(List<TextLlmCheckDetail> texts) {
+            this.texts = texts;
+        }
+
+        public List<ImageLlmCheckDetail> getImages() {
+            return images;
+        }
+
+        public void setImages(List<ImageLlmCheckDetail> images) {
+            this.images = images;
+        }
+
+        public List<VideoLlmCheckDetail> getVideos() {
+            return videos;
+        }
+
+        public void setVideos(List<VideoLlmCheckDetail> videos) {
+            this.videos = videos;
+        }
+
+        @Override
+        public String toString() {
+            return "FileLlmCheckDetail{" +
+                    "texts=" + texts +
+                    ", images=" + images +
+                    ", videos=" + videos +
+                    '}';
         }
     }
 

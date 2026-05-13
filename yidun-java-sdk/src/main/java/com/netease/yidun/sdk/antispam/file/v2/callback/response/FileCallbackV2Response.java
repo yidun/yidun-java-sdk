@@ -7,7 +7,6 @@ import java.util.Set;
 
 import com.netease.yidun.sdk.antispam.audio.callback.v4.response.AudioAntispamCallbackV4Response;
 import com.netease.yidun.sdk.antispam.image.v5.check.sync.response.ImageV5SubLabelDetail;
-import com.netease.yidun.sdk.antispam.image.v5.check.sync.response.LlmCheckInfo;
 import com.netease.yidun.sdk.antispam.text.v5.check.sync.single.TextCheckResult;
 import com.netease.yidun.sdk.antispam.video.callback.v4.response.ImageV5SubLabelResp;
 import com.netease.yidun.sdk.core.response.CommonResponse;
@@ -946,10 +945,6 @@ public class FileCallbackV2Response extends CommonResponse {
         private String publicOpinionInfo;
         private List<TextEvidenceLabel> labels;
         private Integer page;
-        /**
-         * 文本大模型信息
-         */
-        private List<TextCheckResult.LlmCheckInfoDetail> llmCheckInfo;
 
         public String getTaskId() {
             return taskId;
@@ -1023,14 +1018,6 @@ public class FileCallbackV2Response extends CommonResponse {
             this.page = page;
         }
 
-        public List<TextCheckResult.LlmCheckInfoDetail> getLlmCheckInfo() {
-            return llmCheckInfo;
-        }
-
-        public void setLlmCheckInfo(List<TextCheckResult.LlmCheckInfoDetail> llmCheckInfo) {
-            this.llmCheckInfo = llmCheckInfo;
-        }
-
         @Override
         public String toString() {
             return "TextEvidence{" +
@@ -1043,7 +1030,6 @@ public class FileCallbackV2Response extends CommonResponse {
                     ", publicOpinionInfo='" + publicOpinionInfo + '\'' +
                     ", labels=" + labels +
                     ", page=" + page +
-                    ", llmCheckInfo=" + llmCheckInfo +
                     '}';
         }
     }
@@ -1240,10 +1226,6 @@ public class FileCallbackV2Response extends CommonResponse {
          * 专项信息
          */
         private String publicOpinionInfo;
-        /**
-         * 图片大模型信息
-         */
-        private List<LlmCheckInfo> llmCheckInfo;
 
         public String getTaskId() {
             return taskId;
@@ -1317,14 +1299,6 @@ public class FileCallbackV2Response extends CommonResponse {
             this.publicOpinionInfo = publicOpinionInfo;
         }
 
-        public List<LlmCheckInfo> getLlmCheckInfo() {
-            return llmCheckInfo;
-        }
-
-        public void setLlmCheckInfo(List<LlmCheckInfo> llmCheckInfo) {
-            this.llmCheckInfo = llmCheckInfo;
-        }
-
         @Override
         public String toString() {
             return "ImageEvidence{" +
@@ -1337,7 +1311,6 @@ public class FileCallbackV2Response extends CommonResponse {
                     ", status=" + status +
                     ", suggestionRiskLevel=" + suggestionRiskLevel +
                     ", publicOpinionInfo='" + publicOpinionInfo + '\'' +
-                    ", llmCheckInfo=" + llmCheckInfo +
                     '}';
         }
     }
@@ -1670,10 +1643,6 @@ public class FileCallbackV2Response extends CommonResponse {
     public static class VideoSolutionCheckResult {
         private List<AudioEvidenceSegment> segments;
         private List<VideoEvidencePictures> pictures;
-        /**
-         * 大模型检测结果
-         */
-        private List<com.netease.yidun.sdk.antispam.video.callback.v4.response.VideoCallbackLlmCheckV4Info.LlmCheckPicture> llmCheckInfo;
 
         public List<AudioEvidenceSegment> getSegments() {
             return segments;
@@ -1691,20 +1660,11 @@ public class FileCallbackV2Response extends CommonResponse {
             this.pictures = pictures;
         }
 
-        public List<com.netease.yidun.sdk.antispam.video.callback.v4.response.VideoCallbackLlmCheckV4Info.LlmCheckPicture> getLlmCheckInfo() {
-            return llmCheckInfo;
-        }
-
-        public void setLlmCheckInfo(List<com.netease.yidun.sdk.antispam.video.callback.v4.response.VideoCallbackLlmCheckV4Info.LlmCheckPicture> llmCheckInfo) {
-            this.llmCheckInfo = llmCheckInfo;
-        }
-
         @Override
         public String toString() {
             return "VideoSolutionCheckResult{" +
                     "segments=" + segments +
                     ", pictures=" + pictures +
-                    ", llmCheckInfo=" + llmCheckInfo +
                     '}';
         }
     }
