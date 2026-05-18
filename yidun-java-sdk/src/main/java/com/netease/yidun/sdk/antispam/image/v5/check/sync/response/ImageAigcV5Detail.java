@@ -65,6 +65,6 @@ public class ImageAigcV5Detail implements Serializable {
     }
 
     public void setIsAigc(Boolean isAigc) {
-        isAigc = isAigc;
+        this.isAigc = isAigc;
     }
 }
