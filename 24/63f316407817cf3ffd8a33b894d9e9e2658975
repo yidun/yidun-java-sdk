@@ -1,0 +1,23 @@
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/image/v5/check/sync/response/ImageAigcV5Detail.java
+  5bb64dd82b78f6f1 68
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.15-yd",
+  "base_commit_sha": "2463f316407817cf3ffd8a33b894d9e9e2658975",
+  "prompts": {
+    "5bb64dd82b78f6f1": {
+      "agent_id": {
+        "tool": "github-copilot-jetbrains",
+        "id": "1778753068703",
+        "model": "unknown"
+      },
+      "human_author": "zhaojipu <zhaojipu@corp.netease.com>",
+      "messages": [],
+      "total_additions": 1,
+      "total_deletions": 1,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    }
+  }
+}
