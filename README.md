@@ -25,7 +25,7 @@ SDK中各接口调用方式基本相同，接入方式统一，并提供了一�
   <dependency>
       <groupId>com.netease.yidun</groupId>
       <artifactId>yidun-java-sdk</artifactId>
-      <version>1.5.4</version>
+      <version>1.5.5</version>
   </dependency>
   ```
 
