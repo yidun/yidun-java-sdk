@@ -1,0 +1,55 @@
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/media/v2/common/response/MediaValueAddServiceResponse.java
+  07a8b0baa842f412 231-234,268-275,283,1144-1185
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/file/v2/callback/response/ValueAddService.java
+  07a8b0baa842f412 10-12,23-26,36-41,59-79,81-223
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.13-yd",
+  "base_commit_sha": "2d8bdd3badd1abfc1bbfc4dd4911262cf42e80b2",
+  "prompts": {
+    "07a8b0baa842f412": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "22665641-4a2f-4683-a67d-bdcab3172d12",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "谢铁藜 <xietieli@corp.netease.com>",
+      "messages": [],
+      "total_additions": 239,
+      "total_deletions": 41,
+      "accepted_lines": 238,
+      "overriden_lines": 0
+    },
+    "6c4f6a2daff63d58": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f2ace78f-ba89-430a-83b9-219c775e9342",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "谢铁藜 <xietieli@corp.netease.com>",
+      "messages": [],
+      "total_additions": 184,
+      "total_deletions": 124,
+      "accepted_lines": 60,
+      "overriden_lines": 0
+    },
+    "8fe337b445803f9b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d3ceed40-2d72-43d4-9cb5-dbc7e5c8f3f8",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "谢铁藜 <xietieli@corp.netease.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 129,
+      "overriden_lines": 0,
+      "custom_attributes": {
+        "gitai_bash_ai_deletions": "0",
+        "gitai_bash_ai_additions": "0"
+      }
+    }
+  }
+}
