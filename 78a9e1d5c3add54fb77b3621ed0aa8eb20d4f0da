@@ -1,0 +1,23 @@
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/file/v2/callback/response/FileCallbackV2Response.java
+  947d49a012ae0342 526-528,554-577,584-586,978,1052-1059,1072,1269-1270,1344-1359,1372-1373
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.15-yd",
+  "base_commit_sha": "78a9e1d5c3add54fb77b3621ed0aa8eb20d4f0da",
+  "prompts": {
+    "947d49a012ae0342": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a16ef658-8ce6-4b7b-bafa-af984c10dd32",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "zhaojipu <zhaojipu@corp.netease.com>",
+      "messages": [],
+      "total_additions": 60,
+      "total_deletions": 0,
+      "accepted_lines": 60,
+      "overriden_lines": 0
+    }
+  }
+}
