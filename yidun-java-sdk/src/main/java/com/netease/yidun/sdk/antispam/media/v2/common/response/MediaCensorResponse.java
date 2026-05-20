@@ -692,6 +692,8 @@ public class MediaCensorResponse {
         private String name;
         private String customCode;
         private String desc;
+        private String parentLabelId;
+        private Integer depth;
 
         public String getCode() {
             return code;
@@ -723,6 +725,22 @@ public class MediaCensorResponse {
 
         public void setDesc(String desc) {
             this.desc = desc;
+        }
+
+        public String getParentLabelId() {
+            return parentLabelId;
+        }
+
+        public void setParentLabelId(String parentLabelId) {
+            this.parentLabelId = parentLabelId;
+        }
+
+        public Integer getDepth() {
+            return depth;
+        }
+
+        public void setDepth(Integer depth) {
+            this.depth = depth;
         }
     }
 }

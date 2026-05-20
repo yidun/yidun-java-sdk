@@ -149,6 +149,16 @@ public class FileCallbackV2Response extends CommonResponse {
          * 审核人
          */
         private String censor;
+        /**
+         * 审核来源
+         */
+        private Integer censorSource;
+        /**
+         * 命中策略来源透出
+         * 0 易盾策略来源
+         * 1 客户策略来源
+         */
+        private Integer strategySource;
 
         public String getDataId() {
             return dataId;
@@ -310,6 +320,22 @@ public class FileCallbackV2Response extends CommonResponse {
             this.censor = censor;
         }
 
+        public Integer getCensorSource() {
+            return censorSource;
+        }
+
+        public void setCensorSource(Integer censorSource) {
+            this.censorSource = censorSource;
+        }
+
+        public Integer getStrategySource() {
+            return strategySource;
+        }
+
+        public void setStrategySource(Integer strategySource) {
+            this.strategySource = strategySource;
+        }
+
         @Override
         public String toString() {
             return "AntispamCheckResult{" +
@@ -333,6 +359,8 @@ public class FileCallbackV2Response extends CommonResponse {
                     ", riskDescription='" + riskDescription + '\'' +
                     ", censorRound=" + censorRound +
                     ", censor='" + censor + '\'' +
+                    ", censorSource=" + censorSource +
+                    ", strategySource=" + strategySource +
                     '}';
         }
     }
@@ -523,6 +551,9 @@ public class FileCallbackV2Response extends CommonResponse {
         private String code;
         private String desc;
         private String customCode;
+        private String name;
+        private String parentLabelId;
+        private Integer depth;
 
         public String getCode() {
             return code;
@@ -548,18 +579,49 @@ public class FileCallbackV2Response extends CommonResponse {
             this.customCode = customCode;
         }
 
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getParentLabelId() {
+            return parentLabelId;
+        }
+
+        public void setParentLabelId(String parentLabelId) {
+            this.parentLabelId = parentLabelId;
+        }
+
+        public Integer getDepth() {
+            return depth;
+        }
+
+        public void setDepth(Integer depth) {
+            this.depth = depth;
+        }
+
         @Override
         public String toString() {
             return "CensorLabel{" +
                     "code='" + code + '\'' +
                     ", desc='" + desc + '\'' +
                     ", customCode='" + customCode + '\'' +
+                    ", name='" + name + '\'' +
+                    ", parentLabelId='" + parentLabelId + '\'' +
+                    ", depth=" + depth +
                     '}';
         }
     }
 
     public static class ReviewEvidenceResult {
         private String reason;
+        /**
+         * 人审垃圾类别
+         */
+        private Integer spamType;
         private String remark;
         private ReviewEvidences detail;
 
@@ -569,6 +631,14 @@ public class FileCallbackV2Response extends CommonResponse {
 
         public void setReason(String reason) {
             this.reason = reason;
+        }
+
+        public Integer getSpamType() {
+            return spamType;
+        }
+
+        public void setSpamType(Integer spamType) {
+            this.spamType = spamType;
         }
 
         public String getRemark() {
@@ -591,6 +661,7 @@ public class FileCallbackV2Response extends CommonResponse {
         public String toString() {
             return "ReviewEvidenceResult{" +
                     "reason='" + reason + '\'' +
+                    ", spamType=" + spamType +
                     ", remark='" + remark + '\'' +
                     ", detail=" + detail +
                     '}';
@@ -945,6 +1016,7 @@ public class FileCallbackV2Response extends CommonResponse {
         private String publicOpinionInfo;
         private List<TextEvidenceLabel> labels;
         private Integer page;
+        private String riskDescription;
 
         public String getTaskId() {
             return taskId;
@@ -1018,6 +1090,14 @@ public class FileCallbackV2Response extends CommonResponse {
             this.page = page;
         }
 
+        public String getRiskDescription() {
+            return riskDescription;
+        }
+
+        public void setRiskDescription(String riskDescription) {
+            this.riskDescription = riskDescription;
+        }
+
         @Override
         public String toString() {
             return "TextEvidence{" +
@@ -1030,6 +1110,7 @@ public class FileCallbackV2Response extends CommonResponse {
                     ", publicOpinionInfo='" + publicOpinionInfo + '\'' +
                     ", labels=" + labels +
                     ", page=" + page +
+                    ", riskDescription='" + riskDescription + '\'' +
                     '}';
         }
     }
@@ -1122,6 +1203,7 @@ public class FileCallbackV2Response extends CommonResponse {
          * 文本垃圾详情
          */
         private TextCheckResult.AntispamSubLabelDetail details;
+        private Double rate;
         /**
          * 详细命中原因，针对命中分类的详细说明解释
          */
@@ -1171,6 +1253,14 @@ public class FileCallbackV2Response extends CommonResponse {
             this.details = details;
         }
 
+        public Double getRate() {
+            return rate;
+        }
+
+        public void setRate(Double rate) {
+            this.rate = rate;
+        }
+
         public String getRiskDescription() {
             return riskDescription;
         }
@@ -1203,6 +1293,7 @@ public class FileCallbackV2Response extends CommonResponse {
                     ", secondLabel='" + secondLabel + '\'' +
                     ", thirdLabel='" + thirdLabel + '\'' +
                     ", riskDescription='" + riskDescription + '\'' +
+                    ", rate=" + rate +
                     ", details=" + details +
                     ", explain='" + explain + '\'' +
                     ", isLlmCheck=" + isLlmCheck +
@@ -1214,7 +1305,6 @@ public class FileCallbackV2Response extends CommonResponse {
         private String taskId;
         private Integer sequence;
         private String imageUrl;
-        private Integer level;
         private List<ImageEvidenceLabel> labels;
         private Integer page;
         private Integer status;
@@ -1226,6 +1316,8 @@ public class FileCallbackV2Response extends CommonResponse {
          * 专项信息
          */
         private String publicOpinionInfo;
+        private Integer suggestion;
+        private String riskDescription;
 
         public String getTaskId() {
             return taskId;
@@ -1249,14 +1341,6 @@ public class FileCallbackV2Response extends CommonResponse {
 
         public void setImageUrl(String imageUrl) {
             this.imageUrl = imageUrl;
-        }
-
-        public Integer getLevel() {
-            return level;
-        }
-
-        public void setLevel(Integer level) {
-            this.level = level;
         }
 
         public List<ImageEvidenceLabel> getLabels() {
@@ -1299,18 +1383,35 @@ public class FileCallbackV2Response extends CommonResponse {
             this.publicOpinionInfo = publicOpinionInfo;
         }
 
+        public Integer getSuggestion() {
+            return suggestion;
+        }
+
+        public void setSuggestion(Integer suggestion) {
+            this.suggestion = suggestion;
+        }
+
+        public String getRiskDescription() {
+            return riskDescription;
+        }
+
+        public void setRiskDescription(String riskDescription) {
+            this.riskDescription = riskDescription;
+        }
+
         @Override
         public String toString() {
             return "ImageEvidence{" +
                     "taskId='" + taskId + '\'' +
                     ", sequence=" + sequence +
                     ", imageUrl='" + imageUrl + '\'' +
-                    ", level=" + level +
                     ", labels=" + labels +
                     ", page=" + page +
                     ", status=" + status +
                     ", suggestionRiskLevel=" + suggestionRiskLevel +
                     ", publicOpinionInfo='" + publicOpinionInfo + '\'' +
+                    ", suggestion=" + suggestion +
+                    ", riskDescription='" + riskDescription + '\'' +
                     '}';
         }
     }
