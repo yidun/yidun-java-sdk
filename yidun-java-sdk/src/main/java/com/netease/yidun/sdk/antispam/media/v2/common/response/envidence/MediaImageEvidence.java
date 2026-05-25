@@ -32,6 +32,48 @@ public class MediaImageEvidence {
     private List<ImageLabelInfo> labels;
 
     /**
+     * @see com.netease.is.antispam.common.constant.StrategySourceEnum
+     *
+     *      命中策略来源
+     */
+    private Integer hitSource;
+
+    /**
+     * @see com.netease.is.antispam.common.constant.CensorStatusLevel
+     *
+     * 嫌疑级别
+     */
+    private Integer suggestionLevel;
+    /**
+     * 命中一级标签
+     */
+    private Integer label;
+    /**
+     * 命中二级标签细分类
+     */
+    private String secondLabel;
+    /**
+     * 命中二级标签细分类
+     */
+    private String thirdLabel;
+
+    /**
+     * 命中策略类型
+     *
+     * @see com.netease.is.antispam.common.constant.HitType
+     */
+    private Integer hitType;
+    /**
+     * 策略类型 1 公有策略 2 私有策略
+     */
+    private Integer strategyType;
+    /**
+     * 命中结果
+     */
+    private String hitResult;
+    private String riskDescription;
+
+    /**
      * 图片 MD5 值（32位小写格式）
      */
     private String imgMd5;
@@ -141,6 +183,78 @@ public class MediaImageEvidence {
         this.imgMd5 = imgMd5;
     }
 
+    public Integer getHitSource() {
+        return hitSource;
+    }
+
+    public void setHitSource(Integer hitSource) {
+        this.hitSource = hitSource;
+    }
+
+    public Integer getSuggestionLevel() {
+        return suggestionLevel;
+    }
+
+    public void setSuggestionLevel(Integer suggestionLevel) {
+        this.suggestionLevel = suggestionLevel;
+    }
+
+    public Integer getLabel() {
+        return label;
+    }
+
+    public void setLabel(Integer label) {
+        this.label = label;
+    }
+
+    public String getSecondLabel() {
+        return secondLabel;
+    }
+
+    public void setSecondLabel(String secondLabel) {
+        this.secondLabel = secondLabel;
+    }
+
+    public String getThirdLabel() {
+        return thirdLabel;
+    }
+
+    public void setThirdLabel(String thirdLabel) {
+        this.thirdLabel = thirdLabel;
+    }
+
+    public Integer getHitType() {
+        return hitType;
+    }
+
+    public void setHitType(Integer hitType) {
+        this.hitType = hitType;
+    }
+
+    public Integer getStrategyType() {
+        return strategyType;
+    }
+
+    public void setStrategyType(Integer strategyType) {
+        this.strategyType = strategyType;
+    }
+
+    public String getHitResult() {
+        return hitResult;
+    }
+
+    public void setHitResult(String hitResult) {
+        this.hitResult = hitResult;
+    }
+
+    public String getRiskDescription() {
+        return riskDescription;
+    }
+
+    public void setRiskDescription(String riskDescription) {
+        this.riskDescription = riskDescription;
+    }
+
     public static class ImageLabelInfo {
         private int label;
         private List<ImageSubLabel> subLabels;
@@ -200,6 +314,7 @@ public class MediaImageEvidence {
          * 是否为LLM检测命中，true=大小模型融合检测; false=小模型标签证据补充
          */
         private Boolean isLlmCheck;
+        private String riskDescription;
 
         public Integer getSuggestionRiskLevel() {
             return suggestionRiskLevel;
@@ -273,6 +388,14 @@ public class MediaImageEvidence {
             this.thirdLabel = thirdLabel;
         }
 
+        public String getRiskDescription() {
+            return riskDescription;
+        }
+
+        public void setRiskDescription(String riskDescription) {
+            this.riskDescription = riskDescription;
+        }
+
         @Override
         public String toString() {
             return "ImageSubLabel{" +
@@ -284,6 +407,7 @@ public class MediaImageEvidence {
                     ", thirdLabel='" + thirdLabel + '\'' +
                     ", explain='" + explain + '\'' +
                     ", isLlmCheck=" + isLlmCheck +
+                    ", riskDescription='" + riskDescription + '\'' +
                     '}';
         }
     }

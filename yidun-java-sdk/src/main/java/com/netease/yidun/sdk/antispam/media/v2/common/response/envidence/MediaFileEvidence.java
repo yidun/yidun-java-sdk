@@ -209,6 +209,11 @@ public class MediaFileEvidence implements Serializable {
 
         private Integer failureReason;
 
+        /**
+         * 命中标签
+         */
+        private Integer label;
+
         public String getTaskId() {
             return taskId;
         }
@@ -271,6 +276,14 @@ public class MediaFileEvidence implements Serializable {
 
         public void setFailureReason(Integer failureReason) {
             this.failureReason = failureReason;
+        }
+
+        public Integer getLabel() {
+            return label;
+        }
+
+        public void setLabel(Integer label) {
+            this.label = label;
         }
     }
 

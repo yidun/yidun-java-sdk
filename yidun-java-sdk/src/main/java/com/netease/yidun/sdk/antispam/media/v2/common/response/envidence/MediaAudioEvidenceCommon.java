@@ -22,6 +22,26 @@ public class MediaAudioEvidenceCommon {
 
     private Integer suggestionRiskLevel;
 
+    private String riskDescription;
+    /**
+     * @see com.netease.is.antispam.common.constant.CensorStatusLevel
+     *
+     * 嫌疑级别
+     */
+    private Integer suggestionLevel;
+    /**
+     * 命中一级标签
+     */
+    private Integer label;
+    /**
+     * 命中二级标签细分类
+     */
+    private String secondLabel;
+    /**
+     * 命中三级标签细分类
+     */
+    private String thirdLabel;
+
     private Integer resultType;
     private Long checkTime;
     private Long duration;
@@ -35,6 +55,46 @@ public class MediaAudioEvidenceCommon {
 
     public void setSuggestionRiskLevel(Integer suggestionRiskLevel) {
         this.suggestionRiskLevel = suggestionRiskLevel;
+    }
+
+    public String getRiskDescription() {
+        return riskDescription;
+    }
+
+    public void setRiskDescription(String riskDescription) {
+        this.riskDescription = riskDescription;
+    }
+
+    public Integer getSuggestionLevel() {
+        return suggestionLevel;
+    }
+
+    public void setSuggestionLevel(Integer suggestionLevel) {
+        this.suggestionLevel = suggestionLevel;
+    }
+
+    public Integer getLabel() {
+        return label;
+    }
+
+    public void setLabel(Integer label) {
+        this.label = label;
+    }
+
+    public String getSecondLabel() {
+        return secondLabel;
+    }
+
+    public void setSecondLabel(String secondLabel) {
+        this.secondLabel = secondLabel;
+    }
+
+    public String getThirdLabel() {
+        return thirdLabel;
+    }
+
+    public void setThirdLabel(String thirdLabel) {
+        this.thirdLabel = thirdLabel;
     }
 
     public String getPublicOpinionInfo() {
@@ -161,6 +221,7 @@ public class MediaAudioEvidenceCommon {
         private int label;
         private List<AudioSubLabel> subLabels;
         private int level;
+        private Double rate;
 
         public int getLabel() {
             return label;
@@ -185,6 +246,14 @@ public class MediaAudioEvidenceCommon {
         public void setLevel(int level) {
             this.level = level;
         }
+
+        public Double getRate() {
+            return rate;
+        }
+
+        public void setRate(Double rate) {
+            this.rate = rate;
+        }
     }
 
     public static class AudioSubLabel {
@@ -198,6 +267,8 @@ public class MediaAudioEvidenceCommon {
          * 建议风险等级
          */
         private Integer suggestionRiskLevel;
+        private Double rate;
+        private String riskDescription;
 
         public Integer getSuggestionRiskLevel() {
             return suggestionRiskLevel;
@@ -205,6 +276,22 @@ public class MediaAudioEvidenceCommon {
 
         public void setSuggestionRiskLevel(Integer suggestionRiskLevel) {
             this.suggestionRiskLevel = suggestionRiskLevel;
+        }
+
+        public Double getRate() {
+            return rate;
+        }
+
+        public void setRate(Double rate) {
+            this.rate = rate;
+        }
+
+        public String getRiskDescription() {
+            return riskDescription;
+        }
+
+        public void setRiskDescription(String riskDescription) {
+            this.riskDescription = riskDescription;
         }
 
         public String getSubLabel() {

@@ -24,11 +24,37 @@ public class MediaAudioVideoEvidence {
      * 失败原因
      */
     private Integer failureReason;
+    private String riskDescription;
+    /**
+     * @see com.netease.is.antispam.common.constant.CensorStatusLevel
+     *
+     * 嫌疑级别
+     */
+    private Integer suggestionLevel;
+    /**
+     * 命中一级标签
+     */
+    private Integer label;
+    /**
+     * 命中二级标签细分类
+     */
+    private String secondLabel;
+    /**
+     * 命中三级标签细分类
+     */
+    private String thirdLabel;
     private Long checkTime;
     private Long duration;
 
     private Long durationMs;
     private MediaAudioVideoDetailEvidence evidences;
+
+    /**
+     * @see com.netease.is.antispam.common.constant.StrategySourceEnum
+     *
+     *      命中策略来源
+     */
+    private Integer strategySource;
 
     public Integer getSuggestionRiskLevel() {
         return suggestionRiskLevel;
@@ -94,6 +120,54 @@ public class MediaAudioVideoEvidence {
         this.failureReason = failureReason;
     }
 
+    public String getRiskDescription() {
+        return riskDescription;
+    }
+
+    public void setRiskDescription(String riskDescription) {
+        this.riskDescription = riskDescription;
+    }
+
+    public Integer getSuggestionLevel() {
+        return suggestionLevel;
+    }
+
+    public void setSuggestionLevel(Integer suggestionLevel) {
+        this.suggestionLevel = suggestionLevel;
+    }
+
+    public Integer getLabel() {
+        return label;
+    }
+
+    public void setLabel(Integer label) {
+        this.label = label;
+    }
+
+    public String getSecondLabel() {
+        return secondLabel;
+    }
+
+    public void setSecondLabel(String secondLabel) {
+        this.secondLabel = secondLabel;
+    }
+
+    public String getThirdLabel() {
+        return thirdLabel;
+    }
+
+    public void setThirdLabel(String thirdLabel) {
+        this.thirdLabel = thirdLabel;
+    }
+
+    public Integer getStrategySource() {
+        return strategySource;
+    }
+
+    public void setStrategySource(Integer strategySource) {
+        this.strategySource = strategySource;
+    }
+
     public Long getCheckTime() {
         return checkTime;
     }
@@ -149,7 +223,14 @@ public class MediaAudioVideoEvidence {
 
     public static class MediaVideoEvidence {
         private Integer suggestion;
+        /**
+         * @see com.netease.is.antispam.common.constant.CensorStatusLevel
+         *
+         * 嫌疑级别
+         */
+        private Integer suggestionLevel;
         private Integer status;
+        private Integer failureReason;
         private Integer resultType;
         private Long checkTime;
         private Long duration;
@@ -163,12 +244,28 @@ public class MediaAudioVideoEvidence {
             this.suggestion = suggestion;
         }
 
+        public Integer getSuggestionLevel() {
+            return suggestionLevel;
+        }
+
+        public void setSuggestionLevel(Integer suggestionLevel) {
+            this.suggestionLevel = suggestionLevel;
+        }
+
         public Integer getStatus() {
             return status;
         }
 
         public void setStatus(Integer status) {
             this.status = status;
+        }
+
+        public Integer getFailureReason() {
+            return failureReason;
+        }
+
+        public void setFailureReason(Integer failureReason) {
+            this.failureReason = failureReason;
         }
 
         public Integer getResultType() {
@@ -207,10 +304,14 @@ public class MediaAudioVideoEvidence {
     public static class PictureInfo {
         private Long startTime;
         private Long endTime;
+        // 专项信息
+        private String publicOpinionInfo;
         private String content;
         private Integer type;
         private String url;
         private List<VideoLabelInfo> labels;
+        // 建议风险等级
+        private Integer suggestionRiskLevel;
         private List<RelatedPicInfoResponse> frontPics;
         private List<RelatedPicInfoResponse> backPics;
 
@@ -228,6 +329,14 @@ public class MediaAudioVideoEvidence {
 
         public void setEndTime(Long endTime) {
             this.endTime = endTime;
+        }
+
+        public String getPublicOpinionInfo() {
+            return publicOpinionInfo;
+        }
+
+        public void setPublicOpinionInfo(String publicOpinionInfo) {
+            this.publicOpinionInfo = publicOpinionInfo;
         }
 
         public String getContent() {
@@ -260,6 +369,14 @@ public class MediaAudioVideoEvidence {
 
         public void setLabels(List<VideoLabelInfo> labels) {
             this.labels = labels;
+        }
+
+        public Integer getSuggestionRiskLevel() {
+            return suggestionRiskLevel;
+        }
+
+        public void setSuggestionRiskLevel(Integer suggestionRiskLevel) {
+            this.suggestionRiskLevel = suggestionRiskLevel;
         }
 
         public List<RelatedPicInfoResponse> getFrontPics() {
@@ -337,6 +454,7 @@ public class MediaAudioVideoEvidence {
          * 是否为LLM检测命中，true=大小模型融合检测; false=小模型标签证据补充
          */
         private Boolean isLlmCheck;
+        private String riskDescription;
 
         public Integer getSuggestionRiskLevel() {
             return suggestionRiskLevel;
@@ -360,6 +478,14 @@ public class MediaAudioVideoEvidence {
 
         public void setIsLlmCheck(Boolean isLlmCheck) {
             this.isLlmCheck = isLlmCheck;
+        }
+
+        public String getRiskDescription() {
+            return riskDescription;
+        }
+
+        public void setRiskDescription(String riskDescription) {
+            this.riskDescription = riskDescription;
         }
 
         public String getSubLabel() {
