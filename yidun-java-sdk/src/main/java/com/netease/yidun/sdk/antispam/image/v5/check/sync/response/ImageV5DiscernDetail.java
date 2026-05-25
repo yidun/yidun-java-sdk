@@ -28,6 +28,10 @@ public class ImageV5DiscernDetail implements Serializable {
      * 图片explain
      */
     private String explain;
+    /**
+     * 位置信息，仅在 type=15 旗帜识别时返回
+     */
+    private LocationInformation locationInformation;
 
     public Integer getType() {
         return type;
@@ -75,5 +79,13 @@ public class ImageV5DiscernDetail implements Serializable {
 
     public void setExplain(String explain) {
         this.explain = explain;
+    }
+
+    public LocationInformation getLocationInformation() {
+        return locationInformation;
+    }
+
+    public void setLocationInformation(LocationInformation locationInformation) {
+        this.locationInformation = locationInformation;
     }
 }
