@@ -333,10 +333,6 @@ public class MediaFileEvidence implements Serializable {
         private List<TextEvidenceLabel> labels;
         private Integer page;
         private String riskDescription;
-        /**
-         * 文本大模型检测信息
-         */
-        private List<com.netease.yidun.sdk.antispam.text.v5.check.sync.single.TextCheckResult.LlmCheckInfoDetail> llmCheckInfo;
 
         public Integer getSuggestionRiskLevel() {
             return suggestionRiskLevel;
@@ -408,14 +404,6 @@ public class MediaFileEvidence implements Serializable {
 
         public void setRiskDescription(String riskDescription) {
             this.riskDescription = riskDescription;
-        }
-
-        public List<com.netease.yidun.sdk.antispam.text.v5.check.sync.single.TextCheckResult.LlmCheckInfoDetail> getLlmCheckInfo() {
-            return llmCheckInfo;
-        }
-
-        public void setLlmCheckInfo(List<com.netease.yidun.sdk.antispam.text.v5.check.sync.single.TextCheckResult.LlmCheckInfoDetail> llmCheckInfo) {
-            this.llmCheckInfo = llmCheckInfo;
         }
     }
 
@@ -524,10 +512,6 @@ public class MediaFileEvidence implements Serializable {
         private List<FileCallbackV2Response.ImageEvidenceLabel> labels;
         private Integer page;
         private String riskDescription;
-        /**
-         * 图片大模型检测信息
-         */
-        private List<com.netease.yidun.sdk.antispam.image.v5.check.sync.response.LlmCheckInfo> llmCheckInfo;
 
         public String getPublicOpinionInfo() {
             return publicOpinionInfo;
@@ -591,14 +575,6 @@ public class MediaFileEvidence implements Serializable {
 
         public void setRiskDescription(String riskDescription) {
             this.riskDescription = riskDescription;
-        }
-
-        public List<com.netease.yidun.sdk.antispam.image.v5.check.sync.response.LlmCheckInfo> getLlmCheckInfo() {
-            return llmCheckInfo;
-        }
-
-        public void setLlmCheckInfo(List<com.netease.yidun.sdk.antispam.image.v5.check.sync.response.LlmCheckInfo> llmCheckInfo) {
-            this.llmCheckInfo = llmCheckInfo;
         }
     }
 
@@ -1092,10 +1068,6 @@ public class MediaFileEvidence implements Serializable {
          * 截图
          */
         private List<VideoEvidencePictures> pictures;
-        /**
-         * 大模型检测结果
-         */
-        private List<com.netease.yidun.sdk.antispam.video.callback.v4.response.VideoCallbackLlmCheckV4Info.LlmCheckPicture> llmCheckInfo;
 
         public List<AudioEvidenceSegment> getSegments() {
             return segments;
@@ -1111,14 +1083,6 @@ public class MediaFileEvidence implements Serializable {
 
         public void setPictures(List<VideoEvidencePictures> pictures) {
             this.pictures = pictures;
-        }
-
-        public List<com.netease.yidun.sdk.antispam.video.callback.v4.response.VideoCallbackLlmCheckV4Info.LlmCheckPicture> getLlmCheckInfo() {
-            return llmCheckInfo;
-        }
-
-        public void setLlmCheckInfo(List<com.netease.yidun.sdk.antispam.video.callback.v4.response.VideoCallbackLlmCheckV4Info.LlmCheckPicture> llmCheckInfo) {
-            this.llmCheckInfo = llmCheckInfo;
         }
     }
 
