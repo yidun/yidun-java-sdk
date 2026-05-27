@@ -1,0 +1,51 @@
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.15-yd",
+  "base_commit_sha": "958c8b705b1d651b0e44a0bf883a75acb78efb69",
+  "prompts": {
+    "074faafc3323a1c3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7c6eb936-81d7-4ef1-8f02-f9980ff6d4f5",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "zhaojipu <zhaojipu@corp.netease.com>",
+      "messages": [],
+      "total_additions": 577,
+      "total_deletions": 107,
+      "accepted_lines": 531,
+      "overriden_lines": 0
+    },
+    "4a2a4aea65096712": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "8cda835b-ca3a-4267-bf18-14f798057b43",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "zhaojipu <zhaojipu@corp.netease.com>",
+      "messages": [],
+      "total_additions": 2,
+      "total_deletions": 0,
+      "accepted_lines": 2,
+      "overriden_lines": 0,
+      "custom_attributes": {
+        "gitai_bash_ai_additions": "2",
+        "gitai_bash_ai_deletions": "0"
+      }
+    },
+    "7031454a8fbacb76": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b95a8b00-906c-45f8-ae65-b4d09e1e0e34",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "zhaojipu <zhaojipu@corp.netease.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 40,
+      "accepted_lines": 0,
+      "overriden_lines": 0
+    }
+  }
+}
