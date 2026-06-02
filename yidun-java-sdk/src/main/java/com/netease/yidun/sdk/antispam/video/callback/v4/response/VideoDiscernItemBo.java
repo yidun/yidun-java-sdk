@@ -40,4 +40,21 @@ public class VideoDiscernItemBo implements Serializable {
      * 识别标识
      */
     private String discernKey;
+    /**
+     * 位置信息（仅在旗帜识别type=15时返回）
+     */
+    private LocationInformation locationInformation;
+
+    @Data
+    public static class LocationInformation implements Serializable {
+        private static final long serialVersionUID = -3764711982403460001L;
+        /** 左上角X坐标 */
+        private Float x1;
+        /** 左上角Y坐标 */
+        private Float y1;
+        /** 右下角X坐标 */
+        private Float x2;
+        /** 右下角Y坐标 */
+        private Float y2;
+    }
 }
