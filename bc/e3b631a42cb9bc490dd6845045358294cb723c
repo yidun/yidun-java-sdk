@@ -1,0 +1,25 @@
+.claude/skills/yidun-sdk-release/scripts/release.py
+  2307956f97116624 13-14,24-34,45-57,75-79,81-90,93,143,147,160-163,167,301,304,308-310,312-313,341-346,362,382,407,422-433,436,442
+.claude/skills/yidun-sdk-release/SKILL.md
+  2307956f97116624 20,44,47
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.15-yd",
+  "base_commit_sha": "bce3b631a42cb9bc490dd6845045358294cb723c",
+  "prompts": {
+    "2307956f97116624": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d02e58a5-c12f-4de4-8737-0f6378b3650a",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "zhaojipu <zhaojipu@corp.netease.com>",
+      "messages": [],
+      "total_additions": 86,
+      "total_deletions": 40,
+      "accepted_lines": 86,
+      "overriden_lines": 0
+    }
+  }
+}
