@@ -1,0 +1,47 @@
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/media/v2/common/response/envidence/MediaTextEvidence.java
+  d88340192dfd43da 293-300,312-325,392-393
+  391b18421da7d5e8 27,35-40,46-80,171-242,301-302,368-383,394-395
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/media/v2/common/response/envidence/MediaFileEvidence.java
+  391b18421da7d5e8 212-216,280-287
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/media/v2/common/response/envidence/MediaImageEvidence.java
+  391b18421da7d5e8 34-74,186-257,317,391-398,410
+  d88340192dfd43da 309-316,327-340,408-409
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/media/v2/common/response/envidence/MediaAudioEvidenceCommon.java
+  391b18421da7d5e8 25-44,60-99,224,249-255,270-271,281-294
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/media/v2/common/response/envidence/MediaAudioVideoEvidence.java
+  391b18421da7d5e8 27-45,52-57,123-170,226-231,233,247-254,263-268,307-308,313-314,334-339,374-381,457,483-488
+  d88340192dfd43da 449-456,467-480
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.16-yd",
+  "base_commit_sha": "b967209b6da665f4abfd3b2df369d7646386851a",
+  "prompts": {
+    "391b18421da7d5e8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7b86659d-24e3-4908-b405-765970a948d2",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "zhaojipu <zhaojipu@corp.netease.com>",
+      "messages": [],
+      "total_additions": 561,
+      "total_deletions": 0,
+      "accepted_lines": 473,
+      "overriden_lines": 0
+    },
+    "d88340192dfd43da": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "73dae89e-104d-4d25-a692-3cd06fab2041",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "zhaojipu <zhaojipu@corp.netease.com>",
+      "messages": [],
+      "total_additions": 76,
+      "total_deletions": 0,
+      "accepted_lines": 70,
+      "overriden_lines": 0
+    }
+  }
+}
