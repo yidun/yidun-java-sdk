@@ -1,0 +1,23 @@
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/video/callback/v4/response/VideoCallbackLlmCheckV4Info.java
+  db446ad8b0a990e8 29-32,55-61
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.15-yd",
+  "base_commit_sha": "43b5dc0f8de47da3a805ebb06f0304458f93e446",
+  "prompts": {
+    "db446ad8b0a990e8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "13063dd0-07b0-4448-8d6e-1b825cc2eedd",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "piaohongren <piaohongren@corp.netease.com>",
+      "messages": [],
+      "total_additions": 23,
+      "total_deletions": 0,
+      "accepted_lines": 23,
+      "overriden_lines": 0
+    }
+  }
+}
