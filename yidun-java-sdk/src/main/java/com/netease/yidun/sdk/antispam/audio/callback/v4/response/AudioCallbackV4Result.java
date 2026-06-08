@@ -27,6 +27,10 @@ public class AudioCallbackV4Result {
      * 广告检测结果
      */
     private AudioAdCallbackUnitV4Response ad;
+    /**
+     * LLM大模型检测结果
+     */
+    private AudioLlmCheckCallbackV4Response llmCheckInfo;
 
     public AudioAntispamCallbackV4Response getAntispam() {
         return antispam;
@@ -74,5 +78,13 @@ public class AudioCallbackV4Result {
 
     public void setAd(AudioAdCallbackUnitV4Response ad) {
         this.ad = ad;
+    }
+
+    public AudioLlmCheckCallbackV4Response getLlmCheckInfo() {
+        return llmCheckInfo;
+    }
+
+    public void setLlmCheckInfo(AudioLlmCheckCallbackV4Response llmCheckInfo) {
+        this.llmCheckInfo = llmCheckInfo;
     }
 }

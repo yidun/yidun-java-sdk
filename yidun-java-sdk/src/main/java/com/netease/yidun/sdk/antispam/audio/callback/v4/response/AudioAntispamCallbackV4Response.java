@@ -155,6 +155,14 @@ public class AudioAntispamCallbackV4Response implements BaseResponse {
          * 其他信息
          */
         private HintInfo details;
+        /**
+         * LLM大模型检测标识，true=大模型融合检测命中
+         */
+        private Boolean isLlmCheck;
+        /**
+         * LLM大模型解释说明
+         */
+        private String explain;
     }
 
     @Data
@@ -175,6 +183,20 @@ public class AudioAntispamCallbackV4Response implements BaseResponse {
          * 自定义规则
          */
         private List<Rule> rules;
+        /**
+         * 大模型命中线索
+         */
+        private Llm llm;
+    }
+
+    @Data
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class Llm {
+        /**
+         * 大模型命中关键词
+         */
+        private String keyword;
     }
 
     @Data

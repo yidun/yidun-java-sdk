@@ -26,6 +26,10 @@ public class VideoCallbackLlmCheckV4Info implements BaseResponse {
      * 图片列表
      */
     private List<LlmCheckPicture> pictures;
+    /**
+     * 音频结果
+     */
+    private LlmCheckAudio audio;
 
     @Data
     @AllArgsConstructor
@@ -39,6 +43,16 @@ public class VideoCallbackLlmCheckV4Info implements BaseResponse {
          * 截图时间
          */
         private Long startTime;
+        /**
+         * 详情列表
+         */
+        private List<LlmCheckDetail> details;
+    }
+
+    @Data
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class LlmCheckAudio implements BaseResponse {
         /**
          * 详情列表
          */
