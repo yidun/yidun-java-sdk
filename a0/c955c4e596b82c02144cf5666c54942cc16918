@@ -1,0 +1,25 @@
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/audio/callback/v4/response/AudioCallbackV4Result.java
+  db446ad8b0a990e8 30-33,82-89
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/audio/callback/v4/response/AudioLlmCheckCallbackV4Response.java
+  db446ad8b0a990e8 1-70
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.15-yd",
+  "base_commit_sha": "a0c955c4e596b82c02144cf5666c54942cc16918",
+  "prompts": {
+    "db446ad8b0a990e8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "13063dd0-07b0-4448-8d6e-1b825cc2eedd",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "piaohongren <piaohongren@corp.netease.com>",
+      "messages": [],
+      "total_additions": 94,
+      "total_deletions": 0,
+      "accepted_lines": 82,
+      "overriden_lines": 0
+    }
+  }
+}
