@@ -1,0 +1,71 @@
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/media/v2/common/response/MediaCensorResponse.java
+  947d49a012ae0342 695-696,729-743
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/file/v2/callback/response/FileCallbackV2Response.java
+  918b040c801e24d2 311-312
+  947d49a012ae0342 526-528,554-577,584-586,978,1052-1059,1072,1269-1270,1294-1297,1300-1303,1344-1359,1372-1373
+pom.xml
+  1d04a3de91843cc3 10
+.claude/skills/yidun-sdk-release/SKILL.md
+  2307956f97116624 12-15,21-24,47,50,55
+.claude/skills/yidun-sdk-release/scripts/release.py
+  2307956f97116624 14,24-25,36-48,54,66-70,72-81,84,89-90,94-106,121,135,138,142,155-159,162,177-178,217-255,257-261,264,266-267,270-273,303,313,325,334-335,337,341-343,345-346,373-380,382-387,403,423,448,454-457,461,463-478,481,487
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.15-yd",
+  "base_commit_sha": "4d728bd40b5508ca43d189b5bdcf04a74b3042fd",
+  "prompts": {
+    "1d04a3de91843cc3": {
+      "agent_id": {
+        "tool": "github-copilot-jetbrains",
+        "id": "1779776017173",
+        "model": "unknown"
+      },
+      "human_author": "zhaojipu <zhaojipu@corp.netease.com>",
+      "messages": [],
+      "total_additions": 1,
+      "total_deletions": 1,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    },
+    "2307956f97116624": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d02e58a5-c12f-4de4-8737-0f6378b3650a",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "zhaojipu <zhaojipu@corp.netease.com>",
+      "messages": [],
+      "total_additions": 3,
+      "total_deletions": 0,
+      "accepted_lines": 173,
+      "overriden_lines": 0
+    },
+    "918b040c801e24d2": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b96d48aa-9055-4945-9b38-0f520fc282ac",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "zhaojipu <zhaojipu@corp.netease.com>",
+      "messages": [],
+      "total_additions": 10,
+      "total_deletions": 10,
+      "accepted_lines": 2,
+      "overriden_lines": 0
+    },
+    "947d49a012ae0342": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a16ef658-8ce6-4b7b-bafa-af984c10dd32",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "zhaojipu <zhaojipu@corp.netease.com>",
+      "messages": [],
+      "total_additions": 60,
+      "total_deletions": 0,
+      "accepted_lines": 85,
+      "overriden_lines": 0
+    }
+  }
+}

@@ -1,0 +1,23 @@
+pom.xml
+  1d04a3de91843cc3 10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.15-yd",
+  "base_commit_sha": "ae856e8e1aeac2c4c79412582a1d4a30c3f433b7",
+  "prompts": {
+    "1d04a3de91843cc3": {
+      "agent_id": {
+        "tool": "github-copilot-jetbrains",
+        "id": "1779776017173",
+        "model": "unknown"
+      },
+      "human_author": "zhaojipu <zhaojipu@corp.netease.com>",
+      "messages": [],
+      "total_additions": 1,
+      "total_deletions": 1,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    }
+  }
+}
