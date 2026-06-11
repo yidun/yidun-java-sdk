@@ -225,6 +225,10 @@ public class MediaValueAddServiceResponse {
         private List<TextLlmCheckDetail> texts;
         private List<VideoLlmCheckDetail> videos;
         /**
+         * 音频大模型检测结果列表
+         */
+        private List<AudioLlmCheckDetail> audios;
+        /**
          * 产品维度大模型检测结果列表
          */
         private List<MediaLlmCheckDetail> llms;
@@ -257,6 +261,14 @@ public class MediaValueAddServiceResponse {
             this.videos = videos;
         }
 
+        public List<AudioLlmCheckDetail> getAudios() {
+            return audios;
+        }
+
+        public void setAudios(List<AudioLlmCheckDetail> audios) {
+            this.audios = audios;
+        }
+
         public List<MediaLlmCheckDetail> getLlms() {
             return llms;
         }
@@ -279,6 +291,7 @@ public class MediaValueAddServiceResponse {
                     "images=" + images +
                     ", texts=" + texts +
                     ", videos=" + videos +
+                    ", audios=" + audios +
                     ", llms=" + llms +
                     ", files=" + files +
                     '}';
@@ -1114,6 +1127,18 @@ public class MediaValueAddServiceResponse {
         }
     }
 
+    public static class AudioLlmCheckDetail extends ValueServiceBaseResponse {
+        private List<LlmCheckInfoBaseUnit> details;
+
+        public List<LlmCheckInfoBaseUnit> getDetails() {
+            return details;
+        }
+
+        public void setDetails(List<LlmCheckInfoBaseUnit> details) {
+            this.details = details;
+        }
+    }
+
     public static class VideoLlmCheckDetail extends ValueServiceBaseResponse {
         private List<com.netease.yidun.sdk.antispam.video.callback.v4.response.VideoCallbackLlmCheckV4Info.LlmCheckPicture> pictures;
 
@@ -1148,6 +1173,7 @@ public class MediaValueAddServiceResponse {
         private List<TextLlmCheckDetail> texts;
         private List<ImageLlmCheckDetail> images;
         private List<VideoLlmCheckDetail> videos;
+        private List<AudioLlmCheckDetail> audios;
 
         public List<TextLlmCheckDetail> getTexts() {
             return texts;
@@ -1173,12 +1199,21 @@ public class MediaValueAddServiceResponse {
             this.videos = videos;
         }
 
+        public List<AudioLlmCheckDetail> getAudios() {
+            return audios;
+        }
+
+        public void setAudios(List<AudioLlmCheckDetail> audios) {
+            this.audios = audios;
+        }
+
         @Override
         public String toString() {
             return "FileLlmCheckDetail{" +
                     "texts=" + texts +
                     ", images=" + images +
                     ", videos=" + videos +
+                    ", audios=" + audios +
                     '}';
         }
     }

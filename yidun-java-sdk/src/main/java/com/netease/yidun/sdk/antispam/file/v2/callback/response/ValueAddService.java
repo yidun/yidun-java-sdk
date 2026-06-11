@@ -6,6 +6,7 @@
 
 package com.netease.yidun.sdk.antispam.file.v2.callback.response;
 
+import com.netease.yidun.sdk.antispam.audio.callback.v4.response.AudioLlmCheckCallbackV4Response;
 import com.netease.yidun.sdk.antispam.image.v5.check.sync.response.ImageV5OcrResp;
 import com.netease.yidun.sdk.antispam.image.v5.check.sync.response.LlmCheckInfo;
 import com.netease.yidun.sdk.antispam.text.v5.check.sync.single.TextCheckResult;
@@ -63,6 +64,7 @@ public class ValueAddService{
         private List<TextLlmCheckDetail> texts;
         private List<ImageLlmCheckDetail> images;
         private List<VideoLlmCheckDetail> videos;
+        private List<AudioLlmCheckDetail> audios;
 
         public List<TextLlmCheckDetail> getTexts() {
             return texts;
@@ -88,12 +90,21 @@ public class ValueAddService{
             this.videos = videos;
         }
 
+        public List<AudioLlmCheckDetail> getAudios() {
+            return audios;
+        }
+
+        public void setAudios(List<AudioLlmCheckDetail> audios) {
+            this.audios = audios;
+        }
+
         @Override
         public String toString() {
             return "LlmCheckResult{" +
                     "texts=" + texts +
                     ", images=" + images +
                     ", videos=" + videos +
+                    ", audios=" + audios +
                     '}';
         }
     }
@@ -220,6 +231,48 @@ public class ValueAddService{
                     "dataId='" + dataId + '\'' +
                     ", taskId='" + taskId + '\'' +
                     ", pictures=" + pictures +
+                    '}';
+        }
+    }
+
+    /**
+     * 音频大模型检测结果单元
+     */
+    public static class AudioLlmCheckDetail {
+        private String dataId;
+        private String taskId;
+        private List<AudioLlmCheckCallbackV4Response.LlmCheckDetail> details;
+
+        public String getDataId() {
+            return dataId;
+        }
+
+        public void setDataId(String dataId) {
+            this.dataId = dataId;
+        }
+
+        public String getTaskId() {
+            return taskId;
+        }
+
+        public void setTaskId(String taskId) {
+            this.taskId = taskId;
+        }
+
+        public List<AudioLlmCheckCallbackV4Response.LlmCheckDetail> getDetails() {
+            return details;
+        }
+
+        public void setDetails(List<AudioLlmCheckCallbackV4Response.LlmCheckDetail> details) {
+            this.details = details;
+        }
+
+        @Override
+        public String toString() {
+            return "AudioLlmCheckDetail{" +
+                    "dataId='" + dataId + '\'' +
+                    ", taskId='" + taskId + '\'' +
+                    ", details=" + details +
                     '}';
         }
     }

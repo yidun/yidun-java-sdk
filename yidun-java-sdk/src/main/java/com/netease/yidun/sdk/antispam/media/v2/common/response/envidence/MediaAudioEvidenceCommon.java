@@ -269,6 +269,14 @@ public class MediaAudioEvidenceCommon {
         private Integer suggestionRiskLevel;
         private Double rate;
         private String riskDescription;
+        /**
+         * LLM 解释说明
+         */
+        private String explain;
+        /**
+         * 是否为LLM检测命中，true=大小模型融合检测; false=小模型标签证据补充
+         */
+        private Boolean isLlmCheck;
 
         public Integer getSuggestionRiskLevel() {
             return suggestionRiskLevel;
@@ -292,6 +300,22 @@ public class MediaAudioEvidenceCommon {
 
         public void setRiskDescription(String riskDescription) {
             this.riskDescription = riskDescription;
+        }
+
+        public String getExplain() {
+            return explain;
+        }
+
+        public void setExplain(String explain) {
+            this.explain = explain;
+        }
+
+        public Boolean getIsLlmCheck() {
+            return isLlmCheck;
+        }
+
+        public void setIsLlmCheck(Boolean isLlmCheck) {
+            this.isLlmCheck = isLlmCheck;
         }
 
         public String getSubLabel() {
