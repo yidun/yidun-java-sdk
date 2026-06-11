@@ -1,0 +1,25 @@
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/file/v2/callback/response/FileCallbackV2Response.java
+  d1cc46f9dc590858 1916-1923,1982-1997,2008-2009
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/file/v2/callback/response/ValueAddService.java
+  d1cc46f9dc590858 9,67,93-100,107,238-279
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.16-yd",
+  "base_commit_sha": "097ac3e3f590d4eea0c910577f611358a33ff204",
+  "prompts": {
+    "d1cc46f9dc590858": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1fdbc5e0-fbf9-461c-b7e1-434f9073620a",
+        "model": "gpt-5.5"
+      },
+      "human_author": "白小帅 <baixiaoshuai@corp.netease.com>",
+      "messages": [],
+      "total_additions": 82,
+      "total_deletions": 3,
+      "accepted_lines": 79,
+      "overriden_lines": 0
+    }
+  }
+}
