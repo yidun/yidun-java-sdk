@@ -1,0 +1,36 @@
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/media/v2/common/response/MediaValueAddServiceResponse.java
+  d2676441f25664f7 1176,1202-1209,1216
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.16-yd",
+  "base_commit_sha": "9c38c828682953f489c8260d7502b67b10eccdc4",
+  "prompts": {
+    "8048480bfb551397": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "37a4c23f-fe08-4e84-819b-0670654af2f4",
+        "model": "gpt-5.5"
+      },
+      "human_author": "白小帅 <baixiaoshuai@corp.netease.com>",
+      "messages": [],
+      "total_additions": 27,
+      "total_deletions": 59,
+      "accepted_lines": 10,
+      "overriden_lines": 0
+    },
+    "d2676441f25664f7": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "60a5479e-9389-419e-a884-8e4e4ca051da",
+        "model": "gpt-5.5"
+      },
+      "human_author": "白小帅 <baixiaoshuai@corp.netease.com>",
+      "messages": [],
+      "total_additions": 10,
+      "total_deletions": 0,
+      "accepted_lines": 10,
+      "overriden_lines": 0
+    }
+  }
+}
