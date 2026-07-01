@@ -18,6 +18,10 @@ public class LiveVideoSolutionLlmCheckCallbackRespV4 implements BaseResponse {
      * 音频片段列表
      */
     private LlmCheckAudioSegment audio;
+    /**
+     * 视频截图检测结果
+     */
+    private LlmCheckVideoPicture video;
 
     @Data
     @AllArgsConstructor
@@ -37,6 +41,36 @@ public class LiveVideoSolutionLlmCheckCallbackRespV4 implements BaseResponse {
         private Long startTime;
         /**
          * 片段结束时间（毫秒时间戳）
+         */
+        private Long endTime;
+        /**
+         * 回调
+         */
+        private String callback;
+        /**
+         * 详情列表
+         */
+        private List<LlmCheckDetail> details;
+    }
+
+    @Data
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class LlmCheckVideoPicture implements BaseResponse {
+        /**
+         * 截图ID
+         */
+        private String pictureId;
+        /**
+         * 说话人ID
+         */
+        private String speakerId;
+        /**
+         * 截图开始时间
+         */
+        private Long startTime;
+        /**
+         * 截图结束时间
          */
         private Long endTime;
         /**
