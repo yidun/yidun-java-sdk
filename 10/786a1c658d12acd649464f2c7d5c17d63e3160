@@ -1,0 +1,23 @@
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/audio/callback/v4/response/AudioAntispamCallbackV4Response.java
+  d010533a1740cf5a 158-165,186-199
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.15-yd",
+  "base_commit_sha": "10786a1c658d12acd649464f2c7d5c17d63e3160",
+  "prompts": {
+    "d010533a1740cf5a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "311ce55e-079f-4c8f-a544-72860dc271b2",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "piaohongren <piaohongren@corp.netease.com>",
+      "messages": [],
+      "total_additions": 22,
+      "total_deletions": 0,
+      "accepted_lines": 22,
+      "overriden_lines": 0
+    }
+  }
+}

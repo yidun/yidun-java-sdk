@@ -1,0 +1,71 @@
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/audio/callback/v4/response/AudioAntispamCallbackV4Response.java
+  d010533a1740cf5a 158-165,186-199
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/media/v2/common/response/envidence/MediaAudioEvidenceCommon.java
+  ea5bfbdb75cb1d3f 272-279,305-320
+  391b18421da7d5e8 25-44,60-99,224,249-255,270-271,289-302
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/media/v2/common/response/MediaValueAddServiceResponse.java
+  ea5bfbdb75cb1d3f 228-230,264-271,294,1130-1131
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/file/v2/callback/response/FileCallbackV2Response.java
+  d1cc46f9dc590858 1916-1923,1982-1997,2008-2009
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/file/v2/callback/response/ValueAddService.java
+  d1cc46f9dc590858 9,67,93-100,107,238-279
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.16-yd",
+  "base_commit_sha": "b772bbb76bbcbf0ea82da76dabb8cb05100bd0b2",
+  "prompts": {
+    "391b18421da7d5e8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7b86659d-24e3-4908-b405-765970a948d2",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "zhaojipu <zhaojipu@corp.netease.com>",
+      "messages": [],
+      "total_additions": 561,
+      "total_deletions": 0,
+      "accepted_lines": 84,
+      "overriden_lines": 0
+    },
+    "d010533a1740cf5a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "311ce55e-079f-4c8f-a544-72860dc271b2",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "piaohongren <piaohongren@corp.netease.com>",
+      "messages": [],
+      "total_additions": 22,
+      "total_deletions": 0,
+      "accepted_lines": 22,
+      "overriden_lines": 0
+    },
+    "d1cc46f9dc590858": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1fdbc5e0-fbf9-461c-b7e1-434f9073620a",
+        "model": "gpt-5.5"
+      },
+      "human_author": "白小帅 <baixiaoshuai@corp.netease.com>",
+      "messages": [],
+      "total_additions": 82,
+      "total_deletions": 3,
+      "accepted_lines": 79,
+      "overriden_lines": 0
+    },
+    "ea5bfbdb75cb1d3f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e151b3a4-f2a7-4adb-94d7-96a258ccb654",
+        "model": "gpt-5.5"
+      },
+      "human_author": "白小帅 <baixiaoshuai@corp.netease.com>",
+      "messages": [],
+      "total_additions": 49,
+      "total_deletions": 0,
+      "accepted_lines": 38,
+      "overriden_lines": 0
+    }
+  }
+}
