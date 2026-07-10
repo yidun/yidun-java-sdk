@@ -309,6 +309,10 @@ public class TextCheckResult implements Serializable {
         private Integer status;
         private List<CustomLabel> customLabels;
 
+        private Integer llmStatus;
+
+        private Integer llmFailureReason;
+
         /**
          * 人审拓展字段，机审无
          */
@@ -586,6 +590,22 @@ public class TextCheckResult implements Serializable {
             return censorExtension;
         }
 
+        public Integer getLlmStatus() {
+            return llmStatus;
+        }
+
+        public void setLlmStatus(Integer llmStatus) {
+            this.llmStatus = llmStatus;
+        }
+
+        public Integer getLlmFailureReason() {
+            return llmFailureReason;
+        }
+
+        public void setLlmFailureReason(Integer llmFailureReason) {
+            this.llmFailureReason = llmFailureReason;
+        }
+
         @Override
         public String toString() {
             return "Antispam{" +
@@ -623,6 +643,8 @@ public class TextCheckResult implements Serializable {
                     ", status=" + status +
                     ", customLabels=" + customLabels +
                     ", censorExtension=" + censorExtension +
+                    ", llmStatus=" + llmStatus +
+                    ", llmFailureReason=" + llmFailureReason +
                     '}';
         }
     }
@@ -2328,6 +2350,10 @@ public class TextCheckResult implements Serializable {
          */
         private String extension;
 
+        private Integer llmStatus;
+
+        private Integer llmFailureReason;
+
         public String getModelIdentifier() {
             return modelIdentifier;
         }
@@ -2368,6 +2394,22 @@ public class TextCheckResult implements Serializable {
             this.extension = extension;
         }
 
+        public Integer getLlmStatus() {
+            return llmStatus;
+        }
+
+        public void setLlmStatus(Integer llmStatus) {
+            this.llmStatus = llmStatus;
+        }
+
+        public Integer getLlmFailureReason() {
+            return llmFailureReason;
+        }
+
+        public void setLlmFailureReason(Integer llmFailureReason) {
+            this.llmFailureReason = llmFailureReason;
+        }
+
         @Override
         public String toString() {
             return "LlmCheckInfoDetail{" +
@@ -2376,6 +2418,8 @@ public class TextCheckResult implements Serializable {
                     ", explain='" + explain + '\'' +
                     ", keyword='" + keyword + '\'' +
                     ", extension='" + extension + '\'' +
+                    ", llmStatus=" + llmStatus +
+                    ", llmFailureReason=" + llmFailureReason +
                     '}';
         }
     }
