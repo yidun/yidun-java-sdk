@@ -1,0 +1,23 @@
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/livevideosolution/callback/v3/response/LiveVideoSolutionLlmCheckCallbackRespV4.java
+  7f95d0aa3632ba18 21-24,59-85
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.15-yd",
+  "base_commit_sha": "bf239983fe607c55620066c817f3e5117f63af1d",
+  "prompts": {
+    "7f95d0aa3632ba18": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "db391dd4-e380-4645-8b27-3eeea6a26db4",
+        "model": "gpt-5.5"
+      },
+      "human_author": "piaohongren <piaohongren@corp.netease.com>",
+      "messages": [],
+      "total_additions": 46,
+      "total_deletions": 12,
+      "accepted_lines": 34,
+      "overriden_lines": 0
+    }
+  }
+}
