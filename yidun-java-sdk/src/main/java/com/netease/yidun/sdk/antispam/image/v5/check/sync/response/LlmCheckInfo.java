@@ -42,6 +42,14 @@ public class LlmCheckInfo implements Serializable {
      * 大模型自定义扩展字段，JSON字符串格式
      */
     private String extension;
+    /**
+     * 大模型检测状态1：成功，2：失败
+     */
+    private Integer llmStatus;
+    /**
+     * 对应大模型服务返回的errorCode字段
+     */
+    private String llmFailureReason;
 
 
     public String getLabel() {
@@ -95,6 +103,22 @@ public class LlmCheckInfo implements Serializable {
         this.extension = extension;
     }
 
+    public Integer getLlmStatus() {
+        return llmStatus;
+    }
+
+    public void setLlmStatus(Integer llmStatus) {
+        this.llmStatus = llmStatus;
+    }
+
+    public String getLlmFailureReason() {
+        return llmFailureReason;
+    }
+
+    public void setLlmFailureReason(String llmFailureReason) {
+        this.llmFailureReason = llmFailureReason;
+    }
+
     @Override
     public String toString() {
         return "LlmCheckInfo{" +
@@ -105,6 +129,8 @@ public class LlmCheckInfo implements Serializable {
                 ", subLabel='" + subLabel + '\'' +
                 ", keyword='" + keyword + '\'' +
                 ", extension='" + extension + '\'' +
+                ", llmStatus=" + llmStatus +
+                ", llmFailureReason='" + llmFailureReason + '\'' +
                 '}';
     }
 }

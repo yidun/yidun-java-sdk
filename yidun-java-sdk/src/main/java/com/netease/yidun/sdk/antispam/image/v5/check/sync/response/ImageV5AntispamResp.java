@@ -170,6 +170,16 @@ public class ImageV5AntispamResp implements Serializable {
      */
     private CensorExtension censorExtension;
 
+    /**
+     * 大模型检测状态1：成功，2：失败
+     */
+    private Integer llmStatus;
+
+    /**
+     * 对应大模型服务返回的errorCode字段
+     */
+    private String llmFailureReason;
+
 
     public String getPublicOpinionInfo() {
         return publicOpinionInfo;
@@ -193,6 +203,22 @@ public class ImageV5AntispamResp implements Serializable {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public Integer getLlmStatus() {
+        return llmStatus;
+    }
+
+    public void setLlmStatus(Integer llmStatus) {
+        this.llmStatus = llmStatus;
+    }
+
+    public String getLlmFailureReason() {
+        return llmFailureReason;
+    }
+
+    public void setLlmFailureReason(String llmFailureReason) {
+        this.llmFailureReason = llmFailureReason;
     }
 
     public Boolean getHidden() {

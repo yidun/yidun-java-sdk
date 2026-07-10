@@ -3,7 +3,6 @@ package com.netease.yidun.sdk.antispam.image.v5.check.sync.response;
 import lombok.ToString;
 
 import java.io.Serializable;
-import java.util.List;
 
 @ToString
 public class ImageV5Result implements Serializable {
@@ -35,7 +34,7 @@ public class ImageV5Result implements Serializable {
     /**
      * 大模型检测结果
      */
-    private List<LlmCheckInfo> llmCheckInfo;
+    private LlmV53CheckInfo llmCheckInfo;
     /**
      * 图片广告识别结果
      */
@@ -144,10 +143,12 @@ public class ImageV5Result implements Serializable {
     public void setRiskControl(ImageRiskControlV5Resp riskControl) {
         this.riskControl = riskControl;
     }
-    public List<LlmCheckInfo> getLlmCheckInfo() {
+
+    public LlmV53CheckInfo getLlmCheckInfo() {
         return llmCheckInfo;
     }
-    public void setLlmCheckInfo(List<LlmCheckInfo> llmCheckInfo) {
+
+    public void setLlmCheckInfo(LlmV53CheckInfo llmCheckInfo) {
         this.llmCheckInfo = llmCheckInfo;
     }
 }
