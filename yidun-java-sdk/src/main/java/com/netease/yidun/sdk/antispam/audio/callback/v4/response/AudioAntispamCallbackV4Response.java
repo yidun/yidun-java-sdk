@@ -103,6 +103,14 @@ public class AudioAntispamCallbackV4Response implements BaseResponse {
      * 自定义建议结果 0-通过 2-删除
      */
     private Integer customAction;
+    /**
+     * 大模型检测状态
+     */
+    private Integer llmStatus;
+    /**
+     * 大模型检测失败原因
+     */
+    private Integer llmFailureReason;
 
     @Data
     @EqualsAndHashCode

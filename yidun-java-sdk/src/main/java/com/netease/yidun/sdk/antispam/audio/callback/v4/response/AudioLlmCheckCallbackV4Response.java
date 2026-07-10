@@ -33,6 +33,14 @@ public class AudioLlmCheckCallbackV4Response implements BaseResponse {
      */
     private String callback;
     /**
+     * 大模型检测状态
+     */
+    private Integer llmStatus;
+    /**
+     * 大模型检测失败原因
+     */
+    private Integer llmFailureReason;
+    /**
      * LLM检测详情列表
      */
     private List<LlmCheckDetail> details;

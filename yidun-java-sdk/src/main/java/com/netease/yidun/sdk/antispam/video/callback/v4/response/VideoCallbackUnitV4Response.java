@@ -55,6 +55,14 @@ public class VideoCallbackUnitV4Response {
          * 舆情专项信息
          */
         private String publicOpinionInfo;
+        /**
+         * 大模型检测状态
+         */
+        private Integer llmStatus;
+        /**
+         * 大模型检测失败原因
+         */
+        private Integer llmFailureReason;
     }
 
     @AllArgsConstructor
