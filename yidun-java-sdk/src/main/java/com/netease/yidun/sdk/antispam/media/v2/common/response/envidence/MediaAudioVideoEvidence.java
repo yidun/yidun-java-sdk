@@ -323,6 +323,14 @@ public class MediaAudioVideoEvidence {
         private Integer suggestionRiskLevel;
         private List<RelatedPicInfoResponse> frontPics;
         private List<RelatedPicInfoResponse> backPics;
+        /**
+         * 大模型检测状态：1-成功，2-失败
+         */
+        private Integer llmStatus;
+        /**
+         * 大模型检测失败原因（errorCode原始值），成功时为null
+         */
+        private Integer llmFailureReason;
 
         public Long getStartTime() {
             return startTime;
@@ -402,6 +410,22 @@ public class MediaAudioVideoEvidence {
 
         public void setBackPics(List<RelatedPicInfoResponse> backPics) {
             this.backPics = backPics;
+        }
+
+        public Integer getLlmStatus() {
+            return llmStatus;
+        }
+
+        public void setLlmStatus(Integer llmStatus) {
+            this.llmStatus = llmStatus;
+        }
+
+        public Integer getLlmFailureReason() {
+            return llmFailureReason;
+        }
+
+        public void setLlmFailureReason(Integer llmFailureReason) {
+            this.llmFailureReason = llmFailureReason;
         }
     }
 

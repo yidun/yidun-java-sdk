@@ -324,6 +324,14 @@ public class MediaValueAddServiceResponse {
          * 大模型自定义扩展字段，JSON字符串格式
          */
         private String extension;
+        /**
+         * 大模型调用状态：1-成功，2-失败
+         */
+        private Integer llmStatus;
+        /**
+         * 大模型失败原因（errorCode原始值），成功时为null
+         */
+        private Integer llmFailureReason;
 
         @Override
         public String toString() {
@@ -334,6 +342,8 @@ public class MediaValueAddServiceResponse {
                     ", modelIdentifier='" + modelIdentifier + '\'' +
                     ", keyword='" + keyword + '\'' +
                     ", extension='" + extension + '\'' +
+                    ", llmStatus=" + llmStatus +
+                    ", llmFailureReason=" + llmFailureReason +
                     '}';
         }
 
@@ -383,6 +393,22 @@ public class MediaValueAddServiceResponse {
 
         public void setExtension(String extension) {
             this.extension = extension;
+        }
+
+        public Integer getLlmStatus() {
+            return llmStatus;
+        }
+
+        public void setLlmStatus(Integer llmStatus) {
+            this.llmStatus = llmStatus;
+        }
+
+        public Integer getLlmFailureReason() {
+            return llmFailureReason;
+        }
+
+        public void setLlmFailureReason(Integer llmFailureReason) {
+            this.llmFailureReason = llmFailureReason;
         }
     }
 

@@ -79,6 +79,14 @@ public class MediaTextEvidence {
      * 命中结果
      */
     private String hitResult;
+    /**
+     * 大模型检测状态：1-成功，2-失败
+     */
+    private Integer llmStatus;
+    /**
+     * 大模型检测失败原因（errorCode原始值），成功时为null
+     */
+    private Integer llmFailureReason;
 
     public Integer getSuggestionRiskLevel() {
         return suggestionRiskLevel;
@@ -247,6 +255,22 @@ public class MediaTextEvidence {
 
     public void setHitResult(String hitResult) {
         this.hitResult = hitResult;
+    }
+
+    public Integer getLlmStatus() {
+        return llmStatus;
+    }
+
+    public void setLlmStatus(Integer llmStatus) {
+        this.llmStatus = llmStatus;
+    }
+
+    public Integer getLlmFailureReason() {
+        return llmFailureReason;
+    }
+
+    public void setLlmFailureReason(Integer llmFailureReason) {
+        this.llmFailureReason = llmFailureReason;
     }
 
     public static class TextLabelInfo {

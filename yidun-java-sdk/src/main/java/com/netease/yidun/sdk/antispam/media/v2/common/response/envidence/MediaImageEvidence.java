@@ -78,6 +78,14 @@ public class MediaImageEvidence {
      * 图片 MD5 值（32位小写格式）
      */
     private String imgMd5;
+    /**
+     * 大模型检测状态：1-成功，2-失败
+     */
+    private Integer llmStatus;
+    /**
+     * 大模型检测失败原因（errorCode原始值），成功时为null
+     */
+    private Integer llmFailureReason;
 
     public Integer getSuggestionRiskLevel() {
         return suggestionRiskLevel;
@@ -190,6 +198,22 @@ public class MediaImageEvidence {
 
     public void setImgMd5(String imgMd5) {
         this.imgMd5 = imgMd5;
+    }
+
+    public Integer getLlmStatus() {
+        return llmStatus;
+    }
+
+    public void setLlmStatus(Integer llmStatus) {
+        this.llmStatus = llmStatus;
+    }
+
+    public Integer getLlmFailureReason() {
+        return llmFailureReason;
+    }
+
+    public void setLlmFailureReason(Integer llmFailureReason) {
+        this.llmFailureReason = llmFailureReason;
     }
 
     public Integer getHitSource() {
