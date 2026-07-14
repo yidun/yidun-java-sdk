@@ -49,7 +49,7 @@ public class LlmCheckInfo implements Serializable {
     /**
      * 对应大模型服务返回的errorCode字段
      */
-    private String llmFailureReason;
+    private Integer llmFailureReason;
 
 
     public String getLabel() {
@@ -111,11 +111,11 @@ public class LlmCheckInfo implements Serializable {
         this.llmStatus = llmStatus;
     }
 
-    public String getLlmFailureReason() {
+    public Integer getLlmFailureReason() {
         return llmFailureReason;
     }
 
-    public void setLlmFailureReason(String llmFailureReason) {
+    public void setLlmFailureReason(Integer llmFailureReason) {
         this.llmFailureReason = llmFailureReason;
     }
 
@@ -130,7 +130,7 @@ public class LlmCheckInfo implements Serializable {
                 ", keyword='" + keyword + '\'' +
                 ", extension='" + extension + '\'' +
                 ", llmStatus=" + llmStatus +
-                ", llmFailureReason='" + llmFailureReason + '\'' +
+                ", llmFailureReason=" + llmFailureReason +
                 '}';
     }
 }
