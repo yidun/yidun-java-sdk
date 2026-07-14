@@ -18,6 +18,7 @@ public class MediaFileEvidence implements Serializable {
     private static final long serialVersionUID = -1582338926731782509L;
 
     private String dataId;
+    private String taskId;
     private String field;
 
     /**
@@ -90,6 +91,14 @@ public class MediaFileEvidence implements Serializable {
 
     public void setDataId(String dataId) {
         this.dataId = dataId;
+    }
+
+    public String getTaskId() {
+        return taskId;
+    }
+
+    public void setTaskId(String taskId) {
+        this.taskId = taskId;
     }
 
     public Integer getStatus() {

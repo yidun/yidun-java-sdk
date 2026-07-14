@@ -9,6 +9,7 @@ import java.util.List;
  */
 public class MediaTextEvidence {
     private String dataId;
+    private String taskId;
     private String field;
     /**
      * 检测结果，0：通过，1：嫌疑，2：不通过
@@ -102,6 +103,14 @@ public class MediaTextEvidence {
 
     public void setDataId(String dataId) {
         this.dataId = dataId;
+    }
+
+    public String getTaskId() {
+        return taskId;
+    }
+
+    public void setTaskId(String taskId) {
+        this.taskId = taskId;
     }
 
     public String getField() {

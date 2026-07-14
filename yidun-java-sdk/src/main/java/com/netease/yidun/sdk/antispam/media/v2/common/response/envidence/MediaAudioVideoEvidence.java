@@ -9,6 +9,7 @@ import java.util.List;
  */
 public class MediaAudioVideoEvidence {
     private String dataId;
+    private String taskId;
     private String field;
     private Integer suggestion;
 
@@ -78,6 +79,14 @@ public class MediaAudioVideoEvidence {
 
     public void setDataId(String dataId) {
         this.dataId = dataId;
+    }
+
+    public String getTaskId() {
+        return taskId;
+    }
+
+    public void setTaskId(String taskId) {
+        this.taskId = taskId;
     }
 
     public String getField() {

@@ -27,6 +27,7 @@ public class MediaImageEvidence {
      */
     private Integer failureReason;
     private String dataId;
+    private String taskId;
     private String field;
     private String name;
     private List<ImageLabelInfo> labels;
@@ -149,6 +150,14 @@ public class MediaImageEvidence {
 
     public void setDataId(String dataId) {
         this.dataId = dataId;
+    }
+
+    public String getTaskId() {
+        return taskId;
+    }
+
+    public void setTaskId(String taskId) {
+        this.taskId = taskId;
     }
 
     public String getField() {
