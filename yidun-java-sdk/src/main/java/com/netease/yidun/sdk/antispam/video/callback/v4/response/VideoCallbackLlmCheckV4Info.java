@@ -44,14 +44,6 @@ public class VideoCallbackLlmCheckV4Info implements BaseResponse {
          */
         private Long startTime;
         /**
-         * 大模型检测状态
-         */
-        private Integer llmStatus;
-        /**
-         * 大模型检测失败原因
-         */
-        private Integer llmFailureReason;
-        /**
          * 详情列表
          */
         private List<LlmCheckDetail> details;
@@ -61,14 +53,6 @@ public class VideoCallbackLlmCheckV4Info implements BaseResponse {
     @AllArgsConstructor
     @NoArgsConstructor
     public static class LlmCheckAudio implements BaseResponse {
-        /**
-         * 大模型检测状态
-         */
-        private Integer llmStatus;
-        /**
-         * 大模型检测失败原因
-         */
-        private Integer llmFailureReason;
         /**
          * 详情列表
          */
@@ -107,6 +91,14 @@ public class VideoCallbackLlmCheckV4Info implements BaseResponse {
          * 模型分数
          */
         private Double rate;
+        /**
+         * 大模型检测状态
+         */
+        private Integer llmStatus;
+        /**
+         * 大模型检测失败原因
+         */
+        private Integer llmFailureReason;
     }
 }
 
