@@ -1,0 +1,31 @@
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/text/v5/check/async/single/TextAsyncCheckRequest.java
+  a84a7cb07cc8ee0e 75
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/text/v5/check/sync/batch/TextBatchCheckRequest.java
+  a84a7cb07cc8ee0e 103
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/text/v5/check/async/batch/TextAsyncBatchCheckRequest.java
+  a84a7cb07cc8ee0e 104
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/text/v5/check/sync/single/TextCheckRequest.java
+  a84a7cb07cc8ee0e 83
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/text/v5/callback/request/TextCallBackRequest.java
+  a84a7cb07cc8ee0e 13
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.16-yd",
+  "base_commit_sha": "ae2a46e37bc6801c861abd9b187f960a09e4a88c",
+  "prompts": {
+    "a84a7cb07cc8ee0e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "15e10b75-3cfb-48ae-b81e-61977f8b6bcb",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "曾峥 <zengzheng03@corp.netease.com>",
+      "messages": [],
+      "total_additions": 5,
+      "total_deletions": 5,
+      "accepted_lines": 5,
+      "overriden_lines": 0
+    }
+  }
+}
