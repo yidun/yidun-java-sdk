@@ -34,7 +34,6 @@ public class FileSubmitV2Request extends PostFormRequest<FileSubmitV2Response> {
     /**
      * 文档URL
      */
-    @Size(max = 512, message = "文档下载的URL最长512个字符")
     private String url;
 
     /**
