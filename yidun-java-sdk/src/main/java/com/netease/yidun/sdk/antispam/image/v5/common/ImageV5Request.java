@@ -14,7 +14,7 @@ public abstract class ImageV5Request<T extends BaseResponse> extends BizPostForm
 
     public ImageV5Request() {
         productCode = "imageCheck";
-        version = "v5.2";
+        version = "v5.3";
         uriPattern = requestUriPath();
     }
 
