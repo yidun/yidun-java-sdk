@@ -1,0 +1,23 @@
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/image/v5/common/ImageV5Request.java
+  7b5a65526a4534b7 17
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.16-yd",
+  "base_commit_sha": "c2aad452728f45e0dbb4176024527c80908450ef",
+  "prompts": {
+    "7b5a65526a4534b7": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f688b-ad5a-7481-b414-868074aed239",
+        "model": "gpt-5.6-luna"
+      },
+      "human_author": "白小帅 <baixiaoshuai@corp.netease.com>",
+      "messages": [],
+      "total_additions": 4,
+      "total_deletions": 19,
+      "accepted_lines": 3,
+      "overriden_lines": 0
+    }
+  }
+}
