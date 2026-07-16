@@ -1,0 +1,21 @@
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.16-yd",
+  "base_commit_sha": "f87418b5b18d41fa47101398fd540d7dbb36be5c",
+  "prompts": {
+    "0f96f0d8beb8c621": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "13955e66-5efb-4aff-83eb-294d21d351c3",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "piaohongren <piaohongren@corp.netease.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 40,
+      "accepted_lines": 0,
+      "overriden_lines": 0
+    }
+  }
+}

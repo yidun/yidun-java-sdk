@@ -1,0 +1,29 @@
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/image/v5/check/sync/response/LlmCheckInfo.java
+  cb63a65cb9c20839 45-52,106-121,132-133
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/image/v5/check/sync/response/LlmV53CheckInfo.java
+  cb63a65cb9c20839 1-65
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/image/v5/check/sync/response/ImageV5AntispamResp.java
+  cb63a65cb9c20839 173-182,208-223
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/image/v5/check/sync/response/ImageV5Result.java
+  cb63a65cb9c20839 37,146-147,150-151
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.16-yd",
+  "base_commit_sha": "a05508f6b2f86a1865e26ab2ce8def58561459b9",
+  "prompts": {
+    "cb63a65cb9c20839": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d3e20031-9a8e-4ff1-a22b-4f41c087749c",
+        "model": "gpt-5.4"
+      },
+      "human_author": "白小帅 <baixiaoshuai@corp.netease.com>",
+      "messages": [],
+      "total_additions": 122,
+      "total_deletions": 4,
+      "accepted_lines": 122,
+      "overriden_lines": 0
+    }
+  }
+}

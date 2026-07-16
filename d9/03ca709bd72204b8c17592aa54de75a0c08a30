@@ -1,0 +1,37 @@
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/livevideosolution/callback/v3/response/LiveVideoSolutionLlmCheckCallbackRespV4.java
+  08a261da895be507 51-57,88-95
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/audio/callback/v4/response/AudioLlmCheckCallbackV4Response.java
+  08a261da895be507 36-42
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/livevideosolution/callback/v3/response/LiveVideoSolutionCallbackV3Result.java
+  08a261da895be507 235-242
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/video/callback/v4/response/VideoCallbackLlmCheckV4Info.java
+  08a261da895be507 47-53,65-71
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/liveaudio/callback/v4/response/LiveAudioCallbackUnitRespV4.java
+  08a261da895be507 43-50
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/video/callback/v4/response/VideoCallbackUnitV4Response.java
+  08a261da895be507 58-65
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/audio/callback/v4/response/AudioAntispamCallbackV4Response.java
+  08a261da895be507 106-113
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/liveaudio/callback/v4/response/LiveAudioLlmCheckCallbackRespV4.java
+  08a261da895be507 46-52
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.15-yd",
+  "base_commit_sha": "d903ca709bd72204b8c17592aa54de75a0c08a30",
+  "prompts": {
+    "08a261da895be507": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "eb180389-09db-4581-beda-ef32550134ee",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "piaohongren <piaohongren@corp.netease.com>",
+      "messages": [],
+      "total_additions": 80,
+      "total_deletions": 0,
+      "accepted_lines": 80,
+      "overriden_lines": 0
+    }
+  }
+}

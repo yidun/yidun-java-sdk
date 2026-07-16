@@ -1,0 +1,29 @@
+yidun-java-sdk-demo/pom.xml
+  b5e44ec48d317a3b 8
+yidun-java-sdk-core/pom.xml
+  b5e44ec48d317a3b 9
+pom.xml
+  b5e44ec48d317a3b 10
+yidun-java-sdk/pom.xml
+  b5e44ec48d317a3b 9
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.16-yd",
+  "base_commit_sha": "4499262dc742b80957717866c1e032d596545854",
+  "prompts": {
+    "b5e44ec48d317a3b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "79df9fe5-3ade-4bd0-a226-9e2740963656",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "曾峥 <zengzheng03@corp.netease.com>",
+      "messages": [],
+      "total_additions": 4,
+      "total_deletions": 4,
+      "accepted_lines": 4,
+      "overriden_lines": 0
+    }
+  }
+}
