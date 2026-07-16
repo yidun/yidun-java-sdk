@@ -101,7 +101,7 @@ public class TextAsyncBatchCheckRequest extends BizPostFormRequest<TextAsyncBatc
 
     public TextAsyncBatchCheckRequest() {
         productCode = "text-check";
-        version = "v5.3";
+        version = "v5.6";
         uriPattern = "/v5/text/async-batch-check";
     }
 
