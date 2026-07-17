@@ -1,0 +1,86 @@
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/media/v2/common/response/MediaValueAddServiceResponse.java
+  8baa66103f39b0d1 327,329-334,345-346,397-412
+  ea5bfbdb75cb1d3f 228-230,264-271,294,1156-1157
+  d2676441f25664f7 1202,1228-1235,1242
+  f3cea033ff0d38cf 231-234,272-279,295,319-326,343-344,381-396,1180-1194
+  07a8b0baa842f412 235-238,280-287,296,1195-1201,1203-1227,1236-1241,1243-1246
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/media/v2/common/response/envidence/MediaTextEvidence.java
+  d88340192dfd43da 326-333,345-358,425-426
+  8baa66103f39b0d1 82-89,260-275
+  391b18421da7d5e8 28,36-41,47-81,114-121,188-259,334-335,401-416,427-428
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/media/v2/common/response/envidence/MediaAudioVideoEvidence.java
+  d88340192dfd43da 482-489,500-513
+  67f30e064c8b3f13 414-429
+  8baa66103f39b0d1 326-332
+  391b18421da7d5e8 28-46,53-58,82-89,132-179,235-240,242,256-263,272-277,316-317,322-323,351-356,391-398,490,516-521
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/media/v2/common/response/envidence/MediaImageEvidence.java
+  8baa66103f39b0d1 81-88,203-218
+  d88340192dfd43da 342-349,360-373,441-442
+  391b18421da7d5e8 35-75,161-168,219-290,350,424-431,443
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/media/v2/common/response/envidence/MediaAudioEvidenceCommon.java
+  8baa66103f39b0d1 51-58,180-195
+  ea5bfbdb75cb1d3f 296-303,329-344
+  391b18421da7d5e8 25-44,68-107,248,273-279,294-295,313-326
+yidun-java-sdk/src/main/java/com/netease/yidun/sdk/antispam/media/v2/common/response/envidence/MediaLlmEvidence.java
+  f3cea033ff0d38cf 1-13,22-53,70
+  8baa66103f39b0d1 14,16-21,54-68
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.16-yd",
+  "base_commit_sha": "eadde1146b359673f8507d012de7871e86ea3524",
+  "prompts": {
+    "67f30e064c8b3f13": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ca04e080-5d0e-4198-bbc9-616e18c2ecf2",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "zhaojipu <zhaojipu@corp.netease.com>",
+      "messages": [],
+      "total_additions": 24,
+      "total_deletions": 24,
+      "accepted_lines": 16,
+      "overriden_lines": 0
+    },
+    "8baa66103f39b0d1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "8cd9b66a-eea7-41f8-9ef1-6bb4778d8919",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "zhaojipu <zhaojipu@corp.netease.com>",
+      "messages": [],
+      "total_additions": 221,
+      "total_deletions": 0,
+      "accepted_lines": 126,
+      "overriden_lines": 0
+    },
+    "d88340192dfd43da": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "73dae89e-104d-4d25-a692-3cd06fab2041",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "zhaojipu <zhaojipu@corp.netease.com>",
+      "messages": [],
+      "total_additions": 76,
+      "total_deletions": 0,
+      "accepted_lines": 70,
+      "overriden_lines": 0
+    },
+    "f3cea033ff0d38cf": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1c54ebb0-b668-4f52-ae19-bb7cbb65caeb",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "zhaojipu",
+      "messages": [],
+      "total_additions": 141,
+      "total_deletions": 3,
+      "accepted_lines": 100,
+      "overriden_lines": 0
+    }
+  }
+}
