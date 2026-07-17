@@ -38,7 +38,7 @@ public class CaptchaVerifyResponse implements BaseResponse {
     /**
      * 用于标识是否走降级策略，需要配置是否返回
      */
-    private String sdkReduce;
+    private boolean sdkReduce;
 
     /**
      * 客户端IP
@@ -110,11 +110,11 @@ public class CaptchaVerifyResponse implements BaseResponse {
         this.token = token;
     }
 
-    public String getSdkReduce() {
+    public boolean isSdkReduce() {
         return sdkReduce;
     }
 
-    public void setSdkReduce(String sdkReduce) {
+    public void setSdkReduce(boolean sdkReduce) {
         this.sdkReduce = sdkReduce;
     }
 
@@ -166,7 +166,7 @@ public class CaptchaVerifyResponse implements BaseResponse {
                                  String extraData,
                                  int captchaType,
                                  String token,
-                                 String sdkReduce,
+                                 boolean sdkReduce,
                                  String clientIp,
                                  String clientUa,
                                  Long tokenTimeStamp) {
