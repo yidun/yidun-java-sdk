@@ -43,6 +43,10 @@ public class TextCallbackUnitV2 {
      * labels
      */
     private List<LabelInfo> labels;
+    /**
+     * 客户自定义标签映射结果
+     */
+    private List<VideoSolutionAntispamCallbackV2Response.CustomLabel> customLabels;
 
     /**
      * 垃圾类型

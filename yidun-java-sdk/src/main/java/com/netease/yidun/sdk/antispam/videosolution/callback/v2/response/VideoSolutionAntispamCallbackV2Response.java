@@ -75,6 +75,8 @@ public class VideoSolutionAntispamCallbackV2Response {
      * 风险描述，拼接 label｜secondLabel｜thirdLabel 的中文实时释义
      */
     private String riskDescription;
+    /** 客户自定义标签映射结果；无匹配时服务端返回空数组。 */
+    private List<CustomLabel> customLabels;
     /**
      * 截图数量
      */
@@ -97,6 +99,15 @@ public class VideoSolutionAntispamCallbackV2Response {
      */
     private CensorExtensionResult censorExtension;
 
+
+    @Data
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class CustomLabel {
+        private String name;
+        private String code;
+        private Integer depth;
+    }
 
     @Data
     @AllArgsConstructor

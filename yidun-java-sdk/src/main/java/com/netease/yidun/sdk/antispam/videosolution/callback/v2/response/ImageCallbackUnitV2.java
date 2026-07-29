@@ -37,6 +37,10 @@ public class ImageCallbackUnitV2 {
      */
     private List<CallbackImageLabel> labels;
     /**
+     * 客户自定义标签映射结果
+     */
+    private List<VideoSolutionAntispamCallbackV2Response.CustomLabel> customLabels;
+    /**
      * status
      */
     private Integer status;

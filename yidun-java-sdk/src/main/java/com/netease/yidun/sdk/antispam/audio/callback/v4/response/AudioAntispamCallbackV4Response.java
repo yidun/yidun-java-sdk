@@ -56,6 +56,10 @@ public class AudioAntispamCallbackV4Response implements BaseResponse {
 
     private String riskDescription;
     /**
+     * 客户自定义标签映射结果
+     */
+    private List<CustomLabel> customLabels;
+    /**
      * 嫌疑级别，只有 suggestion 为嫌疑时才返回 1-低嫌疑，2-高嫌疑
      */
     private Integer suggestionLevel;
@@ -111,6 +115,15 @@ public class AudioAntispamCallbackV4Response implements BaseResponse {
      * 大模型检测失败原因
      */
     private Integer llmFailureReason;
+
+    @Data
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class CustomLabel {
+        private String name;
+        private String code;
+        private Integer depth;
+    }
 
     @Data
     @EqualsAndHashCode

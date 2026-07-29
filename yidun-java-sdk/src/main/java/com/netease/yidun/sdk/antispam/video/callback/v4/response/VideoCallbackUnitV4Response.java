@@ -23,6 +23,10 @@ public class VideoCallbackUnitV4Response {
      * 风险描述，拼接 label｜secondLabel｜thirdLabel 的中文实时释义
      */
     private String riskDescription;
+    /**
+     * 客户自定义标签映射结果
+     */
+    private List<CustomLabel> customLabels;
     private Integer resultType;
     private Integer censorSource;
     /**
@@ -34,6 +38,15 @@ public class VideoCallbackUnitV4Response {
     private Integer customAction;
     private Integer picCount;
     private List<VideoEvidenceResponse> pictures;
+
+    @Data
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class CustomLabel {
+        private String name;
+        private String code;
+        private Integer depth;
+    }
 
     @Data
     @AllArgsConstructor
