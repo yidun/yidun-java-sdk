@@ -215,6 +215,55 @@ public class ImageV5SubLabelDetail implements Serializable {
         }
     }
 
+    public static class LlmInfo implements Serializable {
+        private static final long serialVersionUID = -7544588416408838833L;
+        private String keyword;
+        private Float x1;
+        private Float y1;
+        private Float x2;
+        private Float y2;
+
+        public String getKeyword() {
+            return keyword;
+        }
+
+        public void setKeyword(String keyword) {
+            this.keyword = keyword;
+        }
+
+        public Float getX1() {
+            return x1;
+        }
+
+        public void setX1(Float x1) {
+            this.x1 = x1;
+        }
+
+        public Float getY1() {
+            return y1;
+        }
+
+        public void setY1(Float y1) {
+            this.y1 = y1;
+        }
+
+        public Float getX2() {
+            return x2;
+        }
+
+        public void setX2(Float x2) {
+            this.x2 = x2;
+        }
+
+        public Float getY2() {
+            return y2;
+        }
+
+        public void setY2(Float y2) {
+            this.y2 = y2;
+        }
+    }
+
     public static class AnticheatInfo implements Serializable {
         private static final long serialVersionUID = -7293935029976375265L;
         private Integer hitType;
@@ -389,6 +438,10 @@ public class ImageV5SubLabelDetail implements Serializable {
          * 大模型命中的Keyword
          */
         private String keyword;
+        /**
+         * 大模型命中的敏感词及 OCR 坐标信息
+         */
+        private List<LlmInfo> locations;
 
         public LlmKeyWord() {
         }
@@ -403,6 +456,14 @@ public class ImageV5SubLabelDetail implements Serializable {
 
         public void setKeyword(String keyword) {
             this.keyword = keyword;
+        }
+
+        public List<LlmInfo> getLocations() {
+            return locations;
+        }
+
+        public void setLocations(List<LlmInfo> locations) {
+            this.locations = locations;
         }
     }
 }
