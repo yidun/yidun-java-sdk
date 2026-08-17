@@ -1340,6 +1340,11 @@ public class TextCheckResult implements Serializable {
          */
         private String keyword;
 
+        /**
+         * 大模型自定义扩展字段（JSON 字符串）
+         */
+        private String extension;
+
         public String getKeyword() {
             return keyword;
         }
@@ -1348,10 +1353,19 @@ public class TextCheckResult implements Serializable {
             this.keyword = keyword;
         }
 
+        public String getExtension() {
+            return extension;
+        }
+
+        public void setExtension(String extension) {
+            this.extension = extension;
+        }
+
         @Override
         public String toString() {
             return "AntispamSubLabelDetailLlm{" +
                     "keyword='" + keyword + '\'' +
+                    ", extension='" + extension + '\'' +
                     '}';
         }
     }
