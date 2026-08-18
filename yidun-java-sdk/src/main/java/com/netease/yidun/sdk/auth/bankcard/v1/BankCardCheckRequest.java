@@ -2,17 +2,17 @@ package com.netease.yidun.sdk.auth.bankcard.v1;
 
 import java.util.Map;
 
+import com.netease.yidun.sdk.core.request.SensitiveEncryptRequest;
 import com.netease.yidun.sdk.core.validation.limitation.NotBlank;
 import com.netease.yidun.sdk.core.validation.limitation.Size;
 
 import com.netease.yidun.sdk.core.validation.limitation.CheckIdCard;
 import com.netease.yidun.sdk.core.validation.limitation.CheckName;
-import com.netease.yidun.sdk.core.request.BizPostFormRequest;
 
 /**
  * 银行卡认证请求
  */
-public class BankCardCheckRequest extends BizPostFormRequest<BankCardResponse> {
+public class BankCardCheckRequest extends SensitiveEncryptRequest<BankCardResponse> {
 
     public BankCardCheckRequest(String businessId) {
         productCode = "auth";
@@ -46,6 +46,12 @@ public class BankCardCheckRequest extends BizPostFormRequest<BankCardResponse> {
 
     @Size(max = 64, message = "dataId长度不合法")
     private String dataId;
+
+    /**
+     * 敏感信息加密方式
+     */
+    @Size(max = 1, message = "encryptType长度不合法")
+    private String encryptType;
 
     public String getBankCardNo() {
         return bankCardNo;
@@ -113,6 +119,28 @@ public class BankCardCheckRequest extends BizPostFormRequest<BankCardResponse> {
     }
 
     @Override
+    public String getEncryptType() {
+        return encryptType;
+    }
+
+    public void setEncryptType(String encryptType) {
+        this.encryptType = encryptType;
+    }
+
+    public BankCardCheckRequest encryptType(String encryptType) {
+        this.encryptType = encryptType;
+        return this;
+    }
+
+    @Override
+    protected Map<String, String> getSensitiveFields() {
+        Map<String, String> fields = new java.util.LinkedHashMap<>();
+        fields.put("name", name);
+        fields.put("idCardNo", idCardNo);
+        return fields;
+    }
+
+    @Override
     protected Map<String, String> getCustomSignParams() {
         Map<String, String> params = super.getCustomSignParams();
         params.put("name", name);
@@ -120,6 +148,7 @@ public class BankCardCheckRequest extends BizPostFormRequest<BankCardResponse> {
         params.put("bankCardNo", bankCardNo);
         params.put("dataId", dataId);
         params.put("phone", phone);
+        params.put("encryptType", encryptType);
         return params;
     }
 
@@ -137,6 +166,7 @@ public class BankCardCheckRequest extends BizPostFormRequest<BankCardResponse> {
                 ", idCardNo=" + idCardNo +
                 ", phone=" + phone +
                 ", dataId=" + dataId +
+                ", encryptType=" + encryptType +
                 ")";
     }
 }

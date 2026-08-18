@@ -2,16 +2,16 @@ package com.netease.yidun.sdk.auth.idcard.v1;
 
 import java.util.Map;
 
+import com.netease.yidun.sdk.core.request.SensitiveEncryptRequest;
 import com.netease.yidun.sdk.core.validation.limitation.Size;
 
 import com.netease.yidun.sdk.core.validation.limitation.CheckIdCard;
 import com.netease.yidun.sdk.core.validation.limitation.CheckName;
-import com.netease.yidun.sdk.core.request.BizPostFormRequest;
 
 /**
  * 实证认证-实名校验请求
  */
-public class IdCardCheckRequest extends BizPostFormRequest<IdCardCheckResponse> {
+public class IdCardCheckRequest extends SensitiveEncryptRequest<IdCardCheckResponse> {
     /**
      * 姓名
      */
@@ -25,6 +25,12 @@ public class IdCardCheckRequest extends BizPostFormRequest<IdCardCheckResponse> 
 
     @Size(max = 64, message = "dataId长度不合法")
     private String dataId;
+
+    /**
+     * 敏感信息加密方式
+     */
+    @Size(max = 1, message = "encryptType长度不合法")
+    private String encryptType;
 
     public String getName() {
         return name;
@@ -65,6 +71,20 @@ public class IdCardCheckRequest extends BizPostFormRequest<IdCardCheckResponse> 
         return this;
     }
 
+    @Override
+    public String getEncryptType() {
+        return encryptType;
+    }
+
+    public void setEncryptType(String encryptType) {
+        this.encryptType = encryptType;
+    }
+
+    public IdCardCheckRequest encryptType(String encryptType) {
+        this.encryptType = encryptType;
+        return this;
+    }
+
     public IdCardCheckRequest(String businessId) {
         productCode = "auth";
         version = "v1";
@@ -73,11 +93,20 @@ public class IdCardCheckRequest extends BizPostFormRequest<IdCardCheckResponse> 
     }
 
     @Override
+    protected Map<String, String> getSensitiveFields() {
+        Map<String, String> fields = new java.util.LinkedHashMap<>();
+        fields.put("name", name);
+        fields.put("cardNo", cardNo);
+        return fields;
+    }
+
+    @Override
     protected Map<String, String> getCustomSignParams() {
         Map<String, String> params = super.getCustomSignParams();
         params.put("name", name);
         params.put("cardNo", cardNo);
         params.put("dataId", dataId);
+        params.put("encryptType", encryptType);
         return params;
     }
 
@@ -93,6 +122,7 @@ public class IdCardCheckRequest extends BizPostFormRequest<IdCardCheckResponse> 
                 ", name=" + name +
                 ", cardNo=" + cardNo +
                 ", dataId=" + dataId +
+                ", encryptType=" + encryptType +
                 ")";
     }
 }

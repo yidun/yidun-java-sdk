@@ -27,6 +27,7 @@ public class BankCardCheckDemo extends AbstractDemo {
         request.setName("张三");
         request.setIdCardNo("111234120001011236");
         request.setPhone("123456");
+        request.setEncryptType("3");
         request.setNonce("3e4235a28d4c4129953ff7751abb664e");
 
         BankCardResponse response = null;

@@ -35,6 +35,8 @@ public class EntryExitPermitCheckDemo extends AbstractDemo {
         request.setNation("CHN");
         // 数据标识，可传入用户标识等数据，便于数据查询(非必填)
         request.setDataId("dataId");
+        // 敏感信息加密方式（可选）
+        request.setEncryptType("3");
 
         EntryExitPermitCheckResponse response = null;
         try {

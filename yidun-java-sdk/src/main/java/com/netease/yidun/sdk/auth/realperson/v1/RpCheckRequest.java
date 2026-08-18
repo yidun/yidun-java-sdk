@@ -2,6 +2,7 @@ package com.netease.yidun.sdk.auth.realperson.v1;
 
 import java.util.Map;
 
+import com.netease.yidun.sdk.core.request.SensitiveEncryptRequest;
 import com.netease.yidun.sdk.core.validation.limitation.NotBlank;
 import com.netease.yidun.sdk.core.validation.limitation.NotNull;
 import com.netease.yidun.sdk.core.validation.limitation.Size;
@@ -9,12 +10,11 @@ import com.netease.yidun.sdk.core.validation.limitation.Size;
 import com.netease.yidun.sdk.core.validation.limitation.CheckIdCard;
 import com.netease.yidun.sdk.core.validation.limitation.CheckName;
 import com.netease.yidun.sdk.auth.constant.PicType;
-import com.netease.yidun.sdk.core.request.BizPostFormRequest;
 
 /**
  * 实人认证请求
  */
-public class RpCheckRequest extends BizPostFormRequest<RpCheckResponse> {
+public class RpCheckRequest extends SensitiveEncryptRequest<RpCheckResponse> {
 
     /**
      * 用户真实姓名
@@ -42,6 +42,12 @@ public class RpCheckRequest extends BizPostFormRequest<RpCheckResponse> {
 
     @Size(max = 64, message = "dataId长度不合法")
     private String dataId;
+
+    /**
+     * 敏感信息加密方式
+     */
+    @Size(max = 1, message = "encryptType长度不合法")
+    private String encryptType;
 
     public String getName() {
         return name;
@@ -108,11 +114,33 @@ public class RpCheckRequest extends BizPostFormRequest<RpCheckResponse> {
         return this;
     }
 
+    @Override
+    public String getEncryptType() {
+        return encryptType;
+    }
+
+    public void setEncryptType(String encryptType) {
+        this.encryptType = encryptType;
+    }
+
+    public RpCheckRequest encryptType(String encryptType) {
+        this.encryptType = encryptType;
+        return this;
+    }
+
     public RpCheckRequest(String businessId) {
         productCode = "auth";
         version = "v1";
         uriPattern = "/v1/rp/check";
         this.businessId = businessId;
+    }
+
+    @Override
+    protected Map<String, String> getSensitiveFields() {
+        Map<String, String> fields = new java.util.LinkedHashMap<>();
+        fields.put("name", name);
+        fields.put("cardNo", cardNo);
+        return fields;
     }
 
     @Override
@@ -123,6 +151,7 @@ public class RpCheckRequest extends BizPostFormRequest<RpCheckResponse> {
         params.put("picType", String.valueOf(picType.getType()));
         params.put("avatar", avatar);
         params.put("dataId", dataId);
+        params.put("encryptType", encryptType);
         return params;
     }
 
@@ -140,6 +169,7 @@ public class RpCheckRequest extends BizPostFormRequest<RpCheckResponse> {
                 ", picType=" + picType +
                 ", avatar=" + avatar +
                 ", dataId=" + dataId +
+                ", encryptType=" + encryptType +
                 ")";
     }
 }

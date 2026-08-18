@@ -34,6 +34,8 @@ public class RpCheckDemo extends AbstractDemo {
         request.setAvatar("http://test1.com");
         // 数据标识，可传入用户标识等数据，便于数据查询(非必填)
         request.setDataId("dataId");
+        // 敏感信息加密方式（可选）
+        request.setEncryptType("3");
         //协议类型http
         request.setProtocol(ProtocolEnum.HTTP);
 

@@ -2,16 +2,16 @@ package com.netease.yidun.sdk.auth.mobilenumber.name.v1;
 
 import java.util.Map;
 
+import com.netease.yidun.sdk.core.request.SensitiveEncryptRequest;
 import com.netease.yidun.sdk.core.validation.limitation.NotBlank;
 import com.netease.yidun.sdk.core.validation.limitation.Size;
 
 import com.netease.yidun.sdk.core.validation.limitation.CheckName;
-import com.netease.yidun.sdk.core.request.BizPostFormRequest;
 
 /**
  * 手机号与所有者姓名验证请求
  */
-public class MobileNumberOwnerNameCheckRequest extends BizPostFormRequest<MobileNumberOwnerNameCheckResponse> {
+public class MobileNumberOwnerNameCheckRequest extends SensitiveEncryptRequest<MobileNumberOwnerNameCheckResponse> {
 
     public MobileNumberOwnerNameCheckRequest(String businessId) {
         productCode = "auth";
@@ -32,6 +32,12 @@ public class MobileNumberOwnerNameCheckRequest extends BizPostFormRequest<Mobile
      */
     @CheckName
     private String name;
+
+    /**
+     * 敏感信息加密方式
+     */
+    @Size(max = 1, message = "encryptType长度不合法")
+    private String encryptType;
 
     public String getName() {
         return name;
@@ -60,10 +66,33 @@ public class MobileNumberOwnerNameCheckRequest extends BizPostFormRequest<Mobile
     }
 
     @Override
+    public String getEncryptType() {
+        return encryptType;
+    }
+
+    public void setEncryptType(String encryptType) {
+        this.encryptType = encryptType;
+    }
+
+    public MobileNumberOwnerNameCheckRequest encryptType(String encryptType) {
+        this.encryptType = encryptType;
+        return this;
+    }
+
+    @Override
+    protected Map<String, String> getSensitiveFields() {
+        Map<String, String> fields = new java.util.LinkedHashMap<>();
+        fields.put("phone", phone);
+        fields.put("name", name);
+        return fields;
+    }
+
+    @Override
     protected Map<String, String> getCustomSignParams() {
         Map<String, String> params = super.getCustomSignParams();
         params.put("name", name);
         params.put("phone", phone);
+        params.put("encryptType", encryptType);
         return params;
     }
 
@@ -78,6 +107,7 @@ public class MobileNumberOwnerNameCheckRequest extends BizPostFormRequest<Mobile
                 "super=" + super.toString() +
                 ", name=" + name +
                 ", phone=" + phone +
+                ", encryptType=" + encryptType +
                 ")";
     }
 }

@@ -1,6 +1,6 @@
 package com.netease.yidun.sdk.auth.entryexitpermit.v1;
 
-import com.netease.yidun.sdk.core.request.BizPostFormRequest;
+import com.netease.yidun.sdk.core.request.SensitiveEncryptRequest;
 import com.netease.yidun.sdk.core.validation.limitation.CheckName;
 import com.netease.yidun.sdk.core.validation.limitation.NotNull;
 import com.netease.yidun.sdk.core.validation.limitation.Size;
@@ -10,11 +10,11 @@ import java.util.Map;
 /**
  * 出入境证件核验请求
  */
-public class EntryExitPermitCheckRequest extends BizPostFormRequest<EntryExitPermitCheckResponse> {
+public class EntryExitPermitCheckRequest extends SensitiveEncryptRequest<EntryExitPermitCheckResponse> {
     /**
      * 姓名
      */
-    @CheckName
+    @NotNull(message = "name不能为空")
     private String name;
     /**
      * 证件号码
@@ -26,7 +26,6 @@ public class EntryExitPermitCheckRequest extends BizPostFormRequest<EntryExitPer
      * 证件类型
      */
     @NotNull(message = "verifyType不能为空")
-    @Size(max = 11, message = "verifyType长度不合法")
     private int verifyType;
     /**
      * 国籍
@@ -37,6 +36,12 @@ public class EntryExitPermitCheckRequest extends BizPostFormRequest<EntryExitPer
 
     @Size(max = 64, message = "dataId长度不合法")
     private String dataId;
+
+    /**
+     * 敏感信息加密方式
+     */
+    @Size(max = 1, message = "encryptType长度不合法")
+    private String encryptType;
 
     public String getName() {
         return name;
@@ -103,11 +108,33 @@ public class EntryExitPermitCheckRequest extends BizPostFormRequest<EntryExitPer
         return this;
     }
 
+    @Override
+    public String getEncryptType() {
+        return encryptType;
+    }
+
+    public void setEncryptType(String encryptType) {
+        this.encryptType = encryptType;
+    }
+
+    public EntryExitPermitCheckRequest encryptType(String encryptType) {
+        this.encryptType = encryptType;
+        return this;
+    }
+
     public EntryExitPermitCheckRequest(String businessId) {
         productCode = "auth";
         version = "v1";
         uriPattern = "/v1/foreign/check";
         this.businessId = businessId;
+    }
+
+    @Override
+    protected Map<String, String> getSensitiveFields() {
+        Map<String, String> fields = new java.util.LinkedHashMap<>();
+        fields.put("name", name);
+        fields.put("cardNo", cardNo);
+        return fields;
     }
 
     @Override
@@ -119,6 +146,7 @@ public class EntryExitPermitCheckRequest extends BizPostFormRequest<EntryExitPer
         params.put("verifyType", String.valueOf(verifyType));
         params.put("nation", nation);
         params.put("dataId", dataId);
+        params.put("encryptType", encryptType);
         return params;
     }
 
@@ -136,6 +164,7 @@ public class EntryExitPermitCheckRequest extends BizPostFormRequest<EntryExitPer
                 + ", verifyType=" + verifyType
                 + ", nation=" + nation
                 + ", dataId=" + dataId
+                + ", encryptType=" + encryptType
                 + ")";
     }
 }

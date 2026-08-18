@@ -101,6 +101,9 @@ public class Validator {
                 validateHierarchy(fieldValue, context);
             }
         }
+        if (obj instanceof ConditionalFieldValidation) {
+            context.addAllValidationErrors(((ConditionalFieldValidation) obj).validateConditionalFields());
+        }
     }
 
     /**
@@ -112,9 +115,15 @@ public class Validator {
      */
     private static List<String> validateLimitation(Object obj, BeanDescriptor beanDescriptor) {
         List<String> violations = new ArrayList<>();
+        ConditionalFieldValidation conditionalFieldValidation = obj instanceof ConditionalFieldValidation
+                ? (ConditionalFieldValidation) obj : null;
         Map<Field, List<LimitationDescriptor>> limitationDescriptorsMap = beanDescriptor.getLimitationDescriptors();
         for (Map.Entry<Field, List<LimitationDescriptor>> entry : limitationDescriptorsMap.entrySet()) {
             Field field = entry.getKey();
+            if (conditionalFieldValidation != null
+                    && conditionalFieldValidation.shouldSkipFieldValidation(field.getName())) {
+                continue;
+            }
             List<LimitationDescriptor> limitationDescriptors = entry.getValue();
             Object fieldValue;
             try {
