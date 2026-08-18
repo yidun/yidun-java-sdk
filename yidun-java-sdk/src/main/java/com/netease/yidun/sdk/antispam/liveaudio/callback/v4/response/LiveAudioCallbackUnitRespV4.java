@@ -107,6 +107,7 @@ public class LiveAudioCallbackUnitRespV4 {
     @Data
     public static class Llm {
         private String keyword;
+        private String extension;
     }
 
     @Data

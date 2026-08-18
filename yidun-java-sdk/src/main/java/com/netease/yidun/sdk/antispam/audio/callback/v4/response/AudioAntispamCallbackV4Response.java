@@ -218,6 +218,10 @@ public class AudioAntispamCallbackV4Response implements BaseResponse {
          * 大模型命中关键词
          */
         private String keyword;
+        /**
+         * 大模型扩展信息
+         */
+        private String extension;
     }
 
     @Data

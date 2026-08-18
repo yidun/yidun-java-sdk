@@ -108,6 +108,10 @@ public class ImageSubLabelResp implements Serializable {
          * 大模型命中的Keyword
          */
         private String keyword;
+        /**
+         * 大模型扩展信息
+         */
+        private String extension;
     }
 
     @Data
