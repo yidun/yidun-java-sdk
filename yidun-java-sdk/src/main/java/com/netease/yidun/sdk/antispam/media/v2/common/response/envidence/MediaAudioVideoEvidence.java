@@ -46,6 +46,10 @@ public class MediaAudioVideoEvidence {
     private String thirdLabel;
     private Long checkTime;
     private Long duration;
+    /**
+     * 视频抽帧图片数量
+     */
+    private Long picCount;
 
     private Long durationMs;
     private MediaAudioVideoDetailEvidence evidences;
@@ -191,6 +195,14 @@ public class MediaAudioVideoEvidence {
 
     public void setDuration(Long duration) {
         this.duration = duration;
+    }
+
+    public Long getPicCount() {
+        return picCount;
+    }
+
+    public void setPicCount(Long picCount) {
+        this.picCount = picCount;
     }
 
     public Long getDurationMs() {
