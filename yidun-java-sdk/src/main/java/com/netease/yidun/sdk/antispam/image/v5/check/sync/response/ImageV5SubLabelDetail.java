@@ -442,6 +442,10 @@ public class ImageV5SubLabelDetail implements Serializable {
          * 大模型命中的敏感词及 OCR 坐标信息
          */
         private List<LlmInfo> locations;
+        /**
+         * 大模型扩展信息
+         */
+        private String extension;
 
         public LlmKeyWord() {
         }
@@ -464,6 +468,14 @@ public class ImageV5SubLabelDetail implements Serializable {
 
         public void setLocations(List<LlmInfo> locations) {
             this.locations = locations;
+        }
+
+        public String getExtension() {
+            return extension;
+        }
+
+        public void setExtension(String extension) {
+            this.extension = extension;
         }
     }
 }

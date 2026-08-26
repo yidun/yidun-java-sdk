@@ -8,6 +8,10 @@ public class MediaLlmEvidence {
     private String explain;
     private String keyword;
     /**
+     * 大模型扩展信息
+     */
+    private String extension;
+    /**
      * true: 大小模型融合检测; false: 小模型标签证据补充
      */
     private Boolean isLlmCheck;
@@ -42,6 +46,14 @@ public class MediaLlmEvidence {
 
     public void setKeyword(String keyword) {
         this.keyword = keyword;
+    }
+
+    public String getExtension() {
+        return extension;
+    }
+
+    public void setExtension(String extension) {
+        this.extension = extension;
     }
 
     public Boolean getIsLlmCheck() {

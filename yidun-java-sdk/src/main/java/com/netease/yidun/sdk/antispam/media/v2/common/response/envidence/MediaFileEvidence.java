@@ -433,7 +433,7 @@ public class MediaFileEvidence implements Serializable {
         private static final long serialVersionUID = -1182338926731782509L;
         private Integer label;
         private Integer level;
-        private List<FileCallbackV2Response.TextEvidenceLabel> subLabels;
+        private List<FileCallbackV2Response.TextSubLabel> subLabels;
 
         public Integer getLabel() {
             return label;
@@ -451,11 +451,11 @@ public class MediaFileEvidence implements Serializable {
             this.level = level;
         }
 
-        public List<FileCallbackV2Response.TextEvidenceLabel> getSubLabels() {
+        public List<FileCallbackV2Response.TextSubLabel> getSubLabels() {
             return subLabels;
         }
 
-        public void setSubLabels(List<FileCallbackV2Response.TextEvidenceLabel> subLabels) {
+        public void setSubLabels(List<FileCallbackV2Response.TextSubLabel> subLabels) {
             this.subLabels = subLabels;
         }
     }
