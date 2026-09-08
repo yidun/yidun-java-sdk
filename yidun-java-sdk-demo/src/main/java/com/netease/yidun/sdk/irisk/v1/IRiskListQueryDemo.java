@@ -29,7 +29,7 @@ public class IRiskListQueryDemo extends AbstractDemo {
         // 协议类型，HTTP/HTTPS
         request.setProtocol(ProtocolEnum.HTTP);
         // 设置名单库编号
-        request.setListGroupCode("ayp76c2dmh2k0ktd8jyia2cg22009v02");
+        request.setListGroupCode("yourListGroupCode");
         // 设置查询分页参数pageNum=n;pageSize默认为50
         request.setPageNum(1);
         // 设置（起）更新时间

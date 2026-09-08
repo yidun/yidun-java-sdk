@@ -21,9 +21,10 @@ import java.util.Map;
  */
 public class IRiskV6WithDnsCacheDemo {
 
-    private static final String YOUR_SECRET_ID = "e6dc277ccccb2dad0a1ecfd08d46eeab";
-    private static final String YOUR_SECRET_KEY = "57680aef84db35652ec73e3f6924e82b";
-    private static final String YOUR_BUSINESS_ID = "69f553c6fe2e3b54b18e8c35a0b097f1";
+    // 示例占位符，请替换为你自己申请开通的真实密钥与业务ID
+    private static final String YOUR_SECRET_ID = "SecretId";
+    private static final String YOUR_SECRET_KEY = "SecretKey";
+    private static final String YOUR_BUSINESS_ID = "businessId";
 
     /**
      * 示例1：基本使用 - 配置DNS缓存并调用风控检测接口

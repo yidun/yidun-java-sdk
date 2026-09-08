@@ -23,14 +23,14 @@ public class IRiskCheckDemo extends AbstractDemo {
         // 协议类型，HTTP/HTTPS
         request.setProtocol(ProtocolEnum.HTTP);
         // 风控SDK上报的数据后回参获取到的 token (必填参数)
-        request.setToken("9Qq5O9Q1tpNFAhAAEULVbNYvMC/8Mz8X");
+        request.setToken("yourToken");
         // ip地址 (必填参数)
         request.setIp("131.131.131.131");
         request.setRoleId("QA5roleId");
         request.setNickname("QA5roleName");
         request.setServer("QA5roleServer");
         request.setAccount("QA5account");
-        request.setPhone("18633221111");
+        request.setPhone("11111111111");
         request.setActivityId("QAactivityId");
         request.setTarget("QAtarget");
         request.setEmail("QAtte@163.com");

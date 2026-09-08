@@ -25,9 +25,9 @@ public class IRiskListAddDemo extends AbstractDemo {
         // 协议类型，HTTP/HTTPS
         request.setProtocol(ProtocolEnum.HTTP);
         // 设置名单库编号
-        request.setListGroupCode("ayp76c2dmh2k0ktd8jyia2cg22009v02");
+        request.setListGroupCode("yourListGroupCode");
         // 设置名单项内容
-        request.setContent("CE25575A6C937275EAB775491CA0BF64");
+        request.setContent("yourContent");
         // 设置添加原因
         request.setDescription("xx添加原因2");
         // 设置释放时间
