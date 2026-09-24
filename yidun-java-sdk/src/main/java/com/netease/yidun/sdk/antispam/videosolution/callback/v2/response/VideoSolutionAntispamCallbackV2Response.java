@@ -130,6 +130,10 @@ public class VideoSolutionAntispamCallbackV2Response {
     @NoArgsConstructor
     public static class VideoSolutionTargetFailUnitResponse {
         private Integer failureReason;
+        /**
+         * 失败原因英文说明，与 failureReason 一一对应
+         */
+        private String message;
     }
 
     @Data
@@ -137,6 +141,10 @@ public class VideoSolutionAntispamCallbackV2Response {
     @NoArgsConstructor
     public static class VideoSolutionImageFailUnitResponse {
         private Integer failureReason;
+        /**
+         * 失败原因英文说明，与 failureReason 一一对应
+         */
+        private String message;
         private String name;
     }
 

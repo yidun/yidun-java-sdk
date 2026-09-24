@@ -14,6 +14,10 @@ public class VideoCallbackUnitV4Response {
     private String callback;
     private Integer status;
     private Integer failureReason;
+    /**
+     * 失败原因英文说明，与 failureReason 一一对应；检测成功时为 Detection succeeded.
+     */
+    private String message;
     private Integer suggestion;
     private Integer label;
     private String secondLabel;
