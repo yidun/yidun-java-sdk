@@ -314,6 +314,10 @@ public class MediaTextEvidence {
 
     public static class TextSubLabel {
         private String subLabel;
+        /**
+         * 子标签级别，0：通过，1：嫌疑，2：不通过
+         */
+        private Integer level;
         private TextCheckResult.AntispamSubLabelDetail details;
         private Integer subLabelDepth;
         private String secondLabel;
@@ -364,6 +368,14 @@ public class MediaTextEvidence {
 
         public void setSubLabel(String subLabel) {
             this.subLabel = subLabel;
+        }
+
+        public Integer getLevel() {
+            return level;
+        }
+
+        public void setLevel(Integer level) {
+            this.level = level;
         }
 
         public TextCheckResult.AntispamSubLabelDetail getDetails() {
@@ -418,6 +430,7 @@ public class MediaTextEvidence {
         public String toString() {
             return "TextSubLabel{" +
                     "subLabel='" + subLabel + '\'' +
+                    ", level=" + level +
                     ", details=" + details +
                     ", subLabelDepth=" + subLabelDepth +
                     ", secondLabel='" + secondLabel + '\'' +

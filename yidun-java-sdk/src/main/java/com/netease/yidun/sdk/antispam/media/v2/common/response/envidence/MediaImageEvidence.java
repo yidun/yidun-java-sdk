@@ -329,6 +329,10 @@ public class MediaImageEvidence {
 
     public static class ImageSubLabel {
         private String subLabel;
+        /**
+         * 子标签级别，0：通过，1：嫌疑，2：不通过
+         */
+        private Integer level;
         private Double rate;
         private ImageSubLabelDetail details;
         private Integer subLabelDepth;
@@ -379,6 +383,14 @@ public class MediaImageEvidence {
 
         public void setSubLabel(String subLabel) {
             this.subLabel = subLabel;
+        }
+
+        public Integer getLevel() {
+            return level;
+        }
+
+        public void setLevel(Integer level) {
+            this.level = level;
         }
 
         public Double getRate() {
@@ -433,6 +445,7 @@ public class MediaImageEvidence {
         public String toString() {
             return "ImageSubLabel{" +
                     "subLabel='" + subLabel + '\'' +
+                    ", level=" + level +
                     ", rate=" + rate +
                     ", details=" + details +
                     ", subLabelDepth=" + subLabelDepth +
