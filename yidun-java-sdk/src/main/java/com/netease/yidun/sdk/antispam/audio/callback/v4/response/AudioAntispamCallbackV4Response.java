@@ -157,6 +157,10 @@ public class AudioAntispamCallbackV4Response implements BaseResponse {
          * 细分类
          */
         private String subLabel;
+        /**
+         * 末级标签命中级别：0-正常，1-嫌疑，2-不通过
+         */
+        private Integer level;
         private Integer subLabelDepth;
         private String secondLabel;
         private String thirdLabel;

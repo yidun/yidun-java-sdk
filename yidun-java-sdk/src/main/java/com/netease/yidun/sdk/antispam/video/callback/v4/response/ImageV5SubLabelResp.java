@@ -14,6 +14,10 @@ public class ImageV5SubLabelResp {
      */
     private String subLabel;
     /**
+     * 末级标签命中级别：0-正常，1-嫌疑，2-不通过
+     */
+    private Integer level;
+    /**
      * 命中的最终细分类的层级
      */
     private Integer subLabelDepth;
