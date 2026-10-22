@@ -169,6 +169,49 @@ public class VideoSolutionAntispamCallbackV2Response {
          * 视频证据信息
          */
         private VideoCallbackUnitV4Response video;
+        /**
+         * 大模型检测结果
+         */
+        private LlmEvidenceResponse llm;
+    }
+
+    /**
+     * 大模型检测结果
+     */
+    @Data
+    @Builder
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class LlmEvidenceResponse {
+        /**
+         * 视频维度大模型证据列表
+         */
+        private List<LlmEvidenceUnitResponse> videos;
+    }
+
+    /**
+     * 大模型证据单元
+     */
+    @Data
+    @Builder
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class LlmEvidenceUnitResponse {
+        private String subLabel;
+        private String explain;
+        private String keyword;
+        /**
+         * true: 大小模型融合检测; false: 小模型标签证据补充
+         */
+        private Boolean isLlmCheck;
+        /**
+         * 大模型调用状态：1-成功，2-失败
+         */
+        private Integer llmStatus;
+        /**
+         * 大模型失败原因（errorCode原始值），成功时为null
+         */
+        private Integer llmFailureReason;
     }
 
     @Data
