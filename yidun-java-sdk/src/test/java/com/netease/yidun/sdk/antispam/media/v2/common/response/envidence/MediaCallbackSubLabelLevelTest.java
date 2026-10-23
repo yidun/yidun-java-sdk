@@ -45,4 +45,34 @@ public class MediaCallbackSubLabelLevelTest {
 
         Assert.assertNull(subLabel.getLevel());
     }
+
+    @Test
+    public void testDeserializeAudioAndAudioVideoSubLabelLevel() {
+        String json = "{\"result\":[{\"antispam\":{\"evidences\":{"
+                + "\"audios\":[{\"segments\":[{\"labels\":[{\"label\":200,"
+                + "\"subLabels\":[{\"subLabel\":\"200001\",\"level\":2}]}]}]}],"
+                + "\"audiovideos\":[{\"evidences\":{"
+                + "\"audio\":{\"segments\":[{\"labels\":[{\"subLabels\":["
+                + "{\"subLabel\":\"200002\",\"level\":1}]}]}]},"
+                + "\"video\":{\"pictures\":[{\"labels\":[{\"subLabels\":["
+                + "{\"subLabel\":\"200003\",\"level\":2}]}]}]}"
+                + "}}]"
+                + "}}}]}";
+
+        MediaCallbackResponseV2 response = GSON.fromJson(json, MediaCallbackResponseV2.class);
+        MediaAntispamEvidence evidence = response.getResult().get(0).getAntispam().getEvidences();
+
+        MediaAudioEvidenceCommon.AudioSubLabel audioSubLabel = evidence.getAudios().get(0)
+                .getSegments().get(0).getLabels().get(0).getSubLabels().get(0);
+        MediaAudioVideoEvidence.MediaAudioVideoDetailEvidence audioVideoEvidence = evidence
+                .getAudiovideos().get(0).getEvidences();
+        MediaAudioEvidenceCommon.AudioSubLabel audioVideoAudioSubLabel = audioVideoEvidence.getAudio()
+                .getSegments().get(0).getLabels().get(0).getSubLabels().get(0);
+        MediaAudioVideoEvidence.AudioSubLabel audioVideoVideoSubLabel = audioVideoEvidence.getVideo()
+                .getPictures().get(0).getLabels().get(0).getSubLabels().get(0);
+
+        Assert.assertEquals(Integer.valueOf(2), audioSubLabel.getLevel());
+        Assert.assertEquals(Integer.valueOf(1), audioVideoAudioSubLabel.getLevel());
+        Assert.assertEquals(Integer.valueOf(2), audioVideoVideoSubLabel.getLevel());
+    }
 }

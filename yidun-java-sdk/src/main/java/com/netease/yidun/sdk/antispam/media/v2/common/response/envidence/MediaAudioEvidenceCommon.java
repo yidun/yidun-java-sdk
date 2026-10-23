@@ -282,6 +282,10 @@ public class MediaAudioEvidenceCommon {
 
     public static class AudioSubLabel {
         private String subLabel;
+        /**
+         * 子标签级别，0：通过，1：嫌疑，2：不通过
+         */
+        private Integer level;
         private AudioAntispamCallbackV4Response.HintInfo details;
         private Integer subLabelDepth;
         private String secondLabel;
@@ -348,6 +352,14 @@ public class MediaAudioEvidenceCommon {
 
         public void setSubLabel(String subLabel) {
             this.subLabel = subLabel;
+        }
+
+        public Integer getLevel() {
+            return level;
+        }
+
+        public void setLevel(Integer level) {
+            this.level = level;
         }
 
         public AudioAntispamCallbackV4Response.HintInfo getDetails() {
