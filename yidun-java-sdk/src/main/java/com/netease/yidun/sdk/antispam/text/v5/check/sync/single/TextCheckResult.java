@@ -1180,6 +1180,7 @@ public class TextCheckResult implements Serializable {
     public static class AntispamSubLabelDetailRule implements Serializable {
         private static final long serialVersionUID = -9114963157829445482L;
         private String name;
+        private Long ruleId;
 
         public String getName() {
             return name;
@@ -1188,10 +1189,20 @@ public class TextCheckResult implements Serializable {
         public void setName(String name) {
             this.name = name;
         }
+
+        public Long getRuleId() {
+            return ruleId;
+        }
+
+        public void setRuleId(Long ruleId) {
+            this.ruleId = ruleId;
+        }
+
         @Override
         public String toString() {
             return "AntispamSubLabelDetailRule("
                     + "name=" + name
+                    + ", ruleId=" + ruleId
                     + ")";
         }
     }
