@@ -23,7 +23,8 @@ public class VideoSolutionAntispamCallbackV2ResponseTest {
     public void shouldParseLlmEvidence() {
         String json = "{\"evidences\":{\"llm\":{\"videos\":[{"
                 + "\"subLabel\":\"100001\",\"explain\":\"命中说明\",\"keyword\":\"关键词\","
-                + "\"isLlmCheck\":true,\"llmStatus\":1}]}}}";
+                + "\"isLlmCheck\":true,\"llmStatus\":1,"
+                + "\"extension\":\"{\\\"score\\\":0.9}\"}]}}}";
 
         VideoSolutionAntispamCallbackV2Response response =
                 new Gson().fromJson(json, VideoSolutionAntispamCallbackV2Response.class);
@@ -36,5 +37,6 @@ public class VideoSolutionAntispamCallbackV2ResponseTest {
         assertEquals("关键词", unit.getKeyword());
         assertTrue(unit.getIsLlmCheck());
         assertEquals(Integer.valueOf(1), unit.getLlmStatus());
+        assertEquals("{\"score\":0.9}", unit.getExtension());
     }
 }

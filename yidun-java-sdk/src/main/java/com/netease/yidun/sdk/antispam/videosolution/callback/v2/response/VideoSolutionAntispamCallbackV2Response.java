@@ -212,6 +212,10 @@ public class VideoSolutionAntispamCallbackV2Response {
          * 大模型失败原因（errorCode原始值），成功时为null
          */
         private Integer llmFailureReason;
+        /**
+         * 扩展信息（JSON格式）
+         */
+        private String extension;
     }
 
     @Data
